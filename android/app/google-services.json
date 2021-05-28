@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "758645548438",
+    "project_id": "stockup-ccadb",
+    "storage_bucket": "stockup-ccadb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758645548438:android:24d8c444e4645162dee9b7",
+        "android_client_info": {
+          "package_name": "com.Orbital2021_Alina_Varun.stockUP"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758645548438-ko11jbacid434btc7sg852uvup9v74pl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB82YmG5gxx_sFijk2RMOx4RqUjDynxOBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758645548438-ko11jbacid434btc7sg852uvup9v74pl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "758645548438-jocbistpil3acjfqf5r0rcpfp6ee900a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Orbital2021-Alina-Varun.stockUP"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758645548438:android:6e4724b5b452a2f6dee9b7",
+        "android_client_info": {
+          "package_name": "com.stockup.studios.stockup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758645548438-ko11jbacid434btc7sg852uvup9v74pl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB82YmG5gxx_sFijk2RMOx4RqUjDynxOBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758645548438-ko11jbacid434btc7sg852uvup9v74pl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "758645548438-jocbistpil3acjfqf5r0rcpfp6ee900a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Orbital2021-Alina-Varun.stockUP"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
