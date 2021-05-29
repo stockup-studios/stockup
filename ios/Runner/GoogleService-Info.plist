@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>758645548438-9bt4temoabjfbse26vjsu61k0sbr5c45.apps.googleusercontent.com</string>
+	<string>758645548438-jocbistpil3acjfqf5r0rcpfp6ee900a.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.758645548438-9bt4temoabjfbse26vjsu61k0sbr5c45</string>
+	<string>com.googleusercontent.apps.758645548438-jocbistpil3acjfqf5r0rcpfp6ee900a</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDmCXWhsfkh7zej_PN7So3OhS98kvi7Ffs</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.stockup.studios.stockup</string>
+	<string>com.Orbital2021-Alina-Varun.stockUP</string>
 	<key>PROJECT_ID</key>
 	<string>stockup-ccadb</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:758645548438:ios:030b1b848e546c6cdee9b7</string>
+	<string>1:758645548438:ios:0f2984f12aab9913dee9b7</string>
 </dict>
 </plist>
