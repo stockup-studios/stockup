@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:stockup/services/auth/auth.dart';
 import 'package:stockup/models/appUser.dart';
+import 'package:stockup/services/database/database_impl.dart';
 
-class AuthImplementation extends AuthService {
+class AuthImplementation implements AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   // create User object based on firebase
@@ -34,7 +35,14 @@ class AuthImplementation extends AuthService {
           .createUserWithEmailAndPassword(email: email, password: password);
       User user = userCredential.user;
 
-      // Adding data to database
+      // Create userDocument in database
+      DatabaseServiceImpl _db = DatabaseServiceImpl(uid: user.uid);
+      Map<String, dynamic> credentials = {
+        'uid': user.uid,
+        'email': email,
+      };
+      _db.addCredentials(credentials);
+      await _db.initialize();
 
       return _appUser(user);
     } catch (e) {
