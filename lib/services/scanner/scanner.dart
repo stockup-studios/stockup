@@ -18,4 +18,21 @@ class Scanner {
     barcodeScanner.close();
     return productBarcodes;
   }
+
+  Future<List<String>> getTextFromImage() async {
+    final textDetector = GoogleMlKit.vision.textDetector();
+    final InputImage inputImage = await ImagePicker().getImage();
+    final RecognisedText recognisedText =
+        await textDetector.processImage(inputImage);
+
+    List<String> text = [];
+    for (TextBlock block in recognisedText.blocks) {
+      for (TextLine line in block.lines) {
+        text.add(line.text);
+      }
+    }
+
+    textDetector.close();
+    return text;
+  }
 }
