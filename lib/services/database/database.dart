@@ -1,4 +1,6 @@
 // create item class
+import 'package:stockup/models/item.dart';
+
 abstract class DatabaseService {
   // Initialize the account with default data when user sign up.
   Future<void> initialize();
@@ -6,15 +8,21 @@ abstract class DatabaseService {
   // Create
   Future<void> addCredentials(Map<String, dynamic> credentials);
 
-  Future<String> addItem(Item item);
+  Future<String> addUserItem(Item item);
+
+  Future<String> addGiantItem(Item item);
 
   // Read
   Future<Map<String, dynamic>> getCredentials();
 
   Future<List<Item>> getItems();
 
+  Future<List<Item>> getGiantItems();
+
   // Update
   Future<void> updateItem(Item item);
+
+  Future<void> updateGiantItem(Item item);
 
   // Delete
   Future<void> deleteItem(Item item);
