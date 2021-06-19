@@ -28,28 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SummaryTile('Summary Title $i', 'Description $i')
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.restaurant_menu),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_box_outlined),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.format_list_bulleted),
-            label: '',
-          ),
-        ],
-        backgroundColor: Colors.grey.shade300,
-      ),
+      bottomNavigationBar: kBottomNavigationBar,
     );
   }
 }
