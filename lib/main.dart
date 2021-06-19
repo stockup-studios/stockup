@@ -8,7 +8,7 @@ class StockUP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: HomeScreen.id,
+      initialRoute: AddReceiptScreen.id,
       routes: {
         HomeScreen.id: (context) => HomeScreen(),
         AddReceiptScreen.id: (context) => AddReceiptScreen(),
