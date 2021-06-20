@@ -1,5 +1,32 @@
 import 'package:flutter/material.dart';
 
+class ProductTile extends StatelessWidget {
+  final String name;
+  final String expiry;
+  final Widget trailing;
+
+  ProductTile(this.name, this.expiry, this.trailing);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+      child: ListTile(
+        leading: SizedBox(
+          height: 50,
+          width: 50,
+          child: Container(
+            color: Colors.grey,
+          ),
+        ),
+        title: Text(name),
+        subtitle: Text(expiry),
+        trailing: trailing,
+      ),
+    );
+  }
+}
+
 class SummaryTile extends StatelessWidget {
   final String title;
   final String desc;
