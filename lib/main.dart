@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stockup/screens/items/items.dart';
 import 'package:stockup/screens/scan/add_files.dart';
+import 'package:stockup/screens/search/search.dart';
 import 'package:stockup/screens/shopping_list/shopping_list.dart';
 import 'package:stockup/screens/welcome/welcome.dart';
 import 'package:stockup/screens/home/home.dart';
@@ -14,7 +15,7 @@ class StockUP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: ShoppingListScreen.id,
+      initialRoute: SearchScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         SignInScreen.id: (context) => SignInScreen(),
@@ -24,6 +25,7 @@ class StockUP extends StatelessWidget {
         AddFilesScreen.id: (context) => AddFilesScreen(),
         ItemsScreen.id: (context) => ItemsScreen(),
         ShoppingListScreen.id: (context) => ShoppingListScreen(),
+        SearchScreen.id: (context) => SearchScreen(),
       },
     );
   }
