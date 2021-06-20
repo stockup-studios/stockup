@@ -12,7 +12,10 @@ class _HomeScreenState extends State<HomeScreen> {
     final AuthImplementation _auth = AuthImplementation();
     return Scaffold(
         appBar: AppBar(
-      title: Text('Home'),
+      title: Text(
+        'Home',
+        textAlign: TextAlign.center,
+      ),
       actions: <Widget>[
         TextButton.icon(
           icon: Icon(Icons.person),
