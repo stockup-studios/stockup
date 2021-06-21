@@ -53,7 +53,7 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 
   @override
-  Future<List<Item>> getItems() async {
+  Future<List<Item>> getUserItems() async {
     List<QueryDocumentSnapshot> snapshots =
         await itemCollection.get().then((value) => value.docs);
 
@@ -70,10 +70,16 @@ class DatabaseServiceImpl implements DatabaseService {
 
   // Update
   @override
-  Future<void> updateItem(Item item) async {
+  Future<void> updateCredentials(Map<String, dynamic> credentials) async {
+    userDocument.update(credentials);
+  }
+
+  @override
+  Future<void> updateUserItem(Item item) async {
     itemCollection.doc(item.uid).update(item.toJson());
   }
 
+  // TODO: will we ever change details of existing giant items?
   @override
   Future<void> updateGiantItem(Item item) async {
     giantCollection.doc(item.uid).update(item.toJson());

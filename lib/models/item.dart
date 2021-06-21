@@ -5,8 +5,9 @@ class Item {
   String uid;
   String category;
   String imageURL;
-  DateTime shelfLife;
+  Duration shelfLife;
   DateTime addedDate;
+  DateTime expiredDate;
 
   Item(
       {this.productName,
@@ -14,7 +15,8 @@ class Item {
       this.category,
       this.imageURL,
       this.shelfLife,
-      this.addedDate});
+      this.addedDate,
+      this.expiredDate});
 
   factory Item.fromFirestore(DocumentSnapshot doc) {
     Map json = doc.data();
@@ -24,8 +26,10 @@ class Item {
         uid: json['uid'],
         category: json['product_category'],
         imageURL: json['image_url'],
-        shelfLife: DateTime.fromMillisecondsSinceEpoch(json['shelf_life']),
-        addedDate: DateTime.fromMillisecondsSinceEpoch(json['addedDate']));
+        shelfLife: Duration(days: json['shelf_life']),
+        addedDate: DateTime.fromMillisecondsSinceEpoch(json['addedDate']),
+        expiredDate: DateTime.fromMillisecondsSinceEpoch(json['addedDate'])
+            .add(Duration(hours: json['shelf_life'])));
   }
 
   Map<String, dynamic> toJson() {
@@ -34,8 +38,9 @@ class Item {
       'uid': uid,
       'product_category': category,
       'image_url': imageURL,
-      'shelf_life': shelfLife.millisecondsSinceEpoch,
-      'addedDate': addedDate.millisecondsSinceEpoch
+      'shelf_life': shelfLife.inDays,
+      'addedDate': addedDate.millisecondsSinceEpoch,
+      'expiredDate': expiredDate.millisecondsSinceEpoch
     };
   }
 }

@@ -15,12 +15,14 @@ abstract class DatabaseService {
   // Read
   Future<Map<String, dynamic>> getCredentials();
 
-  Future<List<Item>> getItems();
+  Future<List<Item>> getUserItems();
 
   Future<List<Item>> getGiantItems();
 
   // Update
-  Future<void> updateItem(Item item);
+  Future<void> updateCredentials(Map<String, dynamic> credentials);
+
+  Future<void> updateUserItem(Item item);
 
   Future<void> updateGiantItem(Item item);
 
