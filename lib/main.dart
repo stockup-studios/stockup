@@ -15,7 +15,7 @@ class StockUP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: SearchScreen.id,
+      initialRoute: ItemsScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         SignInScreen.id: (context) => SignInScreen(),
