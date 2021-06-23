@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class SuggestionTile extends StatelessWidget {
   final String name;
@@ -35,20 +36,53 @@ class ProductTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-      child: ListTile(
-        leading: SizedBox(
-          height: 50,
-          width: 50,
-          child: Container(
-            color: Colors.grey,
+    return Slidable(
+      actionPane: SlidableDrawerActionPane(),
+      actionExtentRatio: 0.25,
+      child: Container(
+        color: Colors.white,
+        child: ListTile(
+          /// replace sized box to render product image
+          leading: SizedBox(
+            height: 50,
+            width: 50,
+            child: Container(
+              color: Colors.grey,
+            ),
           ),
+          title: Text(this.name),
+          subtitle: Text(this.expiry),
+          trailing: this.trailing,
         ),
-        title: Text(name),
-        subtitle: Text(expiry),
-        trailing: trailing,
       ),
+      actions: <Widget>[
+        IconSlideAction(
+          caption: 'Archive',
+          color: Colors.blue,
+          icon: Icons.archive,
+          onTap: () => print('archived'),
+        ),
+        IconSlideAction(
+          caption: 'Share',
+          color: Colors.indigo,
+          icon: Icons.share,
+          onTap: () => print('shared'),
+        ),
+      ],
+      secondaryActions: <Widget>[
+        IconSlideAction(
+          caption: 'More',
+          color: Colors.black45,
+          icon: Icons.more_horiz,
+          onTap: () => print('more'),
+        ),
+        IconSlideAction(
+          caption: 'Delete',
+          color: Colors.red,
+          icon: Icons.delete,
+          onTap: () => print('delete'),
+        ),
+      ],
     );
   }
 }

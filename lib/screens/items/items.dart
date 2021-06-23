@@ -29,29 +29,53 @@ class _ItemsScreenState extends State<ItemsScreen> {
             SizedBox(
               height: 50,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(Icons.sort_rounded),
-                  DropdownButton<String>(
-                    value: dropdownValue,
-                    elevation: 16,
-                    onChanged: (String newValue) {
-                      setState(() {
-                        dropdownValue = newValue;
-                      });
-                    },
-                    items: <String>['My List', 'One', 'Two', 'Free', 'Four']
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Icon(Icons.sort_rounded),
+                          padding: EdgeInsets.all(10),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          child: DropdownButton<String>(
+                            value: dropdownValue,
+                            elevation: 16,
+                            onChanged: (String newValue) {
+                              setState(() {
+                                dropdownValue = newValue;
+                              });
+                            },
+                            items: <String>[
+                              'My List',
+                              'One',
+                              'Two',
+                              'Free',
+                              'Four'
+                            ].map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  Icon(Icons.share),
-                  Icon(Icons.sort_by_alpha),
-                  Icon(Icons.search),
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Icon(Icons.share),
+                        Icon(Icons.sort_by_alpha),
+                        Icon(Icons.search),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -74,16 +98,21 @@ class _ItemsScreenState extends State<ItemsScreen> {
               ),
             ),
             Expanded(
-              child: ListView(
-                padding: EdgeInsets.only(top: 5.0),
-                children: [
-                  for (int i = 1; i <= 3; ++i)
-                    ProductTile(
-                      'Product $i',
-                      'Expires in $i',
-                      Icon(Icons.more_vert),
-                    )
-                ],
+              child: RefreshIndicator(
+                onRefresh: () {
+                  print('refresh triggered');
+                },
+                child: ListView(
+                  padding: EdgeInsets.only(top: 5.0),
+                  children: [
+                    for (int i = 1; i <= 3; ++i)
+                      ProductTile(
+                        'Product $i',
+                        'Expires in $i',
+                        Icon(Icons.more_vert),
+                      )
+                  ],
+                ),
               ),
             ),
           ],
