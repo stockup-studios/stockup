@@ -1,5 +1,6 @@
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:stockup/services/io/imagePicker.dart';
+import 'package:stockup/services/parser/parser.dart';
 
 class Scanner {
   Future<List<String>> getBarcodesFromImage() async {
@@ -19,7 +20,7 @@ class Scanner {
     return productBarcodes;
   }
 
-  Future<List<String>> getTextFromImage() async {
+  Future<List<String>> _getTextFromImage() async {
     final textDetector = GoogleMlKit.vision.textDetector();
     final InputImage inputImage = await ImagePicker().getImage();
     final RecognisedText recognisedText =
@@ -34,5 +35,11 @@ class Scanner {
 
     textDetector.close();
     return text;
+  }
+
+  // Extract item name from the captured text using parser
+  Future<List<String>> extractDataFromTxt() async {
+    List<String> text = await _getTextFromImage();
+    return Parser(text: text).getBestMatches();
   }
 }
