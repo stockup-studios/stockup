@@ -10,6 +10,9 @@ abstract class AuthService {
   // register with email and password
   Future registerWithEmailPassword(String email, String password);
 
+  // sign in with google
+  Future signInWithGoogle();
+
   // sign out
   Future signOut();
 }

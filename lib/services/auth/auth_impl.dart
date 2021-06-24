@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:stockup/services/auth/auth.dart';
 import 'package:stockup/models/appUser.dart';
 import 'package:stockup/services/database/database_impl.dart';
@@ -12,11 +13,13 @@ class AuthImplementation implements AuthService {
   }
 
   // auth change AppUser stream
+  @override
   Stream<AppUser> get user {
     return _auth.authStateChanges().map(_appUser);
   }
 
   // sign in using email and password
+  @override
   Future signInWithEmailPassword(String email, String password) async {
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
@@ -29,6 +32,7 @@ class AuthImplementation implements AuthService {
   }
 
   // register with email and password
+  @override
   Future registerWithEmailPassword(String email, String password) async {
     try {
       UserCredential userCredential = await _auth
@@ -43,6 +47,46 @@ class AuthImplementation implements AuthService {
       };
       _db.addCredentials(credentials);
       await _db.initialize();
+
+      return _appUser(user);
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
+  // sign in with google
+  @override
+  Future signInWithGoogle() async {
+    try {
+      // Trigger the authentication flow
+      final GoogleSignInAccount googleUser = await GoogleSignIn().signIn();
+
+      // Obtain the auth details from the request
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+
+      // Create a new credential
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      final UserCredential userCredential =
+          await _auth.signInWithCredential(credential);
+      final User user = userCredential.user;
+
+      AdditionalUserInfo additionalUserInfo = userCredential.additionalUserInfo;
+      if (additionalUserInfo.isNewUser) {
+        DatabaseServiceImpl _db = DatabaseServiceImpl(uid: user.uid);
+        Map<String, dynamic> profile = additionalUserInfo.profile;
+        Map<String, dynamic> credentials = {
+          'uid': user.uid,
+          'email': profile['email'],
+          'name': profile['name'],
+        };
+        _db.addCredentials(credentials);
+        await _db.initialize();
+      }
 
       return _appUser(user);
     } catch (e) {
