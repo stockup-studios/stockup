@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stockup/screens/login/sign_up.dart';
 import 'package:stockup/services/auth/auth_impl.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -115,7 +116,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     ElevatedButton(
                       onPressed: () async {
-                        dynamic result = await _auth.signOut();
+                        dynamic result = await _auth.signInWithGoogle();
                       },
                       child: Row(
                         children: [
@@ -126,10 +127,23 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   ],
                 ),
-                Text("Don't have an account?"),
-                TextButton(
-                  onPressed: () {},
-                  child: Text('Sign Up'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Don't have an account? ",
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        return Navigator.pushNamed(context, SignUpScreen.id);
+                      },
+                      child: Text(
+                        "Create account",
+                        style: TextStyle(color: Colors.blue),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
