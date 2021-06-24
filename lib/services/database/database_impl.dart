@@ -68,6 +68,23 @@ class DatabaseServiceImpl implements DatabaseService {
     return snapshots.map((doc) => Item.fromFirestore(doc)).toList();
   }
 
+  // search item based on name returned from scanner
+  Future<List<Item>> searchGiantItems(String name) async {
+    List<QueryDocumentSnapshot> snapshot = await giantCollection
+        .where('product_name' == name)
+        .get()
+        .then((value) => value.docs);
+    return snapshot.map((doc) => Item.fromFirestore(doc));
+  }
+
+  // for parser
+  Future<List<String>> productListing() async {
+    List<QueryDocumentSnapshot> query =
+        await giantCollection.get().then((value) => value.docs);
+    List<Map<String, dynamic>> result = query.map((doc) => doc.data());
+    return result.map((doc) => doc['product_name']).toList();
+  }
+
   // Update
   @override
   Future<void> updateCredentials(Map<String, dynamic> credentials) async {
