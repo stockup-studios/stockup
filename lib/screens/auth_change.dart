@@ -5,6 +5,7 @@ import 'package:stockup/screens/authenticate/authenticate.dart';
 import 'package:stockup/screens/home/home_screen.dart';
 
 class AuthChange extends StatelessWidget {
+  static const String id = 'auth_change';
   // returns home or authenticate widget
   @override
   Widget build(BuildContext context) {
