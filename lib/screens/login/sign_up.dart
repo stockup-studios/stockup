@@ -142,15 +142,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   children: <Widget>[
                     Text(
                       "Already have an account? ",
-                      style: TextStyle(fontSize: 12),
+                      style: TextStyle(fontSize: 13),
                     ),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushNamed(context, SignInScreen.id);
                       },
-                      child: Text(
-                        "Sign up",
-                      ),
+                      child:
+                          Text("Sign up", style: TextStyle(color: Colors.blue)),
                     ),
                   ],
                 ),
