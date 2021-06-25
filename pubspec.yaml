@@ -26,7 +26,7 @@ dependencies:
   
   firebase_core: ^1.2.0
   firebase_auth: ^1.2.0
-  google_sign_in: "^4.5.1"
+  google_sign_in: ^4.5.1
   cloud_firestore: ^2.2.0
   provider: ^5.0.0
   sorted_list: ^1.0.0
