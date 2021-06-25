@@ -1,4 +1,4 @@
-import 'package:stockup/models/appUser.dart';
+import 'package:stockup/models/app_user.dart';
 
 abstract class AuthService {
   // auth change AppUser stream

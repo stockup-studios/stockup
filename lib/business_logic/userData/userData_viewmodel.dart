@@ -19,7 +19,7 @@ class UserData extends ChangeNotifier implements UserDataBaseModel {
 
     _items.clear();
 
-    _db = DatabaseServiceImpl(uid: user.uid);
+    _db = DatabaseServiceImpl(uid: user.username);
     credentials = await _db.getCredentials();
 
     List<Item> unorderedItems = await _db.getUserItems();
