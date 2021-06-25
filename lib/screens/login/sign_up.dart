@@ -110,39 +110,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         MaterialStateProperty.all<Color>(Colors.grey.shade700),
                   ),
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text('Forgot password?'),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Row(
-                        children: [
-                          Icon(Icons.face),
-                          Text('Sign Up'),
-                        ],
-                      ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Row(
-                        children: [
-                          Icon(Icons.g_translate),
-                          Text('Sign Up'),
-                        ],
-                      ),
-                    ),
-                  ],
+                Text(
+                  error,
+                  style: TextStyle(color: Colors.red[400], fontSize: 16.0),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       "Already have an account? ",
-                      style: TextStyle(fontSize: 13),
+                      style: TextStyle(fontSize: 15),
                     ),
                     GestureDetector(
                       onTap: () {
