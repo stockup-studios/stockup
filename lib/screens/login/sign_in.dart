@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stockup/screens/home/home.dart';
 import 'package:stockup/screens/login/sign_up.dart';
 import 'package:stockup/services/auth/auth_impl.dart';
 
@@ -83,6 +84,8 @@ class _SignInScreenState extends State<SignInScreen> {
                       if (result == null) {
                         setState(() =>
                             error = 'Could not sign in with those credentials');
+                      } else {
+                        Navigator.pushNamed(context, HomeScreen.id);
                       }
                     }
                   },

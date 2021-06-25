@@ -82,6 +82,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     obscureText: true,
                     autocorrect: false,
                     decoration: const InputDecoration(
+                        icon: Icon(Icons.lock),
                         hintText: 'Enter password again',
                         labelText: 'Confirm Password'),
                     validator: (val) =>
@@ -148,7 +149,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         Navigator.pushNamed(context, SignInScreen.id);
                       },
                       child: Text(
-                        "Sign in",
+                        "Sign up",
                       ),
                     ),
                   ],
