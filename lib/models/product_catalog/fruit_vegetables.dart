@@ -71,7 +71,7 @@ List<Product> fruitVegetablesCatalog = [
       productID: 5062257,
       category: ProductCategory.fruit_vegetables,
       productName: "LUSHIOUS RED CHERRY TOMATOES +/-250G",
-      imageURL: '1PAK'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/2025868.jpg'),
   Product(
       productID: 5103181,
       category: ProductCategory.fruit_vegetables,
@@ -213,7 +213,7 @@ List<Product> fruitVegetablesCatalog = [
       productID: 5055969,
       category: ProductCategory.fruit_vegetables,
       productName: "FARM FRESH FRENCH BEAN +/-250G",
-      imageURL: '1PAK'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5055969.jpg'),
   Product(
       productID: 5101189,
       category: ProductCategory.fruit_vegetables,
@@ -250,7 +250,8 @@ List<Product> fruitVegetablesCatalog = [
       productID: 5014670,
       category: ProductCategory.fruit_vegetables,
       productName: "OTHERS GINGKO NUTS DESHELLED 80G",
-      imageURL: '80PAK'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2007008_1528885315964.jpg'),
   Product(
       productID: 5086417,
       category: ProductCategory.fruit_vegetables,
@@ -305,7 +306,8 @@ List<Product> fruitVegetablesCatalog = [
       productID: 5055963,
       category: ProductCategory.fruit_vegetables,
       productName: "FARM FRESH LADY FINGER +/-250G",
-      imageURL: '1PAK'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5055963%20-%20LADY%20FINGER.jpg'),
   Product(
       productID: 5055962,
       category: ProductCategory.fruit_vegetables,
@@ -366,7 +368,8 @@ List<Product> fruitVegetablesCatalog = [
       productID: 5055959,
       category: ProductCategory.fruit_vegetables,
       productName: "OTHERS LONG BEAN +/-250G",
-      imageURL: '1PAK'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/shutterstock_326014661.jpg'),
   Product(
       productID: 5062272,
       category: ProductCategory.fruit_vegetables,
@@ -392,7 +395,8 @@ List<Product> fruitVegetablesCatalog = [
       productID: 5019624,
       category: ProductCategory.fruit_vegetables,
       productName: "JIA JIA WANG CHOPPED GARLIC 500G",
-      imageURL: '180PAK'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2020317_1528886466090.jpg'),
   Product(
       productID: 5066634,
       category: ProductCategory.fruit_vegetables,
@@ -624,12 +628,13 @@ List<Product> fruitVegetablesCatalog = [
       productID: 5053903,
       category: ProductCategory.fruit_vegetables,
       productName: "MALAYSIA SWEET CORN 1S",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/shutterstock_203770027.jpg'),
   Product(
       productID: 5050587,
       category: ProductCategory.fruit_vegetables,
       productName: "OTHERS SWEET PEAS +/-150G",
-      imageURL: '150G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5050587_1.jpg'),
   Product(
       productID: 5055949,
       category: ProductCategory.fruit_vegetables,
@@ -654,32 +659,36 @@ List<Product> fruitVegetablesCatalog = [
       productID: 5062746,
       category: ProductCategory.fruit_vegetables,
       productName: "LUSHIOUS GRILL TOMATO 125G",
-      imageURL: '125G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/2026105.jpg'),
   Product(
       productID: 5029316,
       category: ProductCategory.fruit_vegetables,
       productName: "OTHERS SANDWICH TOMATO +/- 550G",
-      imageURL: '550G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/9555520701865.jpg'),
   Product(
       productID: 5060450,
       category: ProductCategory.fruit_vegetables,
       productName: "LUSHIOUS TOMATO 4S",
-      imageURL: '1PAK'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/2026507.jpg'),
   Product(
       productID: 5066037,
       category: ProductCategory.fruit_vegetables,
       productName: "LUSHIOUS CHERRY TOMATO ROUND 250G",
-      imageURL: '1PAK'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Cherry%20Round%20f.jpg'),
   Product(
       productID: 5047371,
       category: ProductCategory.fruit_vegetables,
       productName: "OTHERS TOMATO LOCAL +/-600G",
-      imageURL: '600G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5047371_01_5047371.jpg'),
   Product(
       productID: 5045662,
       category: ProductCategory.fruit_vegetables,
       productName: "THAILAND RED HONEY CHERRY TOMATOES +/-250G",
-      imageURL: '250G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5045662_01_5045662.jpg'),
   Product(
       productID: 5062744,
       category: ProductCategory.fruit_vegetables,
@@ -736,5 +745,5 @@ List<Product> fruitVegetablesCatalog = [
       productID: 5049176,
       category: ProductCategory.fruit_vegetables,
       productName: "CRUNCHY FRESH YELLOW CHERRY TOMATO +/-350G",
-      imageURL: '350G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/2002456.jpg'),
 ];
