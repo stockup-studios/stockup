@@ -1,4 +1,5 @@
 import 'product_category.dart';
+import 'package:flutter/foundation.dart';
 
 class Product {
   final int productID;
@@ -6,5 +7,9 @@ class Product {
   final String productName;
   final String imageURL;
 
-  Product(this.productID, this.category, this.productName, this.imageURL);
+  Product(
+      {@required this.productID,
+      @required this.category,
+      @required this.productName,
+      @required this.imageURL});
 }
