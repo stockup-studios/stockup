@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:stockup/screens/login/sign_in.dart';
+import 'package:stockup/services/auth/auth_impl.dart';
 import '../constants.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final AuthImplementation _auth = AuthImplementation();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey.shade400,
@@ -20,6 +23,16 @@ class _HomeScreenState extends State<HomeScreen> {
             widget.title,
           ),
         ),
+        actions: <Widget>[
+          TextButton.icon(
+            icon: Icon(Icons.person),
+            label: Text('Logout'),
+            onPressed: () async {
+              await _auth.signOut();
+              Navigator.pushNamed(context, SignInScreen.id);
+            },
+          )
+        ],
       ),
       body: ListView(
         padding: EdgeInsets.only(top: 5.0),

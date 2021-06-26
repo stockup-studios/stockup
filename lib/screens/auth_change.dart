@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:stockup/business_logic/item/item_viewmodel.dart';
 import 'package:stockup/business_logic/userData/userData_viewmodel.dart';
 import 'package:stockup/models/appUser.dart';
-import 'package:stockup/screens/home/home_screen.dart';
+import 'package:stockup/screens/home/home.dart';
 import 'package:stockup/screens/login/sign_in.dart';
 
 class AuthChange extends StatelessWidget {
