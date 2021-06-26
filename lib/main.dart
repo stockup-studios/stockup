@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stockup/business_logic/item/item_viewmodel.dart';
 import 'package:stockup/models/appUser.dart';
+import 'package:stockup/screens/auth_change.dart';
 import 'package:stockup/screens/items/item_list.dart';
 import 'package:stockup/screens/scan/add_files.dart';
 import 'package:stockup/screens/search/search.dart';
