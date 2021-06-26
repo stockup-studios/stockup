@@ -47,7 +47,7 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: kBottomNavigationBar,
+      // bottomNavigationBar: kBottomNavigationBar,
     );
   }
 }

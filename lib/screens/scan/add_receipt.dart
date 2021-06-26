@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
 
 class AddReceiptScreen extends StatefulWidget {
   static const String id = 'add_receipt_screen';
@@ -26,7 +25,7 @@ class _AddReceiptScreenState extends State<AddReceiptScreen> {
         color: Colors.grey.shade200,
       ),
       // TODO: Use BottomSheet to display search results
-      bottomNavigationBar: kBottomNavigationBar,
+      // bottomNavigationBar: kBottomNavigationBar,
     );
   }
 }
