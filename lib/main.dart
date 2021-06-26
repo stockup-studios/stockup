@@ -5,7 +5,7 @@ import 'package:stockup/business_logic/item/item_viewmodel.dart';
 import 'package:stockup/screens/items/items.dart';
 import 'package:stockup/screens/scan/add_files.dart';
 import 'package:stockup/screens/search/search.dart';
-import 'package:stockup/screens/shopping_list/shopping_list.dart';
+import 'package:stockup/screens/shopping_list/shop_list.dart';
 import 'package:stockup/screens/welcome/welcome.dart';
 import 'package:stockup/screens/home/home.dart';
 import 'package:stockup/screens/scan/add_receipt.dart';
@@ -26,21 +26,22 @@ class StockUP extends StatelessWidget {
     return MultiProvider(
       providers: [
         StreamProvider<AppUser>.value(
-            value: AuthImplementation().user, initialData: null),
+            value: AuthImplementation().user, initialData: AppUser()),
         ChangeNotifierProvider<ItemViewModel>(
             create: (context) => ItemViewModel()),
       ],
       child: MaterialApp(
-        initialRoute: SignInScreen.id,
+        initialRoute: HomeScreen.id,
         routes: {
+          AuthChange.id: (context) => AuthChange(),
           WelcomeScreen.id: (context) => WelcomeScreen(),
           SignInScreen.id: (context) => SignInScreen(),
           SignUpScreen.id: (context) => SignUpScreen(),
           HomeScreen.id: (context) => HomeScreen(),
           AddReceiptScreen.id: (context) => AddReceiptScreen(),
           AddFilesScreen.id: (context) => AddFilesScreen(),
-          ItemsScreen.id: (context) => ItemsScreen(),
-          ShoppingListScreen.id: (context) => ShoppingListScreen(),
+          ItemListScreen.id: (context) => ItemListScreen(),
+          ShopListScreen.id: (context) => ShopListScreen(),
           SearchScreen.id: (context) => SearchScreen(),
         },
       ),

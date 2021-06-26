@@ -82,6 +82,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     obscureText: true,
                     autocorrect: false,
                     decoration: const InputDecoration(
+                        icon: Icon(Icons.lock),
                         hintText: 'Enter password again',
                         labelText: 'Confirm Password'),
                     validator: (val) =>
@@ -109,47 +110,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         MaterialStateProperty.all<Color>(Colors.grey.shade700),
                   ),
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text('Forgot password?'),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Row(
-                        children: [
-                          Icon(Icons.face),
-                          Text('Sign Up'),
-                        ],
-                      ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Row(
-                        children: [
-                          Icon(Icons.g_translate),
-                          Text('Sign Up'),
-                        ],
-                      ),
-                    ),
-                  ],
+                Text(
+                  error,
+                  style: TextStyle(color: Colors.red[400], fontSize: 16.0),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       "Already have an account? ",
-                      style: TextStyle(fontSize: 12),
+                      style: TextStyle(fontSize: 15),
                     ),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushNamed(context, SignInScreen.id);
                       },
-                      child: Text(
-                        "Sign in",
-                      ),
+                      child:
+                          Text("Sign up", style: TextStyle(color: Colors.blue)),
                     ),
                   ],
                 ),
