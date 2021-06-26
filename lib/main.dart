@@ -32,7 +32,7 @@ class StockUP extends StatelessWidget {
             create: (context) => ItemViewModel()),
       ],
       child: MaterialApp(
-        initialRoute: HomeScreen.id,
+        initialRoute: AddFilesScreen.id,
         routes: {
           AuthChange.id: (context) => AuthChange(),
           WelcomeScreen.id: (context) => WelcomeScreen(),

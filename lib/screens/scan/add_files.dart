@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stockup/screens/home/home.dart';
 import 'package:stockup/screens/items/item_list.dart';
 import 'package:stockup/screens/shopping_list/shop_list.dart';
+import 'package:stockup/services/io/image_picker.dart';
 
 class AddFilesScreen extends StatefulWidget {
   static const String id = 'add_files_screen';
@@ -44,9 +45,27 @@ class _AddFilesScreenState extends State<AddFilesScreen> {
           ),
         ),
       ),
-      // TODO: Replace container with camera widget
       body: Container(
         color: Colors.grey.shade200,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                child: Text('Pick image from storage'),
+                onPressed: () {
+                  ImagePicker.getImage();
+                },
+              ),
+              ElevatedButton(
+                child: Text('Pick multiple images from storage'),
+                onPressed: () {
+                  ImagePicker.getImages();
+                },
+              ),
+            ],
+          ),
+        ),
       ),
       // TODO: Use BottomSheet to display search results
       bottomNavigationBar: BottomNavigationBar(

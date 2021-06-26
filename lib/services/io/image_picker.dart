@@ -3,7 +3,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 
 class ImagePicker {
-  Future<InputImage> getImage() async {
+  static Future<InputImage> getImage() async {
     FilePickerResult result = await FilePicker.platform.pickFiles(
       type: FileType.image,
     );
@@ -13,7 +13,7 @@ class ImagePicker {
     return image;
   }
 
-  Future<List<InputImage>> getImages() async {
+  static Future<List<InputImage>> getImages() async {
     FilePickerResult result = await FilePicker.platform.pickFiles(
       type: FileType.image,
       allowMultiple: true,
