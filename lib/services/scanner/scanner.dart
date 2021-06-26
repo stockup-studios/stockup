@@ -13,14 +13,13 @@ class Scanner {
   }
 
   /// finds file paths of selected images from local storage
-  static Future<List<File>> getImageFilePaths() async {
+  static Future<List<String>> getImageFilePaths() async {
     FilePickerResult result = await FilePicker.platform.pickFiles(
       type: FileType.image,
       allowMultiple: true,
     );
     // TODO: Error handling if file picker action was cancelled
-    List<File> files = result.paths.map((path) => File(path)).toList();
-    return files;
+    return result.paths;
   }
 
   /// finds barcodes found in image using GoogleMLKit Barcode API

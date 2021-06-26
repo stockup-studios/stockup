@@ -82,21 +82,23 @@ class _AddFilesScreenState extends State<AddFilesScreen> {
               ElevatedButton(
                 child: Text('Pick multiple images from storage'),
                 onPressed: () async {
-                  String imageFile = await Scanner.getImageFilePath();
-                  List<String> text =
-                      await Scanner.getTextFromImageFile(imageFile);
-                  List<String> matches = Parser.getBestMatches(text);
                   List<Product> productMatches = [];
-                  for (String match in matches) {
-                    print(match);
-                    Product p = productCatalog
-                        .firstWhere((product) => product.productName == match);
-                    productMatches.add(p);
+                  List<String> imageFiles = await Scanner.getImageFilePaths();
+                  for (String imageFile in imageFiles) {
+                    List<String> text =
+                        await Scanner.getTextFromImageFile(imageFile);
+                    List<String> matches = Parser.getBestMatches(text);
+                    for (String match in matches) {
+                      print(match);
+                      Product p = productCatalog.firstWhere(
+                          (product) => product.productName == match);
+                      productMatches.add(p);
+                    }
+                    matches.forEach((String productName) {
+                      productCatalog.firstWhere(
+                          (product) => product.productName == productName);
+                    });
                   }
-                  matches.forEach((String productName) {
-                    productCatalog.firstWhere(
-                        (product) => product.productName == productName);
-                  });
                   setState(() {
                     productsFound.addAll(productMatches);
                   });

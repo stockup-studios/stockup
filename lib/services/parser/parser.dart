@@ -17,7 +17,6 @@ class Parser {
   }
 
   static List<String> getBestMatches(List<String> text) {
-    print('\n\n####   Parser::getBestMatches started   ###\n\n');
     List<String> matches = [];
 
     for (String item in text) {
