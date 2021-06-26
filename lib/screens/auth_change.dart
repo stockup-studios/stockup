@@ -3,8 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:stockup/business_logic/item/item_viewmodel.dart';
 import 'package:stockup/business_logic/userData/userData_viewmodel.dart';
 import 'package:stockup/models/app_user.dart';
-import 'package:stockup/screens/home/home_screen.dart';
 import 'package:stockup/screens/login/sign_in.dart';
+
+import 'home/home.dart';
 
 class AuthChange extends StatelessWidget {
   static const String id = 'auth_change';
