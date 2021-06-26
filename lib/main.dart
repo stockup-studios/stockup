@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stockup/business_logic/item/item_viewmodel.dart';
 import 'package:stockup/models/appUser.dart';
-import 'package:stockup/screens/auth_change.dart';
-import 'package:stockup/screens/items/items.dart';
+import 'package:stockup/screens/items/item_list.dart';
 import 'package:stockup/screens/scan/add_files.dart';
 import 'package:stockup/screens/search/search.dart';
-import 'package:stockup/screens/shopping_list/shopping_list.dart';
+import 'package:stockup/screens/shopping_list/shop_list.dart';
 import 'package:stockup/screens/welcome/welcome.dart';
 import 'package:stockup/screens/home/home.dart';
 import 'package:stockup/screens/scan/add_receipt.dart';
@@ -32,7 +31,7 @@ class StockUP extends StatelessWidget {
             create: (context) => ItemViewModel()),
       ],
       child: MaterialApp(
-        initialRoute: SignInScreen.id,
+        initialRoute: HomeScreen.id,
         routes: {
           AuthChange.id: (context) => AuthChange(),
           WelcomeScreen.id: (context) => WelcomeScreen(),
@@ -41,8 +40,8 @@ class StockUP extends StatelessWidget {
           HomeScreen.id: (context) => HomeScreen(),
           AddReceiptScreen.id: (context) => AddReceiptScreen(),
           AddFilesScreen.id: (context) => AddFilesScreen(),
-          ItemsScreen.id: (context) => ItemsScreen(),
-          ShoppingListScreen.id: (context) => ShoppingListScreen(),
+          ItemListScreen.id: (context) => ItemListScreen(),
+          ShopListScreen.id: (context) => ShopListScreen(),
           SearchScreen.id: (context) => SearchScreen(),
         },
       ),
