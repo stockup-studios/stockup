@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:stockup/models/product.dart';
+import 'package:stockup/models/product_catalog/product_catalog.dart';
 import 'package:stockup/screens/home/home.dart';
 import 'package:stockup/screens/items/item_list.dart';
 import 'package:stockup/screens/shopping_list/shop_list.dart';
@@ -35,6 +37,8 @@ class _AddFilesScreenState extends State<AddFilesScreen> {
     }
   }
 
+  List<Product> productsFound = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,15 +63,55 @@ class _AddFilesScreenState extends State<AddFilesScreen> {
                   List<String> text =
                       await Scanner.getTextFromImageFile(imageFile);
                   List<String> matches = Parser.getBestMatches(text);
+                  List<Product> productMatches = [];
                   for (String match in matches) {
                     print(match);
+                    Product p = productCatalog
+                        .firstWhere((product) => product.productName == match);
+                    productMatches.add(p);
                   }
+                  matches.forEach((String productName) {
+                    productCatalog.firstWhere(
+                        (product) => product.productName == productName);
+                  });
+                  setState(() {
+                    productsFound.addAll(productMatches);
+                  });
                 },
               ),
               ElevatedButton(
                 child: Text('Pick multiple images from storage'),
-                onPressed: () {},
+                onPressed: () async {
+                  String imageFile = await Scanner.getImageFilePath();
+                  List<String> text =
+                      await Scanner.getTextFromImageFile(imageFile);
+                  List<String> matches = Parser.getBestMatches(text);
+                  List<Product> productMatches = [];
+                  for (String match in matches) {
+                    print(match);
+                    Product p = productCatalog
+                        .firstWhere((product) => product.productName == match);
+                    productMatches.add(p);
+                  }
+                  matches.forEach((String productName) {
+                    productCatalog.firstWhere(
+                        (product) => product.productName == productName);
+                  });
+                  setState(() {
+                    productsFound.addAll(productMatches);
+                  });
+                },
               ),
+              Expanded(
+                child: ListView.builder(
+                    padding: const EdgeInsets.all(8),
+                    itemCount: productsFound.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        child: Text('${productsFound[index].productName}'),
+                      );
+                    }),
+              )
             ],
           ),
         ),
