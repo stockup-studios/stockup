@@ -1,53 +1,159 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
+import 'package:stockup/models/product.dart';
+import 'package:stockup/models/product_catalog/product_catalog.dart';
 
-class SearchScreen extends StatefulWidget {
+class SearchScreen extends StatelessWidget {
   static const String id = 'search_screen';
   final String title = 'Search Items';
 
   @override
-  _SearchScreenState createState() => _SearchScreenState();
-}
-
-class _SearchScreenState extends State<SearchScreen> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
+        title: Text(title),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () async {
+              // showSearch(context: context, delegate: ProductSearch());
+
+              // final results = await
+              showSearch(context: context, delegate: ProductSearch());
+
+              // print('Result: $results');
+            },
+          )
+        ],
+      ),
+      body: Container(
+        child: Center(
           child: Text(
-            widget.title,
+            'Search product catalog',
+            style: TextStyle(
+              color: Colors.grey,
+              fontWeight: FontWeight.bold,
+              fontSize: 64,
+            ),
+            textAlign: TextAlign.center,
           ),
         ),
       ),
-      body: Column(
-        children: [
-          Container(
-            child: TextField(
-              autocorrect: false,
-              decoration: InputDecoration(
-                  prefix: Icon(Icons.search),
-                  border: OutlineInputBorder(),
-                  labelText: 'Search Items'),
-            ),
-            margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-          ),
-          Expanded(
-            child: ListView(
-              padding: EdgeInsets.only(top: 5.0),
-              children: [
-                for (int i = 1; i <= 10; ++i)
-                  ProductTile(
-                    'Product $i',
-                    'Expires in $i',
-                    Icon(Icons.more_vert),
-                  )
-              ],
-            ),
-          ),
-        ],
-      ),
-      // bottomNavigationBar: kBottomNavigationBar,
     );
   }
 }
+
+class ProductSearch extends SearchDelegate<String> {
+  final searchHistory = [
+    'Recent search term',
+  ];
+
+  @override
+  List<Widget> buildActions(BuildContext context) => [
+        IconButton(
+          icon: Icon(Icons.clear),
+          onPressed: () {
+            if (query.isEmpty) {
+              close(context, null);
+            } else {
+              query = '';
+              showSuggestions(context);
+            }
+          },
+        )
+      ];
+
+  @override
+  Widget buildLeading(BuildContext context) => IconButton(
+        icon: Icon(Icons.arrow_back),
+        onPressed: () => close(context, null),
+      );
+
+  @override
+  Widget buildResults(BuildContext context) => Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.location_city, size: 120),
+            const SizedBox(height: 48),
+            Text(
+              query,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 64,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      );
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    final suggestions = query.isEmpty
+        ? searchHistory
+        : productCatalog
+            .where((product) {
+              final productLower = product.productName.toLowerCase();
+              final queryLower = query.toLowerCase();
+
+              return productLower.startsWith(queryLower);
+            })
+            .map((Product product) => product.productName)
+            .toList();
+
+    return buildSuggestionsSuccess(suggestions);
+  }
+
+  Widget buildSuggestionsSuccess(List<String> suggestions) => ListView.builder(
+        itemCount: suggestions.length,
+        itemBuilder: (context, index) {
+          final suggestion = suggestions[index];
+          final queryText = suggestion.substring(0, query.length);
+          final remainingText = suggestion.substring(query.length);
+
+          return ListTile(
+            onTap: () {
+              query = suggestion;
+
+              // 1. Show Results
+              // showResults(context);
+
+              // 2. Close Search & Return Result
+              close(context, suggestion);
+
+              // 3. Navigate to Result Page
+              //  Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (BuildContext context) => ResultPage(suggestion),
+              //   ),
+              // );
+            },
+            leading: Icon(Icons.location_city),
+            // title: Text(suggestion),
+            title: RichText(
+              text: TextSpan(
+                text: queryText,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+                children: [
+                  TextSpan(
+                    text: remainingText,
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      );
+}
+
+// code modified from https://github.com/JohannesMilke/search_appbar_example/blob/master/lib/page/local_search_appbar_page.dart
