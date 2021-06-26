@@ -4,6 +4,6 @@ enum ProductCategory {
   bakery_cereals_spreads,
   dairy_chilled_frozen,
   snacks_drinks,
-  beer_wine_spirit,
+  beers_wines_spirits,
   food_pantry,
 }
