@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:stockup/models/product_catalog/product_catalog.dart';
 import 'package:stockup/services/database/database_impl.dart';
 import 'package:string_similarity/string_similarity.dart';
-import 'package:stockup/services/product_listing.dart';
 
 class Parser {
   final List<String> text;
@@ -16,13 +16,13 @@ class Parser {
     _productListing = await _db.productListing();
   }
 
-  List<String> getBestMatches() {
-    getProductListing();
-
-    List<String> matches;
+  static List<String> getBestMatches(List<String> text) {
+    print('\n\n####   Parser::getBestMatches started   ###\n\n');
+    List<String> matches = [];
 
     for (String item in text) {
-      BestMatch match = StringSimilarity.findBestMatch(item, _productListing);
+      BestMatch match =
+          StringSimilarity.findBestMatch(item, productNamesCatalog);
       Rating best = match.bestMatch;
 
       // // use for debugging purposes
@@ -30,7 +30,8 @@ class Parser {
       //   print('${best.rating}\t$item -> ${best.target}');
 
       if (best.rating > 0.5) {
-        matches.add(best.target);
+        String closestMatch = best.target;
+        matches.add(closestMatch);
       }
     }
 

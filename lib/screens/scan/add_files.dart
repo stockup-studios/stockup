@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:stockup/screens/home/home.dart';
 import 'package:stockup/screens/items/item_list.dart';
 import 'package:stockup/screens/shopping_list/shop_list.dart';
-import 'package:stockup/services/io/image_picker.dart';
+import 'package:stockup/services/parser/parser.dart';
+import 'package:stockup/services/scanner/scanner.dart';
 
 class AddFilesScreen extends StatefulWidget {
   static const String id = 'add_files_screen';
@@ -53,15 +54,19 @@ class _AddFilesScreenState extends State<AddFilesScreen> {
             children: [
               ElevatedButton(
                 child: Text('Pick image from storage'),
-                onPressed: () {
-                  ImagePicker.getImage();
+                onPressed: () async {
+                  String imageFile = await Scanner.getImageFilePath();
+                  List<String> text =
+                      await Scanner.getTextFromImageFile(imageFile);
+                  List<String> matches = Parser.getBestMatches(text);
+                  for (String match in matches) {
+                    print(match);
+                  }
                 },
               ),
               ElevatedButton(
                 child: Text('Pick multiple images from storage'),
-                onPressed: () {
-                  ImagePicker.getImages();
-                },
+                onPressed: () {},
               ),
             ],
           ),
