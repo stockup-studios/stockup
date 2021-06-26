@@ -43,7 +43,7 @@ class _AddFilesScreenState extends State<AddFilesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey.shade400,
+        backgroundColor: Colors.blueGrey,
         title: Center(
           child: Text(
             widget.title,
@@ -109,9 +109,18 @@ class _AddFilesScreenState extends State<AddFilesScreen> {
                     padding: const EdgeInsets.all(8),
                     itemCount: productsFound.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        child: Text('${productsFound[index].productName}'),
+                      Product product = productsFound[index];
+                      return ListTile(
+                        leading: Image.network(product.imageURL) ??
+                            Container(color: Colors.black),
+                        title: Text(product.productName),
+                        subtitle:
+                            Text(product.category.toString().split('.').last),
+                        trailing: Icon(Icons.edit),
                       );
+                      // return Container(
+                      //   child: Text('${productsFound[index].productName}'),
+                      // );
                     }),
               )
             ],
