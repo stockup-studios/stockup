@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:stockup/services/auth/auth.dart';
-import 'package:stockup/models/appUser.dart';
+import 'package:stockup/models/app_user.dart';
 import 'package:stockup/services/database/database_impl.dart';
 
 class AuthImplementation implements AuthService {
@@ -9,7 +9,7 @@ class AuthImplementation implements AuthService {
 
   // create User object based on firebase
   AppUser _appUser(User user) {
-    return user != null ? AppUser(uid: user.uid) : null;
+    return user != null ? AppUser(username: user.uid) : null;
   }
 
   // auth change AppUser stream

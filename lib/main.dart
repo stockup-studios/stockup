@@ -14,6 +14,7 @@ import 'package:stockup/screens/scan/add_receipt.dart';
 import 'package:stockup/screens/login/sign_in.dart';
 import 'package:stockup/screens/login/sign_up.dart';
 import 'package:stockup/services/auth/auth_impl.dart';
+import 'models/app_user.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
