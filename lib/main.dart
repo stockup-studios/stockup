@@ -26,13 +26,14 @@ class StockUP extends StatelessWidget {
     return MultiProvider(
       providers: [
         StreamProvider<AppUser>.value(
-            value: AuthImplementation().user, initialData: null),
+            value: AuthImplementation().user, initialData: AppUser()),
         ChangeNotifierProvider<ItemViewModel>(
             create: (context) => ItemViewModel()),
       ],
       child: MaterialApp(
         initialRoute: HomeScreen.id,
         routes: {
+          AuthChange.id: (context) => AuthChange(),
           WelcomeScreen.id: (context) => WelcomeScreen(),
           SignInScreen.id: (context) => SignInScreen(),
           SignUpScreen.id: (context) => SignUpScreen(),
