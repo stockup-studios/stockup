@@ -10,6 +10,7 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blueGrey,
         title: Text(title),
         centerTitle: true,
         actions: [
@@ -43,9 +44,11 @@ class SearchScreen extends StatelessWidget {
   }
 }
 
-class ProductSearch extends SearchDelegate<String> {
-  final searchHistory = [
-    'Recent search term',
+class ProductSearch extends SearchDelegate<Product> {
+  final List<Product> searchHistory = [
+    productCatalog[100],
+    productCatalog[200],
+    productCatalog[300]
   ];
 
   @override
@@ -90,32 +93,30 @@ class ProductSearch extends SearchDelegate<String> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    final suggestions = query.isEmpty
+    final List<Product> suggestions = query.isEmpty
         ? searchHistory
-        : productCatalog
-            .where((product) {
-              final productLower = product.productName.toLowerCase();
-              final queryLower = query.toLowerCase();
+        : productCatalog.where((product) {
+            final productLower = product.productName.toLowerCase();
+            final queryLower = query.toLowerCase();
 
-              return productLower.startsWith(queryLower);
-            })
-            .map((Product product) => product.productName)
+            return productLower.contains(queryLower);
+          })
+            // .map((Product product) => product.productName)
             .toList();
 
     return buildSuggestionsSuccess(suggestions);
   }
 
-  Widget buildSuggestionsSuccess(List<String> suggestions) => ListView.builder(
+  Widget buildSuggestionsSuccess(List<Product> suggestions) => ListView.builder(
         itemCount: suggestions.length,
         itemBuilder: (context, index) {
           final suggestion = suggestions[index];
-          final queryText = suggestion.substring(0, query.length);
-          final remainingText = suggestion.substring(query.length);
-
+          // final queryText = suggestion.substring(0, query.length);
+          // final remainingText = suggestion.substring(query.length);
           return ListTile(
             onTap: () {
-              query = suggestion;
-
+              query = suggestion.productName;
+              searchHistory.add(suggestion);
               // 1. Show Results
               // showResults(context);
 
@@ -130,27 +131,30 @@ class ProductSearch extends SearchDelegate<String> {
               //   ),
               // );
             },
-            leading: Icon(Icons.location_city),
-            // title: Text(suggestion),
-            title: RichText(
-              text: TextSpan(
-                text: queryText,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
-                children: [
-                  TextSpan(
-                    text: remainingText,
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 18,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            leading: Image.network(suggestion.imageURL) ??
+                Container(color: Colors.black),
+            title: Text(suggestion.productName),
+            subtitle: Text(suggestion.category.toString().split('.').last),
+            trailing: Icon(Icons.add),
+            // title: RichText(
+            //   text: TextSpan(
+            //     text: queryText,
+            //     style: TextStyle(
+            //       color: Colors.black,
+            //       fontWeight: FontWeight.bold,
+            //       fontSize: 18,
+            //     ),
+            //     children: [
+            //       TextSpan(
+            //         text: remainingText,
+            //         style: TextStyle(
+            //           color: Colors.grey,
+            //           fontSize: 18,
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
           );
         },
       );
