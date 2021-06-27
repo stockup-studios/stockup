@@ -6,7 +6,8 @@ List<Product> foodPantryCatalog = [
       productID: 5044831,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND CORIANDER POWDER 125G",
-      imageURL: '125G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128744_1528887153828.jpg'),
   Product(
       productID: 5043051,
       category: ProductCategory.food_pantry,
@@ -29,12 +30,14 @@ List<Product> foodPantryCatalog = [
       productID: 5014146,
       category: ProductCategory.food_pantry,
       productName: "S&B GOLDEN CURRY SAUCE W/ VEGETABLES HOT 230G",
-      imageURL: '230G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/3049521_1528884399187.jpg'),
   Product(
       productID: 5010033,
       category: ProductCategory.food_pantry,
       productName: "LADY'S CHOICE COLESLAW DRESSING 250ML",
-      imageURL: '250ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5000881_1528885817239.jpg'),
   Product(
       productID: 5041769,
       category: ProductCategory.food_pantry,
@@ -45,7 +48,7 @@ List<Product> foodPantryCatalog = [
       productID: 5017919,
       category: ProductCategory.food_pantry,
       productName: "QP MAYONNAISE HALF C872 400G",
-      imageURL: '400G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5177336.jpg'),
   Product(
       productID: 5060003,
       category: ProductCategory.food_pantry,
@@ -67,7 +70,8 @@ List<Product> foodPantryCatalog = [
       productID: 5040714,
       category: ProductCategory.food_pantry,
       productName: "GOLDEN SOYA BEAN OIL 2L",
-      imageURL: '2L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8888025002627.jpg'),
   Product(
       productID: 5034124,
       category: ProductCategory.food_pantry,
@@ -93,7 +97,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041374,
       category: ProductCategory.food_pantry,
       productName: "SEAH'S PEPPER SALT PRAWN SPICES 23G",
-      imageURL: '23G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/pepper%20salt%20prwan.jpg'),
   Product(
       productID: 5084941,
       category: ProductCategory.food_pantry,
@@ -104,7 +109,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041080,
       category: ProductCategory.food_pantry,
       productName: "0101 GROUND CORIANDER 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/0101%20Ground%20Coriander%2050g_1.jpg'),
   Product(
       productID: 5001988,
       category: ProductCategory.food_pantry,
@@ -116,7 +122,8 @@ List<Product> foodPantryCatalog = [
       productID: 5054049,
       category: ProductCategory.food_pantry,
       productName: "KEWPIE MAYONNAISE MILD TYPE 310ML",
-      imageURL: '310ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5182276_1528887226690.jpg'),
   Product(
       productID: 5068028,
       category: ProductCategory.food_pantry,
@@ -138,7 +145,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008686,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE SPICY GARLIC EGG PLANT SAUCE 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/052619_1528887371997.jpg'),
   Product(
       productID: 5043129,
       category: ProductCategory.food_pantry,
@@ -159,7 +167,7 @@ List<Product> foodPantryCatalog = [
       productID: 5049388,
       category: ProductCategory.food_pantry,
       productName: "JALEN KICAP SALTY 325ML",
-      imageURL: '340G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5128278.jpg'),
   Product(
       productID: 5043547,
       category: ProductCategory.food_pantry,
@@ -180,17 +188,20 @@ List<Product> foodPantryCatalog = [
       productID: 5050422,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND RASAM POWDER 125G",
-      imageURL: '125G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128756_1528885649651.jpg'),
   Product(
       productID: 5002164,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE SINGAPORE CHILLI CRAB 320G",
-      imageURL: '320G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/106565_1528887642788.jpg'),
   Product(
       productID: 5010029,
       category: ProductCategory.food_pantry,
       productName: "BEST FOODS REAL MAYONNAISE 430ML",
-      imageURL: '430ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/716006_1528884404329.jpg'),
   Product(
       productID: 5010009,
       category: ProductCategory.food_pantry,
@@ -228,7 +239,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041870,
       category: ProductCategory.food_pantry,
       productName: "WOH HUP SWEET&SOUR SAUCE 350G",
-      imageURL: '350G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1222719_1528886304717.jpg'),
   Product(
       productID: 5043020,
       category: ProductCategory.food_pantry,
@@ -245,7 +257,7 @@ List<Product> foodPantryCatalog = [
       productID: 5040871,
       category: ProductCategory.food_pantry,
       productName: "KIPAS UDANG KICAP MANIS (SWEET SOYA SAUCE) 645ML",
-      imageURL: '645ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1010898.jpg'),
   Product(
       productID: 5001981,
       category: ProductCategory.food_pantry,
@@ -255,22 +267,25 @@ List<Product> foodPantryCatalog = [
       productID: 5009529,
       category: ProductCategory.food_pantry,
       productName: "EARTHEN POT FISH CURRY POWDER 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1103339_1528887571863.jpg'),
   Product(
       productID: 5076295,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS YOGURT DRESSING 300ML",
-      imageURL: '300ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/401399578_Meadows_Yogurt%20dressing%20310g_V16-01_mockup.jpg'),
   Product(
       productID: 5011790,
       category: ProductCategory.food_pantry,
       productName: "LINGHAMS SRIRACHA CHILLI SAUCE 280ML",
-      imageURL: '280ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5156824.jpg'),
   Product(
       productID: 5010489,
       category: ProductCategory.food_pantry,
       productName: "SING LONG SOUR PLUM 200G",
-      imageURL: '170G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1076194_1528886266655.jpg'),
   Product(
       productID: 5060391,
       category: ProductCategory.food_pantry,
@@ -298,18 +313,20 @@ List<Product> foodPantryCatalog = [
       productID: 5049166,
       category: ProductCategory.food_pantry,
       productName: "FLYING MAN TAPIOCA STARCH 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1251960_1528886529341.jpg'),
   Product(
       productID: 5009793,
       category: ProductCategory.food_pantry,
-      productName: " ONION & LIME 300G" "CHINCHALOK WITH CHILLI",
+      productName: "SING LONG CHINCHALOK WITH CHILLI, ONION & LIME 300G",
       imageURL:
-          ' Herbs & Spices-Pre-Mixed Sauces & Paste-Chinchalok With Chilli'),
+          'https://coldstorage-s3.dexecure.net/product/Sing%20Long%20Chinchalok%20With%20Chilli%2C%20Onion%20_%20Lime%20300g_1.jpg'),
   Product(
       productID: 5008661,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE LIGHT SOY SAUCE",
-      imageURL: '500ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Light%20SS%20500mL_SG%20hires.jpg'),
   Product(
       productID: 5046807,
       category: ProductCategory.food_pantry,
@@ -344,12 +361,14 @@ List<Product> foodPantryCatalog = [
       productID: 5043027,
       category: ProductCategory.food_pantry,
       productName: "A1 SWEET PRUNE POWDER 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/3025354_1528884069849.jpg'),
   Product(
       productID: 5009757,
       category: ProductCategory.food_pantry,
       productName: "KCT DARK SOYA SAUCE SUPERIOR 640ML",
-      imageURL: '640ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/3025065_1528885460181.jpg'),
   Product(
       productID: 5009935,
       category: ProductCategory.food_pantry,
@@ -371,7 +390,8 @@ List<Product> foodPantryCatalog = [
       productID: 5010315,
       category: ProductCategory.food_pantry,
       productName: "HOSEN LYCHEE IN SYRUP 565G",
-      imageURL: '565G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Lychee-565%20Hosen-01.jpg'),
   Product(
       productID: 5009126,
       category: ProductCategory.food_pantry,
@@ -382,7 +402,7 @@ List<Product> foodPantryCatalog = [
       productID: 5097602,
       category: ProductCategory.food_pantry,
       productName: "OKI TEMPURA BATTER MIX 120G",
-      imageURL: '120G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5097602.jpg'),
   Product(
       productID: 5094339,
       category: ProductCategory.food_pantry,
@@ -413,12 +433,14 @@ List<Product> foodPantryCatalog = [
       productID: 5087923,
       category: ProductCategory.food_pantry,
       productName: "PUTERI CHILLI GILING 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/cili%20boh%20_1_.jpg'),
   Product(
       productID: 5008689,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE TERIYAKI CHICKEN SAUCE 72G",
-      imageURL: '72G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1277864_1528887666451.jpg'),
   Product(
       productID: 5009940,
       category: ProductCategory.food_pantry,
@@ -480,7 +502,8 @@ List<Product> foodPantryCatalog = [
       productID: 5010278,
       category: ProductCategory.food_pantry,
       productName: "HEINZ TOMATO KETCHUP 300G",
-      imageURL: '300ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/705027_1528885381064.jpg'),
   Product(
       productID: 5008200,
       category: ProductCategory.food_pantry,
@@ -491,7 +514,7 @@ List<Product> foodPantryCatalog = [
       productID: 5041377,
       category: ProductCategory.food_pantry,
       productName: "SEAH'S BLACK PEPPER MEAT SPICES 55G",
-      imageURL: '55G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5041377.jpg'),
   Product(
       productID: 5059588,
       category: ProductCategory.food_pantry,
@@ -507,7 +530,7 @@ List<Product> foodPantryCatalog = [
       productID: 5053914,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN SINGAPORE SATAY SAUCE 240G",
-      imageURL: '240G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5053914.jpg'),
   Product(
       productID: 5008745,
       category: ProductCategory.food_pantry,
@@ -518,7 +541,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009792,
       category: ProductCategory.food_pantry,
       productName: "SING LONG RED DATE THICK SOY SAUCE 325ML",
-      imageURL: '325ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1217901_1528886115302.jpg'),
   Product(
       productID: 5008742,
       category: ProductCategory.food_pantry,
@@ -573,7 +597,8 @@ List<Product> foodPantryCatalog = [
       productID: 5021191,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND MASOOR DHALL SPLIT 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128779_1528884114141.jpg'),
   Product(
       productID: 5060367,
       category: ProductCategory.food_pantry,
@@ -589,7 +614,8 @@ List<Product> foodPantryCatalog = [
       productID: 5097874,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE KUNG PAO PASTE 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5097874%20Kung%20Pao%20100g.jpg'),
   Product(
       productID: 5024498,
       category: ProductCategory.food_pantry,
@@ -617,7 +643,7 @@ List<Product> foodPantryCatalog = [
       productID: 5094396,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND HOUSE BRAND CINNAMON STICK 100G",
-      imageURL: '100G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5094396.jpg'),
   Product(
       productID: 5008810,
       category: ProductCategory.food_pantry,
@@ -649,12 +675,14 @@ List<Product> foodPantryCatalog = [
       productID: 5008676,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE FINE SHRIMP SAUCE 227G",
-      imageURL: '227G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1122944_1528885479831.jpg'),
   Product(
       productID: 5043270,
       category: ProductCategory.food_pantry,
       productName: "A1 INSTANT BLACK PEPPER SAUCE 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5157021_1528884572431.jpg'),
   Product(
       productID: 5002327,
       category: ProductCategory.food_pantry,
@@ -677,22 +705,24 @@ List<Product> foodPantryCatalog = [
       productID: 5064989,
       category: ProductCategory.food_pantry,
       productName: "SING LONG ABALONE SAUCE 750G",
-      imageURL: '750G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5211099.jpg'),
   Product(
       productID: 5066917,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN PREMIUM CURRY CHICKEN THIGH WITH POTATOES 300G",
-      imageURL: '300G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/AMOCAN-CurryChicken__A428BC.jpg'),
   Product(
       productID: 5040634,
       category: ProductCategory.food_pantry,
       productName: "RED MAN PEANUT GROUND 25G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/3006725_1528883928827.jpg'),
   Product(
       productID: 5009157,
       category: ProductCategory.food_pantry,
       productName: "GLORY CHICKEN CHILLI SAUCE 180G",
-      imageURL: '180G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1226727.jpg'),
   Product(
       productID: 5090598,
       category: ProductCategory.food_pantry,
@@ -702,12 +732,12 @@ List<Product> foodPantryCatalog = [
       productID: 5009329,
       category: ProductCategory.food_pantry,
       productName: "WOH HUP GRADE B OYSTER SAUCE 500G",
-      imageURL: '500G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1226320.jpg'),
   Product(
       productID: 5045076,
       category: ProductCategory.food_pantry,
       productName: "ADABI BANANA FRITTERS FLOUR (TEPUNG GORENG PISANG) 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1007173.jpg'),
   Product(
       productID: 5010438,
       category: ProductCategory.food_pantry,
@@ -734,7 +764,7 @@ List<Product> foodPantryCatalog = [
       productID: 5054779,
       category: ProductCategory.food_pantry,
       productName: "SIMPLY NATURAL ORGANIC AUSTRALIAN RAW ALMONDS",
-      imageURL: '1EA'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5054779.jpg'),
   Product(
       productID: 5009957,
       category: ProductCategory.food_pantry,
@@ -773,7 +803,7 @@ List<Product> foodPantryCatalog = [
       productID: 5013242,
       category: ProductCategory.food_pantry,
       productName: "CHOLULA HOT SAUCE - ORIGINAL 150ML",
-      imageURL: '150ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5013242.jpg'),
   Product(
       productID: 5084597,
       category: ProductCategory.food_pantry,
@@ -788,32 +818,33 @@ List<Product> foodPantryCatalog = [
       productID: 5011213,
       category: ProductCategory.food_pantry,
       productName: "MAGGI CHILLI SAUCE 500G",
-      imageURL: '500G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5011213.jpg'),
   Product(
       productID: 5091149,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS BUAH KERAS 83G",
-      imageURL: '83G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5091149.jpg'),
   Product(
       productID: 5021569,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE TERIYAKI MARINADE 250G",
-      imageURL: '250G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5168097_1528884580124_1.jpg'),
   Product(
       productID: 5008673,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE CHICKEN MARINADE 410ML",
-      imageURL: '410ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1098270.jpg'),
   Product(
       productID: 5040642,
       category: ProductCategory.food_pantry,
       productName: "RED MAN ALMOND SLICED BLANCHED 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3008723.jpg'),
   Product(
       productID: 5042232,
       category: ProductCategory.food_pantry,
       productName: "TIGER SALTED SOYA BEANS 370G",
-      imageURL: '370G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1200271.jpg'),
   Product(
       productID: 5068030,
       category: ProductCategory.food_pantry,
@@ -823,7 +854,8 @@ List<Product> foodPantryCatalog = [
       productID: 5054340,
       category: ProductCategory.food_pantry,
       productName: "AJINOMOTO CRISPY FRY SPICY BREADING MIX 62G",
-      imageURL: '62G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/4801958391105.jpg'),
   Product(
       productID: 5042123,
       category: ProductCategory.food_pantry,
@@ -846,7 +878,7 @@ List<Product> foodPantryCatalog = [
       productID: 5040641,
       category: ProductCategory.food_pantry,
       productName: "RED MAN ALMOND DICED BLANCHED 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/0000905_1.jpg'),
   Product(
       productID: 5009158,
       category: ProductCategory.food_pantry,
@@ -892,12 +924,14 @@ List<Product> foodPantryCatalog = [
       productID: 5042081,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA STANDARD DARK SOY SAUCE 320ML",
-      imageURL: '320ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Standard%20Dark%20_320ml_.jpg'),
   Product(
       productID: 5010577,
       category: ProductCategory.food_pantry,
       productName: "MILI LYCHEE IN SYRUP 565G",
-      imageURL: '565G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/064473_1528885089120.jpg'),
   Product(
       productID: 5047097,
       category: ProductCategory.food_pantry,
@@ -908,22 +942,24 @@ List<Product> foodPantryCatalog = [
       productID: 5042838,
       category: ProductCategory.food_pantry,
       productName: "PAGODA FRIED ONIONS 260G",
-      imageURL: '260G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5042838.jpg'),
   Product(
       productID: 5041863,
       category: ProductCategory.food_pantry,
       productName: "KNIFE THAI FISH SAUCE 750ML",
-      imageURL: '750ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8850581171017.jpg'),
   Product(
       productID: 5041174,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA STANDARD LIGHT SOYA SAUCE 2L",
-      imageURL: '2L'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3066337.jpg'),
   Product(
       productID: 5009531,
       category: ProductCategory.food_pantry,
       productName: "EARTHEN POT CHILLI POWDER 250G",
-      imageURL: '250G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1228119_1528884553504.jpg'),
   Product(
       productID: 5008126,
       category: ProductCategory.food_pantry,
@@ -940,7 +976,8 @@ List<Product> foodPantryCatalog = [
       productID: 5076254,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS BARBEQUE SAUCE 340G",
-      imageURL: '340G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/401399550_Meadows_Barbecue%20sauce%20340g_V12-01_mockup.jpg'),
   Product(
       productID: 5041777,
       category: ProductCategory.food_pantry,
@@ -963,7 +1000,8 @@ List<Product> foodPantryCatalog = [
       productID: 5051225,
       category: ProductCategory.food_pantry,
       productName: "SING LONG ASSAM FISH SAUCE 120G",
-      imageURL: '120G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5166295_1528884014493.jpg'),
   Product(
       productID: 5021556,
       category: ProductCategory.food_pantry,
@@ -974,7 +1012,8 @@ List<Product> foodPantryCatalog = [
       productID: 5067772,
       category: ProductCategory.food_pantry,
       productName: "NEW MOON SINGAPORE LAKSA PASTE 120G",
-      imageURL: '120G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8888140135828_A.jpg'),
   Product(
       productID: 5012851,
       category: ProductCategory.food_pantry,
@@ -997,7 +1036,8 @@ List<Product> foodPantryCatalog = [
       productID: 5042541,
       category: ProductCategory.food_pantry,
       productName: "CRAB STAR ANISEEDS 5G",
-      imageURL: '5G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5130365_1528886008300.jpg'),
   Product(
       productID: 5002035,
       category: ProductCategory.food_pantry,
@@ -1013,7 +1053,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008688,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE TOMATO GARLIC PRAWNS 70G",
-      imageURL: '70G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Tomato%20Garlic.jpg'),
   Product(
       productID: 5040775,
       category: ProductCategory.food_pantry,
@@ -1051,22 +1092,24 @@ List<Product> foodPantryCatalog = [
       productID: 5043214,
       category: ProductCategory.food_pantry,
       productName: "LINGHAMS GARLIC CHILLI SAUCE 280ML",
-      imageURL: '280ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5156822.jpg'),
   Product(
       productID: 5008930,
       category: ProductCategory.food_pantry,
       productName: "PREGO PASTA SAUCE - HERB & CHEESE 290G",
-      imageURL: '300G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1298723_1528885038020.jpg'),
   Product(
       productID: 5021093,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND MEAT CURRY POWDER 125G",
-      imageURL: '125G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128776_1528883966866.jpg'),
   Product(
       productID: 5011788,
       category: ProductCategory.food_pantry,
       productName: "HOSEN LONGAN IN SYRUP 234G",
-      imageURL: '234G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5158727.jpg'),
   Product(
       productID: 5011789,
       category: ProductCategory.food_pantry,
@@ -1077,7 +1120,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008703,
       category: ProductCategory.food_pantry,
       productName: "MCCORMICK CHILI POWDER 32G",
-      imageURL: '32G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/726109_1528884017107.jpg'),
   Product(
       productID: 5076080,
       category: ProductCategory.food_pantry,
@@ -1088,7 +1132,7 @@ List<Product> foodPantryCatalog = [
       productID: 5008725,
       category: ProductCategory.food_pantry,
       productName: "MCCORMICK SEASON'N FRY SPICY 45G",
-      imageURL: '45G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/012990.jpg'),
   Product(
       productID: 5009948,
       category: ProductCategory.food_pantry,
@@ -1106,7 +1150,8 @@ List<Product> foodPantryCatalog = [
       productID: 5019521,
       category: ProductCategory.food_pantry,
       productName: "KEWPIE DEEP ROASTED SESAME DRESSING 380ML",
-      imageURL: '380ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/114881_1528887340546.jpg'),
   Product(
       productID: 5055802,
       category: ProductCategory.food_pantry,
@@ -1128,12 +1173,13 @@ List<Product> foodPantryCatalog = [
       productID: 5097871,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE HAINAN CHICKEN RICE PASTE 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5097871%20Chicken%20Rice%20100g.jpg'),
   Product(
       productID: 5041175,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA SWEET SAUCE 640ML",
-      imageURL: '640ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3066357.jpg'),
   Product(
       productID: 5097603,
       category: ProductCategory.food_pantry,
@@ -1148,7 +1194,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009590,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE MEE REBUS 195G",
-      imageURL: '195G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/241579_1528887707562.jpg'),
   Product(
       productID: 5002140,
       category: ProductCategory.food_pantry,
@@ -1176,7 +1223,8 @@ List<Product> foodPantryCatalog = [
       productID: 5045649,
       category: ProductCategory.food_pantry,
       productName: "MALABAR FENNEL SEEDS 70G",
-      imageURL: '70G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128302_1528886203309.jpg'),
   Product(
       productID: 5010297,
       category: ProductCategory.food_pantry,
@@ -1187,7 +1235,8 @@ List<Product> foodPantryCatalog = [
       productID: 5001969,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE CHAR SIU SAUCE 240G",
-      imageURL: '240G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Char%20Siu%20Sauce%20240g-SG_new-mini_1.jpg'),
   Product(
       productID: 5099421,
       category: ProductCategory.food_pantry,
@@ -1209,7 +1258,7 @@ List<Product> foodPantryCatalog = [
       productID: 5009214,
       category: ProductCategory.food_pantry,
       productName: "ABC EXTRA HOT CHILLI SAUCE 340ML",
-      imageURL: '340ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5125626.jpg'),
   Product(
       productID: 5026073,
       category: ProductCategory.food_pantry,
@@ -1236,7 +1285,7 @@ List<Product> foodPantryCatalog = [
       productID: 5052015,
       category: ProductCategory.food_pantry,
       productName: "QIN MING SESAME PASTE 330G",
-      imageURL: '330G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5171584.jpg'),
   Product(
       productID: 5093898,
       category: ProductCategory.food_pantry,
@@ -1259,7 +1308,7 @@ List<Product> foodPantryCatalog = [
       productID: 5040637,
       category: ProductCategory.food_pantry,
       productName: "RED MAN PUMPKIN SEEDS 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/0010549_1.jpg'),
   Product(
       productID: 5030546,
       category: ProductCategory.food_pantry,
@@ -1270,12 +1319,12 @@ List<Product> foodPantryCatalog = [
       productID: 5076265,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS MAYONNAISE 470G",
-      imageURL: '470G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5076265.jpg'),
   Product(
       productID: 5042016,
       category: ProductCategory.food_pantry,
       productName: "KCT LIGHT SOYA SAUCE 640ML",
-      imageURL: '640ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3025079.jpg'),
   Product(
       productID: 5008650,
       category: ProductCategory.food_pantry,
@@ -1297,7 +1346,7 @@ List<Product> foodPantryCatalog = [
       productID: 5082557,
       category: ProductCategory.food_pantry,
       productName: "BAGUS BAGUS CHA CHA COLOR 90G",
-      imageURL: '90G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5082557.jpg'),
   Product(
       productID: 5009572,
       category: ProductCategory.food_pantry,
@@ -1307,12 +1356,13 @@ List<Product> foodPantryCatalog = [
       productID: 5018481,
       category: ProductCategory.food_pantry,
       productName: "RICE FIELD RICE BRAN OIL 2L",
-      imageURL: '2L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/RiceField%20Rice%20Bran%20Oil%202L.jpg'),
   Product(
       productID: 5036489,
       category: ProductCategory.food_pantry,
       productName: "KOI FISH GREEN BEAN 500G",
-      imageURL: '500G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5036489.jpg'),
   Product(
       productID: 5051599,
       category: ProductCategory.food_pantry,
@@ -1355,12 +1405,13 @@ List<Product> foodPantryCatalog = [
       productID: 5060938,
       category: ProductCategory.food_pantry,
       productName: "3A SUKI SAUCE 330ML",
-      imageURL: '330ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5203965.jpg'),
   Product(
       productID: 5049842,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND SAMBAR POWDER 250G",
-      imageURL: '250G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128757_1528883851879.jpg'),
   Product(
       productID: 5009234,
       category: ProductCategory.food_pantry,
@@ -1376,17 +1427,19 @@ List<Product> foodPantryCatalog = [
       productID: 5049092,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND SPICE MIX (FISH) 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128753_1528885820686.jpg'),
   Product(
       productID: 5063620,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN SINGAPORE VEGETABLE CURRY COMPLETE COOKING KIT 170G",
-      imageURL: '170G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/AMOCAN_170gVVegetable%20Curry%20-%205208797.jpg'),
   Product(
       productID: 5087773,
       category: ProductCategory.food_pantry,
       productName: "MANJA MANJA CHILLI BOH 900G",
-      imageURL: '900G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5087773.jpg'),
   Product(
       productID: 5101014,
       category: ProductCategory.food_pantry,
@@ -1413,7 +1466,8 @@ List<Product> foodPantryCatalog = [
       productID: 5030391,
       category: ProductCategory.food_pantry,
       productName: "NATUREL ORGANIC BALSAMIC VINEGAR 250ML",
-      imageURL: '250ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8888025123742.jpg'),
   Product(
       productID: 5048048,
       category: ProductCategory.food_pantry,
@@ -1453,7 +1507,8 @@ List<Product> foodPantryCatalog = [
       productID: 5013364,
       category: ProductCategory.food_pantry,
       productName: "DANCING CHEF SUKI SPICY DIPPING SAUCE 230G",
-      imageURL: '230G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/143257_1528887032591.jpg'),
   Product(
       productID: 5043142,
       category: ProductCategory.food_pantry,
@@ -1464,7 +1519,7 @@ List<Product> foodPantryCatalog = [
       productID: 5091162,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS USA ALMOND 130G",
-      imageURL: '130G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5091162.jpg'),
   Product(
       productID: 5088125,
       category: ProductCategory.food_pantry,
@@ -1486,17 +1541,18 @@ List<Product> foodPantryCatalog = [
       productID: 5010277,
       category: ProductCategory.food_pantry,
       productName: "HEINZ CHILLI SAUCE 310G",
-      imageURL: '310G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/705011_1528884645188.jpg'),
   Product(
       productID: 5042342,
       category: ProductCategory.food_pantry,
       productName: "0101 PICKLED GREEN CHILLI 130G",
-      imageURL: '130G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1265157.jpg'),
   Product(
       productID: 5040638,
       category: ProductCategory.food_pantry,
       productName: "RED MAN SUNFLOWER SEEDS 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/0009122_1.jpg'),
   Product(
       productID: 5031125,
       category: ProductCategory.food_pantry,
@@ -1507,7 +1563,7 @@ List<Product> foodPantryCatalog = [
       productID: 5066514,
       category: ProductCategory.food_pantry,
       productName: "AAA SEAFOOD CHILLI SAUCE 330G",
-      imageURL: '330G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5213098.jpg'),
   Product(
       productID: 5043131,
       category: ProductCategory.food_pantry,
@@ -1524,7 +1580,8 @@ List<Product> foodPantryCatalog = [
       productID: 5046274,
       category: ProductCategory.food_pantry,
       productName: "TAHO SAMBAL BLACHAN CHILLI 180G",
-      imageURL: '180G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2095926%20_1_.jpg'),
   Product(
       productID: 5053898,
       category: ProductCategory.food_pantry,
@@ -1534,7 +1591,7 @@ List<Product> foodPantryCatalog = [
       productID: 5011572,
       category: ProductCategory.food_pantry,
       productName: "A1 INSTANT CHICKEN CURRY SAUCE 240G",
-      imageURL: '240G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3067743.jpg'),
   Product(
       productID: 5043152,
       category: ProductCategory.food_pantry,
@@ -1579,7 +1636,8 @@ List<Product> foodPantryCatalog = [
       productID: 5021088,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND CUMIN SEED POWDER 125G",
-      imageURL: '125G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128737_1528883570070.jpg'),
   Product(
       productID: 5009843,
       category: ProductCategory.food_pantry,
@@ -1606,7 +1664,7 @@ List<Product> foodPantryCatalog = [
       productID: 5009096,
       category: ProductCategory.food_pantry,
       productName: "TABASCO GREEN PEPPER SAUCE 60ML",
-      imageURL: '60ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1270251.jpg'),
   Product(
       productID: 5057083,
       category: ProductCategory.food_pantry,
@@ -1650,7 +1708,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009251,
       category: ProductCategory.food_pantry,
       productName: "FORTUNE TOP SHELL 312G",
-      imageURL: '312G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1266667_1528887584494.jpg'),
   Product(
       productID: 5051872,
       category: ProductCategory.food_pantry,
@@ -1677,7 +1736,7 @@ List<Product> foodPantryCatalog = [
       productID: 5051905,
       category: ProductCategory.food_pantry,
       productName: "3A BLACK BEAN SOY SAUCE 400ML",
-      imageURL: '400ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5203964.jpg'),
   Product(
       productID: 5088965,
       category: ProductCategory.food_pantry,
@@ -1710,7 +1769,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009598,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE MEE SIAM GORENG SAUCE 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/045592_1528884950160.jpg'),
   Product(
       productID: 5056133,
       category: ProductCategory.food_pantry,
@@ -1754,7 +1814,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041949,
       category: ProductCategory.food_pantry,
       productName: "BORGES GRAPESEED OIL 1L",
-      imageURL: '1L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1781753195_Borges%20-%20Grapeseed%201L.jpg'),
   Product(
       productID: 5040428,
       category: ProductCategory.food_pantry,
@@ -1769,12 +1830,13 @@ List<Product> foodPantryCatalog = [
       productID: 5011214,
       category: ProductCategory.food_pantry,
       productName: "MAGGI CHILLI GARLIC SAUCE 305G",
-      imageURL: '305G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5011214.jpg'),
   Product(
       productID: 5008073,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS SEASONING - GARLIC SALT 70G",
-      imageURL: '70G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/059706_1528885367272.jpg'),
   Product(
       productID: 5001980,
       category: ProductCategory.food_pantry,
@@ -1800,17 +1862,20 @@ List<Product> foodPantryCatalog = [
       productID: 5026406,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN SINGAPORE WHITE LAKSA PASTE 170G",
-      imageURL: '170G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/127792_1528886645151.jpg'),
   Product(
       productID: 5008691,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE LEMON CHICKEN SAUCE 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1560795945_063951_1528885834445.jpg'),
   Product(
       productID: 5046262,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND GROUNDNUT 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5129340_1528887176257.jpg'),
   Product(
       productID: 5041072,
       category: ProductCategory.food_pantry,
@@ -1825,7 +1890,7 @@ List<Product> foodPantryCatalog = [
       productID: 5083346,
       category: ProductCategory.food_pantry,
       productName: "TABASCO SCORPION SAUCE 60ML",
-      imageURL: '60ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5083346.jpg'),
   Product(
       productID: 5008450,
       category: ProductCategory.food_pantry,
@@ -1836,12 +1901,14 @@ List<Product> foodPantryCatalog = [
       productID: 5008863,
       category: ProductCategory.food_pantry,
       productName: "COLMAN'S MUSTARD 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/039203_1528884195166.jpg'),
   Product(
       productID: 5008448,
       category: ProductCategory.food_pantry,
       productName: "LADY'S CHOICE REAL MAYONNAISE 470ML",
-      imageURL: '470ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5000864_1528886408683.jpg'),
   Product(
       productID: 5023291,
       category: ProductCategory.food_pantry,
@@ -1852,7 +1919,7 @@ List<Product> foodPantryCatalog = [
       productID: 5040636,
       category: ProductCategory.food_pantry,
       productName: "RED MAN PINE NUT KERNEL 100G",
-      imageURL: '100G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/0010319_1.jpg'),
   Product(
       productID: 5009835,
       category: ProductCategory.food_pantry,
@@ -1897,7 +1964,7 @@ List<Product> foodPantryCatalog = [
       productID: 5033702,
       category: ProductCategory.food_pantry,
       productName: "MCCORMICK CRUSHED RED PEPPER OREGANO & GARLIC 102G",
-      imageURL: '102G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/168573_4.jpg'),
   Product(
       productID: 5059596,
       category: ProductCategory.food_pantry,
@@ -1918,7 +1985,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009231,
       category: ProductCategory.food_pantry,
       productName: "HOSEN PEACH SLICED IN SYRUP 825G",
-      imageURL: '825G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/sliced%20peaches%20in%20syrup%20825gm-01.jpg'),
   Product(
       productID: 5061986,
       category: ProductCategory.food_pantry,
@@ -1952,7 +2020,7 @@ List<Product> foodPantryCatalog = [
       productID: 5010501,
       category: ProductCategory.food_pantry,
       productName: "SING LONG CRISPY CEREAL PRAWN INSTANT MIX 80G",
-      imageURL: '80G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5009289.jpg'),
   Product(
       productID: 5041244,
       category: ProductCategory.food_pantry,
@@ -1968,7 +2036,7 @@ List<Product> foodPantryCatalog = [
       productID: 5023535,
       category: ProductCategory.food_pantry,
       productName: "HOSEN LYCHEE IN SYRUP 234G",
-      imageURL: '234G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5181019.jpg'),
   Product(
       productID: 5051644,
       category: ProductCategory.food_pantry,
@@ -1984,7 +2052,7 @@ List<Product> foodPantryCatalog = [
       productID: 5043096,
       category: ProductCategory.food_pantry,
       productName: "HENG'S NYONYA SAUCE 200G",
-      imageURL: '200G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5043096.jpg'),
   Product(
       productID: 5090590,
       category: ProductCategory.food_pantry,
@@ -1994,7 +2062,7 @@ List<Product> foodPantryCatalog = [
       productID: 5082590,
       category: ProductCategory.food_pantry,
       productName: "NUHA FRIED SHALLOT 180G",
-      imageURL: '180G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5082590.jpg'),
   Product(
       productID: 5058843,
       category: ProductCategory.food_pantry,
@@ -2012,7 +2080,7 @@ List<Product> foodPantryCatalog = [
       productID: 5042930,
       category: ProductCategory.food_pantry,
       productName: "GIANT CHILLI SAUCE 500G",
-      imageURL: '500G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5042930.jpg'),
   Product(
       productID: 5059605,
       category: ProductCategory.food_pantry,
@@ -2028,17 +2096,19 @@ List<Product> foodPantryCatalog = [
       productID: 5043279,
       category: ProductCategory.food_pantry,
       productName: "MAK NYONYA INSTANT ASAM FISH SAUCE 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Asam%20Fish%20Sauce%20Front%201600x1600.jpg'),
   Product(
       productID: 5042831,
       category: ProductCategory.food_pantry,
       productName: "KNIFE RICE BRAN OIL 5L",
-      imageURL: '5L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5143843_1528885972433.jpg'),
   Product(
       productID: 5021570,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE ABALONE SAUCE 535G",
-      imageURL: '535G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5168098.jpg'),
   Product(
       productID: 5011974,
       category: ProductCategory.food_pantry,
@@ -2049,12 +2119,13 @@ List<Product> foodPantryCatalog = [
       productID: 5010118,
       category: ProductCategory.food_pantry,
       productName: "KIKKOMAN TERIYAKI MARINADE ORIGINAL 250ML",
-      imageURL: '250ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Teriyaki%20Marinade%20Original%20250ml-01.jpg'),
   Product(
       productID: 5012657,
       category: ProductCategory.food_pantry,
       productName: "GRAVOX LIQUID GRAVY MUSHROOM GARLIC 165G",
-      imageURL: '165G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/038105.jpg'),
   Product(
       productID: 5040620,
       category: ProductCategory.food_pantry,
@@ -2069,7 +2140,7 @@ List<Product> foodPantryCatalog = [
       productID: 5041672,
       category: ProductCategory.food_pantry,
       productName: "DOUBLE PAGODA GINGER OIL 150ML",
-      imageURL: '150ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/g.oil%201_1.jpg'),
   Product(
       productID: 5010288,
       category: ProductCategory.food_pantry,
@@ -2080,7 +2151,8 @@ List<Product> foodPantryCatalog = [
       productID: 5040787,
       category: ProductCategory.food_pantry,
       productName: "EARTHEN POT SICHUAN PEPPER CORN 27G",
-      imageURL: '27G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1227603_1528883893399.jpg'),
   Product(
       productID: 5008125,
       category: ProductCategory.food_pantry,
@@ -2097,7 +2169,7 @@ List<Product> foodPantryCatalog = [
       productID: 5018981,
       category: ProductCategory.food_pantry,
       productName: "DANCING CHEF BUTTER CHICKEN PASTE 100G",
-      imageURL: '100G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5018981.jpg'),
   Product(
       productID: 5010497,
       category: ProductCategory.food_pantry,
@@ -2107,7 +2179,7 @@ List<Product> foodPantryCatalog = [
       productID: 5008654,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE VEGETARIAN OYSTER FLAVOURED SAUCE 510G",
-      imageURL: '510G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1092445.jpg'),
   Product(
       productID: 5088118,
       category: ProductCategory.food_pantry,
@@ -2129,12 +2201,13 @@ List<Product> foodPantryCatalog = [
       productID: 5009318,
       category: ProductCategory.food_pantry,
       productName: "NATUREL PURE OLIVE OIL - MILD AND FRUITY 750ML",
-      imageURL: '750ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8410660513437.jpg'),
   Product(
       productID: 5040651,
       category: ProductCategory.food_pantry,
       productName: "FORTUNE ABALONE SAUCE 380G",
-      imageURL: '380G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5001071.jpg'),
   Product(
       productID: 5042159,
       category: ProductCategory.food_pantry,
@@ -2151,17 +2224,19 @@ List<Product> foodPantryCatalog = [
       productID: 5021296,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND URID DHALL WHOLE 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128751_1528887406786.jpg'),
   Product(
       productID: 5008670,
       category: ProductCategory.food_pantry,
-      productName: " RICOTTA & SPINACH 500G" "PASTA BAKE - TOMATO",
-      imageURL: ' Ricotta & Spinach 500g"'),
+      productName: "LEGGO'S PASTA BAKE - TOMATO, RICOTTA & SPINACH 500G",
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5084927.jpg'),
   Product(
       productID: 5043269,
       category: ProductCategory.food_pantry,
       productName: "A1 INSTANT CHILLI CRAB SAUCE 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5157003_1528884671056.jpg'),
   Product(
       productID: 5051652,
       category: ProductCategory.food_pantry,
@@ -2177,7 +2252,8 @@ List<Product> foodPantryCatalog = [
       productID: 5002161,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE BLACK PEPPER SAUCE 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/153315_1528885235330.jpg'),
   Product(
       productID: 5098439,
       category: ProductCategory.food_pantry,
@@ -2225,7 +2301,7 @@ List<Product> foodPantryCatalog = [
       productID: 5033461,
       category: ProductCategory.food_pantry,
       productName: "LADY'S CHOICE REAL MAYONNAISE 220ML",
-      imageURL: '220ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/168343.jpg'),
   Product(
       productID: 5064928,
       category: ProductCategory.food_pantry,
@@ -2253,7 +2329,8 @@ List<Product> foodPantryCatalog = [
       productID: 5023891,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN CHILLI PRAWN CRUNCH 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/119409_1528884196847.jpg'),
   Product(
       productID: 5008123,
       category: ProductCategory.food_pantry,
@@ -2269,7 +2346,7 @@ List<Product> foodPantryCatalog = [
       productID: 5082594,
       category: ProductCategory.food_pantry,
       productName: "ABC SAMBAL TERASI 190G",
-      imageURL: '190G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5082594.jpg'),
   Product(
       productID: 5054341,
       category: ProductCategory.food_pantry,
@@ -2286,12 +2363,12 @@ List<Product> foodPantryCatalog = [
       productID: 5009778,
       category: ProductCategory.food_pantry,
       productName: "HOLLYFARMS CORN FLOUR 400G",
-      imageURL: '400G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5094600.jpg'),
   Product(
       productID: 5097600,
       category: ProductCategory.food_pantry,
       productName: "OKI ORIGINAL CRISPY FRIED CHICKEN COATING 120G",
-      imageURL: '120G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5097600.jpg'),
   Product(
       productID: 5044645,
       category: ProductCategory.food_pantry,
@@ -2302,7 +2379,8 @@ List<Product> foodPantryCatalog = [
       productID: 5055808,
       category: ProductCategory.food_pantry,
       productName: "TOA SENG KONG HEALTHY HERBAL CHICKEN SOUP SPICES 40G",
-      imageURL: '40G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5188111_1528884645044.jpg'),
   Product(
       productID: 5009320,
       category: ProductCategory.food_pantry,
@@ -2313,7 +2391,8 @@ List<Product> foodPantryCatalog = [
       productID: 5051082,
       category: ProductCategory.food_pantry,
       productName: "NORSIDAH INSTANT TAUHU GORENG GRAVY 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5165020_1528884208451.jpg'),
   Product(
       productID: 5010291,
       category: ProductCategory.food_pantry,
@@ -2345,7 +2424,7 @@ List<Product> foodPantryCatalog = [
       productID: 5008724,
       category: ProductCategory.food_pantry,
       productName: "MCCORMICK SEASON'N FRY GARLIC 45G",
-      imageURL: '45G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/012989.jpg'),
   Product(
       productID: 5009315,
       category: ProductCategory.food_pantry,
@@ -2361,7 +2440,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008733,
       category: ProductCategory.food_pantry,
       productName: "PRAISE COLESLAW 99% FAT FREE 330ML",
-      imageURL: '330ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5008733_01_5008733.jpg'),
   Product(
       productID: 5028331,
       category: ProductCategory.food_pantry,
@@ -2372,7 +2452,7 @@ List<Product> foodPantryCatalog = [
       productID: 5023195,
       category: ProductCategory.food_pantry,
       productName: "MIZKAN PORK BONE & SOY SAUCE 750G",
-      imageURL: '750G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/rsz_5023195.jpg'),
   Product(
       productID: 5053249,
       category: ProductCategory.food_pantry,
@@ -2383,7 +2463,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041378,
       category: ProductCategory.food_pantry,
       productName: "SEAH'S BLACK PEPPER CRAB SPICES 30G",
-      imageURL: '30G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5025588_1528884502827.jpg'),
   Product(
       productID: 5039732,
       category: ProductCategory.food_pantry,
@@ -2418,7 +2499,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041173,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA STANDARD DARK SOYA SAUCE 2L",
-      imageURL: '2L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/3066334_1528885141002.jpg'),
   Product(
       productID: 5010340,
       category: ProductCategory.food_pantry,
@@ -2435,12 +2517,13 @@ List<Product> foodPantryCatalog = [
       productID: 5029184,
       category: ProductCategory.food_pantry,
       productName: "KNIFE THAI DIPPING SAUCE 170G",
-      imageURL: '170G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8850213011704.jpg'),
   Product(
       productID: 5009364,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS SEASONING BAY LEAVES 2G",
-      imageURL: '2G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5009364_01.jpg'),
   Product(
       productID: 5001940,
       category: ProductCategory.food_pantry,
@@ -2468,7 +2551,8 @@ List<Product> foodPantryCatalog = [
       productID: 5096470,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE XO SAUCE EXTRA HOT GIFT BOX 475G",
-      imageURL: '475G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/xo_giftbox_Spicy_Front.jpg'),
   Product(
       productID: 5008928,
       category: ProductCategory.food_pantry,
@@ -2485,7 +2569,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009352,
       category: ProductCategory.food_pantry,
       productName: "KNIFE SALTED SOY BEAN 315G",
-      imageURL: '315G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8850025335982.jpg'),
   Product(
       productID: 5041166,
       category: ProductCategory.food_pantry,
@@ -2496,7 +2581,8 @@ List<Product> foodPantryCatalog = [
       productID: 5020051,
       category: ProductCategory.food_pantry,
       productName: "JIA JIA WANG FRIED SHALLOT W/ OIL 350G",
-      imageURL: '350BOT'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2020315_1528885385782.jpg'),
   Product(
       productID: 5009238,
       category: ProductCategory.food_pantry,
@@ -2525,7 +2611,8 @@ List<Product> foodPantryCatalog = [
       productID: 5017226,
       category: ProductCategory.food_pantry,
       productName: "JIA JIA WANG FRIED GARLIC 250G",
-      imageURL: '250BOT'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2020316_1528884199593.jpg'),
   Product(
       productID: 5024711,
       category: ProductCategory.food_pantry,
@@ -2540,7 +2627,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041616,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE PANDA BRAND OYSTER SAUCE 770G",
-      imageURL: '770G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1623950680_3041125_1.jpg'),
   Product(
       productID: 5002042,
       category: ProductCategory.food_pantry,
@@ -2557,7 +2645,7 @@ List<Product> foodPantryCatalog = [
       productID: 5008490,
       category: ProductCategory.food_pantry,
       productName: "HEINZ SANDWICH SPREAD 270G",
-      imageURL: '300G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1011675.jpg'),
   Product(
       productID: 5039415,
       category: ProductCategory.food_pantry,
@@ -2585,7 +2673,7 @@ List<Product> foodPantryCatalog = [
       productID: 5009343,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS FINISHING SAUCE - MUSHROOM & WHITE WINE 165G",
-      imageURL: '165G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5009343.jpg'),
   Product(
       productID: 5010317,
       category: ProductCategory.food_pantry,
@@ -2618,17 +2706,18 @@ List<Product> foodPantryCatalog = [
       productID: 5041371,
       category: ProductCategory.food_pantry,
       productName: "SEAH'S EMPEROR HERBS CHICKEN SPICES 23G",
-      imageURL: '23G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Emperor%20Chicken.jpg'),
   Product(
       productID: 5040643,
       category: ProductCategory.food_pantry,
       productName: "RED MAN ALMOND SLIVERED BLANCHED 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/0000917_1.jpg'),
   Product(
       productID: 5082562,
       category: ProductCategory.food_pantry,
       productName: "MALABAR MALABAR CORRIANDER SEED 70G",
-      imageURL: '70G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5082562.jpg'),
   Product(
       productID: 5010216,
       category: ProductCategory.food_pantry,
@@ -2667,7 +2756,7 @@ List<Product> foodPantryCatalog = [
       productID: 5009855,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA SEAFOOD SOY SAUCE 305ML",
-      imageURL: '305ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1247147.jpg'),
   Product(
       productID: 5098436,
       category: ProductCategory.food_pantry,
@@ -2678,7 +2767,8 @@ List<Product> foodPantryCatalog = [
       productID: 5042540,
       category: ProductCategory.food_pantry,
       productName: "CRAB GROUND TURMERIC POWDER 15G",
-      imageURL: '15G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5130364_1528887487321.jpg'),
   Product(
       productID: 5052012,
       category: ProductCategory.food_pantry,
@@ -2688,7 +2778,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009959,
       category: ProductCategory.food_pantry,
       productName: "YIFON TOP SHELL 312G",
-      imageURL: '312G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1115797_1528884463035.jpg'),
   Product(
       productID: 5043136,
       category: ProductCategory.food_pantry,
@@ -2705,7 +2796,7 @@ List<Product> foodPantryCatalog = [
       productID: 5044470,
       category: ProductCategory.food_pantry,
       productName: "ADABI SOUP SPICES (SUB BUNJUT) 8G",
-      imageURL: '8G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1012536.jpg'),
   Product(
       productID: 5010581,
       category: ProductCategory.food_pantry,
@@ -2728,12 +2819,12 @@ List<Product> foodPantryCatalog = [
       productID: 5042829,
       category: ProductCategory.food_pantry,
       productName: "LONGMEI TOP SHELL IN SAUCE 312G",
-      imageURL: '312G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5143754.jpg'),
   Product(
       productID: 5008659,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE SUPERIOR LIGHT SOY SAUCE 500ML",
-      imageURL: '500ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3104032.jpg'),
   Product(
       productID: 5041073,
       category: ProductCategory.food_pantry,
@@ -2748,12 +2839,13 @@ List<Product> foodPantryCatalog = [
       productID: 5059191,
       category: ProductCategory.food_pantry,
       productName: "MAK NYONYA INSTANT MARINADE PASTE FOR FRIED CHICKEN 150G",
-      imageURL: '150G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5198731_1528884843186.jpg'),
   Product(
       productID: 5042339,
       category: ProductCategory.food_pantry,
       productName: "SING LONG EAGLE PRAWN PASTE 227G",
-      imageURL: '227G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1217417.jpg'),
   Product(
       productID: 5002296,
       category: ProductCategory.food_pantry,
@@ -2763,17 +2855,19 @@ List<Product> foodPantryCatalog = [
       productID: 5008098,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS SEASONING DIJON MUSTARD 170G",
-      imageURL: '170G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/049452_152888687917.jpg'),
   Product(
       productID: 5086949,
       category: ProductCategory.food_pantry,
       productName: "HUNT'S SPAGHETTI TOMATO BASIL & CHEESE 1KG",
-      imageURL: '1KG'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5086949.jpg'),
   Product(
       productID: 5002156,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE LAKSA 225G",
-      imageURL: '225G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1781768253_Laksa.jpg'),
   Product(
       productID: 5059591,
       category: ProductCategory.food_pantry,
@@ -2784,7 +2878,7 @@ List<Product> foodPantryCatalog = [
       productID: 5009756,
       category: ProductCategory.food_pantry,
       productName: "KCT LIGHT SOYA SAUCE SUPERIOR 640ML",
-      imageURL: '640ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3025068.jpg'),
   Product(
       productID: 5101011,
       category: ProductCategory.food_pantry,
@@ -2811,7 +2905,8 @@ List<Product> foodPantryCatalog = [
       productID: 5043271,
       category: ProductCategory.food_pantry,
       productName: "A1 INSTANT CEREAL PRAWN MIX 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5157020_1528887560820.jpg'),
   Product(
       productID: 5009065,
       category: ProductCategory.food_pantry,
@@ -2832,7 +2927,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009930,
       category: ProductCategory.food_pantry,
       productName: "S&W PEACH HALVES EXTRA FIRM IN SYRUP 825G",
-      imageURL: '825G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/620021_1528883512347.jpg'),
   Product(
       productID: 5085904,
       category: ProductCategory.food_pantry,
@@ -2860,7 +2956,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008674,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE SEAFOOD SEASONED SOY SAUCE 410ML",
-      imageURL: '410ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/3005138_1528886725707.jpg'),
   Product(
       productID: 5023293,
       category: ProductCategory.food_pantry,
@@ -2882,7 +2979,8 @@ List<Product> foodPantryCatalog = [
       productID: 5043177,
       category: ProductCategory.food_pantry,
       productName: "SING LONG MEAT CURRY SAUCE 120G",
-      imageURL: '120G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5155545_1528886765799.jpg'),
   Product(
       productID: 5034315,
       category: ProductCategory.food_pantry,
@@ -2898,7 +2996,7 @@ List<Product> foodPantryCatalog = [
       productID: 5041869,
       category: ProductCategory.food_pantry,
       productName: "WOH HUP PLUM PASTE 400G",
-      imageURL: '400G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5009345.jpg'),
   Product(
       productID: 5002031,
       category: ProductCategory.food_pantry,
@@ -2921,7 +3019,7 @@ List<Product> foodPantryCatalog = [
       productID: 5041167,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA PRESERVED SOYA BEANS 380G",
-      imageURL: '380G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3066339.jpg'),
   Product(
       productID: 5008851,
       category: ProductCategory.food_pantry,
@@ -2937,12 +3035,14 @@ List<Product> foodPantryCatalog = [
       productID: 5017543,
       category: ProductCategory.food_pantry,
       productName: "HOUSE VERMONT CURRY SAUCE MIX HOT 230G",
-      imageURL: '230G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1227220_1528885317130.jpg'),
   Product(
       productID: 5041780,
       category: ProductCategory.food_pantry,
       productName: "BAKE KING STRIP ALMOND 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/BK%20Strip%20Almond.jpg'),
   Product(
       productID: 5010179,
       category: ProductCategory.food_pantry,
@@ -2958,7 +3058,8 @@ List<Product> foodPantryCatalog = [
       productID: 5044873,
       category: ProductCategory.food_pantry,
       productName: "MALABAR WHITE PEPPER 70G",
-      imageURL: '70G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128306_1528886811467.jpg'),
   Product(
       productID: 5094392,
       category: ProductCategory.food_pantry,
@@ -2968,12 +3069,14 @@ List<Product> foodPantryCatalog = [
       productID: 5009837,
       category: ProductCategory.food_pantry,
       productName: "DEL MONTE PEACH HALVES IN SYRUP 825G",
-      imageURL: '825G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/620025_1528887617240.jpg'),
   Product(
       productID: 5041368,
       category: ProductCategory.food_pantry,
       productName: "SEAH'S SINGAPORE BAK KUT TEH SPICES 32G",
-      imageURL: '32G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5025562_1528884425765.jpg'),
   Product(
       productID: 5008740,
       category: ProductCategory.food_pantry,
@@ -2989,7 +3092,8 @@ List<Product> foodPantryCatalog = [
       productID: 5051080,
       category: ProductCategory.food_pantry,
       productName: "NORSIDAH INSTANT PEANUT GRAVY 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5165018_1528883721002.jpg'),
   Product(
       productID: 5093896,
       category: ProductCategory.food_pantry,
@@ -2999,7 +3103,7 @@ List<Product> foodPantryCatalog = [
       productID: 5088705,
       category: ProductCategory.food_pantry,
       productName: "AVOFRESH SOFT AVOCADO WITH HINT OF LEMON",
-      imageURL: '160G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5088705.jpg'),
   Product(
       productID: 5040450,
       category: ProductCategory.food_pantry,
@@ -3021,7 +3125,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008677,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE PLUM SAUCE 260G",
-      imageURL: '260G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Plum-Sauce-260g-mini-SG_1.jpg'),
   Product(
       productID: 5002311,
       category: ProductCategory.food_pantry,
@@ -3032,12 +3137,12 @@ List<Product> foodPantryCatalog = [
       productID: 5020345,
       category: ProductCategory.food_pantry,
       productName: "TAHO CHINCHALOK CHILLI SAUCE 180G",
-      imageURL: '180G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/2051257a.jpg'),
   Product(
       productID: 5040788,
       category: ProductCategory.food_pantry,
       productName: "EARTHEN POT CARDAMON SEED 40G",
-      imageURL: '40G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5040788.jpg'),
   Product(
       productID: 5009248,
       category: ProductCategory.food_pantry,
@@ -3053,7 +3158,7 @@ List<Product> foodPantryCatalog = [
       productID: 5023068,
       category: ProductCategory.food_pantry,
       productName: "SINSIN SWEET THAI CHILLI SAUCE 315G",
-      imageURL: '315G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5023068.jpg'),
   Product(
       productID: 5012123,
       category: ProductCategory.food_pantry,
@@ -3102,17 +3207,18 @@ List<Product> foodPantryCatalog = [
       productID: 5036463,
       category: ProductCategory.food_pantry,
       productName: "KOI FISH DRIED BEANCURD STICK 100G",
-      imageURL: '100G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5214655.jpg'),
   Product(
       productID: 5018583,
       category: ProductCategory.food_pantry,
       productName: "TAHO LEMON CHILLI SAUCE 180G",
-      imageURL: '180G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/2095925a.jpg'),
   Product(
       productID: 5040426,
       category: ProductCategory.food_pantry,
       productName: "BABA'S TUMERIC POWDER 125G",
-      imageURL: '125G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5139418_1528884888475.jpg'),
   Product(
       productID: 5008748,
       category: ProductCategory.food_pantry,
@@ -3148,7 +3254,8 @@ List<Product> foodPantryCatalog = [
       productID: 5007886,
       category: ProductCategory.food_pantry,
       productName: "MCCORMICK ROSEMARY LEAVES 9G",
-      imageURL: '9G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/726105_1528884579274.jpg'),
   Product(
       productID: 5057316,
       category: ProductCategory.food_pantry,
@@ -3170,7 +3277,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008683,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE XO SAUCE EXTRA HOT 220G",
-      imageURL: '220G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1237774_1528883975359.jpg'),
   Product(
       productID: 5100342,
       category: ProductCategory.food_pantry,
@@ -3224,7 +3332,8 @@ List<Product> foodPantryCatalog = [
       productID: 5028529,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN CHICKEN CURRY PASTE 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5198220_1528885196450.jpg'),
   Product(
       productID: 5011502,
       category: ProductCategory.food_pantry,
@@ -3241,7 +3350,8 @@ List<Product> foodPantryCatalog = [
       productID: 5089072,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE SEAFOOD SOY SAUCE 500ML",
-      imageURL: '500ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5089072%20LKK%20Seafood%20Soy%20Sauce%20500ml.jpg'),
   Product(
       productID: 5009228,
       category: ProductCategory.food_pantry,
@@ -3274,7 +3384,8 @@ List<Product> foodPantryCatalog = [
       productID: 5096469,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE XO SAUCE 220G + OYSTER SAUCE 255G",
-      imageURL: '475G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/xo_giftbox_Front.jpg'),
   Product(
       productID: 5022042,
       category: ProductCategory.food_pantry,
@@ -3285,7 +3396,8 @@ List<Product> foodPantryCatalog = [
       productID: 5046261,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND TURMERIC POWDER 125G",
-      imageURL: '125G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128738_1528885000057.jpg'),
   Product(
       productID: 5041694,
       category: ProductCategory.food_pantry,
@@ -3296,17 +3408,20 @@ List<Product> foodPantryCatalog = [
       productID: 5009798,
       category: ProductCategory.food_pantry,
       productName: "SING LONG SAMBAL BELACHAN POWDER 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Sing%20Long%20Sambal%20Belachan%20Powder%20200g.jpg'),
   Product(
       productID: 5001950,
       category: ProductCategory.food_pantry,
       productName: "SING LONG SINGAPORE LAKSA SAUCE 120G",
-      imageURL: '120G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5166296_1528884311474.jpg'),
   Product(
       productID: 5043273,
       category: ProductCategory.food_pantry,
       productName: "MAK NYONYA INSTANT CHICKEN RICE SAUCE 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128960_1528885996801.jpg'),
   Product(
       productID: 5002329,
       category: ProductCategory.food_pantry,
@@ -3328,7 +3443,7 @@ List<Product> foodPantryCatalog = [
       productID: 5009851,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA SUPERIOR DARK SOY SAUCE 640ML",
-      imageURL: '640ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1197418.jpg'),
   Product(
       productID: 5033677,
       category: ProductCategory.food_pantry,
@@ -3351,7 +3466,7 @@ List<Product> foodPantryCatalog = [
       productID: 5024638,
       category: ProductCategory.food_pantry,
       productName: "HYOSUNG SEAWEED STIR FRIED 70G",
-      imageURL: '70G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5024638.jpg'),
   Product(
       productID: 5008596,
       category: ProductCategory.food_pantry,
@@ -3367,7 +3482,7 @@ List<Product> foodPantryCatalog = [
       productID: 5041176,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA SWEET SAUCE 320ML",
-      imageURL: '320ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3066364.jpg'),
   Product(
       productID: 5025589,
       category: ProductCategory.food_pantry,
@@ -3384,7 +3499,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009528,
       category: ProductCategory.food_pantry,
       productName: "EARTHEN POT CHICKEN CURRY POWDER 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1103337_1528885335999.jpg'),
   Product(
       productID: 5050722,
       category: ProductCategory.food_pantry,
@@ -3423,7 +3539,8 @@ List<Product> foodPantryCatalog = [
       productID: 5043430,
       category: ProductCategory.food_pantry,
       productName: "MAHSURI KICAP MANIS PEDAS 410ML",
-      imageURL: '410ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5043430%20Mahsuri%20Pedas_410ml%20_1_.jpg'),
   Product(
       productID: 5042215,
       category: ProductCategory.food_pantry,
@@ -3451,7 +3568,8 @@ List<Product> foodPantryCatalog = [
       productID: 5063428,
       category: ProductCategory.food_pantry,
       productName: "PAGODA DRIED BLACK MOSS (FACAI) 20G",
-      imageURL: '20G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5208171_1528884594645.jpg'),
   Product(
       productID: 5041140,
       category: ProductCategory.food_pantry,
@@ -3468,7 +3586,7 @@ List<Product> foodPantryCatalog = [
       productID: 5041171,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA STANDARD LIGHT SOY SAUCE 5L",
-      imageURL: '5L'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1197439.jpg'),
   Product(
       productID: 5051598,
       category: ProductCategory.food_pantry,
@@ -3485,12 +3603,14 @@ List<Product> foodPantryCatalog = [
       productID: 5024424,
       category: ProductCategory.food_pantry,
       productName: "KEWPIE ROASTED SESAME DRESSING 210ML",
-      imageURL: '210ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/168759_1528887646706.jpg'),
   Product(
       productID: 5048908,
       category: ProductCategory.food_pantry,
       productName: "3A INSTANT TOM YAM PASTE 227G",
-      imageURL: '227G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1335626_1528886905985.jpg'),
   Product(
       productID: 5002246,
       category: ProductCategory.food_pantry,
@@ -3506,7 +3626,7 @@ List<Product> foodPantryCatalog = [
       productID: 5014588,
       category: ProductCategory.food_pantry,
       productName: "DANCING CHEF TIKKA MASALA 100G",
-      imageURL: '100G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5014588.jpg'),
   Product(
       productID: 5010495,
       category: ProductCategory.food_pantry,
@@ -3534,17 +3654,18 @@ List<Product> foodPantryCatalog = [
       productID: 5041648,
       category: ProductCategory.food_pantry,
       productName: "TIGER SPECIAL GRADE LIGHT SOYA SAUCE 640ML",
-      imageURL: '0640ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/57_1.jpg'),
   Product(
       productID: 5040635,
       category: ProductCategory.food_pantry,
       productName: "RED MAN PECAN NUT 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/0000993_1.jpg'),
   Product(
       productID: 5076262,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS CAESAR DRESSING 300ML",
-      imageURL: '300ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/401399555_Meadows_Caesar%20dressing%20305g_V17-01_mockup%20copy.jpg'),
   Product(
       productID: 5009250,
       category: ProductCategory.food_pantry,
@@ -3571,7 +3692,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009595,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE SAMBAL BELACHAN PASTE 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/030668_1528885796844.jpg'),
   Product(
       productID: 5013705,
       category: ProductCategory.food_pantry,
@@ -3588,7 +3710,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041084,
       category: ProductCategory.food_pantry,
       productName: "0101 CINNAMON STICKS 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/0101%20Cinnamon%20Sticks%2050g_1.jpg'),
   Product(
       productID: 5024244,
       category: ProductCategory.food_pantry,
@@ -3598,7 +3721,7 @@ List<Product> foodPantryCatalog = [
       productID: 5091152,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS CORIANDER SEEDS 80G",
-      imageURL: '80G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5091152.jpg'),
   Product(
       productID: 5056810,
       category: ProductCategory.food_pantry,
@@ -3609,7 +3732,7 @@ List<Product> foodPantryCatalog = [
       productID: 5042925,
       category: ProductCategory.food_pantry,
       productName: "GIANT THAI CHILLI SAUCE 330G",
-      imageURL: '330G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5066210.jpg'),
   Product(
       productID: 5001965,
       category: ProductCategory.food_pantry,
@@ -3619,7 +3742,7 @@ List<Product> foodPantryCatalog = [
       productID: 5051301,
       category: ProductCategory.food_pantry,
       productName: "HENG'S CRISPY CUTTLEFISH CHILLI +/-180G",
-      imageURL: '180G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5167202.jpg'),
   Product(
       productID: 5015750,
       category: ProductCategory.food_pantry,
@@ -3630,7 +3753,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008685,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE SWEET SOUR PORK SPARE RIBS SAUCE 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1237646_lkk_sweetsourporksauce.jpg'),
   Product(
       productID: 5002302,
       category: ProductCategory.food_pantry,
@@ -3640,7 +3764,7 @@ List<Product> foodPantryCatalog = [
       productID: 5041375,
       category: ProductCategory.food_pantry,
       productName: "SEAH'S BUDDHA JUMP OVER THE WALL SPICES 35G",
-      imageURL: '35G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/Buddha.png'),
   Product(
       productID: 5081073,
       category: ProductCategory.food_pantry,
@@ -3650,12 +3774,12 @@ List<Product> foodPantryCatalog = [
       productID: 5091153,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS CUMIN SEEDS 78G",
-      imageURL: '78G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5091153.jpg'),
   Product(
       productID: 5009848,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA STANDARD LIGHT SOY SAUCE 640ML",
-      imageURL: '640ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1197435.jpg'),
   Product(
       productID: 5009116,
       category: ProductCategory.food_pantry,
@@ -3677,7 +3801,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009594,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE SAYUR LODEH 195G",
-      imageURL: '195G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/154849_1528885290195.jpg'),
   Product(
       productID: 5076687,
       category: ProductCategory.food_pantry,
@@ -3688,7 +3813,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008096,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS SEASONING ROAST LAMB 42G",
-      imageURL: '42G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/133146_1528883960200.jpg'),
   Product(
       productID: 5002351,
       category: ProductCategory.food_pantry,
@@ -3705,7 +3831,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008696,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE SEAFOOD SOUP BASE HOTPOT 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1268407_1528886360417_1.jpg'),
   Product(
       productID: 5015159,
       category: ProductCategory.food_pantry,
@@ -3716,7 +3843,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041172,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA SPECIAL DARK SOY SAUCE 320ML",
-      imageURL: '320ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/3066299_1528886350516.jpg'),
   Product(
       productID: 5002040,
       category: ProductCategory.food_pantry,
@@ -3745,12 +3873,14 @@ List<Product> foodPantryCatalog = [
       productID: 5046306,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND CUMIN SEEDS 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128742_1528883697689.jpg'),
   Product(
       productID: 5008425,
       category: ProductCategory.food_pantry,
       productName: "HOLLYFARMS TOM YAM PASTE 227G",
-      imageURL: '227G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/HF%20Tom%20Yam%20Paste%20227g.jpg'),
   Product(
       productID: 5076075,
       category: ProductCategory.food_pantry,
@@ -3771,7 +3901,8 @@ List<Product> foodPantryCatalog = [
       productID: 5043274,
       category: ProductCategory.food_pantry,
       productName: "MAK NYONYA INSTANT TOM YAM SAUCE 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Tom%20Yam%20Sauce%20Front%201600x1600.jpg'),
   Product(
       productID: 5009196,
       category: ProductCategory.food_pantry,
@@ -3804,7 +3935,7 @@ List<Product> foodPantryCatalog = [
       productID: 5042336,
       category: ProductCategory.food_pantry,
       productName: "HOLLYFARMS ALL PURPOSE SEASONED FLOUR 200G",
-      imageURL: '200G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1167115.jpg'),
   Product(
       productID: 5039727,
       category: ProductCategory.food_pantry,
@@ -3821,7 +3952,7 @@ List<Product> foodPantryCatalog = [
       productID: 5091157,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS PANDAN SAGO 200G",
-      imageURL: '200G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5091157.jpg'),
   Product(
       productID: 5009557,
       category: ProductCategory.food_pantry,
@@ -3843,7 +3974,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009349,
       category: ProductCategory.food_pantry,
       productName: "WOH HUP HAINANESE CHICKEN RICE PASTE 190G",
-      imageURL: '190G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1308317_1528884882123.jpg'),
   Product(
       productID: 5011847,
       category: ProductCategory.food_pantry,
@@ -3870,17 +4002,20 @@ List<Product> foodPantryCatalog = [
       productID: 5017590,
       category: ProductCategory.food_pantry,
       productName: "SEAWAVES VEGETABLE MEAT DUMPLING 675G",
-      imageURL: '675G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1271268_1528886848407.jpg'),
   Product(
       productID: 5011573,
       category: ProductCategory.food_pantry,
       productName: "A1 INSTANT FISH CURRY SAUCE 240G",
-      imageURL: '240G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/3067733_1528886285271.jpg'),
   Product(
       productID: 5040709,
       category: ProductCategory.food_pantry,
       productName: "KNIFE THAI FISH SAUCE 300ML",
-      imageURL: '300ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8850581172007.jpg'),
   Product(
       productID: 5040711,
       category: ProductCategory.food_pantry,
@@ -3891,7 +4026,7 @@ List<Product> foodPantryCatalog = [
       productID: 5008804,
       category: ProductCategory.food_pantry,
       productName: "TIGER STANDARD LIGHT SOYA SAUCE 640ML",
-      imageURL: '0640ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/Standard.jpg'),
   Product(
       productID: 5052934,
       category: ProductCategory.food_pantry,
@@ -3914,12 +4049,14 @@ List<Product> foodPantryCatalog = [
       productID: 5008994,
       category: ProductCategory.food_pantry,
       productName: "CHNG KEE CHILLI CRAB SAUCE 240ML",
-      imageURL: '240ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8888629991891.jpg'),
   Product(
       productID: 5019156,
       category: ProductCategory.food_pantry,
       productName: "RICE FIELD RICE BRAN OIL 1L",
-      imageURL: '1L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1L%20RiceField%20Rice%20Bran%20Oil.jpg'),
   Product(
       productID: 5101007,
       category: ProductCategory.food_pantry,
@@ -3947,12 +4084,13 @@ List<Product> foodPantryCatalog = [
       productID: 5075341,
       category: ProductCategory.food_pantry,
       productName: "CJ DADAM CHICKEN DERIYAKI SAUCE 140G",
-      imageURL: '140G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5075341.jpg'),
   Product(
       productID: 5043277,
       category: ProductCategory.food_pantry,
       productName: "MAK NYONYA INSTANT FISH CURRY SAUCE 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Fish%20Curry%20Sauce%20Front%201600x1600.jpg'),
   Product(
       productID: 5039407,
       category: ProductCategory.food_pantry,
@@ -3962,7 +4100,7 @@ List<Product> foodPantryCatalog = [
       productID: 5095328,
       category: ProductCategory.food_pantry,
       productName: "FRUITSDEMER MARINATED SARDINES WITH BASIL 200G",
-      imageURL: '200G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5095328.jpg'),
   Product(
       productID: 5057085,
       category: ProductCategory.food_pantry,
@@ -3978,12 +4116,13 @@ List<Product> foodPantryCatalog = [
       productID: 5042679,
       category: ProductCategory.food_pantry,
       productName: "TIGER PREMIUM OYSTER SAUCE 5L",
-      imageURL: '5L'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/02_1.jpg'),
   Product(
       productID: 5042860,
       category: ProductCategory.food_pantry,
       productName: "NEW MOON VEGETABLE CURRY PASTE 120G",
-      imageURL: '120G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5146938_1528883497304.jpg'),
   Product(
       productID: 5042885,
       category: ProductCategory.food_pantry,
@@ -4004,7 +4143,7 @@ List<Product> foodPantryCatalog = [
       productID: 5020510,
       category: ProductCategory.food_pantry,
       productName: "AAA SOY BEAN PASTE WITH CHILLI 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1085748.jpg'),
   Product(
       productID: 5002051,
       category: ProductCategory.food_pantry,
@@ -4025,7 +4164,8 @@ List<Product> foodPantryCatalog = [
       productID: 5058768,
       category: ProductCategory.food_pantry,
       productName: "SEAWAVES SPICY VEGETABLE DUMPLING 675G",
-      imageURL: '675G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5197551_1528884098565.jpg'),
   Product(
       productID: 5042233,
       category: ProductCategory.food_pantry,
@@ -4054,7 +4194,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009371,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS HONEY MUSTARD 275G",
-      imageURL: '275G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5009371_01_5009371.jpg'),
   Product(
       productID: 5008884,
       category: ProductCategory.food_pantry,
@@ -4114,7 +4255,8 @@ List<Product> foodPantryCatalog = [
       productID: 5051079,
       category: ProductCategory.food_pantry,
       productName: "NORSIDAH INSTANT SATAY GRAVY 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5165017_1528885571702.jpg'),
   Product(
       productID: 5052930,
       category: ProductCategory.food_pantry,
@@ -4131,12 +4273,13 @@ List<Product> foodPantryCatalog = [
       productID: 5075342,
       category: ProductCategory.food_pantry,
       productName: "CJ DADAM SPICY PORK BULGOGI SAUCE 150G",
-      imageURL: '150G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5075342.jpg'),
   Product(
       productID: 5030012,
       category: ProductCategory.food_pantry,
       productName: "EMBORG PASTA CREAM 200G",
-      imageURL: '200ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/U00316_Emborg%20SG%20Digital%20Images_Perfect%20Pasta_Front_1600%20x%201600px.jpg'),
   Product(
       productID: 5009313,
       category: ProductCategory.food_pantry,
@@ -4157,7 +4300,7 @@ List<Product> foodPantryCatalog = [
       productID: 5051208,
       category: ProductCategory.food_pantry,
       productName: "LAOGANMA SPICY BEAN PASTE 200G",
-      imageURL: '210G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5166165_3.jpg'),
   Product(
       productID: 5010290,
       category: ProductCategory.food_pantry,
@@ -4179,12 +4322,14 @@ List<Product> foodPantryCatalog = [
       productID: 5021145,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND TOOR DHALL 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128763_1528887172915.jpg'),
   Product(
       productID: 5002162,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE LAKSA FRIED RICE 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/104477_1528885438399.jpg'),
   Product(
       productID: 5002247,
       category: ProductCategory.food_pantry,
@@ -4194,7 +4339,8 @@ List<Product> foodPantryCatalog = [
       productID: 5049324,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND BRIYANI MASALA 125G",
-      imageURL: '125G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128748_1528884245041.jpg'),
   Product(
       productID: 5057734,
       category: ProductCategory.food_pantry,
@@ -4205,12 +4351,14 @@ List<Product> foodPantryCatalog = [
       productID: 5042015,
       category: ProductCategory.food_pantry,
       productName: "KCT DARK SOYA SAUCE BEST 640ML",
-      imageURL: '640ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/3025071_1528883511639.jpg'),
   Product(
       productID: 5043278,
       category: ProductCategory.food_pantry,
       productName: "MAK NYONYA INSTANT RENDANG SAUCE 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Rendang%20Sauce%20Front%201600x1600.jpg'),
   Product(
       productID: 5010388,
       category: ProductCategory.food_pantry,
@@ -4245,7 +4393,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008684,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE XO SAUCE REGULAR 220G",
-      imageURL: '220G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1237772_1528883506545.jpg'),
   Product(
       productID: 5008757,
       category: ProductCategory.food_pantry,
@@ -4261,12 +4410,13 @@ List<Product> foodPantryCatalog = [
       productID: 5042142,
       category: ProductCategory.food_pantry,
       productName: "MILI PREMIUM VEGETARIAN MUSHROOM OYSTER SAUCE 510G",
-      imageURL: '510G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5017390.jpg'),
   Product(
       productID: 5043144,
       category: ProductCategory.food_pantry,
       productName: "BARRIO FIESTA BAGOONG SAUTEED SHRIMP REGULAR 250G",
-      imageURL: '250G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5154205_1528884346344.jpg'),
   Product(
       productID: 5086938,
       category: ProductCategory.food_pantry,
@@ -4281,7 +4431,8 @@ List<Product> foodPantryCatalog = [
       productID: 5098770,
       category: ProductCategory.food_pantry,
       productName: "CS TAY KOREAN SHABU SUKI SAUCE 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Korean%20Shabu%20Suki%20Sauce%20Standing.jpg'),
   Product(
       productID: 5045002,
       category: ProductCategory.food_pantry,
@@ -4298,7 +4449,7 @@ List<Product> foodPantryCatalog = [
       productID: 5048907,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND APPALAM 120G",
-      imageURL: '120G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5128732.jpg'),
   Product(
       productID: 5001955,
       category: ProductCategory.food_pantry,
@@ -4314,7 +4465,8 @@ List<Product> foodPantryCatalog = [
       productID: 5046782,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND MUSTARD SEEDS 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128758_1528885472618.jpg'),
   Product(
       productID: 5014370,
       category: ProductCategory.food_pantry,
@@ -4330,12 +4482,12 @@ List<Product> foodPantryCatalog = [
       productID: 5057738,
       category: ProductCategory.food_pantry,
       productName: "KEWPIE ROASTED SESAME DRESSING 500ML",
-      imageURL: '500ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5194323.jpg'),
   Product(
       productID: 5008655,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE OYSTER SAUCE WITH DRIED SCALLOP 510G",
-      imageURL: '510G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1123670.jpg'),
   Product(
       productID: 5010950,
       category: ProductCategory.food_pantry,
@@ -4351,7 +4503,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008100,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS SEASONING HOT ENGLISH MUSTARD 175G",
-      imageURL: '175G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/059682_152888602464.jpg'),
   Product(
       productID: 5036596,
       category: ProductCategory.food_pantry,
@@ -4452,7 +4605,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041091,
       category: ProductCategory.food_pantry,
       productName: "SING LONG DRIED LAVER SEAWEED 50G",
-      imageURL: '25G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1263288_1528884057585.jpg'),
   Product(
       productID: 5076689,
       category: ProductCategory.food_pantry,
@@ -4485,12 +4639,13 @@ List<Product> foodPantryCatalog = [
       productID: 5008732,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE FRESHLY MINCED GINGER 213G",
-      imageURL: '213G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Minced%20Ginger%20213g-SG-800mini_1.jpg'),
   Product(
       productID: 5040640,
       category: ProductCategory.food_pantry,
       productName: "RED MAN ALMOND GROUND BLANCHED 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/0000901_1.jpg'),
   Product(
       productID: 5012681,
       category: ProductCategory.food_pantry,
@@ -4516,7 +4671,8 @@ List<Product> foodPantryCatalog = [
       productID: 5070132,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE LAKSA PASTE 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Prima-Taste-Laksa-Paste---Case-12-x-80g-1595233961.jpg'),
   Product(
       productID: 5059600,
       category: ProductCategory.food_pantry,
@@ -4526,7 +4682,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009339,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS SEASONING RED WINE & GARLIC MARINADE 375G",
-      imageURL: '375G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/030744_1528883455358.jpg'),
   Product(
       productID: 5009312,
       category: ProductCategory.food_pantry,
@@ -4537,7 +4694,7 @@ List<Product> foodPantryCatalog = [
       productID: 5009095,
       category: ProductCategory.food_pantry,
       productName: "TABASCO HOT PEPPER SAUCE 150ML",
-      imageURL: '150ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1011299.jpg'),
   Product(
       productID: 5059611,
       category: ProductCategory.food_pantry,
@@ -4620,7 +4777,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009593,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE SINGAPORE SATAY 275G",
-      imageURL: '275G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/154847_1528887113013.jpg'),
   Product(
       productID: 5017284,
       category: ProductCategory.food_pantry,
@@ -4631,17 +4789,18 @@ List<Product> foodPantryCatalog = [
       productID: 5041078,
       category: ProductCategory.food_pantry,
       productName: "0101 FENNEL SEEDS 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/0101%20Fennel%20Seeds%2050g_1.jpg'),
   Product(
       productID: 5011791,
       category: ProductCategory.food_pantry,
       productName: "LINGHAMS EXTRA HOT CHILLI SAUCE 280ML",
-      imageURL: '280ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5156823.jpg'),
   Product(
       productID: 5042017,
       category: ProductCategory.food_pantry,
       productName: "KCT DARK SOYA SAUCE STANDARD GRADE 640ML",
-      imageURL: '640ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3025077.jpg'),
   Product(
       productID: 5010203,
       category: ProductCategory.food_pantry,
@@ -4667,7 +4826,8 @@ List<Product> foodPantryCatalog = [
       productID: 5002158,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE MEE SIAM 285G",
-      imageURL: '285G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/241580_1528884815248.jpg'),
   Product(
       productID: 5021303,
       category: ProductCategory.food_pantry,
@@ -4678,7 +4838,8 @@ List<Product> foodPantryCatalog = [
       productID: 5098773,
       category: ProductCategory.food_pantry,
       productName: "CS TAY ORIGINAL SUKI SAUCE 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Original%20Suki%20Sauce%20Standing.jpg'),
   Product(
       productID: 5091160,
       category: ProductCategory.food_pantry,
@@ -4740,12 +4901,13 @@ List<Product> foodPantryCatalog = [
       productID: 5021632,
       category: ProductCategory.food_pantry,
       productName: "LAOGANMA CHILLI IN OIL 210G",
-      imageURL: '210G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5166172.jpg'),
   Product(
       productID: 5010240,
       category: ProductCategory.food_pantry,
       productName: "CHNG KEE BLACK PEPPER SAUCE 240ML",
-      imageURL: '240ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8888629990535.jpg'),
   Product(
       productID: 5076073,
       category: ProductCategory.food_pantry,
@@ -4756,7 +4918,8 @@ List<Product> foodPantryCatalog = [
       productID: 5063619,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN SINGAPORE VEGETABLE CURRY COMPLETE COOKING KIT 340G",
-      imageURL: '340G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/AMOCAN_340g_Singapore%20Vegetable%20Curry%20-%205208797.jpg'),
   Product(
       productID: 5040807,
       category: ProductCategory.food_pantry,
@@ -4772,12 +4935,12 @@ List<Product> foodPantryCatalog = [
       productID: 5012560,
       category: ProductCategory.food_pantry,
       productName: "ASIAN HOME GOURMET THAI BARBECUE CHICKEN 50G",
-      imageURL: '50G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3038124.jpg'),
   Product(
       productID: 5069766,
       category: ProductCategory.food_pantry,
       productName: "KOI FISH KOI FISH-DRIED STEMLESS CHILLI 500G",
-      imageURL: '500G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5069766.jpg'),
   Product(
       productID: 5012582,
       category: ProductCategory.food_pantry,
@@ -4787,7 +4950,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008095,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS GARLIC POWDER 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/93716635%20_2_.jpg'),
   Product(
       productID: 5011352,
       category: ProductCategory.food_pantry,
@@ -4803,7 +4967,8 @@ List<Product> foodPantryCatalog = [
       productID: 5040425,
       category: ProductCategory.food_pantry,
       productName: "BABA'S CORIANDER POWDER 125G",
-      imageURL: '125G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5139419_1528884748110.jpg'),
   Product(
       productID: 5010568,
       category: ProductCategory.food_pantry,
@@ -4814,7 +4979,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009252,
       category: ProductCategory.food_pantry,
       productName: "HOSEN LONGAN IN SYRUP 565G",
-      imageURL: '565G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/619001_1528885222675.jpg'),
   Product(
       productID: 5042857,
       category: ProductCategory.food_pantry,
@@ -4830,7 +4996,7 @@ List<Product> foodPantryCatalog = [
       productID: 5026110,
       category: ProductCategory.food_pantry,
       productName: "TOSTITOS CHUNKY HABANERO SALSA HOT 439.4G",
-      imageURL: '12 x 439.4G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5192387.jpg'),
   Product(
       productID: 5009242,
       category: ProductCategory.food_pantry,
@@ -4841,7 +5007,7 @@ List<Product> foodPantryCatalog = [
       productID: 5025720,
       category: ProductCategory.food_pantry,
       productName: "NUVITALITY CHIA SEEDS 300G",
-      imageURL: '300G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5025720.jpg'),
   Product(
       productID: 5056996,
       category: ProductCategory.food_pantry,
@@ -4852,12 +5018,14 @@ List<Product> foodPantryCatalog = [
       productID: 5055769,
       category: ProductCategory.food_pantry,
       productName: "FORTUNE DRIED SCALLOP IN XO SAUCE SPICY 110G",
-      imageURL: '110G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5188024_1528883760028.jpg'),
   Product(
       productID: 5026403,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN SINGAPORE FISH CURRY PASTE 170G",
-      imageURL: '170G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/127789_1528885717417.jpg'),
   Product(
       productID: 5042127,
       category: ProductCategory.food_pantry,
@@ -4925,7 +5093,8 @@ List<Product> foodPantryCatalog = [
       productID: 5026784,
       category: ProductCategory.food_pantry,
       productName: "KNIFE PURE GROUNDNUT OIL 2L",
-      imageURL: '2L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5193289_1528887626928.jpg'),
   Product(
       productID: 5002152,
       category: ProductCategory.food_pantry,
@@ -4936,7 +5105,8 @@ List<Product> foodPantryCatalog = [
       productID: 5042335,
       category: ProductCategory.food_pantry,
       productName: "SING LONG CHICKEN RICE CHILLI SAUCE 230G",
-      imageURL: '250G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Sing%20Long%20Chicken%20Rice%20Chilli%20230g_1.jpg'),
   Product(
       productID: 5026408,
       category: ProductCategory.food_pantry,
@@ -5013,7 +5183,8 @@ List<Product> foodPantryCatalog = [
       productID: 5030993,
       category: ProductCategory.food_pantry,
       productName: "HELLMANN'S REAL MAYONNAISE 400G",
-      imageURL: '400G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5205836_1528883415033.jpg'),
   Product(
       productID: 5009073,
       category: ProductCategory.food_pantry,
@@ -5029,7 +5200,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041046,
       category: ProductCategory.food_pantry,
       productName: "SING LONG VEGETARIAN SAMBAL CHILLI 230G",
-      imageURL: '230G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8888260001386-front.jpg.jpg'),
   Product(
       productID: 5009943,
       category: ProductCategory.food_pantry,
@@ -5062,7 +5234,7 @@ List<Product> foodPantryCatalog = [
       productID: 5025728,
       category: ProductCategory.food_pantry,
       productName: "NUVITALITY SUNFLOWER KERNELS",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5025728.jpg'),
   Product(
       productID: 5009243,
       category: ProductCategory.food_pantry,
@@ -5073,7 +5245,7 @@ List<Product> foodPantryCatalog = [
       productID: 5058186,
       category: ProductCategory.food_pantry,
       productName: "GIANT GARLIC CHILLI SAUCE 340G",
-      imageURL: '340G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5195918.jpg'),
   Product(
       productID: 5041773,
       category: ProductCategory.food_pantry,
@@ -5090,7 +5262,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041373,
       category: ProductCategory.food_pantry,
       productName: "SEAH'S SALT-ROASTED CHICKEN SPICES 40G",
-      imageURL: '40G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5025572_1528886747967.jpg'),
   Product(
       productID: 5010341,
       category: ProductCategory.food_pantry,
@@ -5114,7 +5287,8 @@ List<Product> foodPantryCatalog = [
       category: ProductCategory.food_pantry,
       productName:
           "LEE KUM KEE GOLDEN VEGETARIAN OYSTER SAUCE WITH MUSHROOM 510G",
-      imageURL: '510G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/GVOS%20510g-SG.jpg'),
   Product(
       productID: 5088338,
       category: ProductCategory.food_pantry,
@@ -5142,7 +5316,8 @@ List<Product> foodPantryCatalog = [
       productID: 5040970,
       category: ProductCategory.food_pantry,
       productName: "GOLDEN BOY LONGAN IN SYRUP 567G",
-      imageURL: '567G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1198850_1528885008362.jpg'),
   Product(
       productID: 5011703,
       category: ProductCategory.food_pantry,
@@ -5176,7 +5351,8 @@ List<Product> foodPantryCatalog = [
       productID: 5050763,
       category: ProductCategory.food_pantry,
       productName: "MALABAR ASAM KEPING 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128287_1528886957222.jpg'),
   Product(
       productID: 5023289,
       category: ProductCategory.food_pantry,
@@ -5193,7 +5369,7 @@ List<Product> foodPantryCatalog = [
       productID: 5041076,
       category: ProductCategory.food_pantry,
       productName: "0101 STAR ANISEED 50G",
-      imageURL: '50G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/star_1.jpg'),
   Product(
       productID: 5052013,
       category: ProductCategory.food_pantry,
@@ -5209,7 +5385,7 @@ List<Product> foodPantryCatalog = [
       productID: 5009334,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS SEASONING BARBECUE SAUCE 500ML",
-      imageURL: '500G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5009334.jpg'),
   Product(
       productID: 5021213,
       category: ProductCategory.food_pantry,
@@ -5234,7 +5410,8 @@ List<Product> foodPantryCatalog = [
       productID: 5010241,
       category: ProductCategory.food_pantry,
       productName: "CHNG KEE HAINANESE CHICKEN RICE MIX 240ML",
-      imageURL: '240ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8888629990795.jpg'),
   Product(
       productID: 5086378,
       category: ProductCategory.food_pantry,
@@ -5255,12 +5432,14 @@ List<Product> foodPantryCatalog = [
       productID: 5050145,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND CHILLI POWDER 125G",
-      imageURL: '125G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128749_1528885723417.jpg'),
   Product(
       productID: 5089071,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE PREMIUM DARK SOY SAUCE 250ML",
-      imageURL: '250ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5089071%20Prem%20Dark%20Soy%20sauce%20250ml.jpg'),
   Product(
       productID: 5058704,
       category: ProductCategory.food_pantry,
@@ -5303,7 +5482,7 @@ List<Product> foodPantryCatalog = [
       productID: 5042141,
       category: ProductCategory.food_pantry,
       productName: "MILI OYSTER SAUCE 510G",
-      imageURL: '510G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5017388_3.jpg'),
   Product(
       productID: 5041165,
       category: ProductCategory.food_pantry,
@@ -5331,7 +5510,8 @@ List<Product> foodPantryCatalog = [
       productID: 5089197,
       category: ProductCategory.food_pantry,
       productName: "OTHERS SAMBAL CHILLI BOTTLE",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5089197_01_5089197.jpg'),
   Product(
       productID: 5008731,
       category: ProductCategory.food_pantry,
@@ -5365,7 +5545,8 @@ List<Product> foodPantryCatalog = [
       productID: 5021208,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND GREEN BEANS 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128769_1528885781132.jpg'),
   Product(
       productID: 5043118,
       category: ProductCategory.food_pantry,
@@ -5399,17 +5580,18 @@ List<Product> foodPantryCatalog = [
       productID: 5098541,
       category: ProductCategory.food_pantry,
       productName: "YU PIN KING RAW PEANUTS 230G",
-      imageURL: '230G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5098541.jpg'),
   Product(
       productID: 5011595,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE CHU HOU PASTE 240G",
-      imageURL: '240G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5151797_1528885542576.jpg'),
   Product(
       productID: 5009356,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS CAJUN SEASONING HOT 35G",
-      imageURL: '35G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/93782555.jpg'),
   Product(
       productID: 5089004,
       category: ProductCategory.food_pantry,
@@ -5431,7 +5613,7 @@ List<Product> foodPantryCatalog = [
       productID: 5042063,
       category: ProductCategory.food_pantry,
       productName: "PAGODA PURE CORN FLOUR 454G",
-      imageURL: '454G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5007873.jpg'),
   Product(
       productID: 5101013,
       category: ProductCategory.food_pantry,
@@ -5441,7 +5623,8 @@ List<Product> foodPantryCatalog = [
       productID: 5010413,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE PRAWN MEE 260G",
-      imageURL: '275G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/154848_1528887118649.jpg'),
   Product(
       productID: 5002321,
       category: ProductCategory.food_pantry,
@@ -5452,7 +5635,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008687,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE FRIED COD FILLET SAUCE 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/052621_1528884808408.jpg'),
   Product(
       productID: 5010574,
       category: ProductCategory.food_pantry,
@@ -5479,17 +5663,19 @@ List<Product> foodPantryCatalog = [
       productID: 5024427,
       category: ProductCategory.food_pantry,
       productName: "KEWPIE CAESAR DRESSING 210ML",
-      imageURL: '210ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/168762_1528885470495.jpg'),
   Product(
       productID: 5042014,
       category: ProductCategory.food_pantry,
       productName: "KCT LIGHT SOYA SAUCE BEST 640ML",
-      imageURL: '640ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3025075.jpg'),
   Product(
       productID: 5049942,
       category: ProductCategory.food_pantry,
       productName: "MALABAR CINNAMON STICKS 70G",
-      imageURL: '70G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128303_1528886533779.jpg'),
   Product(
       productID: 5010407,
       category: ProductCategory.food_pantry,
@@ -5501,17 +5687,19 @@ List<Product> foodPantryCatalog = [
       productID: 5026077,
       category: ProductCategory.food_pantry,
       productName: "PAPA ALFREDO GRAPESEED OIL 1L",
-      imageURL: '1000ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5191339_1528885761162.jpg'),
   Product(
       productID: 5039825,
       category: ProductCategory.food_pantry,
       productName: "CJ GINSENG CHICKEN SOUP 800G",
-      imageURL: '800G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5039825%20Ginseng%20Chicken%20Soup%20copy.jpg'),
   Product(
       productID: 5014895,
       category: ProductCategory.food_pantry,
       productName: "DANCING CHEF HAINANESE CHICKEN RICE PASTE 100G",
-      imageURL: '100G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5014895.jpg'),
   Product(
       productID: 5011108,
       category: ProductCategory.food_pantry,
@@ -5535,7 +5723,7 @@ List<Product> foodPantryCatalog = [
       productID: 5009849,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA SUPERIOR LIGHT SOY SAUCE 640ML",
-      imageURL: '640ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1197422.jpg'),
   Product(
       productID: 5012699,
       category: ProductCategory.food_pantry,
@@ -5581,7 +5769,8 @@ List<Product> foodPantryCatalog = [
       productID: 5042079,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA SPECIAL LIGHT SOY SAUCE 320ML",
-      imageURL: '320ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Special%20Light%20Soy%20Sauce%20_320ml_.jpg'),
   Product(
       productID: 5013133,
       category: ProductCategory.food_pantry,
@@ -5592,7 +5781,8 @@ List<Product> foodPantryCatalog = [
       productID: 5021060,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND CHICK PEAS 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128778_1528887208530.jpg'),
   Product(
       productID: 5010373,
       category: ProductCategory.food_pantry,
@@ -5603,7 +5793,7 @@ List<Product> foodPantryCatalog = [
       productID: 5049248,
       category: ProductCategory.food_pantry,
       productName: "ADABI TEPUNG GORENG SERBAGUNA 180G",
-      imageURL: '180G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3026833.jpg'),
   Product(
       productID: 5040448,
       category: ProductCategory.food_pantry,
@@ -5635,12 +5825,14 @@ List<Product> foodPantryCatalog = [
       productID: 5009591,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE RENDANG 360G",
-      imageURL: '360G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/142434_1528885048902.jpg'),
   Product(
       productID: 5043275,
       category: ProductCategory.food_pantry,
       productName: "MAK NYONYA INSTANT VEGETARIAN CURRY SAUCE 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Vegetarian%20Curry%20Sauce%20Front%201600x1600.jpg'),
   Product(
       productID: 5002148,
       category: ProductCategory.food_pantry,
@@ -5674,12 +5866,13 @@ List<Product> foodPantryCatalog = [
       productID: 5029588,
       category: ProductCategory.food_pantry,
       productName: "HEINZ MAYONNAISE SERIOUSLY GOOD 395G",
-      imageURL: '395G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5201189_1528883834903_2.jpg'),
   Product(
       productID: 5040404,
       category: ProductCategory.food_pantry,
       productName: "TIGER THAI CHILLI SAUCE 300G",
-      imageURL: '0300G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/ThaiChili01.jpg'),
   Product(
       productID: 5041531,
       category: ProductCategory.food_pantry,
@@ -5733,7 +5926,8 @@ List<Product> foodPantryCatalog = [
       productID: 5043276,
       category: ProductCategory.food_pantry,
       productName: "MAK NYONYA INSTANT CHICKEN CURRY SAUCE 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Chicken%20Curry%20Sauce%20Front%201600x1600.jpg'),
   Product(
       productID: 5064929,
       category: ProductCategory.food_pantry,
@@ -5750,7 +5944,8 @@ List<Product> foodPantryCatalog = [
       productID: 5010197,
       category: ProductCategory.food_pantry,
       productName: "TIGER TOP QUALITY LIGHT SOYA SAUCE 640ML",
-      imageURL: '640ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Top%20Light%20640ml.jpg'),
   Product(
       productID: 5047028,
       category: ProductCategory.food_pantry,
@@ -5773,12 +5968,14 @@ List<Product> foodPantryCatalog = [
       productID: 5020715,
       category: ProductCategory.food_pantry,
       productName: "JIA JIA WANG FRIED SHALLOTS 200G",
-      imageURL: '200BOT'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2020314_1528887608204.jpg'),
   Product(
       productID: 5026405,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN SINGAPORE WHITE RENDANG PASTE 170G",
-      imageURL: '170G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/127791_1528885332417.jpg'),
   Product(
       productID: 5002264,
       category: ProductCategory.food_pantry,
@@ -5789,7 +5986,7 @@ List<Product> foodPantryCatalog = [
       productID: 5001970,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE HOISIN SAUCE 240G",
-      imageURL: '240G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1320773.jpg'),
   Product(
       productID: 5012966,
       category: ProductCategory.food_pantry,
@@ -5822,7 +6019,8 @@ List<Product> foodPantryCatalog = [
       productID: 5042698,
       category: ProductCategory.food_pantry,
       productName: "MAGGI OYSTER FLAVOURED SAUCE 3.3KG",
-      imageURL: '3.3KG'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5140600_1528887173166.jpg'),
   Product(
       productID: 5010981,
       category: ProductCategory.food_pantry,
@@ -5871,7 +6069,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008092,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS SEASONING PIZZA TOPPER 18G",
-      imageURL: '18G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/121547_1528887508577.jpg'),
   Product(
       productID: 5039813,
       category: ProductCategory.food_pantry,
@@ -5904,7 +6103,8 @@ List<Product> foodPantryCatalog = [
       productID: 5043176,
       category: ProductCategory.food_pantry,
       productName: "SING LONG FISH CURRY SAUCE 120G",
-      imageURL: '120G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5155544_1528883750722.jpg'),
   Product(
       productID: 5041809,
       category: ProductCategory.food_pantry,
@@ -5943,7 +6143,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041065,
       category: ProductCategory.food_pantry,
       productName: "SING LONG CHILLI CRAB SAUCE 230G",
-      imageURL: '230G'),
+      imageURL:
+          'https://d34sur1hfhbnek.cloudfront.net/assets/easyimage/5/592965ac1e3ac5dc30a8e707bf5722c5.jpg'),
   Product(
       productID: 5041169,
       category: ProductCategory.food_pantry,
@@ -5969,12 +6170,14 @@ List<Product> foodPantryCatalog = [
       productID: 5009230,
       category: ProductCategory.food_pantry,
       productName: "HOSEN PEACH HALVES IN SYRUP 825G",
-      imageURL: '820G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/peaches%20825gm-01.jpg'),
   Product(
       productID: 5009524,
       category: ProductCategory.food_pantry,
       productName: "MAGGI PREMIUM OYSTER SAUCE 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5059634_1528885896852.jpg'),
   Product(
       productID: 5010169,
       category: ProductCategory.food_pantry,
@@ -5997,12 +6200,13 @@ List<Product> foodPantryCatalog = [
       productID: 5075338,
       category: ProductCategory.food_pantry,
       productName: "CJ DADAM TOPPOKI SAUCE 140G",
-      imageURL: '140G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5075338.jpg'),
   Product(
       productID: 5044423,
       category: ProductCategory.food_pantry,
       productName: "MALABAR CUMIN SEEDS 70G",
-      imageURL: '70G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128301_1528883438874.jpg'),
   Product(
       productID: 5076077,
       category: ProductCategory.food_pantry,
@@ -6024,7 +6228,7 @@ List<Product> foodPantryCatalog = [
       productID: 5097576,
       category: ProductCategory.food_pantry,
       productName: "MAHSURI BLACK PEPPER LADA HITAM SAUCE 490G",
-      imageURL: '490G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5097576.jpg'),
   Product(
       productID: 5041621,
       category: ProductCategory.food_pantry,
@@ -6039,17 +6243,20 @@ List<Product> foodPantryCatalog = [
       productID: 5026118,
       category: ProductCategory.food_pantry,
       productName: "PREGO PASTA SAUCE - TRADITIONAL 680G + FREE PASTA",
-      imageURL: '1180G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/127307_1528884514789.jpg'),
   Product(
       productID: 5060498,
       category: ProductCategory.food_pantry,
       productName: "CRAB CUMIN SEEDS 5G",
-      imageURL: '5G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5202958_1528887159877.jpg'),
   Product(
       productID: 5009797,
       category: ProductCategory.food_pantry,
       productName: "SING LONG HAINANESE CHICKEN RICE MIX 90G",
-      imageURL: '90G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Sing%20Long%20Hainanese%20Chicken%20Rice%20Mix%2090G.png'),
   Product(
       productID: 5002317,
       category: ProductCategory.food_pantry,
@@ -6060,22 +6267,26 @@ List<Product> foodPantryCatalog = [
       productID: 5063610,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN SWEET & SOUR PASTE 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/AMOCAN-_SweetAndSourPaste_%20-%205208437.jpg'),
   Product(
       productID: 5027836,
       category: ProductCategory.food_pantry,
       productName: "KEWPIE THOUSAND ISLAND 210ML",
-      imageURL: '210ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/168761_1528884890207.jpg'),
   Product(
       productID: 5069767,
       category: ProductCategory.food_pantry,
       productName: "KOI FISH KOI-RAW PEANUT (SMALL) 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5069767_01_5069767.jpg'),
   Product(
       productID: 5010412,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE NONYA SAMBAL SAUCE 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/104476_1528886557991.jpg'),
   Product(
       productID: 5087669,
       category: ProductCategory.food_pantry,
@@ -6097,7 +6308,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041083,
       category: ProductCategory.food_pantry,
       productName: "0101 WHOLE CLOVES 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/0101%20Whole%20Cloves%2050g_1.jpg'),
   Product(
       productID: 5011725,
       category: ProductCategory.food_pantry,
@@ -6112,7 +6324,8 @@ List<Product> foodPantryCatalog = [
       productID: 5076290,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS TOMATO KETCHUP 550G",
-      imageURL: '550G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/401399545_Meadows_Tomato%20ketchup%20550g_V11-01_mockup%20copy.jpg'),
   Product(
       productID: 5101010,
       category: ProductCategory.food_pantry,
@@ -6132,7 +6345,8 @@ List<Product> foodPantryCatalog = [
       productID: 5097875,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE CHILLI CRAB PASTE 150G",
-      imageURL: '150G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5097875%20Chilli%20Crab%20150g.jpg'),
   Product(
       productID: 5009951,
       category: ProductCategory.food_pantry,
@@ -6142,7 +6356,7 @@ List<Product> foodPantryCatalog = [
       productID: 5009330,
       category: ProductCategory.food_pantry,
       productName: "WOH HUP OYSTER SAUCE EXTRA FLAVOUR 500G",
-      imageURL: '500G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1226307.jpg'),
   Product(
       productID: 5009839,
       category: ProductCategory.food_pantry,
@@ -6165,27 +6379,29 @@ List<Product> foodPantryCatalog = [
       productID: 5046629,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND CORIANDER SEEDS 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128783_1528886850612.jpg'),
   Product(
       productID: 5008814,
       category: ProductCategory.food_pantry,
       productName: "ALCE NERO PASTA SAUCE ORGANIC - VEGETABLES 350G",
-      imageURL: '350G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5008814_01_5008814.jpg'),
   Product(
       productID: 5083347,
       category: ProductCategory.food_pantry,
       productName: "TABASCO SRIRACHA 256ML",
-      imageURL: '256ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5083347.jpg'),
   Product(
       productID: 5043094,
       category: ProductCategory.food_pantry,
       productName: "HENG'S CRISPY FISH CHILLI +/- 180G",
-      imageURL: '180G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5153338.jpg'),
   Product(
       productID: 5046298,
       category: ProductCategory.food_pantry,
       productName: "ADABI RIB SOUP SPICES (SUP TULANG) 13G",
-      imageURL: '13G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1012644.jpg'),
   Product(
       productID: 5009949,
       category: ProductCategory.food_pantry,
@@ -6259,7 +6475,7 @@ List<Product> foodPantryCatalog = [
       productID: 5042053,
       category: ProductCategory.food_pantry,
       productName: "T/FONG TOU CHEONG WITH DATES 400G",
-      imageURL: '340G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1227544.jpg'),
   Product(
       productID: 5008756,
       category: ProductCategory.food_pantry,
@@ -6293,7 +6509,8 @@ List<Product> foodPantryCatalog = [
       productID: 5021112,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND MONG DHALL 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128762_1528886976554.jpg'),
   Product(
       productID: 5010437,
       category: ProductCategory.food_pantry,
@@ -6320,7 +6537,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041376,
       category: ProductCategory.food_pantry,
       productName: "SEAH'S SCALLOP SHARK FIN SOUP SPICES 60G",
-      imageURL: '60G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Scallop%20Shark%20Fin.jpg'),
   Product(
       productID: 5090587,
       category: ProductCategory.food_pantry,
@@ -6349,7 +6567,8 @@ List<Product> foodPantryCatalog = [
       productID: 5043429,
       category: ProductCategory.food_pantry,
       productName: "MAHSURI KICAP MANIS 410ML",
-      imageURL: '410ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5043429%20Mahsuri%20Manis_410ml%20_1_.jpg'),
   Product(
       productID: 5010508,
       category: ProductCategory.food_pantry,
@@ -6366,7 +6585,7 @@ List<Product> foodPantryCatalog = [
       productID: 5009097,
       category: ProductCategory.food_pantry,
       productName: "TABASCO GARLIC PEPPER SAUCE 60ML",
-      imageURL: '60ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1270253.jpg'),
   Product(
       productID: 5024499,
       category: ProductCategory.food_pantry,
@@ -6398,7 +6617,8 @@ List<Product> foodPantryCatalog = [
       productID: 5039962,
       category: ProductCategory.food_pantry,
       productName: "CJ BIBIGO BBQ SAUCE ORIGINAL 480G",
-      imageURL: '480G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5039962%20BBQ%20Sauce%20Original%20480G%20copy.jpg'),
   Product(
       productID: 5091148,
       category: ProductCategory.food_pantry,
@@ -6408,7 +6628,8 @@ List<Product> foodPantryCatalog = [
       productID: 5090115,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS TOMATO KETCHUP 750G",
-      imageURL: '750G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/401399542_Meadows_Tomato%20Ketchup%20750g_V6-01_mockup%20copy.jpg'),
   Product(
       productID: 5021174,
       category: ProductCategory.food_pantry,
@@ -6419,12 +6640,14 @@ List<Product> foodPantryCatalog = [
       productID: 5009846,
       category: ProductCategory.food_pantry,
       productName: "DEL MONTE TOMATO KETCHUP 340G",
-      imageURL: '340G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/705029_1528884434326.jpg'),
   Product(
       productID: 5040459,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE VEGETARIAN OYSTER SAUCE 770G",
-      imageURL: '770G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Vegetarian%20Oyster%20Sauce%20770g_F.jpg'),
   Product(
       productID: 5099420,
       category: ProductCategory.food_pantry,
@@ -6435,7 +6658,7 @@ List<Product> foodPantryCatalog = [
       productID: 5042045,
       category: ProductCategory.food_pantry,
       productName: "SING LONG SAMBAL IKAN BILIS 230G",
-      imageURL: '230G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5042045.jpg'),
   Product(
       productID: 5086940,
       category: ProductCategory.food_pantry,
@@ -6461,7 +6684,8 @@ List<Product> foodPantryCatalog = [
       productID: 5042231,
       category: ProductCategory.food_pantry,
       productName: "TIGER TOP QUALITY DARK SOYA SAUCE 640ML",
-      imageURL: '640ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Top%20Dark%20640ml.jpg'),
   Product(
       productID: 5009560,
       category: ProductCategory.food_pantry,
@@ -6482,7 +6706,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008062,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS SEASONING - ALL PURPOSE 65G",
-      imageURL: '65G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/049426_1528884139966.jpg'),
   Product(
       productID: 5054865,
       category: ProductCategory.food_pantry,
@@ -6499,7 +6724,7 @@ List<Product> foodPantryCatalog = [
       productID: 5091154,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS DRIED CHESTNUT 184G",
-      imageURL: '184G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5091154.jpg'),
   Product(
       productID: 5052239,
       category: ProductCategory.food_pantry,
@@ -6509,12 +6734,14 @@ List<Product> foodPantryCatalog = [
       productID: 5047034,
       category: ProductCategory.food_pantry,
       productName: "MALABAR BLACK PEPPER 70G",
-      imageURL: '70G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128305_1528886340885.jpg'),
   Product(
       productID: 5026404,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN SINGAPORE CHICKEN CURRY PASTE 170G",
-      imageURL: '170G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/127790_1528886321126.jpg'),
   Product(
       productID: 5028330,
       category: ProductCategory.food_pantry,
@@ -6536,7 +6763,7 @@ List<Product> foodPantryCatalog = [
       productID: 5097577,
       category: ProductCategory.food_pantry,
       productName: "MAHSURI 3 RASA SPICY SWEET & SOUR SAUCE 530G",
-      imageURL: '530G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5097577.jpg'),
   Product(
       productID: 5010008,
       category: ProductCategory.food_pantry,
@@ -6552,12 +6779,14 @@ List<Product> foodPantryCatalog = [
       productID: 5019624,
       category: ProductCategory.food_pantry,
       productName: "JIA JIA WANG CHOPPED GARLIC 500G",
-      imageURL: '180PAK'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2020317_1528886466090.jpg'),
   Product(
       productID: 5041705,
       category: ProductCategory.food_pantry,
-      productName: " ONION & GARLIC SAUCE 680G" "TOMATO",
-      imageURL: ' Onion & Garlic Sauce 680g"'),
+      productName: "PREGO TOMATO, ONION & GARLIC SAUCE 680G",
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/3124380_1528886325733.jpg'),
   Product(
       productID: 5002262,
       category: ProductCategory.food_pantry,
@@ -6577,7 +6806,7 @@ List<Product> foodPantryCatalog = [
       productID: 5041649,
       category: ProductCategory.food_pantry,
       productName: "TIGER SPECIAL GRADE DARK SOYA SAUCE 640ML",
-      imageURL: '0640ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1200224_1.jpg'),
   Product(
       productID: 5008854,
       category: ProductCategory.food_pantry,
@@ -6593,7 +6822,8 @@ List<Product> foodPantryCatalog = [
       productID: 5028530,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN GREEN CURRY PASTE 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5198221_1528884406504.jpg'),
   Product(
       productID: 5045920,
       category: ProductCategory.food_pantry,
@@ -6626,17 +6856,18 @@ List<Product> foodPantryCatalog = [
       productID: 5096777,
       category: ProductCategory.food_pantry,
       productName: "WOH HUP ABALONE SAUCE TWIN PACK 240G",
-      imageURL: '480G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5096777.jpg'),
   Product(
       productID: 5008723,
       category: ProductCategory.food_pantry,
       productName: "MCCORMICK SEASON'N FRY ORIGINAL 45G",
-      imageURL: '45G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/012988.jpg'),
   Product(
       productID: 5040532,
       category: ProductCategory.food_pantry,
       productName: "GIANT LIGHT SOYA SAUCE 640ML",
-      imageURL: '640ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5072760_1528886369437.jpg'),
   Product(
       productID: 5054343,
       category: ProductCategory.food_pantry,
@@ -6670,7 +6901,7 @@ List<Product> foodPantryCatalog = [
       productID: 5040427,
       category: ProductCategory.food_pantry,
       productName: "SING SONG CHINESE BLACK BEAN PASTE 200G",
-      imageURL: '200G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5040427.jpg'),
   Product(
       productID: 5008589,
       category: ProductCategory.food_pantry,
@@ -6681,7 +6912,8 @@ List<Product> foodPantryCatalog = [
       productID: 5021234,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND GREEN PEAS 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128768_1528885994307.jpg'),
   Product(
       productID: 5009136,
       category: ProductCategory.food_pantry,
@@ -6697,7 +6929,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008652,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE CHIU CHOW CHILLI OIL 205G",
-      imageURL: '205G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Chiu%20Chow%20Chilli%20Oil%20205g.jpg'),
   Product(
       productID: 5011697,
       category: ProductCategory.food_pantry,
@@ -6707,7 +6940,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009597,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE SATAY SAUCE 160G",
-      imageURL: '160G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/045591_1528886843668.jpg'),
   Product(
       productID: 5043500,
       category: ProductCategory.food_pantry,
@@ -6718,7 +6952,7 @@ List<Product> foodPantryCatalog = [
       productID: 5091451,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS WHITE GLUTINOUS RICE 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5091451.jpg'),
   Product(
       productID: 5059582,
       category: ProductCategory.food_pantry,
@@ -6739,7 +6973,8 @@ List<Product> foodPantryCatalog = [
       productID: 5043325,
       category: ProductCategory.food_pantry,
       productName: "SING LONG NONYA RENDANG SAUCE 120G",
-      imageURL: '120G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5166298_1528884776901.jpg'),
   Product(
       productID: 5010369,
       category: ProductCategory.food_pantry,
@@ -6779,7 +7014,8 @@ List<Product> foodPantryCatalog = [
       productID: 5021560,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN SINGAPORE CHICKEN CURRY PASTE 340G",
-      imageURL: '340G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/089834_1528887145983.jpg'),
   Product(
       productID: 5010372,
       category: ProductCategory.food_pantry,
@@ -6794,12 +7030,12 @@ List<Product> foodPantryCatalog = [
       productID: 5050566,
       category: ProductCategory.food_pantry,
       productName: "JALEN KICAP SWEET 325ML",
-      imageURL: '340G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5128276.jpg'),
   Product(
       productID: 5101023,
       category: ProductCategory.food_pantry,
       productName: "CJ BEKSUL STEAK SAUCE 310G",
-      imageURL: '310G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5101023.jpg'),
   Product(
       productID: 5001959,
       category: ProductCategory.food_pantry,
@@ -6826,7 +7062,7 @@ List<Product> foodPantryCatalog = [
       productID: 5020504,
       category: ProductCategory.food_pantry,
       productName: "AAA HOT BROAD BEAN PASTE 180G",
-      imageURL: '180G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/636035.jpg'),
   Product(
       productID: 5041673,
       category: ProductCategory.food_pantry,
@@ -6859,12 +7095,13 @@ List<Product> foodPantryCatalog = [
       productID: 5089073,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE WEIJIXIAN SEASONED SOY SAUCE 500ML",
-      imageURL: '500ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5089073%20LKK%20WJX%20Seasoned%20SS%20500ml.jpg'),
   Product(
       productID: 5009847,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA SPECIAL LIGHT SOY SAUCE 640ML",
-      imageURL: '640ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1197428.jpg'),
   Product(
       productID: 5041819,
       category: ProductCategory.food_pantry,
@@ -6886,7 +7123,7 @@ List<Product> foodPantryCatalog = [
       productID: 5087713,
       category: ProductCategory.food_pantry,
       productName: "RED MAN CREAM OF TARTAR 100G",
-      imageURL: '100G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/63051_1.jpg'),
   Product(
       productID: 5034494,
       category: ProductCategory.food_pantry,
@@ -6925,7 +7162,7 @@ List<Product> foodPantryCatalog = [
       category: ProductCategory.food_pantry,
       productName:
           "LEE KUM KEE PREM LIGHT SOY SAUCE  2X500ML + PREM DARK SOY SAUCE 500ML",
-      imageURL: '1000ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5084692.jpg'),
   Product(
       productID: 5008830,
       category: ProductCategory.food_pantry,
@@ -6936,7 +7173,7 @@ List<Product> foodPantryCatalog = [
       productID: 5042080,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA STANDARD LIGHT SOY SAUCE 320ML",
-      imageURL: '320ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3066323.jpg'),
   Product(
       productID: 5010294,
       category: ProductCategory.food_pantry,
@@ -6952,17 +7189,19 @@ List<Product> foodPantryCatalog = [
       productID: 5030390,
       category: ProductCategory.food_pantry,
       productName: "NATUREL ORGANIC EXTRA VIRGIN COCONUT OIL 500ML",
-      imageURL: '500ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8888025123551F.jpg'),
   Product(
       productID: 5009758,
       category: ProductCategory.food_pantry,
       productName: "KCT CHICKEN RICE DARK SOYA SAUCE 450ML",
-      imageURL: '450ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3025085.jpg'),
   Product(
       productID: 5041082,
       category: ProductCategory.food_pantry,
       productName: "0101 5 SPICES ASSORTED GROUND 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/0101%205%20Spices%20Assorted%20Ground%2050g_1.jpg'),
   Product(
       productID: 5010377,
       category: ProductCategory.food_pantry,
@@ -6995,12 +7234,14 @@ List<Product> foodPantryCatalog = [
       productID: 5047519,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND FISH CURRY POWDER 125G",
-      imageURL: '125G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128770_1528884301072.jpg'),
   Product(
       productID: 5009151,
       category: ProductCategory.food_pantry,
       productName: "BAKE KING SLICED ALMOND 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/BK%20Sliced%20Almond%20front.jpg'),
   Product(
       productID: 5040710,
       category: ProductCategory.food_pantry,
@@ -7038,12 +7279,14 @@ List<Product> foodPantryCatalog = [
       productID: 5008678,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE BLACK BEAN GARLIC SAUCE 226G",
-      imageURL: '226G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1011322_1528885759748.jpg'),
   Product(
       productID: 5041380,
       category: ProductCategory.food_pantry,
       productName: "SEAH'S SINGAPORE CHICKEN CURRY SPICES 66G",
-      imageURL: '66G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Curry%20Chicken.jpg'),
   Product(
       productID: 5042346,
       category: ProductCategory.food_pantry,
@@ -7076,7 +7319,7 @@ List<Product> foodPantryCatalog = [
       productID: 5088703,
       category: ProductCategory.food_pantry,
       productName: "AVOFRESH CHUNKY AVOCADO WITH GARLIC & CORIANDER 145G",
-      imageURL: '145G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5088703.jpg'),
   Product(
       productID: 5022304,
       category: ProductCategory.food_pantry,
@@ -7087,7 +7330,8 @@ List<Product> foodPantryCatalog = [
       productID: 5059189,
       category: ProductCategory.food_pantry,
       productName: "FORTUNE RAZOR CLAMS 425G",
-      imageURL: '425G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5198711_1528886556078.jpg'),
   Product(
       productID: 5041792,
       category: ProductCategory.food_pantry,
@@ -7110,7 +7354,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009794,
       category: ProductCategory.food_pantry,
       productName: "SING LONG BELACHAN CHILLI WITH SHRIMP PASTE 250G",
-      imageURL: '230G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Sing%20Long%20Belacan%20Chilli%20250g_1.jpg'),
   Product(
       productID: 5057989,
       category: ProductCategory.food_pantry,
@@ -7120,7 +7365,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041623,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE BLACK BEAN CHICKEN SAUCE 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1277862_1528884727962.jpg'),
   Product(
       productID: 5009145,
       category: ProductCategory.food_pantry,
@@ -7160,7 +7406,8 @@ List<Product> foodPantryCatalog = [
       productID: 5042340,
       category: ProductCategory.food_pantry,
       productName: "SING LONG SWEET PRUNE POWDER 60G",
-      imageURL: '65G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1280157_1528885795427.jpg'),
   Product(
       productID: 5056543,
       category: ProductCategory.food_pantry,
@@ -7171,7 +7418,7 @@ List<Product> foodPantryCatalog = [
       productID: 5009348,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS SEASONING MINT JELLY 290G",
-      imageURL: '290G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5009348.jpg'),
   Product(
       productID: 5094651,
       category: ProductCategory.food_pantry,
@@ -7211,7 +7458,7 @@ List<Product> foodPantryCatalog = [
       productID: 5036496,
       category: ProductCategory.food_pantry,
       productName: "KOI FISH MELON STRIP",
-      imageURL: '200G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5036496.jpg'),
   Product(
       productID: 5041243,
       category: ProductCategory.food_pantry,
@@ -7222,7 +7469,7 @@ List<Product> foodPantryCatalog = [
       productID: 5006507,
       category: ProductCategory.food_pantry,
       productName: "ORIGINS RAW ALMONDS 100G",
-      imageURL: '100G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5006507.jpg'),
   Product(
       productID: 5042137,
       category: ProductCategory.food_pantry,
@@ -7233,7 +7480,8 @@ List<Product> foodPantryCatalog = [
       productID: 5060496,
       category: ProductCategory.food_pantry,
       productName: "CRAB CINNAMON 5G",
-      imageURL: '5G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5202956_1528885847812.jpg'),
   Product(
       productID: 5043139,
       category: ProductCategory.food_pantry,
@@ -7284,7 +7532,8 @@ List<Product> foodPantryCatalog = [
       productID: 5002135,
       category: ProductCategory.food_pantry,
       productName: "NEW MOON PREMIUM OYSTER SAUCE 510G",
-      imageURL: '510G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5017386_1528883660862.jpg'),
   Product(
       productID: 5009810,
       category: ProductCategory.food_pantry,
@@ -7294,7 +7543,8 @@ List<Product> foodPantryCatalog = [
       productID: 5043115,
       category: ProductCategory.food_pantry,
       productName: "GIANT CORN FLOUR 400G",
-      imageURL: '400G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5153880_1528885199439.jpg'),
   Product(
       productID: 5094025,
       category: ProductCategory.food_pantry,
@@ -7310,7 +7560,7 @@ List<Product> foodPantryCatalog = [
       productID: 5017561,
       category: ProductCategory.food_pantry,
       productName: "TAHO BELACHAN CHILLI SAUCE 180G",
-      imageURL: '180G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/2095927.jpg'),
   Product(
       productID: 5081074,
       category: ProductCategory.food_pantry,
@@ -7337,12 +7587,13 @@ List<Product> foodPantryCatalog = [
       productID: 5088704,
       category: ProductCategory.food_pantry,
       productName: "AVOFRESH CHUNKY AVOCADO WITH HINT OF LEMON",
-      imageURL: '145G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5088704.jpg'),
   Product(
       productID: 5009931,
       category: ProductCategory.food_pantry,
       productName: "S&W PEACH SLICES - YELLOW CLING PEACHES IN SYRUP 825G",
-      imageURL: '825G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/620036_1528883927339.jpg'),
   Product(
       productID: 5048315,
       category: ProductCategory.food_pantry,
@@ -7359,7 +7610,7 @@ List<Product> foodPantryCatalog = [
       productID: 5008281,
       category: ProductCategory.food_pantry,
       productName: "KIKKOMAN SOY SAUCE DISPENSER 150ML",
-      imageURL: '150ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/500828_11.jpg'),
   Product(
       productID: 5043130,
       category: ProductCategory.food_pantry,
@@ -7391,7 +7642,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009211,
       category: ProductCategory.food_pantry,
       productName: "LINGHAMS CHILLI SAUCE 280ML",
-      imageURL: '280ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/705009_1528884707702.jpg'),
   Product(
       productID: 5002243,
       category: ProductCategory.food_pantry,
@@ -7408,17 +7660,19 @@ List<Product> foodPantryCatalog = [
       productID: 5008694,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE MA PO TOFU SAUCE 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/MA%20PO%20TOFU3.jpg'),
   Product(
       productID: 5013383,
       category: ProductCategory.food_pantry,
       productName: "S&B GOLDEN CURRY SAUCE W/ VEGETABLES MEDIUM HOT 230G",
-      imageURL: '230G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/3049514_1528884870840.jpg'),
   Product(
       productID: 5007885,
       category: ProductCategory.food_pantry,
       productName: "MCCORMICK GROUND CINNAMON 28G",
-      imageURL: '28G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3016117.jpg'),
   Product(
       productID: 5088224,
       category: ProductCategory.food_pantry,
@@ -7429,7 +7683,7 @@ List<Product> foodPantryCatalog = [
       productID: 5051903,
       category: ProductCategory.food_pantry,
       productName: "3A BLACK BEAN MARINADE SAUCE 400ML",
-      imageURL: '400ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5203966.jpg'),
   Product(
       productID: 5090318,
       category: ProductCategory.food_pantry,
@@ -7445,7 +7699,8 @@ List<Product> foodPantryCatalog = [
       productID: 5010215,
       category: ProductCategory.food_pantry,
       productName: "PREGO MUSHROOM SPAGHETTI SAUCE 680G ",
-      imageURL: '680G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1081689_1528884966952.jpg'),
   Product(
       productID: 5009061,
       category: ProductCategory.food_pantry,
@@ -7455,7 +7710,8 @@ List<Product> foodPantryCatalog = [
       productID: 5050108,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND GARAM MASALA 125G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128806_1528885983480.jpg'),
   Product(
       productID: 5059602,
       category: ProductCategory.food_pantry,
@@ -7495,17 +7751,19 @@ List<Product> foodPantryCatalog = [
       category: ProductCategory.food_pantry,
       productName:
           "NEW MOON BRAISED KING TOP SHELL SLICES IN ABALONE SAUCE 425G",
-      imageURL: '425G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5174901_1528887716409.jpg'),
   Product(
       productID: 5002159,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE SAMBAL CHILLI SAUCE 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/153316_1528883422010.jpg'),
   Product(
       productID: 5051904,
       category: ProductCategory.food_pantry,
       productName: "3A BLACK BEAN SOY PASTE 400ML",
-      imageURL: '400ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5203967.jpg'),
   Product(
       productID: 5090317,
       category: ProductCategory.food_pantry,
@@ -7515,7 +7773,8 @@ List<Product> foodPantryCatalog = [
       productID: 5097872,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE SALTED EGG YOLK PASTE 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5097872%20Salted%20Egg%20Yolk%20100g.jpg'),
   Product(
       productID: 5060513,
       category: ProductCategory.food_pantry,
@@ -7526,7 +7785,8 @@ List<Product> foodPantryCatalog = [
       productID: 5087739,
       category: ProductCategory.food_pantry,
       productName: "POMI STRAINED TOMATO SAUCE 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5087739%20_1_.jpg'),
   Product(
       productID: 5054739,
       category: ProductCategory.food_pantry,
@@ -7542,12 +7802,13 @@ List<Product> foodPantryCatalog = [
       productID: 5010486,
       category: ProductCategory.food_pantry,
       productName: "SING LONG SAMBAL BELACAN 230G",
-      imageURL: '230G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/SL%20Sambal%20Belachan%20230g.jpg'),
   Product(
       productID: 5101021,
       category: ProductCategory.food_pantry,
       productName: "CJ BEKSUL SWEET CHILLI SAUCE 330G",
-      imageURL: '330G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5101021.jpg'),
   Product(
       productID: 5033863,
       category: ProductCategory.food_pantry,
@@ -7558,7 +7819,7 @@ List<Product> foodPantryCatalog = [
       productID: 5097578,
       category: ProductCategory.food_pantry,
       productName: "MAHSURI KICAP LEMAK MANIS SAVOURY SWEET SOY SAUCE 410ML",
-      imageURL: '410ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5097578.jpg'),
   Product(
       productID: 5009237,
       category: ProductCategory.food_pantry,
@@ -7586,7 +7847,8 @@ List<Product> foodPantryCatalog = [
       productID: 5010485,
       category: ProductCategory.food_pantry,
       productName: "SING LONG SAMBAL NASI LEMAK 230G",
-      imageURL: '230G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Sing%20Long%20Sambal%20Nasi%20Lemak%20230g_1.jpg'),
   Product(
       productID: 5002328,
       category: ProductCategory.food_pantry,
@@ -7608,7 +7870,7 @@ List<Product> foodPantryCatalog = [
       productID: 5040630,
       category: ProductCategory.food_pantry,
       productName: "RED MAN ALMOND WHOLE WITH SKIN 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/0000925_1.jpg'),
   Product(
       productID: 5043134,
       category: ProductCategory.food_pantry,
@@ -7624,12 +7886,14 @@ List<Product> foodPantryCatalog = [
       productID: 5047569,
       category: ProductCategory.food_pantry,
       productName: "FLYING MAN SWEET POTATO FLOUR 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1150613_1528884069962.jpg'),
   Product(
       productID: 5010019,
       category: ProductCategory.food_pantry,
       productName: "NEW MOON ABALONE SAUCE 510G",
-      imageURL: '510G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/116763_1528883501360.jpg'),
   Product(
       productID: 5041250,
       category: ProductCategory.food_pantry,
@@ -7651,7 +7915,7 @@ List<Product> foodPantryCatalog = [
       productID: 5086948,
       category: ProductCategory.food_pantry,
       productName: "HUNT'S SPAGHETTI SAUCE PINOY PARTY STYLE 1KG",
-      imageURL: '1KG'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5086948.jpg'),
   Product(
       productID: 5010484,
       category: ProductCategory.food_pantry,
@@ -7668,7 +7932,7 @@ List<Product> foodPantryCatalog = [
       productID: 5048688,
       category: ProductCategory.food_pantry,
       productName: "ANGEL THICK CARAMEL SAUCE 750ML",
-      imageURL: '750ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5048688.jpg'),
   Product(
       productID: 5046167,
       category: ProductCategory.food_pantry,
@@ -7691,7 +7955,7 @@ List<Product> foodPantryCatalog = [
       productID: 5076268,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS MAYONNAISE REDUCED FAT 500G",
-      imageURL: '500G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5076268.jpg'),
   Product(
       productID: 5094122,
       category: ProductCategory.food_pantry,
@@ -7724,12 +7988,14 @@ List<Product> foodPantryCatalog = [
       productID: 5041077,
       category: ProductCategory.food_pantry,
       productName: "0101 CUMIN SEED 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/0101%20Cumin%20Seed%2050g_1.jpg'),
   Product(
       productID: 5010164,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE PREMIUM OYSTER SAUCE 510G",
-      imageURL: '510G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/705077_1528885950313.jpg'),
   Product(
       productID: 5088962,
       category: ProductCategory.food_pantry,
@@ -7750,12 +8016,12 @@ List<Product> foodPantryCatalog = [
       productID: 5041671,
       category: ProductCategory.food_pantry,
       productName: "DOUBLE PAGODA GARLIC OIL 150ML",
-      imageURL: '150ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3024685.jpg'),
   Product(
       productID: 5041795,
       category: ProductCategory.food_pantry,
       productName: "SINSIN GINGER & GARLIC CHILLI SAUCE 330G",
-      imageURL: '330G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1328796_1.jpg'),
   Product(
       productID: 5017339,
       category: ProductCategory.food_pantry,
@@ -7765,22 +8031,25 @@ List<Product> foodPantryCatalog = [
       productID: 5010260,
       category: ProductCategory.food_pantry,
       productName: "TABASCO PEPPER SAUCE 60ML",
-      imageURL: '60ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1106407.jpg'),
   Product(
       productID: 5029758,
       category: ProductCategory.food_pantry,
       productName: "CHILLI RED RICE VERMICELLI 400G",
-      imageURL: '400G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8888555121683.jpg'),
   Product(
       productID: 5043095,
       category: ProductCategory.food_pantry,
       productName: "HENG'S CRISPY PRAWN CHILLI +/-180G",
-      imageURL: '180G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5153339_1528887576876.jpg'),
   Product(
       productID: 5024426,
       category: ProductCategory.food_pantry,
       productName: "KEWPIE SOY SESAME DRESSING 210ML",
-      imageURL: '210ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/168760_1528885841820.jpg'),
   Product(
       productID: 5010385,
       category: ProductCategory.food_pantry,
@@ -7802,12 +8071,13 @@ List<Product> foodPantryCatalog = [
       productID: 5091150,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS CHICK PEAS 210G",
-      imageURL: '210G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5091150.jpg'),
   Product(
       productID: 5076269,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS THOUSAND ISLAND DRESSING 300ML",
-      imageURL: '300ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/401399573_Meadows_Thousand%20Island%20305g_V14-01_mockup.jpg'),
   Product(
       productID: 5007827,
       category: ProductCategory.food_pantry,
@@ -7823,7 +8093,7 @@ List<Product> foodPantryCatalog = [
       productID: 5091452,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS WHITE SESAME SEEDS 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5091452.jpg'),
   Product(
       productID: 5041659,
       category: ProductCategory.food_pantry,
@@ -7834,7 +8104,8 @@ List<Product> foodPantryCatalog = [
       productID: 5098772,
       category: ProductCategory.food_pantry,
       productName: "CS TAY SINGAPORE CHILLI SAUCE 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Singapore%20Chili%20Dipping%20Sauce%20Standing.jpg'),
   Product(
       productID: 5056560,
       category: ProductCategory.food_pantry,
@@ -7851,7 +8122,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008071,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS SEASONING STEAK MILD 45G",
-      imageURL: '45G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/049445_1528886916377.jpg'),
   Product(
       productID: 5002244,
       category: ProductCategory.food_pantry,
@@ -7923,7 +8195,7 @@ List<Product> foodPantryCatalog = [
       productID: 5091147,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS BLACK GLUTINOUS RICE 325G",
-      imageURL: '325G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5091147.jpg'),
   Product(
       productID: 5028317,
       category: ProductCategory.food_pantry,
@@ -7934,7 +8206,8 @@ List<Product> foodPantryCatalog = [
       productID: 5040785,
       category: ProductCategory.food_pantry,
       productName: "EARTHEN POT FISH HEAD CURRY POWDER 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1227591_1528884615695.jpg'),
   Product(
       productID: 5064647,
       category: ProductCategory.food_pantry,
@@ -7962,7 +8235,8 @@ List<Product> foodPantryCatalog = [
       productID: 5040780,
       category: ProductCategory.food_pantry,
       productName: "MAGGI TOMATO SAUCE 3.3KG",
-      imageURL: '3.3KG'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1120455_1528886408808.jpg'),
   Product(
       productID: 5023659,
       category: ProductCategory.food_pantry,
@@ -7987,17 +8261,18 @@ List<Product> foodPantryCatalog = [
       productID: 5012395,
       category: ProductCategory.food_pantry,
       productName: "DANCING CHEF PASTE - INDIAN CURRY 100G",
-      imageURL: '100G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5012395.jpg'),
   Product(
       productID: 5048284,
       category: ProductCategory.food_pantry,
       productName: "ADABI SAMBAL BELACAN TRADITIONAL SPICY 180G",
-      imageURL: '180G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5155986.jpg'),
   Product(
       productID: 5060501,
       category: ProductCategory.food_pantry,
       productName: "CRAB CARDAMOM 2G",
-      imageURL: '2G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5202962_1528887438566.jpg'),
   Product(
       productID: 5033678,
       category: ProductCategory.food_pantry,
@@ -8008,17 +8283,18 @@ List<Product> foodPantryCatalog = [
       productID: 5021562,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN SINGAPORE WHITE RENDANG PASTE 340G",
-      imageURL: '340G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/089836_1528887220537.jpg'),
   Product(
       productID: 5009098,
       category: ProductCategory.food_pantry,
       productName: "TABASCO HABANERO SAUCE 60ML",
-      imageURL: '60ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1270255.jpg'),
   Product(
       productID: 5041170,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA STANDARD DARK SOY SAUCE 5L",
-      imageURL: '5L'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1197437.jpg'),
   Product(
       productID: 5001941,
       category: ProductCategory.food_pantry,
@@ -8039,22 +8315,23 @@ List<Product> foodPantryCatalog = [
       productID: 5042592,
       category: ProductCategory.food_pantry,
       productName: "NEW MOON HAINANESE CHICKEN RICE PASTE 120G",
-      imageURL: '120G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5134063_1528883768194.jpg'),
   Product(
       productID: 5090342,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS PARSLEY FLAKES 6G",
-      imageURL: '6G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5090342_2.jpg'),
   Product(
       productID: 5042924,
       category: ProductCategory.food_pantry,
       productName: "GIANT BLACK PEPPER SAUCE 325G",
-      imageURL: '325G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5042924.jpg'),
   Product(
       productID: 5008695,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE CHICKEN SOUP BASE HOT POT 60G",
-      imageURL: '60G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/151881.jpg'),
   Product(
       productID: 5023232,
       category: ProductCategory.food_pantry,
@@ -8093,7 +8370,7 @@ List<Product> foodPantryCatalog = [
       productID: 5042337,
       category: ProductCategory.food_pantry,
       productName: "HOLLYFARMS TEMPURA FLOUR 200G",
-      imageURL: '200G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1167072.jpg'),
   Product(
       productID: 5043135,
       category: ProductCategory.food_pantry,
@@ -8116,7 +8393,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041525,
       category: ProductCategory.food_pantry,
       productName: "SING LONG WHEAT STARCH 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Sing%20Long%20Wheat%20Starch%20500g_1.jpg'),
   Product(
       productID: 5009944,
       category: ProductCategory.food_pantry,
@@ -8132,27 +8410,30 @@ List<Product> foodPantryCatalog = [
       productID: 5017452,
       category: ProductCategory.food_pantry,
       productName: "SEAWAVES CHINESE CHIVE DUMPLING 675G",
-      imageURL: '675G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1271263_1528886073431.jpg'),
   Product(
       productID: 5040639,
       category: ProductCategory.food_pantry,
       productName: "RED MAN CALIFORNIA WALNUT PIECES 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/0012455_1.jpg'),
   Product(
       productID: 5009532,
       category: ProductCategory.food_pantry,
       productName: "EARTHEN POT CURRY POWDER VEGETARIAN 75G",
-      imageURL: '75G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1103341_1528883775979.jpg'),
   Product(
       productID: 5008082,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS CAYENNE PEPPER GROUND EXTRA HOT 30G",
-      imageURL: '30G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/93716543%20_2_.jpg'),
   Product(
       productID: 5009523,
       category: ProductCategory.food_pantry,
       productName: "MAGGI TOMATO SAUCE 475G",
-      imageURL: '475G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5009523.jpg'),
   Product(
       productID: 5010165,
       category: ProductCategory.food_pantry,
@@ -8169,7 +8450,8 @@ List<Product> foodPantryCatalog = [
       productID: 5021121,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND KURUMA MASALA 125G",
-      imageURL: '125G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5129342_1528884167087.jpg'),
   Product(
       productID: 5088119,
       category: ProductCategory.food_pantry,
@@ -8179,7 +8461,7 @@ List<Product> foodPantryCatalog = [
       productID: 5047558,
       category: ProductCategory.food_pantry,
       productName: "ADABI TEPUNG GORENG AYAM 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1100752.jpg'),
   Product(
       productID: 5031319,
       category: ProductCategory.food_pantry,
@@ -8229,17 +8511,18 @@ List<Product> foodPantryCatalog = [
       productID: 5088966,
       category: ProductCategory.food_pantry,
       productName: "KOTANYI GLASS MILL THYME 19G",
-      imageURL: '19G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5088966.jpg'),
   Product(
       productID: 5029970,
       category: ProductCategory.food_pantry,
       productName: "MILI LONGAN IN LIGHT SYRUP - LESS SUGAR 565G",
-      imageURL: '565G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5203135.jpg'),
   Product(
       productID: 5040559,
       category: ProductCategory.food_pantry,
       productName: "CHWEE SONG CHRYSANTHEMUM 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1221506_1528886993381.jpg'),
   Product(
       productID: 5052933,
       category: ProductCategory.food_pantry,
@@ -8291,7 +8574,8 @@ List<Product> foodPantryCatalog = [
       productID: 5039792,
       category: ProductCategory.food_pantry,
       productName: "CJ HASUNJUNG FISH SAUCE (KKANARI) 500ML",
-      imageURL: '500ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5039792%20Kkanari%20Fish%20Sauce%20copy.jpg'),
   Product(
       productID: 5044885,
       category: ProductCategory.food_pantry,
@@ -8314,7 +8598,8 @@ List<Product> foodPantryCatalog = [
       productID: 5021559,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN SINGAPORE TOMYAM PASTE 340G",
-      imageURL: '340G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/089833_1528884207049.jpg'),
   Product(
       productID: 5002320,
       category: ProductCategory.food_pantry,
@@ -8325,8 +8610,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008667,
       category: ProductCategory.food_pantry,
       productName:
-          " CHUNKY TOMATOES & HERBS 500G" "PASTA SAUCE - BOLOGNESE WITH BACON",
-      imageURL: ' Chunky Tomatoes & Herbs 500g"'),
+          "LEGGO'S PASTA SAUCE - BOLOGNESE WITH BACON, CHUNKY TOMATOES & HERBS 500G",
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5078542.jpg'),
   Product(
       productID: 5010375,
       category: ProductCategory.food_pantry,
@@ -8366,7 +8651,8 @@ List<Product> foodPantryCatalog = [
       productID: 5002171,
       category: ProductCategory.food_pantry,
       productName: "PREGO REGULAR SPAGHETTI SAUCE 680G ",
-      imageURL: '680G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1560789498_1081687_78110132219f2cb41663f39d78a0eb3f.jpg'),
   Product(
       productID: 5040026,
       category: ProductCategory.food_pantry,
@@ -8382,7 +8668,7 @@ List<Product> foodPantryCatalog = [
       productID: 5008701,
       category: ProductCategory.food_pantry,
       productName: "MCCORMICK ITALIAN SEASONING 21G",
-      imageURL: '21G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3016146.jpg'),
   Product(
       productID: 5008838,
       category: ProductCategory.food_pantry,
@@ -8406,7 +8692,8 @@ List<Product> foodPantryCatalog = [
       productID: 5052240,
       category: ProductCategory.food_pantry,
       productName: "BABA'S KURMA MIX 125G",
-      imageURL: '125G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5173200_1528886085869.jpg'),
   Product(
       productID: 5080875,
       category: ProductCategory.food_pantry,
@@ -8417,7 +8704,8 @@ List<Product> foodPantryCatalog = [
       productID: 5042929,
       category: ProductCategory.food_pantry,
       productName: "GIANT TOMATO SAUCE 485G",
-      imageURL: '485G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/3105870_1528886216885.jpg'),
   Product(
       productID: 5009117,
       category: ProductCategory.food_pantry,
@@ -8440,7 +8728,8 @@ List<Product> foodPantryCatalog = [
       productID: 5002178,
       category: ProductCategory.food_pantry,
       productName: "CLAYPOT EMPEROR CHICKEN HERBS & SPICES MIX 25G",
-      imageURL: '25G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1328569_1528884144039.jpg'),
   Product(
       productID: 5010493,
       category: ProductCategory.food_pantry,
@@ -8451,7 +8740,8 @@ List<Product> foodPantryCatalog = [
       productID: 5089070,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE PREMIUM LIGHT SOY SAUCE 250ML",
-      imageURL: '250ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5089070%20Prem%20light%20soy%20sauce%20250ml.jpg'),
   Product(
       productID: 5002050,
       category: ProductCategory.food_pantry,
@@ -8462,7 +8752,7 @@ List<Product> foodPantryCatalog = [
       productID: 5044018,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND FISH CURRY POWDER 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5128771.jpg'),
   Product(
       productID: 5009114,
       category: ProductCategory.food_pantry,
@@ -8473,7 +8763,7 @@ List<Product> foodPantryCatalog = [
       productID: 5010492,
       category: ProductCategory.food_pantry,
       productName: "WINDMILL POTATO STARCH 350G",
-      imageURL: '350G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1085394.jpg'),
   Product(
       productID: 5043052,
       category: ProductCategory.food_pantry,
@@ -8490,7 +8780,7 @@ List<Product> foodPantryCatalog = [
       productID: 5036465,
       category: ProductCategory.food_pantry,
       productName: "KOI FISH DRIED CHILLI STEMLESS 150G",
-      imageURL: '150G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5214657.jpg'),
   Product(
       productID: 5042024,
       category: ProductCategory.food_pantry,
@@ -8507,7 +8797,7 @@ List<Product> foodPantryCatalog = [
       productID: 5039895,
       category: ProductCategory.food_pantry,
       productName: "CJ BEKSUL BEKSUL TOPOKKI SAUCE 150G",
-      imageURL: '150G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5218582.jpg'),
   Product(
       productID: 5002239,
       category: ProductCategory.food_pantry,
@@ -8535,7 +8825,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041081,
       category: ProductCategory.food_pantry,
       productName: "0101 0101 ROUND CUMIN 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5041081_4411da2573474fc90a47e67cfcae2b7e.jpg'),
   Product(
       productID: 5008852,
       category: ProductCategory.food_pantry,
@@ -8545,12 +8836,14 @@ List<Product> foodPantryCatalog = [
       productID: 5009788,
       category: ProductCategory.food_pantry,
       productName: "OTTOGI BREAD CRUMBS 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/052476_1528883808855.jpg'),
   Product(
       productID: 5076270,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS TOMATO KETCHUP 340G",
-      imageURL: '340G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/401399518_Meadows_Tomato%20Ketchup%20340g_V6-01_mockup%20copy.jpg'),
   Product(
       productID: 5002029,
       category: ProductCategory.food_pantry,
@@ -8583,7 +8876,8 @@ List<Product> foodPantryCatalog = [
       productID: 5046103,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND FENNEL SEEDS 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128739_1528886866489.jpg'),
   Product(
       productID: 5055803,
       category: ProductCategory.food_pantry,
@@ -8600,12 +8894,14 @@ List<Product> foodPantryCatalog = [
       productID: 5023890,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN CHILLI SEAWEED CRUNCH 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/119410_1528883738880.jpg'),
   Product(
       productID: 5044138,
       category: ProductCategory.food_pantry,
       productName: "BAGUS KEROPOK BELINJO 400G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128309_1528886278450.jpg'),
   Product(
       productID: 5009520,
       category: ProductCategory.food_pantry,
@@ -8616,7 +8912,8 @@ List<Product> foodPantryCatalog = [
       productID: 5043178,
       category: ProductCategory.food_pantry,
       productName: "NEW MOON BLACK PEPPER SPICES 30G",
-      imageURL: '30G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5155543_1528884470859.jpg'),
   Product(
       productID: 5061037,
       category: ProductCategory.food_pantry,
@@ -8638,7 +8935,8 @@ List<Product> foodPantryCatalog = [
       productID: 5097873,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE LAKSA PASTE 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5097873%20Laksa%20Paste%20100g.jpg'),
   Product(
       productID: 5002303,
       category: ProductCategory.food_pantry,
@@ -8648,7 +8946,7 @@ List<Product> foodPantryCatalog = [
       productID: 5009522,
       category: ProductCategory.food_pantry,
       productName: "MAGGI EXTRA HOT CHILLI SAUCE 320G",
-      imageURL: '320G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5009522.jpg'),
   Product(
       productID: 5021487,
       category: ProductCategory.food_pantry,
@@ -8676,7 +8974,8 @@ List<Product> foodPantryCatalog = [
       productID: 5010276,
       category: ProductCategory.food_pantry,
       productName: "SINSIN GARLIC CHILLI SAUCE 330G",
-      imageURL: '330G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/705021_1528885071056.jpg'),
   Product(
       productID: 5091151,
       category: ProductCategory.food_pantry,
@@ -8719,17 +9018,19 @@ List<Product> foodPantryCatalog = [
       productID: 5009592,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE SWEET & SPICY SEAFOOD SAUCE 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/163321_1528884682880.jpg'),
   Product(
       productID: 5049111,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND METHI SEEDS 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128759_1528886391975.jpg'),
   Product(
       productID: 5009331,
       category: ProductCategory.food_pantry,
       productName: "WOH HUP SHITAKE MUSHROOM OYSTER SAUCE 500G",
-      imageURL: '500G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1222698.jpg'),
   Product(
       productID: 5042050,
       category: ProductCategory.food_pantry,
@@ -8740,7 +9041,8 @@ List<Product> foodPantryCatalog = [
       productID: 5086405,
       category: ProductCategory.food_pantry,
       productName: "SALAM KICAP MANIS PEDAS SPICY & SWEET 330ML",
-      imageURL: '330ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5086405_01_5086405.jpg'),
   Product(
       productID: 5002241,
       category: ProductCategory.food_pantry,
@@ -8762,7 +9064,7 @@ List<Product> foodPantryCatalog = [
       productID: 5015935,
       category: ProductCategory.food_pantry,
       productName: "ASIAN HOME GOURMET THAI TOM SOUP 50G",
-      imageURL: '50G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3038121.jpg'),
   Product(
       productID: 5009571,
       category: ProductCategory.food_pantry,
@@ -8778,7 +9080,8 @@ List<Product> foodPantryCatalog = [
       productID: 5011154,
       category: ProductCategory.food_pantry,
       productName: "NATUREL EXTRA VIRGIN OLIVE OIL 1.5L",
-      imageURL: '1.5L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/053665_1528887550961.jpg'),
   Product(
       productID: 5037124,
       category: ProductCategory.food_pantry,
@@ -8806,7 +9109,8 @@ List<Product> foodPantryCatalog = [
       productID: 5052241,
       category: ProductCategory.food_pantry,
       productName: "BABA'S RASAM MIX 125G",
-      imageURL: '125G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5173201_1528886813847.jpg'),
   Product(
       productID: 5051352,
       category: ProductCategory.food_pantry,
@@ -8829,7 +9133,8 @@ List<Product> foodPantryCatalog = [
       productID: 5042682,
       category: ProductCategory.food_pantry,
       productName: "TIGER STANDARD GRADE DARK SOYA SAUCE 5L",
-      imageURL: '5L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5140256_1528884593022.jpg'),
   Product(
       productID: 5015684,
       category: ProductCategory.food_pantry,
@@ -8839,12 +9144,14 @@ List<Product> foodPantryCatalog = [
       productID: 5001951,
       category: ProductCategory.food_pantry,
       productName: "SING LONG TOM YAM SAUCE 120G",
-      imageURL: '120G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5155546_1528887324359.jpg'),
   Product(
       productID: 5049722,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND SPICE MIX (MEAT) 70G",
-      imageURL: '0.7G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128754_1528885709472.jpg'),
   Product(
       productID: 5008511,
       category: ProductCategory.food_pantry,
@@ -8866,7 +9173,7 @@ List<Product> foodPantryCatalog = [
       productID: 5087672,
       category: ProductCategory.food_pantry,
       productName: "PIK-A-PIKEL MANGO SALSA 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5087672.jpg'),
   Product(
       productID: 5009233,
       category: ProductCategory.food_pantry,
@@ -8877,7 +9184,8 @@ List<Product> foodPantryCatalog = [
       productID: 5002157,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE SINGAPORE CURRY 300G",
-      imageURL: '300G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/106566_1528887677652.jpg'),
   Product(
       productID: 5041228,
       category: ProductCategory.food_pantry,
@@ -8899,7 +9207,7 @@ List<Product> foodPantryCatalog = [
       productID: 5009099,
       category: ProductCategory.food_pantry,
       productName: "TABASCO CHIPOTLE PEPPER SAUCE 150ML",
-      imageURL: '150ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3028848.jpg'),
   Product(
       productID: 5001958,
       category: ProductCategory.food_pantry,
@@ -9010,7 +9318,7 @@ List<Product> foodPantryCatalog = [
       productID: 5041128,
       category: ProductCategory.food_pantry,
       productName: "PAGODA BRAND PURE POTATO STARCH 5KG",
-      imageURL: '5KG'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5007878.jpg'),
   Product(
       productID: 5011473,
       category: ProductCategory.food_pantry,
@@ -9054,7 +9362,8 @@ List<Product> foodPantryCatalog = [
       productID: 5010201,
       category: ProductCategory.food_pantry,
       productName: "AYAM BRAND WHITE PEARL BARLEY 450G",
-      imageURL: '450G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/600144_1528886890140.jpg'),
   Product(
       productID: 5056545,
       category: ProductCategory.food_pantry,
@@ -9065,12 +9374,12 @@ List<Product> foodPantryCatalog = [
       productID: 5037473,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN SINGAPORE CHICKEN RICE PASTE",
-      imageURL: '100G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5037473.jpg'),
   Product(
       productID: 5050791,
       category: ProductCategory.food_pantry,
       productName: "ADABI TAMARIND PASTE 900G",
-      imageURL: '900G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5155987.jpg'),
   Product(
       productID: 5031318,
       category: ProductCategory.food_pantry,
@@ -9081,7 +9390,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008066,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS SEASONING LEMON PEPPER 52G",
-      imageURL: '52G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/049436_1528887135674.jpg'),
   Product(
       productID: 5062432,
       category: ProductCategory.food_pantry,
@@ -9092,7 +9402,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041075,
       category: ProductCategory.food_pantry,
       productName: "0101 CORIANDER SEEDS 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/0101%20Coriander%20Seeds%2050g.jpg'),
   Product(
       productID: 5040431,
       category: ProductCategory.food_pantry,
@@ -9102,12 +9413,12 @@ List<Product> foodPantryCatalog = [
       productID: 5031861,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS FINISHING SAUCE - CREAMY WHITE 160G",
-      imageURL: '160G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/931001203524.jpg'),
   Product(
       productID: 5098417,
       category: ProductCategory.food_pantry,
       productName: "YU PIN KING SHITAKE MUSHROOMS 120G",
-      imageURL: '120G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5098417.jpg'),
   Product(
       productID: 5040560,
       category: ProductCategory.food_pantry,
@@ -9129,7 +9440,8 @@ List<Product> foodPantryCatalog = [
       productID: 5041079,
       category: ProductCategory.food_pantry,
       productName: "0101 GROUND TURMERIC 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/0101%20Ground%20Turmeric%2050g_1.jpg'),
   Product(
       productID: 5056559,
       category: ProductCategory.food_pantry,
@@ -9140,7 +9452,7 @@ List<Product> foodPantryCatalog = [
       productID: 5051874,
       category: ProductCategory.food_pantry,
       productName: "KANGKANG GRINDED CHILLI PASTE 500G",
-      imageURL: '1PAK'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5051874.jpg'),
   Product(
       productID: 5057111,
       category: ProductCategory.food_pantry,
@@ -9151,12 +9463,14 @@ List<Product> foodPantryCatalog = [
       productID: 5008714,
       category: ProductCategory.food_pantry,
       productName: "MCCORMICK GROUND NUTMEG 31G",
-      imageURL: '31G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/726126_1528885959439.jpg'),
   Product(
       productID: 5042057,
       category: ProductCategory.food_pantry,
       productName: "COCK 100% GROUNDNUT OIL 2L",
-      imageURL: '2L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1008578_1528885265087.jpg'),
   Product(
       productID: 5031931,
       category: ProductCategory.food_pantry,
@@ -9205,12 +9519,13 @@ List<Product> foodPantryCatalog = [
       productID: 5009836,
       category: ProductCategory.food_pantry,
       productName: "DEL MONTE PEACH SLICED IN SYRUP 825G",
-      imageURL: '825G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/620024_1528886531680.jpg'),
   Product(
       productID: 5024722,
       category: ProductCategory.food_pantry,
       productName: "KEWPIE CHEESY CHEESE SANDWICH SPREAD 310ML",
-      imageURL: '310ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/169593.jpg'),
   Product(
       productID: 5033680,
       category: ProductCategory.food_pantry,
@@ -9220,7 +9535,7 @@ List<Product> foodPantryCatalog = [
       productID: 5042078,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA SPECIAL DARK SOY SAUCE 640ML",
-      imageURL: '640ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1197425_1.jpg'),
   Product(
       productID: 5009125,
       category: ProductCategory.food_pantry,
@@ -9237,7 +9552,7 @@ List<Product> foodPantryCatalog = [
       productID: 5009850,
       category: ProductCategory.food_pantry,
       productName: "TAI HUA STANDARD DARK SOY SAUCE 640ML",
-      imageURL: '640ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1197431.jpg'),
   Product(
       productID: 5021063,
       category: ProductCategory.food_pantry,
@@ -9248,7 +9563,8 @@ List<Product> foodPantryCatalog = [
       productID: 5009589,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE VONGOLE SAUCE 260G",
-      imageURL: '390G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/045590_1528887358477.jpg'),
   Product(
       productID: 5011964,
       category: ProductCategory.food_pantry,
@@ -9259,7 +9575,8 @@ List<Product> foodPantryCatalog = [
       productID: 5052242,
       category: ProductCategory.food_pantry,
       productName: "BABA'S BRIYANI SPICE 70G",
-      imageURL: '70G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5173202_1528884792951.jpg'),
   Product(
       productID: 5009140,
       category: ProductCategory.food_pantry,
@@ -9269,12 +9586,13 @@ List<Product> foodPantryCatalog = [
       productID: 5002047,
       category: ProductCategory.food_pantry,
       productName: "NARCISSUS LYCHEE 567G",
-      imageURL: '567G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1213470_1528884290240.jpg'),
   Product(
       productID: 5040631,
       category: ProductCategory.food_pantry,
       productName: "RED MAN CASHEW NUT 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/0000932_1.jpg'),
   Product(
       productID: 5010013,
       category: ProductCategory.food_pantry,
@@ -9285,7 +9603,8 @@ List<Product> foodPantryCatalog = [
       productID: 5043203,
       category: ProductCategory.food_pantry,
       productName: "STAR GOURMET COOKING WINE MEI KUEI LU 640ML",
-      imageURL: '640ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/88883908804621_1437390776510.jpg'),
   Product(
       productID: 5022041,
       category: ProductCategory.food_pantry,
@@ -9302,12 +9621,13 @@ List<Product> foodPantryCatalog = [
       productID: 5091155,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS FENNEL SEEDS 135G",
-      imageURL: '135G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5091155.jpg'),
   Product(
       productID: 5009332,
       category: ProductCategory.food_pantry,
       productName: "WOH HUP ABALONE SAUCE 280G",
-      imageURL: '280G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/156318_1528886878343.jpg'),
   Product(
       productID: 5009785,
       category: ProductCategory.food_pantry,
@@ -9375,7 +9695,8 @@ List<Product> foodPantryCatalog = [
       productID: 5011863,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE KOREAN MARINADE 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5164376_1528886239800.jpg'),
   Product(
       productID: 5041178,
       category: ProductCategory.food_pantry,
@@ -9424,9 +9745,8 @@ List<Product> foodPantryCatalog = [
       productID: 5010166,
       category: ProductCategory.food_pantry,
       productName:
-          " GARLIC & HERBS 500G" "PASTA SAUCE BOLOGNESE WITH CHUNKY TOMATOES",
-      imageURL:
-          ' Dips & Dressing-Sauces-Pasta Sauces-Pasta Sauce Bolognese With Chunky Tomatoes'),
+          "LEGGO'S PASTA SAUCE BOLOGNESE WITH CHUNKY TOMATOES, GARLIC & HERBS 500G",
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3015990.jpg'),
   Product(
       productID: 5011875,
       category: ProductCategory.food_pantry,
@@ -9449,12 +9769,14 @@ List<Product> foodPantryCatalog = [
       productID: 5002160,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE FRAGRANT HAINANESE CHICKEN RICE PASTE 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/124478_1528887468031.jpg'),
   Product(
       productID: 5052005,
       category: ProductCategory.food_pantry,
       productName: "WANG SHOU YI CUMIN POWDER 40G",
-      imageURL: '40G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5171568_1528887515244.jpg'),
   Product(
       productID: 5031867,
       category: ProductCategory.food_pantry,
@@ -9477,7 +9799,8 @@ List<Product> foodPantryCatalog = [
       productID: 5007887,
       category: ProductCategory.food_pantry,
       productName: "MCCORMICK BAY LEAVES 3G",
-      imageURL: '3G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/726108_1528887591899.jpg'),
   Product(
       productID: 5010292,
       category: ProductCategory.food_pantry,
@@ -9492,7 +9815,8 @@ List<Product> foodPantryCatalog = [
       productID: 5020638,
       category: ProductCategory.food_pantry,
       productName: "HOUSE WASABI 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1226801_1528884261323.jpg'),
   Product(
       productID: 5042262,
       category: ProductCategory.food_pantry,
@@ -9521,7 +9845,8 @@ List<Product> foodPantryCatalog = [
       productID: 5021138,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND SOYAMEAL 250G",
-      imageURL: '250G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128809_1528884809004.jpg'),
   Product(
       productID: 5001976,
       category: ProductCategory.food_pantry,
@@ -9532,12 +9857,12 @@ List<Product> foodPantryCatalog = [
       productID: 5088339,
       category: ProductCategory.food_pantry,
       productName: "FLYING MAN CORN FLOUR 400G",
-      imageURL: '400G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5088339.jpg'),
   Product(
       productID: 5019641,
       category: ProductCategory.food_pantry,
       productName: "DANCING CHEF THAI SEAFOOD SAUCE 100G",
-      imageURL: '100G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/z5019641.jpg'),
   Product(
       productID: 5008931,
       category: ProductCategory.food_pantry,
@@ -9554,22 +9879,24 @@ List<Product> foodPantryCatalog = [
       productID: 5009345,
       category: ProductCategory.food_pantry,
       productName: "WOH HUP PLUM SAUCE 400G",
-      imageURL: '400G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1226287.jpg'),
   Product(
       productID: 5002168,
       category: ProductCategory.food_pantry,
       productName: "MAGGI CHILLI SAUCE 340G",
-      imageURL: '340G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5002168.jpg'),
   Product(
       productID: 5054048,
       category: ProductCategory.food_pantry,
       productName: "KEWPIE HALF SALAD DRESSING 310ML",
-      imageURL: '310ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5182275_1528886133978.jpg'),
   Product(
       productID: 5049168,
       category: ProductCategory.food_pantry,
       productName: "RICE FIELD RICE BRAN OIL 5L",
-      imageURL: '5L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Rice%20Bran%20Oil%205L.jpg'),
   Product(
       productID: 5008410,
       category: ProductCategory.food_pantry,
@@ -9598,7 +9925,8 @@ List<Product> foodPantryCatalog = [
       productID: 5013585,
       category: ProductCategory.food_pantry,
       productName: "HOUSE VERMONT CURRY SAUCE MIX MEDIUM HOT 230G",
-      imageURL: '230G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1166493_1528887396433.jpg'),
   Product(
       productID: 5002236,
       category: ProductCategory.food_pantry,
@@ -9642,12 +9970,13 @@ List<Product> foodPantryCatalog = [
       productID: 5008653,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE PANDA BRAND OYSTER SAUCE 255G",
-      imageURL: '255G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/705051_1528886028145.jpg'),
   Product(
       productID: 5097601,
       category: ProductCategory.food_pantry,
       productName: "OKI HOT & SPICY CRISPY FRIED CHICKEN COATING 120G",
-      imageURL: '120G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5097601.jpg'),
   Product(
       productID: 5088116,
       category: ProductCategory.food_pantry,
@@ -9657,8 +9986,9 @@ List<Product> foodPantryCatalog = [
   Product(
       productID: 5008929,
       category: ProductCategory.food_pantry,
-      productName: " BASIL & GARLIC 300G" "PASTA SAUCE - TOMATO",
-      imageURL: ' Dips & Dressing-Sauces-Pasta Sauces-Pasta Sauce - Tomato'),
+      productName: "PREGO PASTA SAUCE - TOMATO, BASIL & GARLIC 300G",
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1298718_1528883790374.jpg'),
   Product(
       productID: 5008837,
       category: ProductCategory.food_pantry,
@@ -9674,7 +10004,8 @@ List<Product> foodPantryCatalog = [
       productID: 5028938,
       category: ProductCategory.food_pantry,
       productName: "SING LONG SALTED EGG YOLK PASTE 120G",
-      imageURL: '120G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Sing%20Long%20Salted%20Egg%20Yolk%20120g_1.jpg'),
   Product(
       productID: 5073403,
       category: ProductCategory.food_pantry,
@@ -9690,22 +10021,23 @@ List<Product> foodPantryCatalog = [
       productID: 5091161,
       category: ProductCategory.food_pantry,
       productName: "MEADOWS TAMARIND SLICES 40G",
-      imageURL: '40G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5091161.jpg'),
   Product(
       productID: 5010487,
       category: ProductCategory.food_pantry,
       productName: "SING LONG SAMBAL UDANG CILI 230G",
-      imageURL: '230G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/SL%20Sambal%20Chilli%20Prawn%20230g.jpg'),
   Product(
       productID: 5009341,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS MILD AMERICAN MUSTARD 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5009341.jpg'),
   Product(
       productID: 5009346,
       category: ProductCategory.food_pantry,
       productName: "WOH HUP SINGAPORE LAKSA PASTE 190G",
-      imageURL: '190G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1226150.jpg'),
   Product(
       productID: 5089221,
       category: ProductCategory.food_pantry,
@@ -9715,12 +10047,13 @@ List<Product> foodPantryCatalog = [
       productID: 5041721,
       category: ProductCategory.food_pantry,
       productName: "CHNG KEE SAMBAL OELEK 240G",
-      imageURL: '240ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8888629990221.jpg'),
   Product(
       productID: 5086946,
       category: ProductCategory.food_pantry,
       productName: "HUNT'S TOMATO SAUCE 250G",
-      imageURL: '250G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5086946.jpg'),
   Product(
       productID: 5042680,
       category: ProductCategory.food_pantry,
@@ -9736,13 +10069,14 @@ List<Product> foodPantryCatalog = [
       productID: 5040533,
       category: ProductCategory.food_pantry,
       productName: "GIANT DARK SOYA SAUCE 640ML",
-      imageURL: '640ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5072761_1528886129038.jpg'),
   Product(
       productID: 5008668,
       category: ProductCategory.food_pantry,
-      productName: " CHUNKY TOMATOES & HERBS 500G"
-          "PASTA SAUCE - BOLOGNESE WITH MUSHROOM",
-      imageURL: ' Chunky Tomatoes & Herbs 500g"'),
+      productName:
+          "LEGGO'S PASTA SAUCE - BOLOGNESE WITH MUSHROOM, CHUNKY TOMATOES & HERBS 500G",
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5078541.jpg'),
   Product(
       productID: 5068029,
       category: ProductCategory.food_pantry,
@@ -9781,17 +10115,20 @@ List<Product> foodPantryCatalog = [
       productID: 5024917,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE SEAFOOD XO SAUCE 210G",
-      imageURL: '210G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5185286_1528884580564.jpg'),
   Product(
       productID: 5041379,
       category: ProductCategory.food_pantry,
       productName: "SEAH'S STEAM PORK KIBS SPICES 32G",
-      imageURL: '32G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5025598_1528887593800.jpg'),
   Product(
       productID: 5048657,
       category: ProductCategory.food_pantry,
       productName: "HARUMA ALL PURPOSE SEASONED FLOUR 185G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Kentucky%20Flour.jpg'),
   Product(
       productID: 5002033,
       category: ProductCategory.food_pantry,
@@ -9801,7 +10138,7 @@ List<Product> foodPantryCatalog = [
       productID: 5021629,
       category: ProductCategory.food_pantry,
       productName: "LAOGANMA SPICY CHILLI CRISP 210G",
-      imageURL: '210G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5166163.jpg'),
   Product(
       productID: 5009573,
       category: ProductCategory.food_pantry,
@@ -9849,7 +10186,7 @@ List<Product> foodPantryCatalog = [
       productID: 5041650,
       category: ProductCategory.food_pantry,
       productName: "TIGER STANDARD GRADE DARK SOYA SAUCE 640ML",
-      imageURL: '0640ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1200243.jpg'),
   Product(
       productID: 5061035,
       category: ProductCategory.food_pantry,
@@ -9865,17 +10202,20 @@ List<Product> foodPantryCatalog = [
       productID: 5008690,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE ORIENTAL PORK CHOP SAUCE 80G",
-      imageURL: '80G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Oriental%20Pork.jpg'),
   Product(
       productID: 5063613,
       category: ProductCategory.food_pantry,
       productName: "AMOCAN SPICY SEAFOOD PASTE 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/AMOCAN-_SpicySeafoodPaste_-5208440.jpg'),
   Product(
       productID: 5010034,
       category: ProductCategory.food_pantry,
       productName: "LADY'S CHOICE THOUSAND ISLAND DRESSING 250ML",
-      imageURL: '250ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5000885_1528883818830.jpg'),
   Product(
       productID: 5041510,
       category: ProductCategory.food_pantry,
@@ -9903,7 +10243,8 @@ List<Product> foodPantryCatalog = [
       productID: 5052243,
       category: ProductCategory.food_pantry,
       productName: "BABA'S CUMIN POWDER 70G",
-      imageURL: '70G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5173203_1528886349979.jpg'),
   Product(
       productID: 5082023,
       category: ProductCategory.food_pantry,
@@ -9913,7 +10254,7 @@ List<Product> foodPantryCatalog = [
       productID: 5101020,
       category: ProductCategory.food_pantry,
       productName: "CJ BEKSUL TERIYAKI SAUCE 325G",
-      imageURL: '325G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5101020.jpg'),
   Product(
       productID: 5024710,
       category: ProductCategory.food_pantry,
@@ -9923,12 +10264,14 @@ List<Product> foodPantryCatalog = [
       productID: 5007934,
       category: ProductCategory.food_pantry,
       productName: "KIMBALL THAI CHILLI SAUCE 300G",
-      imageURL: '300G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1129373_1528885043769.jpg'),
   Product(
       productID: 5043428,
       category: ProductCategory.food_pantry,
       productName: "MAHSURI OYSTER SAUCE - BERPERISA TIRAM 510G",
-      imageURL: '510G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Mahsuri%20Tiram%20510g%20hires%20_1_.jpg'),
   Product(
       productID: 5026655,
       category: ProductCategory.food_pantry,
@@ -9939,7 +10282,8 @@ List<Product> foodPantryCatalog = [
       productID: 5011153,
       category: ProductCategory.food_pantry,
       productName: "KNIFE RICE BRAN OIL 2L",
-      imageURL: '2L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5143727_1528886949443.jpg'),
   Product(
       productID: 5042842,
       category: ProductCategory.food_pantry,
@@ -9949,7 +10293,8 @@ List<Product> foodPantryCatalog = [
       productID: 5008074,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS SEASONING - GARLIC PEPPER 50G",
-      imageURL: '50G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/059707_1528885555032.jpg'),
   Product(
       productID: 5069773,
       category: ProductCategory.food_pantry,
@@ -9965,7 +10310,7 @@ List<Product> foodPantryCatalog = [
       productID: 5038486,
       category: ProductCategory.food_pantry,
       productName: "CJ BIBIGO KIMCHI SLICED 150G",
-      imageURL: ' Noodles & Kimchi-Kimchi & Pickles-Kimchi Sliced 150g"'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/173992.jpg'),
   Product(
       productID: 5090347,
       category: ProductCategory.food_pantry,
@@ -9986,7 +10331,8 @@ List<Product> foodPantryCatalog = [
       productID: 5086406,
       category: ProductCategory.food_pantry,
       productName: "SALAM SOS BERPERISA OYSTER SAUCE 345G",
-      imageURL: '345G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5086406_01_5086406.jpg'),
   Product(
       productID: 5090592,
       category: ProductCategory.food_pantry,
@@ -10002,7 +10348,7 @@ List<Product> foodPantryCatalog = [
       productID: 5002167,
       category: ProductCategory.food_pantry,
       productName: "MAGGI TOMATO KETCHUP 320G",
-      imageURL: '320G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5002167.jpg'),
   Product(
       productID: 5002240,
       category: ProductCategory.food_pantry,
@@ -10019,7 +10365,7 @@ List<Product> foodPantryCatalog = [
       productID: 5010494,
       category: ProductCategory.food_pantry,
       productName: "HOLLYFARMS BREAD CRUMBS 100G",
-      imageURL: '100G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/1217406.jpg'),
   Product(
       productID: 5002174,
       category: ProductCategory.food_pantry,
@@ -10047,7 +10393,8 @@ List<Product> foodPantryCatalog = [
       productID: 5052244,
       category: ProductCategory.food_pantry,
       productName: "BABA'S GARAM MASALA MIX 70G",
-      imageURL: '70G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5173204_1528886208976.jpg'),
   Product(
       productID: 5009999,
       category: ProductCategory.food_pantry,
@@ -10070,7 +10417,8 @@ List<Product> foodPantryCatalog = [
       productID: 5083056,
       category: ProductCategory.food_pantry,
       productName: "KEWPIE ROASTED SESAME YUZU DRESSING 1L",
-      imageURL: '1L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/b156155da9dcb6af1ecadcfc8c5e2b67195750e50c23506fd60a38c1f6b5c2e6.jpg'),
   Product(
       productID: 5002036,
       category: ProductCategory.food_pantry,
@@ -10106,12 +10454,13 @@ List<Product> foodPantryCatalog = [
       productID: 5101025,
       category: ProductCategory.food_pantry,
       productName: "CJ SOYBEAN PASTE SAGYEGEOL 500G",
-      imageURL: '500G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5101025.jpg'),
   Product(
       productID: 5010488,
       category: ProductCategory.food_pantry,
       productName: "SING LONG CHINCHALOK 250G",
-      imageURL: '250G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/8888260000129-front.jpg.jpg'),
   Product(
       productID: 5022009,
       category: ProductCategory.food_pantry,
@@ -10134,7 +10483,7 @@ List<Product> foodPantryCatalog = [
       productID: 5086381,
       category: ProductCategory.food_pantry,
       productName: "TEAN'S PASTE CURRY CHICKEN 200G",
-      imageURL: '200G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5086381.jpg'),
   Product(
       productID: 5041668,
       category: ProductCategory.food_pantry,
@@ -10145,12 +10494,14 @@ List<Product> foodPantryCatalog = [
       productID: 5048762,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND CHILLI COARSE 100G",
-      imageURL: '100G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128807_1528884954668.jpg'),
   Product(
       productID: 5008682,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE SWEET & SOUR SAUCE 240G",
-      imageURL: '240G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Sweet%20_%20Sour%20Sauce%20240g-mini-SG.jpg'),
   Product(
       productID: 5086019,
       category: ProductCategory.food_pantry,
@@ -10161,7 +10512,7 @@ List<Product> foodPantryCatalog = [
       productID: 5026048,
       category: ProductCategory.food_pantry,
       productName: "RIB RACK BBQ SAUCE SWEET HONEY 538G",
-      imageURL: '19OZ'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/127061.jpg'),
   Product(
       productID: 5002049,
       category: ProductCategory.food_pantry,
@@ -10195,28 +10546,32 @@ List<Product> foodPantryCatalog = [
       productID: 5041047,
       category: ProductCategory.food_pantry,
       productName: "SING LONG SPICY SOUR SOTONG SAUCE 300G",
-      imageURL: '250G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Sing%20Long%20Spicy%20_%20Sour%20Sotong%20Sauce%20300g.jpg'),
   Product(
       productID: 5049872,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND MEAT / CHICKEN CURRY POWDER 250G",
-      imageURL: '250G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128777_1528883973755.jpg'),
   Product(
       productID: 5055766,
       category: ProductCategory.food_pantry,
       productName: "FORTUNE DRIED SCALLOP IN XO SAUCE ORIGINAL 110G",
-      imageURL: '110G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5188014_1528885865888.jpg'),
   Product(
       productID: 5021237,
       category: ProductCategory.food_pantry,
       productName: "HOUSE BRAND CHANNA DHALL 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5128773_1528885223518.jpg'),
   Product(
       productID: 5008663,
       category: ProductCategory.food_pantry,
       productName:
           "LEGGO'S PASTA SAUCE - NAPOLETANA WITH CHUNKY TOMATOES AND HERBS 500G",
-      imageURL: '500G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/3015985.jpg'),
   Product(
       productID: 5042564,
       category: ProductCategory.food_pantry,
@@ -10233,12 +10588,13 @@ List<Product> foodPantryCatalog = [
       productID: 5040423,
       category: ProductCategory.food_pantry,
       productName: "BABA'S HOT & SPICY MEAT CURRY POWDER 250G",
-      imageURL: '250G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5138802_1528883620319.jpg'),
   Product(
       productID: 5041127,
       category: ProductCategory.food_pantry,
       productName: "PAGODA BRAND PURE CORN FLOUR 400G",
-      imageURL: '400G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5007869.jpg'),
   Product(
       productID: 5002261,
       category: ProductCategory.food_pantry,
@@ -10266,17 +10622,19 @@ List<Product> foodPantryCatalog = [
       productID: 5041670,
       category: ProductCategory.food_pantry,
       productName: "DOUBLE PAGODA SHALLOT OIL 150ML",
-      imageURL: '150ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/3024706_1528884868668_1.jpg'),
   Product(
       productID: 5033538,
       category: ProductCategory.food_pantry,
       productName: "HEINZ BBQ SPICY 490G",
-      imageURL: '490G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/img168403-1.jpg'),
   Product(
       productID: 5008099,
       category: ProductCategory.food_pantry,
       productName: "MASTERFOODS SEASONING WHOLEGRAIN MUSTARD 175G",
-      imageURL: '175G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1623949697_1282190.jpg'),
   Product(
       productID: 5009138,
       category: ProductCategory.food_pantry,
@@ -10287,22 +10645,25 @@ List<Product> foodPantryCatalog = [
       productID: 5002163,
       category: ProductCategory.food_pantry,
       productName: "PRIMA TASTE HAINANESE CHICKEN RICE 370G",
-      imageURL: '370G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/106564_1528886593417.jpg'),
   Product(
       productID: 5009149,
       category: ProductCategory.food_pantry,
       productName: "BAKE KING PANDAN PASTE 30G",
-      imageURL: '30G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/102643_1528886180222.jpg'),
   Product(
       productID: 5040786,
       category: ProductCategory.food_pantry,
       productName: "EARTHEN POT CRUSHED CHILLI 56G",
-      imageURL: '56G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5040786.jpg'),
   Product(
       productID: 5043102,
       category: ProductCategory.food_pantry,
       productName: "PAGODA SWEET POTATO FLOUR 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5155391_1528884747876.jpg'),
   Product(
       productID: 5050141,
       category: ProductCategory.food_pantry,
@@ -10323,10 +10684,12 @@ List<Product> foodPantryCatalog = [
       productID: 5010168,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE PANDA OYSTER SAUCE 510G ",
-      imageURL: '510G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1092437_1528887072296.jpg'),
   Product(
       productID: 5008680,
       category: ProductCategory.food_pantry,
       productName: "LEE KUM KEE BLACK PEPPER SAUCE 230G",
-      imageURL: '230G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Black%20Pepper%20Sauce%20230g.jpg'),
 ];

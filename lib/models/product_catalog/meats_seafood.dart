@@ -11,7 +11,8 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5040359,
       category: ProductCategory.meats_seafood,
       productName: "FRESH DELI APPLE VANILLA HAM SLICED 100G",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/176028%20Fresh%20Deli%20Apple%20Vanilla%20Ham.jpg'),
   Product(
       productID: 5048512,
       category: ProductCategory.meats_seafood,
@@ -33,12 +34,13 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5050850,
       category: ProductCategory.meats_seafood,
       productName: "OTHERS BACK BACON 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Back%20Bacon%20500g%20FRONT.jpg'),
   Product(
       productID: 5069820,
       category: ProductCategory.meats_seafood,
       productName: "GIANT SLICED BACK BACON 180G",
-      imageURL: '1EA'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5069820.jpg'),
   Product(
       productID: 5050410,
       category: ProductCategory.meats_seafood,
@@ -59,12 +61,13 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5063862,
       category: ProductCategory.meats_seafood,
       productName: "GOLDEN BRIDGE BBQ MINI CHICKEN SAUSAGE",
-      imageURL: '1PAK'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2026359_1528887224635.jpg'),
   Product(
       productID: 5061653,
       category: ProductCategory.meats_seafood,
       productName: "SADIA CLASSIC BBQ CHICKEN SAUSAGE 300G",
-      imageURL: '300PAK'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5061653.jpg'),
   Product(
       productID: 5057448,
       category: ProductCategory.meats_seafood,
@@ -74,12 +77,14 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5043853,
       category: ProductCategory.meats_seafood,
       productName: "ZAC MEAT BEEF BACON 180G",
-      imageURL: '180G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2081018_1528886291791.jpg'),
   Product(
       productID: 5043656,
       category: ProductCategory.meats_seafood,
       productName: "ZAC MEAT BEEF BACON W/ PEPPER 180G",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2081019_1528884288154.jpg'),
   Product(
       productID: 5022857,
       category: ProductCategory.meats_seafood,
@@ -90,7 +95,8 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5045041,
       category: ProductCategory.meats_seafood,
       productName: "BALLGUS BEEF PEPPERONI 180G",
-      imageURL: '180G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2015547_1528883427151.jpg'),
   Product(
       productID: 5027667,
       category: ProductCategory.meats_seafood,
@@ -100,12 +106,14 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5046067,
       category: ProductCategory.meats_seafood,
       productName: "BALLGUS BEEF SALAMI (CHILLED) 180G",
-      imageURL: '180G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2019841_1528885365041.jpg'),
   Product(
       productID: 5046403,
       category: ProductCategory.meats_seafood,
       productName: "ZAC MEAT BEEF SALAMI 180G",
-      imageURL: '180G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2081021_1528887462138.jpg'),
   Product(
       productID: 5023932,
       category: ProductCategory.meats_seafood,
@@ -163,17 +171,18 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5069822,
       category: ProductCategory.meats_seafood,
       productName: "GIANT BREAKFAST HAM 200G",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Giant_Breakfast%20Ham%20Image.jpg'),
   Product(
       productID: 5035284,
       category: ProductCategory.meats_seafood,
       productName: "BUSSETO PREMIUM GENOA PROVOLONE 255G",
-      imageURL: '1PAK'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/170347.jpg'),
   Product(
       productID: 5035283,
       category: ProductCategory.meats_seafood,
       productName: "BUSSETO SLICED ANTIPASTO PACK 340G",
-      imageURL: '1PAK'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/170346.jpg'),
   Product(
       productID: 5001509,
       category: ProductCategory.meats_seafood,
@@ -195,12 +204,14 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5043941,
       category: ProductCategory.meats_seafood,
       productName: "ZAC MEAT BEEF CHEESY FRANK 300G",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2081017_1528885298731.jpg'),
   Product(
       productID: 5043542,
       category: ProductCategory.meats_seafood,
       productName: "ZAC MEAT CHICKEN BACON 180G",
-      imageURL: '180G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2081089_1528887570776.jpg'),
   Product(
       productID: 5024794,
       category: ProductCategory.meats_seafood,
@@ -211,22 +222,26 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5043996,
       category: ProductCategory.meats_seafood,
       productName: "BALLGUS CHICKEN CHEESE SAUSAGE 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2015552_1528883791842.jpg'),
   Product(
       productID: 5048362,
       category: ProductCategory.meats_seafood,
       productName: "TIERNEY CHICKEN CHIPOLATA 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2004341_1528884940202.jpg'),
   Product(
       productID: 5046302,
       category: ProductCategory.meats_seafood,
       productName: "OWN BRAND CHICKEN COCKTAIL SAUSAGE 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2016458_1528884174812.jpg'),
   Product(
       productID: 5044676,
       category: ProductCategory.meats_seafood,
       productName: "TIERNEY CHICKEN COCKTAIL SAUSAGE 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2004335_1528885042556.jpg'),
   Product(
       productID: 5024793,
       category: ProductCategory.meats_seafood,
@@ -236,42 +251,49 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5043662,
       category: ProductCategory.meats_seafood,
       productName: "ZAC MEAT CHICKEN HAM 180G",
-      imageURL: '180G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2081031_1528887214901.jpg'),
   Product(
       productID: 5050581,
       category: ProductCategory.meats_seafood,
       productName: "BALLGUS CHICKEN HAM 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2015549_1528886421829.jpg'),
   Product(
       productID: 5052829,
       category: ProductCategory.meats_seafood,
       productName: "BALLGUS CHICKEN HAM 500G",
-      imageURL: '500PAK'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2021533_1528887120110.jpg'),
   Product(
       productID: 5050815,
       category: ProductCategory.meats_seafood,
       productName: "OWN BRAND CHICKEN HOT DOG 500G",
-      imageURL: '1G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2016459_1528884674347.jpg'),
   Product(
       productID: 5044565,
       category: ProductCategory.meats_seafood,
       productName: "BALLGUS CHICKEN PICNIC HAM 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2015548_1528887358119.jpg'),
   Product(
       productID: 5044791,
       category: ProductCategory.meats_seafood,
       productName: "BALLGUS CHICKEN PICNIC HAM 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2015553_1528886395206.jpg'),
   Product(
       productID: 5069828,
       category: ProductCategory.meats_seafood,
       productName: "GIANT CHICKEN SAUSAGE 200G",
-      imageURL: '1EA'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5069828.jpg'),
   Product(
       productID: 5019431,
       category: ProductCategory.meats_seafood,
       productName: "GOLDEN DRAGON CHICKEN WITH CURRY 250G",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2071094_1528884988236.jpg'),
   Product(
       productID: 5019043,
       category: ProductCategory.meats_seafood,
@@ -304,17 +326,20 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5048177,
       category: ProductCategory.meats_seafood,
       productName: "BALLGUS CHICKEN SATAY COCKTAIL SAUSAGE 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2014024_1528885773468.jpg'),
   Product(
       productID: 5061647,
       category: ProductCategory.meats_seafood,
       productName: "SADIA ITALIAN CLASSIC CHICKEN SAUSAGE (PARTY FUN) 252G",
-      imageURL: '252PAK'),
+      imageURL:
+          'https://d34sur1hfhbnek.cloudfront.net/assets/easyimage/c/c9007cad3625a54a63f061fd7be74b4f.jpg'),
   Product(
       productID: 5069826,
       category: ProductCategory.meats_seafood,
       productName: "GIANT CHEESE CHICKEN COCKTAIL SAUSAGE 200G",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/cb72f943-677f-4121-9dc3-d72b73267d64.jpg'),
   Product(
       productID: 5014142,
       category: ProductCategory.meats_seafood,
@@ -898,7 +923,8 @@ List<Product> meatsSeafoodCatalog = [
       category: ProductCategory.meats_seafood,
       productName:
           "GOLDEN DRAGON ORIENTAL PORK SAUSAGES W/ GARLIC & CHILLI 250G",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2071091_1528884174938.jpg'),
   Product(
       productID: 5054926,
       category: ProductCategory.meats_seafood,
@@ -908,7 +934,8 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5048358,
       category: ProductCategory.meats_seafood,
       productName: "OTHERS FRESH GREEN MUSSELS",
-      imageURL: '1KG'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5048358_f3c6060ec8f6208992c7d5685bfd294a.jpg'),
   Product(
       productID: 5047763,
       category: ProductCategory.meats_seafood,
@@ -964,12 +991,12 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5069821,
       category: ProductCategory.meats_seafood,
       productName: "GIANT HONEY BAKED HAM 200G",
-      imageURL: '1EA'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5069821.jpg'),
   Product(
       productID: 5069825,
       category: ProductCategory.meats_seafood,
       productName: "GIANT HONEY GLAZED CHICKEN HAM 200G",
-      imageURL: '1EA'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5069825.jpg'),
   Product(
       productID: 5059960,
       category: ProductCategory.meats_seafood,
@@ -985,12 +1012,14 @@ List<Product> meatsSeafoodCatalog = [
       category: ProductCategory.meats_seafood,
       productName:
           "JOHNSONVILLE COOKED SAUSAGES WITH LEMON AND BLACK PEPPER 396G",
-      imageURL: '360G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2006205_1528884370479.jpg'),
   Product(
       productID: 5012074,
       category: ProductCategory.meats_seafood,
       productName: "JOHNSONVILLE ORIGINAL SMOKED SAUSAGES 396G",
-      imageURL: '360G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2006209_1528887591984.jpg'),
   Product(
       productID: 5059177,
       category: ProductCategory.meats_seafood,
@@ -1130,7 +1159,8 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5040361,
       category: ProductCategory.meats_seafood,
       productName: "FRESH DELI KUROBUTA HAM SLICED 100G",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/176030%20Fresh%20Deli%20Kurobuta%20Ham.jpg'),
   Product(
       productID: 5033776,
       category: ProductCategory.meats_seafood,
@@ -1163,7 +1193,7 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5069824,
       category: ProductCategory.meats_seafood,
       productName: "GIANT LEG HAM 200G",
-      imageURL: '1EA'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5069824.jpg'),
   Product(
       productID: 5097366,
       category: ProductCategory.meats_seafood,
@@ -1188,12 +1218,13 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5069782,
       category: ProductCategory.meats_seafood,
       productName: "GIANT MINI CHICKEN HOTDOG 200G",
-      imageURL: '1EA'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5069782.jpg'),
   Product(
       productID: 5015052,
       category: ProductCategory.meats_seafood,
       productName: "GOLDEN DRAGON ORIENTAL CHICKEN COCKTAIL SAUSAGES 250G",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2071095_1528884110924.jpg'),
   Product(
       productID: 5020413,
       category: ProductCategory.meats_seafood,
@@ -1254,17 +1285,18 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5061649,
       category: ProductCategory.meats_seafood,
       productName: "SADIA NUERNBERGER CHICKEN SAUSAGE 300G",
-      imageURL: '300PAK'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5061649.jpg'),
   Product(
       productID: 5101127,
       category: ProductCategory.meats_seafood,
       productName: "RUDIS ORANGE GLAZED MINI HAM 800G",
-      imageURL: '800G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/51011127.jpg'),
   Product(
       productID: 5015093,
       category: ProductCategory.meats_seafood,
       productName: "NEW MOON TAIWAN PORK SAUSAGE 500G",
-      imageURL: '500EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2005122_1528885569051.jpg'),
   Product(
       productID: 5049087,
       category: ProductCategory.meats_seafood,
@@ -1314,7 +1346,8 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5069823,
       category: ProductCategory.meats_seafood,
       productName: "GIANT PICNIC HAM 500G",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Giant_Picnic%20Ham%20Image.jpg'),
   Product(
       productID: 5020949,
       category: ProductCategory.meats_seafood,
@@ -1341,7 +1374,8 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5046085,
       category: ProductCategory.meats_seafood,
       productName: "OTHERS PORK CHIPOLATA 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2004340_1528883799471.jpg'),
   Product(
       productID: 5055879,
       category: ProductCategory.meats_seafood,
@@ -1352,12 +1386,14 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5047264,
       category: ProductCategory.meats_seafood,
       productName: "OWN BRAND PORK COCKTAIL 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Superfresh%20Pork%20Cocktail%20FRONT.jpg'),
   Product(
       productID: 5048111,
       category: ProductCategory.meats_seafood,
       productName: "TIERNEY PORK COCKTAIL SAUSAGE 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2004334_1528885244628.jpg'),
   Product(
       productID: 5082378,
       category: ProductCategory.meats_seafood,
@@ -1367,12 +1403,13 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5048928,
       category: ProductCategory.meats_seafood,
       productName: "TIERNEY PORK HOTDOG 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2004336_1528885656061.jpg'),
   Product(
       productID: 5069829,
       category: ProductCategory.meats_seafood,
       productName: "GIANT PORK HOTDOG 200G",
-      imageURL: '1EA'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5069829.jpg'),
   Product(
       productID: 5055939,
       category: ProductCategory.meats_seafood,
@@ -1394,12 +1431,14 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5043913,
       category: ProductCategory.meats_seafood,
       productName: "ZAC MEAT BEEF PASTRAMI 180G",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2081020_1528883535627.jpg'),
   Product(
       productID: 5016180,
       category: ProductCategory.meats_seafood,
       productName: "OTHERS BACON BITS 190G",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2006677_1528884049424.jpg'),
   Product(
       productID: 5016055,
       category: ProductCategory.meats_seafood,
@@ -1410,7 +1449,7 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5061650,
       category: ProductCategory.meats_seafood,
       productName: "SADIA ROSEMARY LAMB SAUSAGE 300G",
-      imageURL: '300PAK'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5061650.jpg'),
   Product(
       productID: 5089938,
       category: ProductCategory.meats_seafood,
@@ -1516,22 +1555,25 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5044597,
       category: ProductCategory.meats_seafood,
       productName: "OTHERS SMOKED CHEESE BRATWURST 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2093978_1528886181921.jpg'),
   Product(
       productID: 5061651,
       category: ProductCategory.meats_seafood,
       productName: "SADIA SMOKED HOTLINK CHICKEN SAUSAGE 300G",
-      imageURL: '300PAK'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5061651.jpg'),
   Product(
       productID: 5049261,
       category: ProductCategory.meats_seafood,
       productName: "BALLGUS SMOKED BEEF BACON PEPPER 180G",
-      imageURL: '180G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2016300_1528884431927.jpg'),
   Product(
       productID: 5047587,
       category: ProductCategory.meats_seafood,
       productName: "BALLGUS SMOKED BEEF BACON 180G",
-      imageURL: '180G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2016301_1528887501502.jpg'),
   Product(
       productID: 5044348,
       category: ProductCategory.meats_seafood,
@@ -1575,17 +1617,18 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5019357,
       category: ProductCategory.meats_seafood,
       productName: "NEW MOON MINI COCKTAIL CHICKEN TAIWAN SAUSAGE 250G",
-      imageURL: '250EA'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/071955.jpg'),
   Product(
       productID: 5013050,
       category: ProductCategory.meats_seafood,
       productName: "NEW MOON MINI COCKTAIL PORK TAIWAN SAUSAGE 500G",
-      imageURL: '500EA'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/072830.jpg'),
   Product(
       productID: 5020138,
       category: ProductCategory.meats_seafood,
       productName: "NEW MOON TAIWAN SAUSAGE ORIGINAL CHICKEN 500G",
-      imageURL: '500EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2005133_1528883627511.jpg'),
   Product(
       productID: 5006100,
       category: ProductCategory.meats_seafood,
@@ -1596,7 +1639,8 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5006112,
       category: ProductCategory.meats_seafood,
       productName: "TAY JAPANESE MINI CHICKEN SAUSAGE BLACK PEPPER 200G",
-      imageURL: '150G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5168250_1528884476811.jpg'),
   Product(
       productID: 5029760,
       category: ProductCategory.meats_seafood,
@@ -1634,32 +1678,38 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5040360,
       category: ProductCategory.meats_seafood,
       productName: "FRESH DELI TRUFFLE HAM SLICED 100G",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/176029%20Fresh%20Deli%20Truffle%20Ham.jpg'),
   Product(
       productID: 5043709,
       category: ProductCategory.meats_seafood,
       productName: "ZAC MEAT TURKEY BACON STRIPS 180G",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2081090_1528886959184.jpg'),
   Product(
       productID: 5043939,
       category: ProductCategory.meats_seafood,
       productName: "ZAC MEAT TURKEY BREAKFAST HAM 180G",
-      imageURL: '180G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2008729_1528886222442.jpg'),
   Product(
       productID: 5043625,
       category: ProductCategory.meats_seafood,
       productName: "ZAC MEAT TURKEY HAM 180G",
-      imageURL: '1EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2081033_1528885571337.jpg'),
   Product(
       productID: 5048215,
       category: ProductCategory.meats_seafood,
       productName: "BALLGUS TURKEY HAM 200G",
-      imageURL: '200G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2015550_1528885469338.jpg'),
   Product(
       productID: 5050735,
       category: ProductCategory.meats_seafood,
       productName: "BALLGUS TURKEY HAM 500G",
-      imageURL: '500G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2015554_1528887205768.jpg'),
   Product(
       productID: 5093964,
       category: ProductCategory.meats_seafood,
@@ -1695,7 +1745,7 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5061652,
       category: ProductCategory.meats_seafood,
       productName: "SADIA CLASSIC VIENNESE CHICKEN & BEEF SAUSAGE 300G",
-      imageURL: '300PAK'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5061652.jpg'),
   Product(
       productID: 5034276,
       category: ProductCategory.meats_seafood,
@@ -1710,7 +1760,8 @@ List<Product> meatsSeafoodCatalog = [
       productID: 5046637,
       category: ProductCategory.meats_seafood,
       productName: "BALLGUS WHOLE TURKEY HAM 800G",
-      imageURL: '800G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/2015555_1528884051325.jpg'),
   Product(
       productID: 5084937,
       category: ProductCategory.meats_seafood,
