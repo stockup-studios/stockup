@@ -1,13 +1,31 @@
+import 'dart:io';
+import 'package:file_picker/file_picker.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
-import 'package:stockup/services/io/imagePicker.dart';
-import 'package:stockup/services/parser/parser.dart';
 
 class Scanner {
-  Future<List<String>> getBarcodesFromImage() async {
+  /// finds image file path from local storage
+  static Future<String> getImageFilePath() async {
+    FilePickerResult result = await FilePicker.platform.pickFiles(
+      type: FileType.image,
+    );
+    // TODO: Error handling if file picker action was cancelled
+    return result.files.single.path;
+  }
+
+  /// finds file paths of selected images from local storage
+  static Future<List<String>> getImageFilePaths() async {
+    FilePickerResult result = await FilePicker.platform.pickFiles(
+      type: FileType.image,
+      allowMultiple: true,
+    );
+    // TODO: Error handling if file picker action was cancelled
+    return result.paths;
+  }
+
+  /// finds barcodes found in image using GoogleMLKit Barcode API
+  static Future<List<String>> getBarcodesFromImageFile(InputImage image) async {
     final barcodeScanner = GoogleMlKit.vision.barcodeScanner();
-    final InputImage inputImage = await ImagePicker().getImage();
-    final List<Barcode> barcodes =
-        await barcodeScanner.processImage(inputImage);
+    final List<Barcode> barcodes = await barcodeScanner.processImage(image);
 
     // extract barcodes of products
     List<String> productBarcodes;
@@ -20,9 +38,11 @@ class Scanner {
     return productBarcodes;
   }
 
-  Future<List<String>> _getTextFromImage() async {
+  /// finds text found in image using GoogleMLKit OCR
+  static Future<List<String>> getTextFromImageFile(String inputFilePath) async {
+    File inputFile = File(inputFilePath);
+    InputImage inputImage = InputImage.fromFile(inputFile);
     final textDetector = GoogleMlKit.vision.textDetector();
-    final InputImage inputImage = await ImagePicker().getImage();
     final RecognisedText recognisedText =
         await textDetector.processImage(inputImage);
 
@@ -32,14 +52,7 @@ class Scanner {
         text.add(line.text);
       }
     }
-
     textDetector.close();
     return text;
-  }
-
-  // Extract item name from the captured text using parser
-  Future<List<String>> extractDataFromTxt() async {
-    List<String> text = await _getTextFromImage();
-    return Parser(text: text).getBestMatches();
   }
 }

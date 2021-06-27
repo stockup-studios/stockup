@@ -23,12 +23,12 @@ class ItemViewModel extends ChangeNotifier implements ItemBaseModel {
   bool isOperated = false;
   String expression;
 
-  Scanner scanner = Scanner();
-
   /// Get data from image
+  /// TODO: Scanner implementation has changed. Need to update this method!
   @override
   Future<void> imageToTempItem() async {
-    List<String> productNames = await scanner.extractDataFromTxt();
+    // List<String> productNames = await Scanner.extractDataFromTxt();
+    List<String> productNames;
 
     for (String name in productNames) {
       List<Item> match = await _db.searchGiantItems(name);

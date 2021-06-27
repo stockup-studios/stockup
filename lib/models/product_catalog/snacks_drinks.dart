@@ -92,7 +92,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5057367,
       category: ProductCategory.snacks_drinks,
       productName: "GIANT SOYA BEAN DRINK 320ML",
-      imageURL: '320ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5193075_1528884022850.jpg'),
   Product(
       productID: 5040965,
       category: ProductCategory.snacks_drinks,
@@ -226,7 +227,7 @@ List<Product> snacksDrinksCatalog = [
       productID: 5092924,
       category: ProductCategory.snacks_drinks,
       productName: "MADAM HONG BOBO TARO BUBBLE MILK TEA 300ML",
-      imageURL: '300ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5092924_1.jpg'),
   Product(
       productID: 5057447,
       category: ProductCategory.snacks_drinks,
@@ -494,7 +495,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5010427,
       category: ProductCategory.snacks_drinks,
       productName: "POKKA PREMIUM MILK TEA 6SX250ML",
-      imageURL: '250ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/024339_1528887275957.jpg'),
   Product(
       productID: 5006860,
       category: ProductCategory.snacks_drinks,
@@ -885,7 +887,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5038677,
       category: ProductCategory.snacks_drinks,
       productName: "MILO TETRA 50% LESS SUGAR 6SX200ML",
-      imageURL: '200ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/MILO%20200ml%20Less%20Sugar%206s%20Cluster.jpg'),
   Product(
       productID: 5006952,
       category: ProductCategory.snacks_drinks,
@@ -1309,7 +1312,7 @@ List<Product> snacksDrinksCatalog = [
       productID: 5024638,
       category: ProductCategory.snacks_drinks,
       productName: "HYOSUNG SEAWEED STIR FRIED 70G",
-      imageURL: '70G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5024638.jpg'),
   Product(
       productID: 5000768,
       category: ProductCategory.snacks_drinks,
@@ -1358,7 +1361,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5023273,
       category: ProductCategory.snacks_drinks,
       productName: "MILO MILO AUSTRALIAN RECIPE REFILL 900G",
-      imageURL: '900G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/MILO%20Australian%20Recipe%20Powder%20Refill%20900G%20-%20New%20Packaging.jpg'),
   Product(
       productID: 5099610,
       category: ProductCategory.snacks_drinks,
@@ -1390,8 +1394,9 @@ List<Product> snacksDrinksCatalog = [
   Product(
       productID: 5008628,
       category: ProductCategory.snacks_drinks,
-      productName: " HONEY & VANILLA 25SX2G" "CAMOMILE",
-      imageURL: ' Honey & Vanilla 25sX2g"'),
+      productName: "TWININGS CAMOMILE, HONEY & VANILLA 25SX2G",
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5049542_1528886016335.jpg'),
   Product(
       productID: 5055003,
       category: ProductCategory.snacks_drinks,
@@ -1818,7 +1823,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5009475,
       category: ProductCategory.snacks_drinks,
       productName: "MILO MILO AUSTRALIAN RECIPE 450G",
-      imageURL: '450G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1194507_1528887645696.jpg'),
   Product(
       productID: 5039711,
       category: ProductCategory.snacks_drinks,
@@ -1829,7 +1835,7 @@ List<Product> snacksDrinksCatalog = [
       productID: 5011183,
       category: ProductCategory.snacks_drinks,
       productName: "HORLICKS MALT DRINK REFILL 1KG",
-      imageURL: '1KG'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5011183.jpg'),
   Product(
       productID: 5001096,
       category: ProductCategory.snacks_drinks,
@@ -1982,7 +1988,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5042305,
       category: ProductCategory.snacks_drinks,
       productName: "VITASOY MELON SOYA BEAN MILK 6SX250ML",
-      imageURL: '250ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1202228_1528883951266.jpg'),
   Product(
       productID: 5006674,
       category: ProductCategory.snacks_drinks,
@@ -2610,7 +2617,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5011050,
       category: ProductCategory.snacks_drinks,
       productName: "CADBURY 3 IN 1 CHOCOLATE DRINK 15SX30G",
-      imageURL: '450G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Cadbury%203-in-1%20Hot%20Chocolate%20MP.jpg'),
   Product(
       productID: 5051192,
       category: ProductCategory.snacks_drinks,
@@ -2730,7 +2738,7 @@ List<Product> snacksDrinksCatalog = [
       productID: 5073767,
       category: ProductCategory.snacks_drinks,
       productName: "POLAR BROWN SUGAR BUBBLE TEA BOTTLE 450ML",
-      imageURL: '450ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5073767.jpg'),
   Product(
       productID: 5019322,
       category: ProductCategory.snacks_drinks,
@@ -2740,7 +2748,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5009462,
       category: ProductCategory.snacks_drinks,
       productName: "VITASOY SOYA BEAN MILK 4SX125ML",
-      imageURL: '125ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/060408_1528883718177.jpg'),
   Product(
       productID: 5021981,
       category: ProductCategory.snacks_drinks,
@@ -2763,7 +2772,7 @@ List<Product> snacksDrinksCatalog = [
       productID: 5096563,
       category: ProductCategory.snacks_drinks,
       productName: "MILO MILO BROWN RICE & CEREAL 4S 225ML",
-      imageURL: '225ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5096563.jpg'),
   Product(
       productID: 5049853,
       category: ProductCategory.snacks_drinks,
@@ -2807,7 +2816,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5033379,
       category: ProductCategory.snacks_drinks,
       productName: "OVALTINE CHOCOLATE MALTED DRINK 6SX236ML",
-      imageURL: '236ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Ovaltine%20250ml%20x%206s%20_Y17M07_%20-%20Copy%20A.jpg'),
   Product(
       productID: 5043081,
       category: ProductCategory.snacks_drinks,
@@ -2932,7 +2942,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5010387,
       category: ProductCategory.snacks_drinks,
       productName: "MILO UHT 1L",
-      imageURL: '1L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Single%20Pack-Milo%201L_New%20Talent.jpg'),
   Product(
       productID: 5008386,
       category: ProductCategory.snacks_drinks,
@@ -3180,7 +3191,7 @@ List<Product> snacksDrinksCatalog = [
       productID: 5093595,
       category: ProductCategory.snacks_drinks,
       productName: "MILO 125ML 5X4S FREE VAN COOLER BAG",
-      imageURL: '125ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5093595.jpg'),
   Product(
       productID: 5001065,
       category: ProductCategory.snacks_drinks,
@@ -3276,8 +3287,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5005925,
       category: ProductCategory.snacks_drinks,
       productName:
-          " SPINACH & BROCCOLI WITH ORGANIC CHIA SEEDS 250ML" "WONDERS KALE",
-      imageURL: ' Spinach & Broccoli With Organic Chia Seeds 250ml"'),
+          "FRUIT TREE WONDERS KALE, SPINACH & BROCCOLI WITH ORGANIC CHIA SEEDS 250ML",
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5005925.jpg'),
   Product(
       productID: 5011172,
       category: ProductCategory.snacks_drinks,
@@ -3352,7 +3363,7 @@ List<Product> snacksDrinksCatalog = [
       productID: 5054779,
       category: ProductCategory.snacks_drinks,
       productName: "SIMPLY NATURAL ORGANIC AUSTRALIAN RAW ALMONDS",
-      imageURL: '1EA'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5054779.jpg'),
   Product(
       productID: 5014416,
       category: ProductCategory.snacks_drinks,
@@ -3500,7 +3511,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5002223,
       category: ProductCategory.snacks_drinks,
       productName: "OVALTINE CHOCOLATE MALTED DRINK 500ML",
-      imageURL: '500ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5209160_1528887025298.jpg'),
   Product(
       productID: 5091036,
       category: ProductCategory.snacks_drinks,
@@ -3510,7 +3522,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5007027,
       category: ProductCategory.snacks_drinks,
       productName: "POKKA EARL GREY MILK TEA 500ML",
-      imageURL: '500ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/POKKA%20Earn%20Grey%20Milk%20Tea%20500ml%20_1_.jpg'),
   Product(
       productID: 5000727,
       category: ProductCategory.snacks_drinks,
@@ -3844,12 +3857,13 @@ List<Product> snacksDrinksCatalog = [
       productID: 5006911,
       category: ProductCategory.snacks_drinks,
       productName: "MILO PENG NUTRI UP 225ML",
-      imageURL: '225ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/MILO%C2%AE%20Nutri%20Up%20Peng%20225ml_Front.jpg'),
   Product(
       productID: 5040697,
       category: ProductCategory.snacks_drinks,
       productName: "VITAMILK SOYA BEAN MILK BOTTLE 300ML",
-      imageURL: '300ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5040697.jpg'),
   Product(
       productID: 5023364,
       category: ProductCategory.snacks_drinks,
@@ -3910,7 +3924,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5083652,
       category: ProductCategory.snacks_drinks,
       productName: "MILO GAW SIEW DAI WITH WHOLE GRAIN CEREAL 10SX36G",
-      imageURL: '10EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/MILO%20Gao%20Siew%20Dai%20with%20Whole%20Grain%20Cereal%20Front.jpg'),
   Product(
       productID: 5056346,
       category: ProductCategory.snacks_drinks,
@@ -4053,7 +4068,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5022406,
       category: ProductCategory.snacks_drinks,
       productName: "HERSHEY'S SOYA BEAN MILK MOCHA 946ML",
-      imageURL: '946ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/HERSHEY_S_Mocha946ml_front_.jpg'),
   Product(
       productID: 5074169,
       category: ProductCategory.snacks_drinks,
@@ -4378,7 +4394,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5024008,
       category: ProductCategory.snacks_drinks,
       productName: "MILO MILO ICE ENERGY 750G",
-      imageURL: '750G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5182215_1528883510861.jpg'),
   Product(
       productID: 5000717,
       category: ProductCategory.snacks_drinks,
@@ -4546,7 +4563,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5022405,
       category: ProductCategory.snacks_drinks,
       productName: "HERSHEY'S SOYA BEAN MILK CHOCOLATE 946ML",
-      imageURL: '946ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/HERSHEY_S_Choc946ml_front_.jpg'),
   Product(
       productID: 5042286,
       category: ProductCategory.snacks_drinks,
@@ -4797,7 +4815,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5011638,
       category: ProductCategory.snacks_drinks,
       productName: "MILO MILO REFILL PACK 400G",
-      imageURL: '400G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/067796_1528884549250.jpg'),
   Product(
       productID: 5001185,
       category: ProductCategory.snacks_drinks,
@@ -5603,6 +5622,12 @@ List<Product> snacksDrinksCatalog = [
       imageURL:
           'https://coldstorage-s3.dexecure.net/product/5073372_d9c26cf17caa9802002d9cd984117b81.jpg'),
   Product(
+      productID: 5009833,
+      category: ProductCategory.snacks_drinks,
+      productName: "DEL MONTE PREMIUM PRUNE JUICE W/VITAMINS A,C,E 946ML",
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/12606958_LXL1.jpg'),
+  Product(
       productID: 5000347,
       category: ProductCategory.snacks_drinks,
       productName: "LOTTE PEPERO STICK BISCUIT WHITE COOKIES 32G",
@@ -5629,7 +5654,7 @@ List<Product> snacksDrinksCatalog = [
       productID: 5068280,
       category: ProductCategory.snacks_drinks,
       productName: "NISSIN CRISP CHOCO 77G",
-      imageURL: '77G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5068280.jpg'),
   Product(
       productID: 5057368,
       category: ProductCategory.snacks_drinks,
@@ -5844,7 +5869,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5002204,
       category: ProductCategory.snacks_drinks,
       productName: "HERSHEY'S SOYA BEAN MILK MOCHA 6SX236ML",
-      imageURL: '200ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/HERSHEY_S_Mocha%206_s%20236ml_front_.jpg'),
   Product(
       productID: 5070165,
       category: ProductCategory.snacks_drinks,
@@ -5928,7 +5954,7 @@ List<Product> snacksDrinksCatalog = [
       productID: 5092923,
       category: ProductCategory.snacks_drinks,
       productName: "MADAM HONG BOBO BROWN SUGAR BUBBLE MILK TEA 300ML",
-      imageURL: '300ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5092923_1.jpg'),
   Product(
       productID: 5009112,
       category: ProductCategory.snacks_drinks,
@@ -6059,7 +6085,7 @@ List<Product> snacksDrinksCatalog = [
       productID: 5038044,
       category: ProductCategory.snacks_drinks,
       productName: "MUSCLE MILK PRO SERIES 40 CHOCOLATE 500ML",
-      imageURL: '500ML'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/173518.jpg'),
   Product(
       productID: 5018023,
       category: ProductCategory.snacks_drinks,
@@ -6109,7 +6135,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5001992,
       category: ProductCategory.snacks_drinks,
       productName: "MILO MILO ACTIV-GO GAO SIEW DAI 15S X 33G ",
-      imageURL: '33G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/MILO%C2%AE%20ACTIV-GO%20Gao%20Siew%20Dai.jpg'),
   Product(
       productID: 5009889,
       category: ProductCategory.snacks_drinks,
@@ -6126,7 +6153,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5002202,
       category: ProductCategory.snacks_drinks,
       productName: "HERSHEY'S SOYA BEAN MILK CHOCOLATE 6SX236ML",
-      imageURL: '200ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/HERSHEY_S_Choc%206_s%20236ml_front_.jpg'),
   Product(
       productID: 5055002,
       category: ProductCategory.snacks_drinks,
@@ -6446,7 +6474,7 @@ List<Product> snacksDrinksCatalog = [
       productID: 5006507,
       category: ProductCategory.snacks_drinks,
       productName: "ORIGINS RAW ALMONDS 100G",
-      imageURL: '100G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5006507.jpg'),
   Product(
       productID: 5023628,
       category: ProductCategory.snacks_drinks,
@@ -6957,7 +6985,7 @@ List<Product> snacksDrinksCatalog = [
       productID: 5069193,
       category: ProductCategory.snacks_drinks,
       productName: "GOLD KILI CHOCOLATE GAO SIEW DAI DRINK 15S X 30G",
-      imageURL: '30G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5069193_1.jpg'),
   Product(
       productID: 5040727,
       category: ProductCategory.snacks_drinks,
@@ -7539,6 +7567,13 @@ List<Product> snacksDrinksCatalog = [
       productName: "HUP SENG SUGAR CRACKERS 428G",
       imageURL: 'https://coldstorage-s3.dexecure.net/product/5041833.jpg'),
   Product(
+      productID: 5064554,
+      category: ProductCategory.snacks_drinks,
+      productName:
+          "TONG GARDEN CRUNCHY BITE - ALMOND, PISTACHIOS, STRAWBERRIES & GOJI 110G",
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/TG%20crunchy%20bite%20almond%20pistachios%20110g.jpg%20.jpg'),
+  Product(
       productID: 5076360,
       category: ProductCategory.snacks_drinks,
       productName: "MEADOWS DISTILLED WATER 12SX1.5L",
@@ -7921,7 +7956,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5051854,
       category: ProductCategory.snacks_drinks,
       productName: "OVALTINE CHOCOLATE MALT DRINK REFILL 820G",
-      imageURL: '820G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5170582_1528886498517.jpg'),
   Product(
       productID: 5010023,
       category: ProductCategory.snacks_drinks,
@@ -8830,7 +8866,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5010381,
       category: ProductCategory.snacks_drinks,
       productName: "VITASOY SOYA BEAN MILK 6SX250ML",
-      imageURL: '250ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Vitasoy%20Original%20250ml%20Front.jpg'),
   Product(
       productID: 5097233,
       category: ProductCategory.snacks_drinks,
@@ -9094,7 +9131,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5083803,
       category: ProductCategory.snacks_drinks,
       productName: "MILO AUSTRALIAN RECIPE SACHETS 15SX30G",
-      imageURL: '15EA'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/MILO%20Au%20Recipe%20Sachet%2015x30g.jpg'),
   Product(
       productID: 5000373,
       category: ProductCategory.snacks_drinks,
@@ -9153,7 +9191,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5034041,
       category: ProductCategory.snacks_drinks,
       productName: "MILO GAO KOSONG 750G",
-      imageURL: '750G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/168957_1528884718894.jpg'),
   Product(
       productID: 5076742,
       category: ProductCategory.snacks_drinks,
@@ -9164,7 +9203,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5011582,
       category: ProductCategory.snacks_drinks,
       productName: "HORLICKS MALT DRINK 440G",
-      imageURL: '440G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Horlicks%20Malt%20Orig%20440g%20-%205151384.jpg'),
   Product(
       productID: 5044750,
       category: ProductCategory.snacks_drinks,
@@ -9237,7 +9277,7 @@ List<Product> snacksDrinksCatalog = [
       productID: 5057688,
       category: ProductCategory.snacks_drinks,
       productName: "GOLD KILI 3 IN 1 CHOCOLATE DRINK 15S X 30G",
-      imageURL: '30G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5057688_1.jpg'),
   Product(
       productID: 5076582,
       category: ProductCategory.snacks_drinks,
@@ -9546,7 +9586,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5080852,
       category: ProductCategory.snacks_drinks,
       productName: "MILO TETRA 200ML 5+1 CARTON",
-      imageURL: '200ML'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/MILO%20UHT%20200ml%205_1%20Carton.jpg'),
   Product(
       productID: 5010270,
       category: ProductCategory.snacks_drinks,
@@ -9700,7 +9741,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5010259,
       category: ProductCategory.snacks_drinks,
       productName: "DUTCH LADY UHT MILK CHOCOLATE 1L",
-      imageURL: '1L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/039015_1528886421740.jpg'),
   Product(
       productID: 5089053,
       category: ProductCategory.snacks_drinks,
@@ -10148,7 +10190,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5000300,
       category: ProductCategory.snacks_drinks,
       productName: "MILO ACTIV-GO 3-IN-1 18S X 27G",
-      imageURL: '27G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/MILO%C2%AE%203in1%20ACTIVGO%2018x27G%20-%20Front.jpg'),
   Product(
       productID: 5010109,
       category: ProductCategory.snacks_drinks,
@@ -10374,8 +10417,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5036961,
       category: ProductCategory.snacks_drinks,
       productName:
-          " SPINACH & BROCCOLI WITH ORGANIC CHIA SEEDS 1L" "WONDERS KALE",
-      imageURL: ' Spinach & Broccoli With Organic Chia Seeds 1L"'),
+          "FRUIT TREE WONDERS KALE, SPINACH & BROCCOLI WITH ORGANIC CHIA SEEDS 1L",
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5036961.jpg'),
   Product(
       productID: 5092570,
       category: ProductCategory.snacks_drinks,
@@ -10693,7 +10736,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5022218,
       category: ProductCategory.snacks_drinks,
       productName: "MILO MILO 2-IN-1 CALCIUM 12S X 30G",
-      imageURL: '30G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5170781_1528886120965.jpg'),
   Product(
       productID: 5079952,
       category: ProductCategory.snacks_drinks,
@@ -10734,7 +10778,8 @@ List<Product> snacksDrinksCatalog = [
       productID: 5010382,
       category: ProductCategory.snacks_drinks,
       productName: "VITASOY SOYA BEAN MILK 1L",
-      imageURL: '1L'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/Vitasoy%20Original%201L%20Front.jpg'),
   Product(
       productID: 5000987,
       category: ProductCategory.snacks_drinks,
@@ -10847,7 +10892,8 @@ List<Product> snacksDrinksCatalog = [
       category: ProductCategory.snacks_drinks,
       productName:
           "TONG GARDEN NUTRIONE CEREAL DRINK - ALMOND & PINE NUT 10SX36G",
-      imageURL: '36G'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/almond%20_%20pine%20nut%20cereal%20dirnk%20.jpg'),
   Product(
       productID: 5052217,
       category: ProductCategory.snacks_drinks,
@@ -11222,7 +11268,7 @@ List<Product> snacksDrinksCatalog = [
       productID: 5025720,
       category: ProductCategory.snacks_drinks,
       productName: "NUVITALITY CHIA SEEDS 300G",
-      imageURL: '300G'),
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5025720.jpg'),
   Product(
       productID: 5093501,
       category: ProductCategory.snacks_drinks,
@@ -11449,5 +11495,6 @@ List<Product> snacksDrinksCatalog = [
       productID: 5009476,
       category: ProductCategory.snacks_drinks,
       productName: "MILO MILO AUSTRALIAN RECIPE 1.25KG",
-      imageURL: '1.25KG'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/1226458_1528884214794.jpg'),
 ];
