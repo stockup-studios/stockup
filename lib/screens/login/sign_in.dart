@@ -146,6 +146,12 @@ class _SignInScreenState extends State<SignInScreen> {
                             ),
                             onPressed: () async {
                               dynamic result = await _auth.signInWithGoogle();
+                              if (result == null) {
+                                setState(() =>
+                                    error = 'Unable to sign in with google');
+                              } else {
+                                Navigator.pushNamed(context, HomeScreen.id);
+                              }
                             },
                             child: Row(
                               children: [
