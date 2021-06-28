@@ -1,4 +1,7 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:stockup/screens/login/sign_in.dart';
+import 'package:stockup/screens/login/sign_up.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -17,12 +20,18 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         children: [
           Expanded(
             child: Center(
-              child: Text(
-                widget.title,
-                style: TextStyle(
-                  fontWeight: FontWeight.w800,
-                  fontSize: 40.0,
-                ),
+              child: AnimatedTextKit(
+                animatedTexts: [
+                  TypewriterAnimatedText(
+                    'StockUP',
+                    curve: Curves.slowMiddle,
+                    textStyle: TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 60.0,
+                    ),
+                    speed: const Duration(milliseconds: 400),
+                  ),
+                ],
               ),
             ),
             flex: 2,
@@ -30,24 +39,34 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           Expanded(
             child: Column(
               children: [
-                OutlinedButton(
-                  onPressed: () {},
-                  child: Text('Sign In'),
-                  style: ButtonStyle(
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.white),
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.grey.shade700),
+                FractionallySizedBox(
+                  widthFactor: 0.70,
+                  child: OutlinedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, SignInScreen.id);
+                    },
+                    child: Text('Sign In'),
+                    style: ButtonStyle(
+                      foregroundColor:
+                          MaterialStateProperty.all<Color>(Colors.white),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          Colors.grey.shade700),
+                    ),
                   ),
                 ),
-                OutlinedButton(
-                  onPressed: () {},
-                  child: Text('Sign Up'),
-                  style: ButtonStyle(
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.grey.shade700),
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.grey.shade100),
+                FractionallySizedBox(
+                  widthFactor: 0.70,
+                  child: OutlinedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, SignUpScreen.id);
+                    },
+                    child: Text('Sign Up'),
+                    style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.all<Color>(
+                          Colors.grey.shade700),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          Colors.grey.shade100),
+                    ),
                   ),
                 ),
               ],
