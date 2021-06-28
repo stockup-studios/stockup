@@ -25,14 +25,8 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(
-            child: Container(
-              color: Colors.grey,
-              child: Center(child: Text('StockUP background image goes here')),
-            ),
-          ),
           Expanded(
             flex: 2,
             child: Column(
@@ -52,7 +46,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               hintText: 'Enter your email',
                               labelText: 'Email'),
                           validator: (val) =>
-                              val.contains('@') ? 'Enter a valid email' : null,
+                              val.contains('@') ? null : 'Enter a valid email',
                           onChanged: (val) {
                             setState(() => email = val);
                           },
@@ -72,7 +66,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               hintText: 'Enter your password',
                               labelText: 'Password'),
                           validator: (val) => val.length < 6
-                              ? 'Enter a password 6 or more characters long'
+                              ? '6 or more characters password'
                               : null,
                           onChanged: (val) {
                             setState(() => password = val);
@@ -87,7 +81,8 @@ class _SignInScreenState extends State<SignInScreen> {
                       widthFactor: 0.7,
                       child: OutlinedButton(
                         onPressed: () async {
-                          if (emailInput.currentState.validate()) {
+                          if (emailInput.currentState.validate() &&
+                              passwordInput.currentState.validate()) {
                             dynamic result = await _auth
                                 .signInWithEmailPassword(email, password);
                             if (result == null) {
@@ -151,6 +146,12 @@ class _SignInScreenState extends State<SignInScreen> {
                             ),
                             onPressed: () async {
                               dynamic result = await _auth.signInWithGoogle();
+                              if (result == null) {
+                                setState(() =>
+                                    error = 'Unable to sign in with google');
+                              } else {
+                                Navigator.pushNamed(context, HomeScreen.id);
+                              }
                             },
                             child: Row(
                               children: [

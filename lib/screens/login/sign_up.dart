@@ -12,8 +12,9 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final AuthImplementation _auth = AuthImplementation();
-  final _formKey = GlobalKey<FormState>();
-  final _formKey2 = GlobalKey<FormState>();
+  final emailInput = GlobalKey<FormState>();
+  final passwordInput = GlobalKey<FormState>();
+  final confirmPassword = GlobalKey<FormState>();
 
   String email = '';
   String password = '';
@@ -27,12 +28,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Expanded(
-            child: Container(
-              color: Colors.grey,
-              child: Center(child: Text('Image goes here')),
-            ),
-          ),
-          Expanded(
             flex: 2,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -42,7 +37,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   children: [
                     Container(
                       child: Form(
-                        key: _formKey,
+                        key: emailInput,
                         child: TextFormField(
                           autocorrect: false,
                           keyboardType: TextInputType.emailAddress,
@@ -51,7 +46,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               hintText: 'Enter your email',
                               labelText: 'Email'),
                           validator: (val) =>
-                              val.isEmpty ? 'Enter an email' : null,
+                              val.contains('@') ? null : 'Enter a valid email',
                           onChanged: (val) {
                             setState(() => email = val);
                           },
@@ -62,14 +57,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     Container(
                       child: Form(
-                        key: _formKey2,
+                        key: passwordInput,
                         child: TextFormField(
                           obscureText: true,
                           autocorrect: false,
                           decoration: const InputDecoration(
                               icon: Icon(Icons.lock),
-                              hintText:
-                                  'Enter a password 6 or more characters long.',
+                              hintText: '6 or more characters password',
                               labelText: 'Password'),
                           validator: (val) => val.length < 6
                               ? 'Enter a password 6 or more characters long'
@@ -83,15 +77,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           EdgeInsets.symmetric(horizontal: 50.0, vertical: 5),
                     ),
                     Container(
-                      child: TextFormField(
-                        obscureText: true,
-                        autocorrect: false,
-                        decoration: const InputDecoration(
-                            icon: Icon(Icons.lock),
-                            hintText: 'Enter password again',
-                            labelText: 'Confirm Password'),
-                        validator: (val) =>
-                            val != password ? 'Password does not match' : null,
+                      child: Form(
+                        key: confirmPassword,
+                        child: TextFormField(
+                          obscureText: true,
+                          autocorrect: false,
+                          decoration: const InputDecoration(
+                              icon: Icon(Icons.lock),
+                              hintText: 'Enter password again',
+                              labelText: 'Confirm Password'),
+                          validator: (val) => val != password
+                              ? 'Password does not match'
+                              : null,
+                        ),
                       ),
                       padding:
                           EdgeInsets.symmetric(horizontal: 50.0, vertical: 5),
@@ -103,7 +101,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       widthFactor: 0.7,
                       child: OutlinedButton(
                         onPressed: () async {
-                          if (_formKey.currentState.validate()) {
+                          if (emailInput.currentState.validate() &&
+                              passwordInput.currentState.validate() &&
+                              confirmPassword.currentState.validate()) {
                             dynamic result = await _auth
                                 .registerWithEmailPassword(email, password);
                             if (result == null) {
@@ -114,7 +114,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             }
                           }
                         },
-                        child: Text('Sign In'),
+                        child: Text('Register'),
                         style: ButtonStyle(
                           foregroundColor:
                               MaterialStateProperty.all<Color>(Colors.white),
@@ -141,7 +141,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           onTap: () {
                             Navigator.pushNamed(context, SignInScreen.id);
                           },
-                          child: Text("Sign up",
+                          child: Text("Sign in",
                               style: TextStyle(color: Colors.blue)),
                         ),
                       ],
