@@ -114,7 +114,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             }
                           }
                         },
-                        child: Text('Sign In'),
+                        child: Text('Register'),
                         style: ButtonStyle(
                           foregroundColor:
                               MaterialStateProperty.all<Color>(Colors.white),
