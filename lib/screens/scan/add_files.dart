@@ -57,6 +57,10 @@ class _AddFilesScreenState extends State<AddFilesScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.blue),
+                ),
                 child: Text('Pick image from storage'),
                 onPressed: () async {
                   String imageFile = await Scanner.getImageFilePath();
@@ -81,6 +85,10 @@ class _AddFilesScreenState extends State<AddFilesScreen> {
               ),
               ElevatedButton(
                 child: Text('Pick multiple images from storage'),
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.blue.shade700),
+                ),
                 onPressed: () async {
                   List<Product> productMatches = [];
                   List<String> imageFiles = await Scanner.getImageFilePaths();
@@ -114,8 +122,12 @@ class _AddFilesScreenState extends State<AddFilesScreen> {
                         leading: Image.network(product.imageURL) ??
                             Container(color: Colors.black),
                         title: Text(product.productName),
-                        subtitle:
-                            Text(product.category.toString().split('.').last),
+                        subtitle: Text(product.category
+                            .toString()
+                            .split('.')
+                            .last
+                            .split('_')
+                            .join(' ')),
                         trailing: Icon(Icons.edit),
                       );
                       // return Container(

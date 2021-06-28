@@ -125,12 +125,12 @@ class _ShopListScreenState extends State<ShopListScreen> {
                       ],
                     ),
                   ),
-                  for (int i = 1; i <= 10; ++i)
-                    ProductTile(
-                      'Product $i',
-                      'Expires in $i',
-                      Icon(Icons.more_vert),
-                    )
+                  // for (int i = 1; i <= 10; ++i)
+                  //   ProductTile(
+                  //     'Product $i',
+                  //     'Expires in $i',
+                  //     Icon(Icons.more_vert),
+                  //   )
                 ],
               ),
             ),
