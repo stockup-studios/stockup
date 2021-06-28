@@ -12,8 +12,8 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final AuthImplementation _auth = AuthImplementation();
-  final _formKey = GlobalKey<FormState>();
-  final _formKey2 = GlobalKey<FormState>();
+  final emailInput = GlobalKey<FormState>();
+  final passwordInput = GlobalKey<FormState>();
 
   String email = '';
   String password = '';
@@ -42,7 +42,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   children: [
                     Container(
                       child: Form(
-                        key: _formKey,
+                        key: emailInput,
                         child: TextFormField(
                           autocorrect: false,
                           keyboardType: TextInputType.emailAddress,
@@ -51,7 +51,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               hintText: 'Enter your email',
                               labelText: 'Email'),
                           validator: (val) =>
-                              val.isEmpty ? 'Enter an email' : null,
+                              val.isEmpty && val.contains('@') ? 'Enter an email' : null,
                           onChanged: (val) {
                             setState(() => email = val);
                           },
@@ -62,7 +62,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     Container(
                       child: Form(
-                        key: _formKey2,
+                        key: passwordInput,
                         child: TextFormField(
                           obscureText: true,
                           autocorrect: false,
@@ -103,7 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       widthFactor: 0.7,
                       child: OutlinedButton(
                         onPressed: () async {
-                          if (_formKey.currentState.validate()) {
+                          if (emailInput.currentState.validate() && passwordInput.currentState.validate()) {
                             dynamic result = await _auth
                                 .registerWithEmailPassword(email, password);
                             if (result == null) {

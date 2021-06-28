@@ -51,8 +51,9 @@ class _SignInScreenState extends State<SignInScreen> {
                               icon: Icon(Icons.email),
                               hintText: 'Enter your email',
                               labelText: 'Email'),
-                          validator: (val) =>
-                              val.contains('@') ? 'Enter a valid email' : null,
+                          validator: (val) => val.isEmpty && val.contains('@')
+                              ? 'Enter a valid email'
+                              : null,
                           onChanged: (val) {
                             setState(() => email = val);
                           },
@@ -87,7 +88,8 @@ class _SignInScreenState extends State<SignInScreen> {
                       widthFactor: 0.7,
                       child: OutlinedButton(
                         onPressed: () async {
-                          if (emailInput.currentState.validate()) {
+                          if (emailInput.currentState.validate() &&
+                              passwordInput.currentState.validate()) {
                             dynamic result = await _auth
                                 .signInWithEmailPassword(email, password);
                             if (result == null) {
