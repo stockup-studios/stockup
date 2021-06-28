@@ -45,9 +45,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               icon: Icon(Icons.email),
                               hintText: 'Enter your email',
                               labelText: 'Email'),
-                          validator: (val) => val.isEmpty && val.contains('@')
-                              ? 'Enter an email'
-                              : null,
+                          validator: (val) => val.contains('@')
+                              ? null
+                              : 'Enter an email',
                           onChanged: (val) {
                             setState(() => email = val);
                           },
