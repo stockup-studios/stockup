@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stockup/business_logic/item/item_viewmodel.dart';
+import 'package:stockup/models/product.dart';
+import 'package:stockup/models/product_catalog/product_catalog.dart';
+import 'package:stockup/models/product_category.dart';
 import 'package:stockup/screens/home/home.dart';
 import 'package:stockup/screens/scan/add_files.dart';
+import 'package:stockup/screens/search/search.dart';
 import 'package:stockup/screens/shopping_list/shop_list.dart';
-import '../constants.dart';
 
 class ItemListScreen extends StatefulWidget {
   static const String id = 'items_screen';
@@ -40,6 +43,28 @@ class _ItemListScreenState extends State<ItemListScreen> {
     }
   }
 
+  List<Product> productsList = [
+    productCatalog[100],
+    productCatalog[200],
+    productCatalog[300],
+    productCatalog[3000],
+  ];
+
+  List<Product> products = [];
+
+  bool allSelected = true;
+  Map<ProductCategory, bool> selectedOption = Map.fromIterable(
+    ProductCategory.values,
+    key: (item) => item,
+    value: (item) => false,
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    products = productsList;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<ItemViewModel>(builder: (context, model, child) {
@@ -47,6 +72,7 @@ class _ItemListScreenState extends State<ItemListScreen> {
         onWillPop: null,
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.blueGrey,
             centerTitle: true,
             title: Center(
               child: Text(title),
@@ -55,92 +81,145 @@ class _ItemListScreenState extends State<ItemListScreen> {
           body: Container(
             child: Column(
               children: [
-                SizedBox(
-                  height: 50,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Row(
+                BottomAppBar(
+                  shape: CircularNotchedRectangle(),
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        DropdownButton<String>(
+                          underline: Container(
+                            color: Colors.white,
+                          ),
+                          value: dropdownValue,
+                          onChanged: (String newValue) {
+                            setState(() {
+                              dropdownValue = newValue;
+                              if (newValue == 'Shared List') {
+                                products = [
+                                  productCatalog[150],
+                                  productCatalog[250],
+                                  productCatalog[350],
+                                ];
+                              }
+                            });
+                          },
+                          items: <String>['My List', 'Shared List']
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                        ),
+                        Row(
                           children: [
-                            Container(
-                              child: Icon(Icons.sort_rounded),
-                              padding: EdgeInsets.all(10),
-                            ),
-                            Container(
-                              padding: EdgeInsets.all(10),
-                              child: DropdownButton<String>(
-                                value: dropdownValue,
-                                elevation: 16,
-                                onChanged: (String newValue) {
-                                  setState(() {
-                                    dropdownValue = newValue;
-                                  });
-                                },
-                                items: <String>[
-                                  'My List',
-                                  'One',
-                                  'Two',
-                                  'Free',
-                                  'Four'
-                                ].map<DropdownMenuItem<String>>((String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList(),
-                              ),
-                            ),
+                            IconButton(
+                                icon: Icon(Icons.search),
+                                onPressed: () {
+                                  Navigator.pushNamed(context, SearchScreen.id);
+                                })
                           ],
                         ),
-                      ),
-                      Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Icon(Icons.share),
-                            Icon(Icons.sort_by_alpha),
-                            Icon(Icons.search),
-                          ],
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-                SizedBox(
-                  height: 50,
+                Expanded(
                   child: ListView(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     children: [
-                      for (int i = 0; i < noCategories; ++i)
-                        Container(
-                          margin: EdgeInsets.symmetric(horizontal: 5),
+                      Container(
+                        child: Padding(
+                          padding: const EdgeInsets.all(5.0),
                           child: FilterChip(
-                            label: Text('Category $i'),
-                            selected: false,
-                            onSelected: (bool selected) {},
+                            label: Text('All Categories'),
+                            selected: allSelected,
+                            onSelected: (bool selected) {
+                              setState(() {
+                                selectedOption = Map.fromIterable(
+                                  ProductCategory.values,
+                                  key: (item) => item,
+                                  value: (item) => false,
+                                );
+                                allSelected = true;
+                                products = productsList;
+                              });
+                            },
+                          ),
+                        ),
+                      ),
+                      for (ProductCategory category in ProductCategory.values)
+                        Container(
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: FilterChip(
+                              label: Text(
+                                  '${category.toString().split('.').last.split('_').join(' ')}'),
+                              selected: selectedOption[category],
+                              onSelected: (bool selected) {
+                                setState(() {
+                                  allSelected = false;
+                                  selectedOption[category] =
+                                      !selectedOption[category];
+                                  products = productsList
+                                      .where(
+                                          (Product p) => p.category == category)
+                                      .toList();
+                                });
+                              },
+                            ),
                           ),
                         ),
                     ],
                   ),
                 ),
                 Expanded(
+                  flex: 10,
                   child: RefreshIndicator(
                     onRefresh: () {
                       print('refresh triggered');
                     },
-                    child: ListView(
+                    child: ListView.builder(
+                      itemCount: products.length,
                       padding: EdgeInsets.only(top: 5.0),
-                      children: [
-                        for (int i = 1; i <= 3; ++i)
-                          ProductTile(
-                            'Product $i',
-                            'Expires in $i',
-                            Icon(Icons.more_vert),
-                          )
-                      ],
+                      itemBuilder: (context, index) {
+                        final product = products[index];
+                        return Dismissible(
+                          key: UniqueKey(),
+                          onDismissed: (direction) {
+                            setState(() {
+                              products.removeAt(index);
+                            });
+                            if (direction == DismissDirection.startToEnd) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                      'Moved ${product.productName} to shopping list'),
+                                ),
+                              );
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                      'Marked ${product.productName} as consumed'),
+                                ),
+                              );
+                            }
+                          },
+                          background: Container(color: Colors.orange),
+                          secondaryBackground: Container(color: Colors.red),
+                          child: ListTile(
+                            leading: Image.network(products[index].imageURL),
+                            title: Text(products[index].productName),
+                            subtitle: Text('Expires in ${index + 1} days'),
+                            trailing: Icon(Icons.more_vert),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),
@@ -148,7 +227,10 @@ class _ItemListScreenState extends State<ItemListScreen> {
             ),
           ),
           floatingActionButton: FloatingActionButton(
-            onPressed: () {},
+            backgroundColor: Colors.blueGrey,
+            onPressed: () {
+              Navigator.pushNamed(context, AddFilesScreen.id);
+            },
             child: Icon(Icons.add),
           ),
           bottomNavigationBar: BottomNavigationBar(

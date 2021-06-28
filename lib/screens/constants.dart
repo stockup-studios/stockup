@@ -31,8 +31,13 @@ class ProductTile extends StatelessWidget {
   final String name;
   final String expiry;
   final Widget trailing;
+  final Widget leading;
 
-  ProductTile(this.name, this.expiry, this.trailing);
+  ProductTile(
+      {@required this.name,
+      @required this.expiry,
+      @required this.trailing,
+      @required this.leading});
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +48,7 @@ class ProductTile extends StatelessWidget {
         color: Colors.white,
         child: ListTile(
           /// replace sized box to render product image
-          leading: SizedBox(
-            height: 50,
-            width: 50,
-            child: Container(
-              color: Colors.grey,
-            ),
-          ),
+          leading: this.leading,
           title: Text(this.name),
           subtitle: Text(this.expiry),
           trailing: this.trailing,
