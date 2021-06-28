@@ -4,7 +4,6 @@ import 'package:stockup/services/auth/auth_impl.dart';
 import 'package:stockup/screens/items/item_list.dart';
 import 'package:stockup/screens/scan/add_files.dart';
 import 'package:stockup/screens/shopping_list/shop_list.dart';
-import 'package:fl_chart/fl_chart.dart';
 import '../constants.dart';
 
 class HomeScreen extends StatefulWidget {
