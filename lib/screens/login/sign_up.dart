@@ -141,7 +141,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           onTap: () {
                             Navigator.pushNamed(context, SignInScreen.id);
                           },
-                          child: Text("Sign up",
+                          child: Text("Sign in",
                               style: TextStyle(color: Colors.blue)),
                         ),
                       ],
