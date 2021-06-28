@@ -66,7 +66,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               hintText: 'Enter your password',
                               labelText: 'Password'),
                           validator: (val) => val.length < 6
-                              ? 'Enter a password 6 or more characters long'
+                              ? '6 or more characters password'
                               : null,
                           onChanged: (val) {
                             setState(() => password = val);

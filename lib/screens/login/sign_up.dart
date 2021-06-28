@@ -45,9 +45,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               icon: Icon(Icons.email),
                               hintText: 'Enter your email',
                               labelText: 'Email'),
-                          validator: (val) => val.contains('@')
-                              ? null
-                              : 'Enter an email',
+                          validator: (val) =>
+                              val.contains('@') ? null : 'Enter a valid email',
                           onChanged: (val) {
                             setState(() => email = val);
                           },
@@ -64,8 +63,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           autocorrect: false,
                           decoration: const InputDecoration(
                               icon: Icon(Icons.lock),
-                              hintText:
-                                  'Enter a password 6 or more characters long.',
+                              hintText: '6 or more characters password',
                               labelText: 'Password'),
                           validator: (val) => val.length < 6
                               ? 'Enter a password 6 or more characters long'
