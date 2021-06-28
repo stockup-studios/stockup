@@ -27,12 +27,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Expanded(
-            child: Container(
-              color: Colors.grey,
-              child: Center(child: Text('Image goes here')),
-            ),
-          ),
-          Expanded(
             flex: 2,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

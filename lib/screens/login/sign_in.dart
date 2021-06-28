@@ -25,14 +25,8 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(
-            child: Container(
-              color: Colors.grey,
-              child: Center(child: Text('StockUP background image goes here')),
-            ),
-          ),
           Expanded(
             flex: 2,
             child: Column(
