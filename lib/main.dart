@@ -33,6 +33,7 @@ class StockUP extends StatelessWidget {
       ],
       child: MaterialApp(
         initialRoute: WelcomeScreen.id,
+        debugShowCheckedModeBanner: false,
         routes: {
           AuthChange.id: (context) => AuthChange(),
           WelcomeScreen.id: (context) => WelcomeScreen(),

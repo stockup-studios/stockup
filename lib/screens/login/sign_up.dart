@@ -14,6 +14,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final AuthImplementation _auth = AuthImplementation();
   final emailInput = GlobalKey<FormState>();
   final passwordInput = GlobalKey<FormState>();
+  final confirmPassword = GlobalKey<FormState>();
 
   String email = '';
   String password = '';
@@ -44,8 +45,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               icon: Icon(Icons.email),
                               hintText: 'Enter your email',
                               labelText: 'Email'),
-                          validator: (val) =>
-                              val.isEmpty && val.contains('@') ? 'Enter an email' : null,
+                          validator: (val) => val.isEmpty && val.contains('@')
+                              ? 'Enter an email'
+                              : null,
                           onChanged: (val) {
                             setState(() => email = val);
                           },
@@ -77,15 +79,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           EdgeInsets.symmetric(horizontal: 50.0, vertical: 5),
                     ),
                     Container(
-                      child: TextFormField(
-                        obscureText: true,
-                        autocorrect: false,
-                        decoration: const InputDecoration(
-                            icon: Icon(Icons.lock),
-                            hintText: 'Enter password again',
-                            labelText: 'Confirm Password'),
-                        validator: (val) =>
-                            val != password ? 'Password does not match' : null,
+                      child: Form(
+                        key: confirmPassword,
+                        child: TextFormField(
+                          obscureText: true,
+                          autocorrect: false,
+                          decoration: const InputDecoration(
+                              icon: Icon(Icons.lock),
+                              hintText: 'Enter password again',
+                              labelText: 'Confirm Password'),
+                          validator: (val) => val != password
+                              ? 'Password does not match'
+                              : null,
+                        ),
                       ),
                       padding:
                           EdgeInsets.symmetric(horizontal: 50.0, vertical: 5),
@@ -97,7 +103,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       widthFactor: 0.7,
                       child: OutlinedButton(
                         onPressed: () async {
-                          if (emailInput.currentState.validate() && passwordInput.currentState.validate()) {
+                          if (emailInput.currentState.validate() &&
+                              passwordInput.currentState.validate() &&
+                              confirmPassword.currentState.validate()) {
                             dynamic result = await _auth
                                 .registerWithEmailPassword(email, password);
                             if (result == null) {
