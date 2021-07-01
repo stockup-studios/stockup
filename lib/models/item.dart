@@ -18,6 +18,8 @@ class Item {
       this.addedDate,
       this.expiredDate});
 
+  Item.demo(this.productName, this.category, this.imageURL, this.expiredDate);
+
   factory Item.fromFirestore(DocumentSnapshot doc) {
     Map json = doc.data();
 

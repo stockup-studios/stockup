@@ -46,7 +46,7 @@ class AuthImplementation implements AuthService {
         'email': email,
       };
       _db.addCredentials(credentials);
-      await _db.initialize();
+      await _db.initialize(); // default data
 
       return _appUser(user);
     } catch (e) {
@@ -54,7 +54,7 @@ class AuthImplementation implements AuthService {
     }
   }
 
-  // sign in with google
+  // sign in with google (not complete, need fingerprint key)
   @override
   Future signInWithGoogle() async {
     try {

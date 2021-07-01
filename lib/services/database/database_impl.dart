@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:stockup/business_logic/defaultData/items.dart';
 import 'package:stockup/models/item.dart';
 import 'package:stockup/services/database/database.dart';
 
@@ -18,7 +19,12 @@ class DatabaseServiceImpl implements DatabaseService {
 
   // To-do: Initalize account with default data
   @override
-  Future<void> initialize() async {}
+  Future<void> initialize() async {
+    Map<int, String> userShopMap = {}; //default shopping List data
+    for (Item item in demoItems) {
+      await addUserItem(item);
+    }
+  }
 
   @override
   Future<String> addUserItem(Item item) async {
