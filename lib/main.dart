@@ -14,6 +14,7 @@ import 'package:stockup/screens/login/sign_in.dart';
 import 'package:stockup/screens/login/sign_up.dart';
 import 'package:stockup/services/auth/auth_impl.dart';
 import 'models/app_user.dart';
+import 'models/user_item_list.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,9 +28,15 @@ class StockUP extends StatelessWidget {
     return MultiProvider(
       providers: [
         StreamProvider<AppUser>.value(
-            value: AuthImplementation().user, initialData: AppUser()),
+          value: AuthImplementation().user,
+          initialData: AppUser(),
+        ),
         ChangeNotifierProvider<ItemViewModel>(
-            create: (context) => ItemViewModel()),
+          create: (context) => ItemViewModel(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UserItemList(),
+        ),
       ],
       child: MaterialApp(
         initialRoute: HomeScreen.id,

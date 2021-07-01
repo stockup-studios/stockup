@@ -4,8 +4,10 @@ import 'package:stockup/business_logic/item/item_viewmodel.dart';
 import 'package:stockup/models/product.dart';
 import 'package:stockup/models/product_catalog/product_catalog.dart';
 import 'package:stockup/models/product_category.dart';
+import 'package:stockup/models/user_item.dart';
+import 'package:stockup/models/user_item_list.dart';
 import 'package:stockup/screens/components/bottom_navigation/bottom_navigation.dart';
-import 'package:stockup/screens/scan/add_files.dart';
+import 'package:stockup/screens/components/user_item_list_screen/user_item_tile.dart';
 import 'package:stockup/screens/search/search.dart';
 
 class ItemListScreen extends StatefulWidget {
@@ -46,6 +48,7 @@ class _ItemListScreenState extends State<ItemListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var userItemList = context.watch<UserItemList>();
     return Consumer<ItemViewModel>(builder: (context, model, child) {
       return WillPopScope(
         onWillPop: null,
@@ -163,40 +166,15 @@ class _ItemListScreenState extends State<ItemListScreen> {
                       print('refresh triggered');
                     },
                     child: ListView.builder(
-                      itemCount: products.length,
+                      itemCount: userItemList.userItemListing.length,
                       padding: EdgeInsets.only(top: 5.0),
                       itemBuilder: (context, index) {
-                        final product = products[index];
-                        return Dismissible(
-                          key: UniqueKey(),
-                          onDismissed: (direction) {
-                            setState(() {
-                              products.removeAt(index);
-                            });
-                            if (direction == DismissDirection.startToEnd) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                      'Moved ${product.productName} to shopping list'),
-                                ),
-                              );
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                      'Marked ${product.productName} as consumed'),
-                                ),
-                              );
-                            }
-                          },
-                          background: Container(color: Colors.orange),
-                          secondaryBackground: Container(color: Colors.red),
-                          child: ListTile(
-                            leading: Image.network(products[index].imageURL),
-                            title: Text(products[index].productName),
-                            subtitle: Text('Expires in ${index + 1} days'),
-                            trailing: Icon(Icons.more_vert),
-                          ),
+                        final UserItem product =
+                            userItemList.userItemListing[index];
+                        return UserItemTile(
+                          userItemList: userItemList,
+                          product: product,
+                          index: index,
                         );
                       },
                     ),
@@ -208,7 +186,13 @@ class _ItemListScreenState extends State<ItemListScreen> {
           floatingActionButton: FloatingActionButton(
             backgroundColor: Colors.blueGrey,
             onPressed: () {
-              Navigator.pushNamed(context, AddFilesScreen.id);
+              UserItem ui = UserItem(
+                  productName: 'product2',
+                  productID: 2,
+                  category: ProductCategory.values[1],
+                  imageURL: 'product2URL');
+              userItemList.addUserItem(ui);
+              // Navigator.pushNamed(context, AddFilesScreen.id);
             },
             child: Icon(Icons.add),
           ),
