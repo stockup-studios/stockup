@@ -29,6 +29,8 @@ class UserItem extends Product {
     expiryDate = _getEstimatedExpiry();
   }
 
+  UserItem.demo(this.productName, this.category, this.imageURL, this.productID, this.expiryDate);
+
   int _getCurrentTime() {
     return DateTime.now().millisecondsSinceEpoch;
   }

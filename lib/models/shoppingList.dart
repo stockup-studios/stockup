@@ -18,3 +18,4 @@ class ShoppingList {
     return {'title': title, 'is_Shared': isShared, 'uid': uid};
   }
 }
+
