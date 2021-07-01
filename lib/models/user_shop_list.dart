@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stockup/models/app_user.dart';
 import 'package:stockup/models/user_item.dart';
 import 'package:stockup/models/user_item_list.dart';
@@ -5,10 +6,21 @@ import 'package:stockup/models/user_shop.dart';
 
 class UserShopList {
   String name = '';
+  String uid;
   List<UserShop> userShopListing = [];
   List<AppUser> shared = [];
 
-  UserShopList({this.name = 'Default Shopping List'});
+  UserShopList({this.name, this.uid});
+
+  factory UserShopList.fromFirestore(DocumentSnapshot doc) {
+    Map json = doc.data();
+
+    return UserShopList(name: json['name'], uid: json['uid']);
+  }
+
+  Map<String, dynamic> toJson() {
+    return {'name': name, 'uid': uid};
+  }
 
   /// add one quantity of userShop to userShopListing
   void addShopItem(UserShop userShop) {
