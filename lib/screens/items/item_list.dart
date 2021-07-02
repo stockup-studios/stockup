@@ -4,10 +4,9 @@ import 'package:stockup/business_logic/item/item_viewmodel.dart';
 import 'package:stockup/models/product.dart';
 import 'package:stockup/models/product_catalog/product_catalog.dart';
 import 'package:stockup/models/product_category.dart';
-import 'package:stockup/screens/home/home.dart';
+import 'package:stockup/screens/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/screens/scan/add_files.dart';
 import 'package:stockup/screens/search/search.dart';
-import 'package:stockup/screens/shopping_list/shop_list.dart';
 
 class ItemListScreen extends StatefulWidget {
   static const String id = 'items_screen';
@@ -22,26 +21,6 @@ class _ItemListScreenState extends State<ItemListScreen> {
   final int noCategories = 6;
   final String title = 'Items';
   String dropdownValue = 'My List';
-
-  void _onBottomNavigationBarItemTapped(int index) {
-    switch (index) {
-      case HomeScreen.index:
-        Navigator.of(context).pushReplacementNamed(HomeScreen.id);
-        break;
-      case ItemListScreen.index:
-        Navigator.of(context).pushReplacementNamed(ItemListScreen.id);
-        break;
-      case AddFilesScreen.index:
-        Navigator.of(context).pushReplacementNamed(AddFilesScreen.id);
-        break;
-      case ShopListScreen.index:
-        Navigator.of(context).pushReplacementNamed(ShopListScreen.id);
-        break;
-      default:
-        print('_onBottomNavigationBarItemTapped navigation error');
-        break;
-    }
-  }
 
   List<Product> productsList = [
     productCatalog[100],
@@ -233,32 +212,8 @@ class _ItemListScreenState extends State<ItemListScreen> {
             },
             child: Icon(Icons.add),
           ),
-          bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.restaurant_menu),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.add_box_outlined),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.format_list_bulleted),
-                label: '',
-              ),
-            ],
-            backgroundColor: Colors.grey.shade300,
-            currentIndex: ItemListScreen.index,
-            onTap: _onBottomNavigationBarItemTapped,
-          ),
+          bottomNavigationBar:
+              BottomNavigation(currentIndex: ItemListScreen.index),
         ),
       );
     });
