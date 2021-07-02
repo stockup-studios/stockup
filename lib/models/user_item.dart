@@ -54,6 +54,7 @@ class UserItem extends Product {
       'uid': uid,
       'product_category': category.name,
       'product_img_url': imageURL,
+      'product_code': productID,
       'addedDate': addedDate,
     };
   }

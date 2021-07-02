@@ -5,17 +5,17 @@ abstract class UserDataBaseModel {
   Future<void> init(AppUser user);
 
   /// CREATE
-  Future<void> addUserItem(Item item, bool toDatabase);
+  Future<void> addUserItem(UserItem item, bool toDatabase);
 
   /// READ
-  List<Item> get items;
+  List<UserItem> get items;
 
   /// UPDATE
-  Future<void> updateItem(Item item);
+  Future<void> updateItem(UserItem item);
 
   /// Clear all demo data and initialize the user with empty state.
   Future<void> demoDone();
 
   /// DELETE
-  Future<void> deleteUserItem(Item item);
+  Future<void> deleteUserItem(UserItem item);
 }

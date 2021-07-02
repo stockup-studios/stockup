@@ -9,8 +9,8 @@ class UserData extends ChangeNotifier implements UserDataBaseModel {
   DatabaseServiceImpl _db;
   Map<String, dynamic> credentials;
 
-  List<Item> _items =
-      SortedList<Item>((r1, r2) => r2.expiredDate.compareTo(r1.expiredDate));
+  List<UserItem> _items =
+      SortedList<UserItem>((r1, r2) => r2.expiryDate.compareTo(r1.expiryDate));
 
   /// Initialize with UserData.
   @override
@@ -22,14 +22,14 @@ class UserData extends ChangeNotifier implements UserDataBaseModel {
     _db = DatabaseServiceImpl(uid: user.username);
     credentials = await _db.getCredentials();
 
-    List<Item> unorderedItems = await _db.getUserItems();
+    List<UserItem> unorderedItems = await _db.getUserItems();
 
     _items.addAll(unorderedItems);
   }
 
   /// CREATE
   @override
-  Future<void> addUserItem(Item item, bool toDatabase) async {
+  Future<void> addUserItem(UserItem item, bool toDatabase) async {
     _items.add(item);
     notifyListeners();
 
@@ -44,11 +44,11 @@ class UserData extends ChangeNotifier implements UserDataBaseModel {
 
   /// READ
   @override
-  List<Item> get items => _items;
+  List<UserItem> get items => _items;
 
   /// UPDATE
   @override
-  Future<void> updateItem(Item item) async {
+  Future<void> updateItem(UserItem item) async {
     _db.updateUserItem(item);
   }
 
@@ -56,7 +56,7 @@ class UserData extends ChangeNotifier implements UserDataBaseModel {
   @override
   Future<void> demoDone() async {
     credentials['isDemo'] = false;
-    items.forEach((item) => _db.deleteItem(item));
+    items.forEach((item) => _db.deleteUserItem(item));
 
     items.clear();
     notifyListeners();
@@ -66,8 +66,8 @@ class UserData extends ChangeNotifier implements UserDataBaseModel {
 
   /// DELETE
   @override
-  Future<void> deleteUserItem(Item item) async {
+  Future<void> deleteUserItem(UserItem item) async {
     _items.removeWhere((itm) => itm.uid == item.uid);
-    _db.deleteItem(item);
+    _db.deleteUserItem(item);
   }
 }

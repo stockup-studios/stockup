@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:stockup/business_logic/item/item_basemodel.dart';
 import 'package:stockup/business_logic/userData/userData_viewmodel.dart';
-import 'package:stockup/models/item.dart';
+import 'package:stockup/models/models.dart';
 import 'package:stockup/services/scanner/scanner.dart';
 import 'package:stockup/services/database/database_impl.dart';
 
 class ItemViewModel extends ChangeNotifier implements ItemBaseModel {
   UserData userData;
-  List<Item> categories;
   DatabaseServiceImpl _db;
 
   /// Initialize the model with UserData.
@@ -16,8 +15,8 @@ class ItemViewModel extends ChangeNotifier implements ItemBaseModel {
     this.userData = userData;
   }
 
-  List<Item> tempItems;
-  Item editItem;
+  List<UserItem> tempItems;
+  UserItem editItem;
   bool isEditing = false;
   bool isScanned = false;
   bool isOperated = false;
@@ -31,11 +30,11 @@ class ItemViewModel extends ChangeNotifier implements ItemBaseModel {
     List<String> productNames;
 
     for (String name in productNames) {
-      List<Item> match = await _db.searchGiantItems(name);
-      for (Item item in match) {
-        item.addedDate = DateTime.now();
+      List<Product> match = await _db.searchGiantItems(name);
+      for (Product item in match) {
+        //item.addedDate = DateTime.now();
       }
-      tempItems.addAll(match);
+      //tempItems.addAll(match);
     }
 
     notifyListeners();

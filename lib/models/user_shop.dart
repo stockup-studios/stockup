@@ -4,14 +4,19 @@ import 'package:flutter/foundation.dart';
 import 'package:stockup/models/product_category.dart';
 
 class UserShop extends Product {
+  final int productID;
+  final ProductCategory category;
+  final String productName;
+  final String imageURL;
   int quantity;
   String uid;
+  String listUid; // for default data
 
   UserShop(
-      {@required int productID,
-      @required ProductCategory category,
-      @required String productName,
-      @required String imageURL,
+      {@required this.productID,
+      @required this.category,
+      @required this.productName,
+      @required this.imageURL,
       this.uid})
       : super(
             productName: productName,
@@ -29,8 +34,8 @@ class UserShop extends Product {
     --quantity;
   }
 
-  // TO-DO reconsider using inheritance
-  //UserShop.demo(this.productName, this.category, this.imageURL, this.productID, this.quantity);
+  
+  UserShop.demo(this.productName, this.category, this.imageURL, this.productID, this.quantity);
 
   factory UserShop.fromFirestore(DocumentSnapshot doc) {
     Map json = doc.data();
@@ -51,6 +56,7 @@ class UserShop extends Product {
       'uid': uid,
       'product_category': category.name,
       'product_img_url': imageURL,
+      'product_code': productID,
     };
   }
 

@@ -22,6 +22,8 @@ class UserShopList {
     return {'name': name, 'uid': uid};
   }
 
+  UserShopList.demo(this.name);
+
   /// add one quantity of userShop to userShopListing
   void addShopItem(UserShop userShop) {
     int index = userShopListing.indexOf(userShop);
