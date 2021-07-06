@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stockup/models/app_user.dart';
 import 'package:stockup/models/user_item.dart';
 import 'package:stockup/models/user_shop.dart';
@@ -5,10 +6,21 @@ import 'package:stockup/models/user_shop_list.dart';
 
 class UserItemList {
   String name = '';
+  String uid;
   List<UserItem> userItemListing = [];
   List<AppUser> shared = [];
 
-  UserItemList({this.name = 'Default Shopping List'});
+  UserItemList({this.name, this.uid});
+
+  factory UserItemList.fromFirestore(DocumentSnapshot doc) {
+    Map json = doc.data();
+
+    return UserItemList(name: json['name'], uid: json['uid']);
+  }
+
+  Map<String, dynamic> toJson() {
+    return {'name': name, 'uid': uid};
+  }
 
   /// add item to userItemListing and sorts based on increasing expiry date
   /// (userItems expiring soon will appear first)

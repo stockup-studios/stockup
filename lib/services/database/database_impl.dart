@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:stockup/models/item.dart';
+import 'package:stockup/business_logic/defaultData/defaultData.dart';
+import 'package:stockup/models/models.dart';
 import 'package:stockup/services/database/database.dart';
 
 class DatabaseServiceImpl implements DatabaseService {
@@ -7,22 +8,38 @@ class DatabaseServiceImpl implements DatabaseService {
   final CollectionReference giantCollection =
       FirebaseFirestore.instance.collection('Giant');
   DocumentReference userDocument;
-  CollectionReference itemCollection;
-  CollectionReference shoppingListCollection;
+  CollectionReference userItemCollection;
+  CollectionReference userShopCollection;
+  CollectionReference userShopListCollection;
 
   DatabaseServiceImpl({this.uid}) {
     userDocument = FirebaseFirestore.instance.collection('users').doc(uid);
-    itemCollection = userDocument.collection('items');
-    shoppingListCollection = userDocument.collection('shopping_list');
+    userItemCollection = userDocument.collection('user_item');
+    userShopCollection = userDocument.collection('user_shop');
+    userShopListCollection = userDocument.collection('user_shop_list');
   }
 
   // To-do: Initalize account with default data
   @override
-  Future<void> initialize() async {}
+  Future<void> initialize() async {
+    Map<int, String> userShopMap = {}; //default shopping List data
+    Map<int, String> userItemMap = {}; //default user inventory
+
+    for (int i = 0; i < demoUserShopList.length; i++) {
+      String categoryUid = await addUserShopList(demoUserShopList[i]);
+      userShopMap[i] = categoryUid;
+    }
+
+    for (UserShop item in demoUserShop) {
+      //linking shopping list item to correct shopping list
+      item.listUid = userShopMap[item.listUid];
+      await addUserShop(item);
+    }
+  }
 
   @override
-  Future<String> addUserItem(Item item) async {
-    final itemDocument = itemCollection.doc();
+  Future<String> addUserItem(UserItem item) async {
+    final itemDocument = userItemCollection.doc();
     final uid = itemDocument.id;
     Map<String, dynamic> json = item.toJson();
     json['uid'] = uid;
@@ -31,7 +48,7 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 
   @override
-  Future<String> addGiantItem(Item item) async {
+  Future<String> addGiantItem(Product item) async {
     final itemDocument = giantCollection.doc();
     final uid = itemDocument.id;
     Map<String, dynamic> json = item.toJson();
@@ -45,6 +62,26 @@ class DatabaseServiceImpl implements DatabaseService {
     userDocument.set(credentials);
   }
 
+  @override
+  Future<String> addUserShop(UserShop item) async {
+    final itemDocument = userShopCollection.doc();
+    final uid = itemDocument.id;
+    Map<String, dynamic> json = item.toJson();
+    json['uid'] = uid;
+    itemDocument.set(json);
+    return uid;
+  }
+
+  @override
+  Future<String> addUserShopList(UserShopList list) async {
+    final itemDocument = userShopListCollection.doc();
+    final uid = itemDocument.id;
+    Map<String, dynamic> json = list.toJson();
+    json['uid'] = uid;
+    itemDocument.set(json);
+    return uid;
+  }
+
   // Read
   @override
   Future<Map<String, dynamic>> getCredentials() async {
@@ -53,28 +90,28 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 
   @override
-  Future<List<Item>> getUserItems() async {
+  Future<List<UserItem>> getUserItems() async {
     List<QueryDocumentSnapshot> snapshots =
-        await itemCollection.get().then((value) => value.docs);
+        await userItemCollection.get().then((value) => value.docs);
 
-    return snapshots.map((doc) => Item.fromFirestore(doc)).toList();
+    return snapshots.map((doc) => UserItem.fromFirestore(doc)).toList();
   }
 
   @override
-  Future<List<Item>> getGiantItems() async {
+  Future<List<Product>> getGiantItems() async {
     List<QueryDocumentSnapshot> snapshots =
         await giantCollection.get().then((value) => value.docs);
 
-    return snapshots.map((doc) => Item.fromFirestore(doc)).toList();
+    return snapshots.map((doc) => Product.fromFirestore(doc)).toList();
   }
 
   // search item based on name returned from scanner
-  Future<List<Item>> searchGiantItems(String name) async {
+  Future<List<Product>> searchGiantItems(String name) async {
     List<QueryDocumentSnapshot> snapshot = await giantCollection
         .where('product_name' == name)
         .get()
         .then((value) => value.docs);
-    return snapshot.map((doc) => Item.fromFirestore(doc));
+    return snapshot.map((doc) => Product.fromFirestore(doc));
   }
 
   // for parser
@@ -92,19 +129,19 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 
   @override
-  Future<void> updateUserItem(Item item) async {
-    itemCollection.doc(item.uid).update(item.toJson());
+  Future<void> updateUserItem(UserItem item) async {
+    userItemCollection.doc(item.uid).update(item.toJson());
   }
 
   // TODO: will we ever change details of existing giant items?
   @override
-  Future<void> updateGiantItem(Item item) async {
+  Future<void> updateGiantItem(Product item) async {
     giantCollection.doc(item.uid).update(item.toJson());
   }
 
   // Delete
   @override
-  Future<void> deleteItem(Item item) async {
-    itemCollection.doc(item.uid).delete();
+  Future<void> deleteUserItem(UserItem item) async {
+    userItemCollection.doc(item.uid).delete();
   }
 }
