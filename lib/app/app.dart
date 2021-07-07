@@ -4,6 +4,7 @@ import 'package:stockup/ui/sign_in/sign_in_view.dart';
 import 'package:stockup/ui/sign_up/sign_up_view.dart';
 import 'package:stockup/ui/user_home/user_home_view.dart';
 import 'package:stockup/ui/user_item/user_item_view.dart';
+import 'package:stockup/ui/user_shop/user_shop_view.dart';
 import 'package:stockup/ui/welcome/welcome_view.dart';
 
 @StackedApp(
@@ -11,8 +12,9 @@ import 'package:stockup/ui/welcome/welcome_view.dart';
     MaterialRoute(page: WelcomeView),
     MaterialRoute(page: SignInView),
     MaterialRoute(page: SignUpView),
-    MaterialRoute(page: UserHomeView, initial: true),
+    MaterialRoute(page: UserHomeView),
     MaterialRoute(page: UserItemView),
+    MaterialRoute(page: UserShopView, initial: true),
   ],
   dependencies: [
     LazySingleton(classType: NavigationService),
