@@ -136,11 +136,11 @@ class SignInView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              "Don't have an account? ",
+                              "Don't have an account?",
                             ),
                             TextButton(
                               child: Text(
-                                "Create account",
+                                'Create account',
                                 style: TextStyle(color: Colors.blue),
                               ),
                               onPressed: model.signUp,

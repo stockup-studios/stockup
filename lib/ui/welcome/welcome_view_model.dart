@@ -10,4 +10,9 @@ class WelcomeViewModel extends BaseViewModel {
     _navigationService.navigateTo(Routes.signInView);
     notifyListeners();
   }
+
+  void signUp() {
+    _navigationService.navigateTo(Routes.signUpView);
+    notifyListeners();
+  }
 }

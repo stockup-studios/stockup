@@ -50,7 +50,7 @@ class WelcomeView extends StatelessWidget {
                   FractionallySizedBox(
                     widthFactor: 0.70,
                     child: OutlinedButton(
-                      onPressed: model.signIn,
+                      onPressed: model.signUp,
                       child: Text('Sign Up'),
                       style: ButtonStyle(
                         foregroundColor: MaterialStateProperty.all<Color>(
