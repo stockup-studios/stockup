@@ -23,9 +23,9 @@ import 'package:stockup/ui/welcome/welcome_view.dart';
   ],
   dependencies: [
     LazySingleton(classType: NavigationService),
+    LazySingleton(classType: UserService),
     Singleton(classType: UserItemViewModel),
     Singleton(classType: UserShopViewModel),
-    LazySingleton(classType: UserService),
   ],
 )
 class AppSetup {}

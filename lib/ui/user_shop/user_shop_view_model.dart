@@ -43,4 +43,9 @@ class UserShopViewModel extends BaseViewModel {
     ++no;
     notifyListeners();
   }
+
+  void move(int index) {
+    _userService.moveUserShopAtIndex(index);
+    notifyListeners();
+  }
 }

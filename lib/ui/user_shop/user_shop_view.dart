@@ -83,6 +83,10 @@ class UserShopView extends StatelessWidget {
                       subtitle: Text(model
                           .targetUserShopList.userShopListing[index].quantity
                           .toString()),
+                      trailing: IconButton(
+                        icon: Icon(Icons.check),
+                        onPressed: () => model.move(index),
+                      ),
                     ),
                   );
                 },

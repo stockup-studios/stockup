@@ -83,10 +83,12 @@ class UserService {
     if (index == -1) {
       print(
           'delShopItem::ItemMissingError for $userShop in ${targetUserShopList.userShopListing}');
-    } else if (targetUserShopList.userShopListing[index].quantity == 0) {
+    } else if (targetUserShopList.userShopListing[index].quantity == 1) {
       targetUserShopList.userShopListing.removeAt(index);
-    } else if (targetUserShopList.userShopListing[index].quantity > 0) {
+    } else if (targetUserShopList.userShopListing[index].quantity > 1) {
       targetUserShopList.userShopListing[index].delQuantity();
+    } else if (targetUserShopList.userShopListing[index].quantity == 0) {
+      print('delUserShop Error');
     }
   }
 
@@ -106,14 +108,14 @@ class UserService {
 
   /// adds userItem at index from userShopListing to target itemList
   /// userItem at given index will be removed from userShopListing
-  void moveShopItemAtIndex(int index, UserItemList itemList) {
+  void moveUserShopAtIndex(int index) {
     UserShop userShop = targetUserShopList.userShopListing[index];
     UserItem userItem = UserItem(
         productName: userShop.productName,
         productID: userShop.productID,
         category: userShop.category,
         imageURL: userShop.imageURL);
-    itemList.addUserItem(userItem);
+    targetUserItemList.addUserItem(userItem);
     delUserShop(userShop);
   }
 }
