@@ -13,6 +13,7 @@ import '../ui/sign_in/sign_in_view.dart';
 import '../ui/sign_up/sign_up_view.dart';
 import '../ui/user_home/user_home_view.dart';
 import '../ui/user_item/user_item_view.dart';
+import '../ui/user_scan/user_scan_view.dart';
 import '../ui/user_shop/user_shop_view.dart';
 import '../ui/welcome/welcome_view.dart';
 
@@ -22,13 +23,15 @@ class Routes {
   static const String signUpView = '/sign-up-view';
   static const String userHomeView = '/user-home-view';
   static const String userItemView = '/user-item-view';
-  static const String userShopView = '/';
+  static const String userScanView = '/';
+  static const String userShopView = '/user-shop-view';
   static const all = <String>{
     welcomeView,
     signInView,
     signUpView,
     userHomeView,
     userItemView,
+    userScanView,
     userShopView,
   };
 }
@@ -42,6 +45,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.signUpView, page: SignUpView),
     RouteDef(Routes.userHomeView, page: UserHomeView),
     RouteDef(Routes.userItemView, page: UserItemView),
+    RouteDef(Routes.userScanView, page: UserScanView),
     RouteDef(Routes.userShopView, page: UserShopView),
   ];
   @override
@@ -74,6 +78,12 @@ class StackedRouter extends RouterBase {
     UserItemView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => const UserItemView(),
+        settings: data,
+      );
+    },
+    UserScanView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const UserScanView(),
         settings: data,
       );
     },
