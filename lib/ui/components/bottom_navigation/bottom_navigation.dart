@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:stacked_services/stacked_services.dart';
+import 'package:stockup/app/app.locator.dart';
+import 'package:stockup/app/app.router.dart';
 import 'package:stockup/screens/home/home.dart';
 import 'package:stockup/screens/items/item_list.dart';
 import 'package:stockup/screens/scan/add_files.dart';
@@ -6,6 +9,7 @@ import 'package:stockup/screens/shopping_list/shop_list.dart';
 
 class BottomNavigation extends StatelessWidget {
   final int currentIndex;
+  final _navigationService = locator<NavigationService>();
   BottomNavigation({@required this.currentIndex});
 
   @override
@@ -14,16 +18,16 @@ class BottomNavigation extends StatelessWidget {
       if (index == currentIndex) return;
       switch (index) {
         case HomeScreen.index:
-          Navigator.of(context).pushReplacementNamed(HomeScreen.id);
+          _navigationService.replaceWith(Routes.userHomeView);
           break;
         case ItemListScreen.index:
-          Navigator.of(context).pushReplacementNamed(ItemListScreen.id);
+          _navigationService.replaceWith(Routes.userItemView);
           break;
         case AddFilesScreen.index:
-          Navigator.of(context).pushReplacementNamed(AddFilesScreen.id);
+          _navigationService.replaceWith(Routes.userScanView);
           break;
         case ShopListScreen.index:
-          Navigator.of(context).pushReplacementNamed(ShopListScreen.id);
+          _navigationService.replaceWith(Routes.userShopView);
           break;
         default:
           print('_onBottomNavigationBarItemTapped navigation error');

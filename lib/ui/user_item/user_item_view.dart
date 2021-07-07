@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/user_item_list.dart';
-import 'package:stockup/screens/components/bottom_navigation/bottom_navigation.dart';
+import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/ui/user_item/user_item_view_model.dart';
 
 class UserItemView extends StatelessWidget {
@@ -10,7 +11,10 @@ class UserItemView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserItemViewModel>.reactive(
+      disposeViewModel: false,
+      initialiseSpecialViewModelsOnce: true,
       onModelReady: (model) => model.init(),
+      fireOnModelReadyOnce: true,
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           title: Text('Items'),
@@ -90,10 +94,9 @@ class UserItemView extends StatelessWidget {
           child: Icon(Icons.add),
           onPressed: model.add,
         ),
-        bottomNavigationBar: BottomNavigation(
-            currentIndex: 1), // TODO: Replace with navigation service
+        bottomNavigationBar: BottomNavigation(currentIndex: 1),
       ),
-      viewModelBuilder: () => UserItemViewModel(),
+      viewModelBuilder: () => locator<UserItemViewModel>(),
     );
   }
 }

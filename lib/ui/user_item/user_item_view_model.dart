@@ -21,7 +21,9 @@ class UserItemViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  /// Only called once. Will not be called again on rebuild
   void init() {
+    print('user shop view model init called');
     productCategories.addAll((ProductCategory.values.map(
         (ProductCategory category) =>
             category.toString().split('.').last.split('_').join(' '))));

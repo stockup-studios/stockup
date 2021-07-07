@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stockup/screens/components/bottom_navigation/bottom_navigation.dart';
+import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/ui/user_scan/user_scan_view_model.dart';
 
 class UserScanView extends StatelessWidget {
@@ -47,9 +47,7 @@ class UserScanView extends StatelessWidget {
             ),
           ),
         ),
-        bottomNavigationBar: BottomNavigation(
-            currentIndex:
-                2), // TODO: Implement navigation using service in ViewModel
+        bottomNavigationBar: BottomNavigation(currentIndex: 2),
       ),
       viewModelBuilder: () => UserScanViewModel(),
     );

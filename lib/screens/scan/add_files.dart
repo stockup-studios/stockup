@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:stockup/models/product.dart';
 import 'package:stockup/models/product_catalog/product_catalog.dart';
-import 'package:stockup/screens/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/services/parser/parser.dart';
 import 'package:stockup/services/scanner/scanner.dart';
+import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 
 class AddFilesScreen extends StatefulWidget {
   static const String id = 'add_files_screen';
