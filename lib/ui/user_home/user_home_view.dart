@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stockup/screens/components/bottom_navigation/bottom_navigation.dart';
+import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/ui/user_home/user_home_view_model.dart';
 
 class UserHomeView extends StatelessWidget {
@@ -25,8 +25,7 @@ class UserHomeView extends StatelessWidget {
             );
           },
         ),
-        bottomNavigationBar: BottomNavigation(
-            currentIndex: 0), // TODO: Replace with navigation service
+        bottomNavigationBar: BottomNavigation(currentIndex: 0),
       ),
       viewModelBuilder: () => UserHomeViewModel(),
     );

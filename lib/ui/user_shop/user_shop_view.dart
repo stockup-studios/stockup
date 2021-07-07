@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/user_shop_list.dart';
-import 'package:stockup/screens/components/bottom_navigation/bottom_navigation.dart';
+import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/ui/user_shop/user_shop_view_model.dart';
 
 class UserShopView extends StatelessWidget {
@@ -10,7 +11,10 @@ class UserShopView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserShopViewModel>.reactive(
+      disposeViewModel: false,
+      initialiseSpecialViewModelsOnce: true,
       onModelReady: (model) => model.init(),
+      fireOnModelReadyOnce: true,
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           title: Text('Shopping Lists'),
@@ -93,7 +97,7 @@ class UserShopView extends StatelessWidget {
         ),
         bottomNavigationBar: BottomNavigation(currentIndex: 3),
       ),
-      viewModelBuilder: () => UserShopViewModel(),
+      viewModelBuilder: () => locator<UserShopViewModel>(),
     );
   }
 }

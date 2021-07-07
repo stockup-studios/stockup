@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stockup/screens/components/bottom_navigation/bottom_navigation.dart';
+import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 import '../constants.dart';
 
 class ShopListScreen extends StatefulWidget {
