@@ -18,6 +18,8 @@ class UserShopList {
     return UserShopList(name: json['name'], uid: json['uid']);
   }
 
+  get userItemListing => null;
+
   Map<String, dynamic> toJson() {
     return {'name': name, 'uid': uid};
   }

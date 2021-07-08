@@ -4,9 +4,9 @@ import 'package:stockup/business_logic/item/item_viewmodel.dart';
 import 'package:stockup/models/product.dart';
 import 'package:stockup/models/product_catalog/product_catalog.dart';
 import 'package:stockup/models/product_category.dart';
-import 'package:stockup/screens/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/screens/scan/add_files.dart';
 import 'package:stockup/screens/search/search.dart';
+import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 
 class ItemListScreen extends StatefulWidget {
   static const String id = 'items_screen';
