@@ -9,7 +9,7 @@ import 'package:stockup/services/user/user_service.dart';
 class UserItemViewModel extends BaseViewModel {
   final _userService = locator<UserService>();
 
-  final List<String> productCategories = ['All Categories'];
+  final Map<String, bool> productCategories = {'All Categories': true};
   List<UserItemList> userItemLists = [];
   List<UserShopList> userShopLists = [];
   UserShopList targetUserShopList;
@@ -17,6 +17,16 @@ class UserItemViewModel extends BaseViewModel {
 
   UserItemList get targetUserItemList {
     return _userService.getTargetUIL();
+  }
+
+  List<UserItem> get displayList {
+    if (productCategories['All Categories'])
+      return targetUserItemList.userItemListing;
+
+    return targetUserItemList.userItemListing.where((UserItem ui) {
+      String name = ui.category.toString().split('.').last.split('_').join(' ');
+      return productCategories[name];
+    }).toList();
   }
 
   set targetUserItemList(UserItemList newTarget) {
@@ -27,11 +37,27 @@ class UserItemViewModel extends BaseViewModel {
   /// Only called once. Will not be called again on rebuild
   void init() {
     print('user item view model init called');
-    productCategories.addAll((ProductCategory.values.map(
-        (ProductCategory category) =>
-            category.toString().split('.').last.split('_').join(' '))));
+    for (ProductCategory category in ProductCategory.values) {
+      String name = category.toString().split('.').last.split('_').join(' ');
+      productCategories[name] = false;
+    }
     userItemLists = _userService.getUILs();
     targetUserItemList = _userService.getTargetUIL();
+    notifyListeners();
+  }
+
+  void filter(int index) {
+    if (index == 0) {
+      for (String name in productCategories.keys.toList().sublist(1)) {
+        productCategories[name] = false;
+      }
+      productCategories['All Categories'] =
+          !productCategories['All Categories'];
+    } else {
+      productCategories['All Categories'] = false;
+      String s = productCategories.keys.toList()[index];
+      productCategories[s] = !productCategories[s];
+    }
     notifyListeners();
   }
 

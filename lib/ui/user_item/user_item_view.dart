@@ -63,8 +63,11 @@ class UserItemView extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: FilterChip(
-                      onSelected: (e) {}, // TODO: Implement filter in ViewModel
-                      label: Text(model.productCategories[index]),
+                      selected: model.productCategories.values.toList()[index],
+                      onSelected: (e) {
+                        model.filter(index);
+                      },
+                      label: Text(model.productCategories.keys.toList()[index]),
                     ),
                   );
                 },
@@ -73,16 +76,14 @@ class UserItemView extends StatelessWidget {
             Expanded(
               flex: 10,
               child: ListView.builder(
-                itemCount: model.targetUserItemList.userItemListing.length,
+                itemCount: model.displayList.length,
                 itemBuilder: (context, index) {
                   return Card(
                     child: ListTile(
                       leading: Icon(Icons.home),
-                      title: Text(model.targetUserItemList
-                          .userItemListing[index].productName),
-                      subtitle: Text(model
-                          .targetUserItemList.userItemListing[index].expiryDate
-                          .toString()),
+                      title: Text(model.displayList[index].productName),
+                      subtitle:
+                          Text(model.displayList[index].expiryDate.toString()),
                       trailing: IconButton(
                         icon: Icon(Icons.add_to_photos),
                         onPressed: () => model.move(index),

@@ -7,12 +7,22 @@ import 'package:stockup/services/user/user_service.dart';
 
 class UserShopViewModel extends BaseViewModel {
   final _userService = locator<UserService>();
-  final List<String> productCategories = ['All Categories'];
+  final Map<String, bool> productCategories = {'All Categories': true};
   List<UserShopList> userShopLists = [];
   int no = 1;
 
   UserShopList get targetUserShopList {
     return _userService.getTargetUSL();
+  }
+
+  List<UserShop> get displayList {
+    if (productCategories['All Categories'])
+      return targetUserShopList.userShopListing;
+
+    return targetUserShopList.userShopListing.where((UserShop ui) {
+      String name = ui.category.toString().split('.').last.split('_').join(' ');
+      return productCategories[name];
+    }).toList();
   }
 
   set targetUserShopList(UserShopList newTarget) {
@@ -23,11 +33,27 @@ class UserShopViewModel extends BaseViewModel {
   /// Only called once. Will not be called again on rebuild
   void init() {
     print('user shop view model init called');
-    productCategories.addAll((ProductCategory.values.map(
-        (ProductCategory category) =>
-            category.toString().split('.').last.split('_').join(' '))));
+    for (ProductCategory category in ProductCategory.values) {
+      String name = category.toString().split('.').last.split('_').join(' ');
+      productCategories[name] = false;
+    }
     userShopLists = _userService.getUSLs();
     targetUserShopList = _userService.getTargetUSL();
+    notifyListeners();
+  }
+
+  void filter(int index) {
+    if (index == 0) {
+      for (String name in productCategories.keys.toList().sublist(1)) {
+        productCategories[name] = false;
+      }
+      productCategories['All Categories'] =
+          !productCategories['All Categories'];
+    } else {
+      productCategories['All Categories'] = false;
+      String s = productCategories.keys.toList()[index];
+      productCategories[s] = !productCategories[s];
+    }
     notifyListeners();
   }
 
