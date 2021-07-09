@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:stockup/screens/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/screens/welcome/welcome.dart';
 import 'package:stockup/services/auth/auth_impl.dart';
-import 'package:stockup/screens/items/item_list.dart';
-import 'package:stockup/screens/scan/add_files.dart';
-import 'package:stockup/screens/shopping_list/shop_list.dart';
-import '../constants.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'home_screen';
@@ -16,26 +13,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  void _onBottomNavigationBarItemTapped(int index) {
-    switch (index) {
-      case HomeScreen.index:
-        Navigator.of(context).pushReplacementNamed(HomeScreen.id);
-        break;
-      case ItemListScreen.index:
-        Navigator.of(context).pushReplacementNamed(ItemListScreen.id);
-        break;
-      case AddFilesScreen.index:
-        Navigator.of(context).pushReplacementNamed(AddFilesScreen.id);
-        break;
-      case ShopListScreen.index:
-        Navigator.of(context).pushReplacementNamed(ShopListScreen.id);
-        break;
-      default:
-        print('_onBottomNavigationBarItemTapped navigation error');
-        break;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final AuthImplementation _auth = AuthImplementation();
@@ -178,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
           // SummaryTile('Summary Title $i', 'Description $i')
           //],
           ),
-      //bottomNavigationBar: BottomNavigation(currentIndex: HomeScreen.index),
+      bottomNavigationBar: BottomNavigation(currentIndex: HomeScreen.index),
     );
   }
 }
