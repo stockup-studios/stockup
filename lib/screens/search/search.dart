@@ -17,12 +17,7 @@ class SearchScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () async {
-              // showSearch(context: context, delegate: ProductSearch());
-
-              // final results = await
               showSearch(context: context, delegate: ProductSearch());
-
-              // print('Result: $results');
             },
           )
         ],
@@ -100,9 +95,7 @@ class ProductSearch extends SearchDelegate<Product> {
             final queryLower = query.toLowerCase();
 
             return productLower.contains(queryLower);
-          })
-            // .map((Product product) => product.productName)
-            .toList();
+          }).toList();
 
     return buildSuggestionsSuccess(suggestions);
   }
@@ -111,50 +104,16 @@ class ProductSearch extends SearchDelegate<Product> {
         itemCount: suggestions.length,
         itemBuilder: (context, index) {
           final suggestion = suggestions[index];
-          // final queryText = suggestion.substring(0, query.length);
-          // final remainingText = suggestion.substring(query.length);
           return ListTile(
             onTap: () {
               query = suggestion.productName;
               searchHistory.add(suggestion);
-              // 1. Show Results
-              // showResults(context);
-
-              // 2. Close Search & Return Result
-              close(context, suggestion);
-
-              // 3. Navigate to Result Page
-              //  Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (BuildContext context) => ResultPage(suggestion),
-              //   ),
-              // );
             },
             leading: Image.network(suggestion.imageURL) ??
                 Container(color: Colors.black),
             title: Text(suggestion.productName),
             subtitle: Text(suggestion.category.toString().split('.').last),
             trailing: Icon(Icons.add),
-            // title: RichText(
-            //   text: TextSpan(
-            //     text: queryText,
-            //     style: TextStyle(
-            //       color: Colors.black,
-            //       fontWeight: FontWeight.bold,
-            //       fontSize: 18,
-            //     ),
-            //     children: [
-            //       TextSpan(
-            //         text: remainingText,
-            //         style: TextStyle(
-            //           color: Colors.grey,
-            //           fontSize: 18,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
           );
         },
       );

@@ -48,8 +48,9 @@ class UserShopView extends StatelessWidget {
                     children: [
                       IconButton(
                         icon: Icon(Icons.search),
-                        onPressed: () {},
-                      ) // TODO: Implement search functionality
+                        onPressed: () => showSearch(
+                            context: context, delegate: model.search()),
+                      ),
                     ],
                   ),
                 ],

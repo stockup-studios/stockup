@@ -4,6 +4,7 @@ import 'package:stockup/models/product_category.dart';
 import 'package:stockup/models/user_shop.dart';
 import 'package:stockup/models/user_shop_list.dart';
 import 'package:stockup/services/user/user_service.dart';
+import 'package:stockup/ui/user_shop/user_shop_search.dart';
 
 class UserShopViewModel extends BaseViewModel {
   final _userService = locator<UserService>();
@@ -55,6 +56,10 @@ class UserShopViewModel extends BaseViewModel {
       productCategories[s] = !productCategories[s];
     }
     notifyListeners();
+  }
+
+  UserShopSearch search() {
+    return UserShopSearch(displayList);
   }
 
   void add() {
