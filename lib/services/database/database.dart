@@ -16,12 +16,22 @@ abstract class DatabaseService {
 
   Future<String> addUserItemList(UserItemList list);
 
+  Future<void> addUserItemListforUser(UserItemList list);
+
+  Future<void> addUserShopListforUser(UserShopList list);
+
   Future<String> addGiantItem(Product item);
 
   // Read
   Future<Map<String, dynamic>> getCredentials();
 
-  //Future<List<UserItem>> getUserItems();
+  Future<List<UserItem>> getUserItems(UserItemList list);
+
+  Future<List<UserShop>> getUserShops(UserShopList list);
+
+  Future<List<UserItemList>> getUserItemLists();
+
+  Future<List<UserShopList>> getUserShopLists();
 
   Future<List<Product>> getGiantItems();
 
@@ -30,8 +40,20 @@ abstract class DatabaseService {
 
   Future<void> updateUserItem(UserItem item, UserItemList list);
 
+  Future<void> updateUserShop(UserShop item, UserShopList list);
+
+  Future<void> updateUserShopList(UserShopList list);
+
+  Future<void> updateUserItemList(UserItemList list);
+
   Future<void> updateGiantItem(Product item);
 
   // Delete
   Future<void> deleteUserItem(UserItem item, UserItemList list);
+
+  Future<void> deleteUserShop(UserShop item, UserShopList list);
+
+  Future<void> deleteUserItemList(UserItemList list);
+
+  Future<void> deleteUserShopList(UserShopList list);
 }
