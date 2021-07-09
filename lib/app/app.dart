@@ -1,5 +1,7 @@
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:stockup/services/parser/parser.dart';
+import 'package:stockup/services/scanner/scanner.dart';
 import 'package:stockup/services/user/user_service.dart';
 import 'package:stockup/ui/sign_in/sign_in_view.dart';
 import 'package:stockup/ui/sign_up/sign_up_view.dart';
@@ -24,6 +26,8 @@ import 'package:stockup/ui/welcome/welcome_view.dart';
   dependencies: [
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: UserService),
+    LazySingleton(classType: Scanner),
+    LazySingleton(classType: Parser),
     Singleton(classType: UserItemViewModel),
     Singleton(classType: UserShopViewModel),
   ],

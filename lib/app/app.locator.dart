@@ -10,6 +10,8 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import '../services/parser/parser.dart';
+import '../services/scanner/scanner.dart';
 import '../services/user/user_service.dart';
 import '../ui/user_item/user_item_view_model.dart';
 import '../ui/user_shop/user_shop_view_model.dart';
@@ -24,6 +26,8 @@ void setupLocator({String environment, EnvironmentFilter environmentFilter}) {
 // Register dependencies
   locator.registerLazySingleton(() => NavigationService());
   locator.registerLazySingleton(() => UserService());
+  locator.registerLazySingleton(() => Scanner());
+  locator.registerLazySingleton(() => Parser());
   locator.registerSingleton(UserItemViewModel());
   locator.registerSingleton(UserShopViewModel());
 }

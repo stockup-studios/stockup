@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stockup/models/product.dart';
-import 'package:stockup/models/product_catalog/product_catalog.dart';
-import 'package:stockup/services/parser/parser.dart';
-import 'package:stockup/services/scanner/scanner.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 
 class AddFilesScreen extends StatefulWidget {
@@ -41,24 +38,24 @@ class _AddFilesScreenState extends State<AddFilesScreen> {
                 ),
                 child: Text('Pick image from storage'),
                 onPressed: () async {
-                  String imageFile = await Scanner.getImageFilePath();
-                  List<String> text =
-                      await Scanner.getTextFromImageFile(imageFile);
-                  List<String> matches = Parser.getBestMatches(text);
-                  List<Product> productMatches = [];
-                  for (String match in matches) {
-                    print(match);
-                    Product p = productCatalog
-                        .firstWhere((product) => product.productName == match);
-                    productMatches.add(p);
-                  }
-                  matches.forEach((String productName) {
-                    productCatalog.firstWhere(
-                        (product) => product.productName == productName);
-                  });
-                  setState(() {
-                    productsFound.addAll(productMatches);
-                  });
+                  // String imageFile = await Scanner.getImageFilePath();
+                  // List<String> text =
+                  //     await Scanner.getTextFromImageFile(imageFile);
+                  // List<String> matches = Parser.getBestMatches(text);
+                  // List<Product> productMatches = [];
+                  // for (String match in matches) {
+                  //   print(match);
+                  //   Product p = productCatalog
+                  //       .firstWhere((product) => product.productName == match);
+                  //   productMatches.add(p);
+                  // }
+                  // matches.forEach((String productName) {
+                  //   productCatalog.firstWhere(
+                  //       (product) => product.productName == productName);
+                  // });
+                  // setState(() {
+                  //   productsFound.addAll(productMatches);
+                  // });
                 },
               ),
               ElevatedButton(
@@ -68,26 +65,26 @@ class _AddFilesScreenState extends State<AddFilesScreen> {
                       MaterialStateProperty.all<Color>(Colors.blue.shade700),
                 ),
                 onPressed: () async {
-                  List<Product> productMatches = [];
-                  List<String> imageFiles = await Scanner.getImageFilePaths();
-                  for (String imageFile in imageFiles) {
-                    List<String> text =
-                        await Scanner.getTextFromImageFile(imageFile);
-                    List<String> matches = Parser.getBestMatches(text);
-                    for (String match in matches) {
-                      print(match);
-                      Product p = productCatalog.firstWhere(
-                          (product) => product.productName == match);
-                      productMatches.add(p);
-                    }
-                    matches.forEach((String productName) {
-                      productCatalog.firstWhere(
-                          (product) => product.productName == productName);
-                    });
-                  }
-                  setState(() {
-                    productsFound.addAll(productMatches);
-                  });
+                  // List<Product> productMatches = [];
+                  // List<String> imageFiles = await Scanner.getImageFilePaths();
+                  // for (String imageFile in imageFiles) {
+                  //   List<String> text =
+                  //       await Scanner.getTextFromImageFile(imageFile);
+                  //   List<String> matches = Parser.getBestMatches(text);
+                  //   for (String match in matches) {
+                  //     print(match);
+                  //     Product p = productCatalog.firstWhere(
+                  //         (product) => product.productName == match);
+                  //     productMatches.add(p);
+                  //   }
+                  //   matches.forEach((String productName) {
+                  //     productCatalog.firstWhere(
+                  //         (product) => product.productName == productName);
+                  //   });
+                  // }
+                  // setState(() {
+                  //   productsFound.addAll(productMatches);
+                  // });
                 },
               ),
               Expanded(
