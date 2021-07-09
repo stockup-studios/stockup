@@ -67,6 +67,18 @@ class UserScanView extends StatelessWidget {
                               );
                             }),
                       ),
+                if (!model.isBusy && model.productMatches.length > 0)
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      child: Text('Add to item list'),
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.green),
+                      ),
+                      onPressed: model.addToItems,
+                    ),
+                  ),
               ],
             ),
           ),
