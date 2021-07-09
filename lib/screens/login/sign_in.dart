@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stockup/screens/home/home.dart';
+import 'package:stockup/screens/items/item_list.dart';
 import 'package:stockup/screens/login/sign_up.dart';
 import 'package:stockup/services/auth/auth_impl.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
