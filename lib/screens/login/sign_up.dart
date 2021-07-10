@@ -6,7 +6,6 @@ import 'package:stockup/services/auth/auth_impl.dart';
 
 class SignUpScreen extends StatefulWidget {
   static const String id = 'sign_up_screen';
-
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
 }

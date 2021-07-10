@@ -42,10 +42,12 @@ class SignInViewModel extends BaseViewModel {
 
   void updateErrorEmail() {
     _error = 'Wrong email or password';
+    notifyListeners();
   }
 
   void updateErrorGoogle() {
     _error = 'Unable to sign in with google';
+    notifyListeners();
   }
 
   String getError() => _error;
@@ -57,5 +59,6 @@ class SignInViewModel extends BaseViewModel {
 
   void homeScreen() {
     _navigationService.navigateTo(Routes.userHomeView);
+    notifyListeners();
   }
 }

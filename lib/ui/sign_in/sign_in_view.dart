@@ -9,7 +9,6 @@ class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _key = GlobalKey<FormState>();
-    //final passwordInput = GlobalKey<FormState>();
     return ViewModelBuilder<SignInViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
           backgroundColor: Colors.grey.shade200,
