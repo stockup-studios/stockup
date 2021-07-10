@@ -76,12 +76,7 @@ class SignUpView extends StatelessWidget {
                             child: OutlinedButton(
                               onPressed: () {
                                 if (_key.currentState.validate()) {
-                                  dynamic result = model.registerWithEmail();
-                                  if (result == null) {
-                                    model.updateErrorEmail();
-                                  } else {
-                                    model.homeScreen();
-                                  }
+                                  model.registerWithEmail();
                                 }
                               },
                               child: Text('Register'),
@@ -111,7 +106,7 @@ class SignUpView extends StatelessWidget {
                                 'Already have an account?',
                               ),
                               TextButton(
-                                onPressed: model.signIn,
+                                onPressed: () => model.navigateToSignIn(),
                                 child: Text(
                                   'Sign in',
                                   style: TextStyle(

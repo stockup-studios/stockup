@@ -64,13 +64,7 @@ class SignInView extends StatelessWidget {
                               child: OutlinedButton(
                                 onPressed: () async {
                                   if (_key.currentState.validate()) {
-                                    dynamic result = model.signInEmail();
-                                    if (result.equal(null)) {
-                                      print('Update error');
-                                      model.updateErrorEmail();
-                                    } else {
-                                      model.homeScreen();
-                                    }
+                                    model.signInEmail();
                                   }
                                 },
                                 child: Text('Sign In'),
@@ -132,12 +126,7 @@ class SignInView extends StatelessWidget {
                                               Colors.red.shade900),
                                     ),
                                     onPressed: () {
-                                      dynamic result = model.signInGoogle();
-                                      if (result == null) {
-                                        model.updateErrorGoogle();
-                                      } else {
-                                        model.homeScreen();
-                                      }
+                                      model.signInGoogle();
                                     },
                                     child: Row(
                                       children: [
@@ -165,7 +154,7 @@ class SignInView extends StatelessWidget {
                                       'Create account',
                                       style: TextStyle(color: Colors.blue),
                                     ),
-                                    onPressed: model.signUp,
+                                    onPressed: () => model.navigateToSignUp(),
                                   ),
                                 ],
                               ),

@@ -29,36 +29,44 @@ class SignInViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  dynamic signInEmail() async {
+  void signInEmail() async {
     dynamic result =
         await _authService.signInWithEmailPassword(_email, _password);
-    print(result.toString()); //gives null properly
-    return result;
+    if (result == null) {
+      _updateErrorEmail();
+    } else {
+      await _navigateToHome();
+    }
   }
 
-  dynamic signInGoogle() async {
-    return _authService.signInWithGoogle();
+  void signInGoogle() async {
+    dynamic result = await _authService.signInWithGoogle();
+    if (result == null) {
+      _updateErrorGoogle();
+    } else {
+      await _navigateToHome();
+    }
   }
 
-  void updateErrorEmail() {
+  void _updateErrorEmail() {
     _error = 'Wrong email or password';
     notifyListeners();
   }
 
-  void updateErrorGoogle() {
+  void _updateErrorGoogle() {
     _error = 'Unable to sign in with google';
     notifyListeners();
   }
 
   String getError() => _error;
 
-  void signUp() {
-    _navigationService.navigateTo(Routes.signUpView);
+  Future navigateToSignUp() async {
+    await _navigationService.navigateTo(Routes.signUpView);
     notifyListeners();
   }
 
-  void homeScreen() {
-    _navigationService.navigateTo(Routes.userHomeView);
+  Future _navigateToHome() async {
+    await _navigationService.navigateTo(Routes.userHomeView);
     notifyListeners();
   }
 }

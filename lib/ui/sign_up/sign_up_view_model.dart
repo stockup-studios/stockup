@@ -39,24 +39,30 @@ class SignUpViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  dynamic registerWithEmail() async {
-    dynamic result = await _authService.registerWithEmailPassword(_email, _password);
-    return result;
+  void registerWithEmail() async {
+    dynamic result =
+        await _authService.registerWithEmailPassword(_email, _password);
+    if (result == null) {
+      _updateErrorEmail();
+    } else {
+      await _navigateToHome();
+    }
   }
 
-  void updateErrorEmail() {
+  void _updateErrorEmail() {
     _error = 'Please supple a valid email';
     notifyListeners();
   }
+
   String getError() => _error;
 
-  void homeScreen() {
-    _navigationService.navigateTo(Routes.userHomeView);
+  Future _navigateToHome() async {
+    await _navigationService.navigateTo(Routes.userHomeView);
     notifyListeners();
   }
 
-  void signIn() {
-    _navigationService.navigateTo(Routes.signInView);
+  Future navigateToSignIn() async {
+    await _navigationService.navigateTo(Routes.signInView);
     notifyListeners();
   }
 }
