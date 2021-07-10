@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:stockup/screens/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/screens/welcome/welcome.dart';
 import 'package:stockup/services/auth/auth_impl.dart';
+import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'home_screen';

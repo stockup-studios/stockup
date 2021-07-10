@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stockup/business_logic/item/item_basemodel.dart';
 import 'package:stockup/business_logic/userData/userData_viewmodel.dart';
 import 'package:stockup/models/models.dart';
+
 import 'package:stockup/services/database/database_impl.dart';
 
 class ItemViewModel extends ChangeNotifier implements ItemBaseModel {
