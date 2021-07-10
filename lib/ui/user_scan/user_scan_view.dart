@@ -28,8 +28,7 @@ class UserScanView extends StatelessWidget {
                         MaterialStateProperty.all<Color>(Colors.blue),
                   ),
                   child: Text('Pick image from storage'),
-                  onPressed:
-                      () {}, // TODO: Implement single scanning functionality as service in ViewModel
+                  onPressed: model.addFile,
                 ),
                 ElevatedButton(
                   child: Text('Pick multiple images from storage'),
@@ -37,12 +36,49 @@ class UserScanView extends StatelessWidget {
                     backgroundColor:
                         MaterialStateProperty.all<Color>(Colors.blue.shade700),
                   ),
-                  onPressed:
-                      () {}, // TODO: Implement multi scanning functionality as service in ViewModel
+                  onPressed: model.addFiles,
                 ),
-                Expanded(
-                  child: Container(), // TODO: Implement view scan results
-                ),
+                model.isBusy
+                    ? Expanded(
+                        child: Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                      )
+                    : Expanded(
+                        child: ListView.builder(
+                            padding: const EdgeInsets.all(8),
+                            itemCount: model.productMatches.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return ListTile(
+                                leading: Image.network(
+                                        model.productMatches[index].imageURL) ??
+                                    Container(color: Colors.black),
+                                title: Text(
+                                    model.productMatches[index].productName),
+                                subtitle: Text(model
+                                    .productMatches[index].category
+                                    .toString()
+                                    .split('.')
+                                    .last
+                                    .split('_')
+                                    .join(' ')),
+                                trailing: Icon(
+                                    Icons.edit), // TODO: Edit functionality
+                              );
+                            }),
+                      ),
+                if (!model.isBusy && model.productMatches.length > 0)
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      child: Text('Add to item list'),
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.green),
+                      ),
+                      onPressed: model.addToItems,
+                    ),
+                  ),
               ],
             ),
           ),

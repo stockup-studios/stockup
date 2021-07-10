@@ -4,7 +4,7 @@ import 'package:google_ml_kit/google_ml_kit.dart';
 
 class Scanner {
   /// finds image file path from local storage
-  static Future<String> getImageFilePath() async {
+  Future<String> getImageFilePath() async {
     FilePickerResult result = await FilePicker.platform.pickFiles(
       type: FileType.image,
     );
@@ -13,7 +13,7 @@ class Scanner {
   }
 
   /// finds file paths of selected images from local storage
-  static Future<List<String>> getImageFilePaths() async {
+  Future<List<String>> getImageFilePaths() async {
     FilePickerResult result = await FilePicker.platform.pickFiles(
       type: FileType.image,
       allowMultiple: true,
@@ -23,7 +23,7 @@ class Scanner {
   }
 
   /// finds barcodes found in image using GoogleMLKit Barcode API
-  static Future<List<String>> getBarcodesFromImageFile(InputImage image) async {
+  Future<List<String>> getBarcodesFromImageFile(InputImage image) async {
     final barcodeScanner = GoogleMlKit.vision.barcodeScanner();
     final List<Barcode> barcodes = await barcodeScanner.processImage(image);
 
@@ -39,7 +39,7 @@ class Scanner {
   }
 
   /// finds text found in image using GoogleMLKit OCR
-  static Future<List<String>> getTextFromImageFile(String inputFilePath) async {
+  Future<List<String>> getTextFromImageFile(String inputFilePath) async {
     File inputFile = File(inputFilePath);
     InputImage inputImage = InputImage.fromFile(inputFile);
     final textDetector = GoogleMlKit.vision.textDetector();
