@@ -2,11 +2,11 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/app/app.router.dart';
-import 'package:stockup/services/auth/auth.dart';
+import 'package:stockup/services/auth/auth_impl.dart';
 
 class SignInViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
-  final _authService = locator<AuthService>();
+  final _authService = locator<AuthImplementation>();
   String _email = '';
   String _password = '';
 

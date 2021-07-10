@@ -9,6 +9,7 @@
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
+
 import '../services/auth/auth_impl.dart';
 import '../services/parser/parser.dart';
 import '../services/scanner/scanner.dart';
