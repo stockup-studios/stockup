@@ -30,11 +30,14 @@ class SignInViewModel extends BaseViewModel {
   }
 
   dynamic signInEmail() async {
-    return await _authService.signInWithEmailPassword(_email, _password);
+    dynamic result =
+        await _authService.signInWithEmailPassword(_email, _password);
+    print(result.toString()); //gives null properly
+    return result;
   }
 
   dynamic signInGoogle() async {
-    return await _authService.signInWithGoogle();
+    return _authService.signInWithGoogle();
   }
 
   void updateErrorEmail() {
