@@ -74,7 +74,7 @@ class SignUpView extends StatelessWidget {
                           FractionallySizedBox(
                             widthFactor: 0.7,
                             child: OutlinedButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 if (_key.currentState.validate()) {
                                   model.registerWithEmail();
                                 }

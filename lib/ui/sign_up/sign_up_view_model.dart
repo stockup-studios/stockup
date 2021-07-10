@@ -57,7 +57,7 @@ class SignUpViewModel extends BaseViewModel {
   String getError() => _error;
 
   Future _navigateToHome() async {
-    await _navigationService.navigateTo(Routes.userHomeView);
+    await _navigationService.replaceWith(Routes.userHomeView);
     notifyListeners();
   }
 
