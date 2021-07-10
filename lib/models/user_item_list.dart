@@ -12,6 +12,8 @@ class UserItemList {
 
   UserItemList({this.name, this.uid});
 
+  UserItemList.demo(this.name);
+
   factory UserItemList.fromFirestore(DocumentSnapshot doc) {
     Map json = doc.data();
 

@@ -8,28 +8,58 @@ abstract class DatabaseService {
   // Create
   Future<void> addCredentials(Map<String, dynamic> credentials);
 
-  Future<String> addUserItem(UserItem item);
+  Future<String> addUserItem(UserItem item, UserItemList list);
 
-  Future<String> addUserShop(UserShop item);
+  Future<String> addUserShop(UserShop item, UserShopList list);
 
   Future<String> addUserShopList(UserShopList list);
+
+  Future<String> addUserItemList(UserItemList list);
+
+  Future<void> addUserItemListforUser(UserItemList list);
+
+  Future<void> addUserShopListforUser(UserShopList list);
 
   Future<String> addGiantItem(Product item);
 
   // Read
   Future<Map<String, dynamic>> getCredentials();
 
-  Future<List<UserItem>> getUserItems();
+  Future<List<UserItem>> getUserItems(UserItemList list);
+
+  Future<List<UserShop>> getUserShops(UserShopList list);
+
+  //get all user_item_list specific to user
+  Future<List<UserItemList>> getUserItemLists();
+
+  //get all user_shop_list specific to user
+  Future<List<UserShopList>> getUserShopLists();
 
   Future<List<Product>> getGiantItems();
 
   // Update
   Future<void> updateCredentials(Map<String, dynamic> credentials);
 
-  Future<void> updateUserItem(UserItem item);
+  Future<void> updateUserItem(UserItem item, UserItemList list);
+
+  Future<void> updateUserShop(UserShop item, UserShopList list);
+
+  Future<void> updateUserShopList(UserShopList list);
+
+  Future<void> updateUserItemList(UserItemList list);
 
   Future<void> updateGiantItem(Product item);
 
   // Delete
-  Future<void> deleteUserItem(UserItem item);
+  Future<void> deleteUserItem(UserItem item, UserItemList list);
+
+  Future<void> deleteUserShop(UserShop item, UserShopList list);
+
+  Future<void> deleteUserItemList(UserItemList list);
+
+  Future<void> deleteUserShopList(UserShopList list);
+
+  Future<void> deleteUserItemListforUser(UserItemList list);
+
+  Future<void> deleteUserShopListforUser(UserShopList list);
 }

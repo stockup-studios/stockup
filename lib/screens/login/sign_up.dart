@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stockup/screens/home/home.dart';
+import 'package:stockup/screens/items/item_list.dart';
 import 'package:stockup/screens/login/sign_in.dart';
 import 'package:stockup/services/auth/auth_impl.dart';
 
@@ -110,7 +111,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               setState(
                                   () => error = 'Please supply a valid email');
                             } else {
-                              Navigator.pushNamed(context, HomeScreen.id);
+                              Navigator.pushNamed(context, ItemListScreen.id);
                             }
                           }
                         },
