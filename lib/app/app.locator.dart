@@ -28,6 +28,7 @@ void setupLocator({String environment, EnvironmentFilter environmentFilter}) {
 // Register dependencies
   locator.registerLazySingleton(() => NavigationService());
   locator.registerLazySingleton(() => AuthImplementation());
+  locator.registerLazySingleton(() => SnackbarService());
   locator.registerLazySingleton(() => UserService());
   locator.registerLazySingleton(() => Scanner());
   locator.registerLazySingleton(() => Parser());

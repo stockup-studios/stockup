@@ -13,6 +13,7 @@ import 'package:stockup/ui/user_item/user_item_search.dart';
 class UserItemViewModel extends BaseViewModel {
   final _userService = locator<UserService>();
   final _navigationService = locator<NavigationService>();
+  final _snackbarService = locator<SnackbarService>();
 
   final Map<String, bool> productCategories = {'All Categories': true};
   List<UserItemList> userItemLists = [];
@@ -71,10 +72,28 @@ class UserItemViewModel extends BaseViewModel {
   }
 
   onSwipe(DismissDirection direction, int index) {
-    if (direction == DismissDirection.startToEnd)
+    if (direction == DismissDirection.startToEnd) {
+      _snackbarService.showSnackbar(
+        message: displayList[index].productName,
+        title:
+            'Moved an item to shopping list ${_userService.targetUserShopList.name}',
+        duration: Duration(seconds: 2),
+        onTap: (_) {
+          print('snackbar tapped');
+        },
+      );
       move(index);
-    else
+    } else {
+      _snackbarService.showSnackbar(
+        message: displayList[index].productName,
+        title: 'Removed an item from ${_userService.targetUserItemList.name}',
+        duration: Duration(seconds: 2),
+        onTap: (_) {
+          print('snackbar tapped');
+        },
+      );
       delete(index);
+    }
   }
 
   void add() {

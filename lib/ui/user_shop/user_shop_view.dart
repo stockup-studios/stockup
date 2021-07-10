@@ -106,7 +106,7 @@ class UserShopView extends StatelessWidget {
                         subtitle:
                             Text(model.displayList[index].quantity.toString()),
                         trailing: IconButton(
-                          icon: Icon(Icons.check),
+                          icon: Icon(Icons.edit),
                           onPressed: () => model.edit(index),
                         ),
                       ),
