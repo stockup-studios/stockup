@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:stockup/models/product.dart';
@@ -63,7 +65,26 @@ class UserItem extends Product {
   /// estimates expiry date to one day from current time
   int _getEstimatedExpiry() {
     DateTime now = DateTime.now();
-    return now.add(const Duration(days: 1)).millisecondsSinceEpoch;
+    switch (category) {
+      // case ProductCategory.bakery_cereals_spreads:
+      //   return now.add(Duration(days: 4)).millisecondsSinceEpoch;
+      // case ProductCategory.beers_wines_spirits:
+      //   return now.add(Duration(days: 30)).millisecondsSinceEpoch;
+      // case ProductCategory.dairy_chilled_frozen:
+      //   return now.add(Duration(days: 5)).millisecondsSinceEpoch;
+      // case ProductCategory.food_pantry:
+      //   return now.add(Duration(days: 5)).millisecondsSinceEpoch;
+      // case ProductCategory.fruit_vegetables:
+      //   return now.add(Duration(days: 2)).millisecondsSinceEpoch;
+      // case ProductCategory.meats_seafood:
+      //   return now.add(Duration(days: 1)).millisecondsSinceEpoch;
+      // case ProductCategory.snacks_drinks:
+      //   return now.add(Duration(days: 1)).millisecondsSinceEpoch;
+      default:
+        return now
+            .add(Duration(days: Random().nextInt(30) + 1))
+            .millisecondsSinceEpoch;
+    }
   }
 
   /// update expiry date
@@ -72,8 +93,10 @@ class UserItem extends Product {
   }
 
   String get daysLeft {
-    Duration difference = DateTime.now()
-        .difference(DateTime.fromMillisecondsSinceEpoch(expiryDate));
+    // Duration difference = DateTime.now()
+    //     .difference(DateTime.fromMillisecondsSinceEpoch(expiryDate));
+    Duration difference = DateTime.fromMillisecondsSinceEpoch(expiryDate)
+        .difference(DateTime.now());
     return (difference.inDays + 1).toString();
   }
 }
