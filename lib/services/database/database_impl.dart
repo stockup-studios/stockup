@@ -74,6 +74,7 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 
   @override
+  //create new user_shop_list
   Future<String> addUserShopList(UserShopList list) async {
     final itemDocument = user_shop_lists.doc();
     final uid = itemDocument.id;
@@ -94,6 +95,7 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 
   @override
+  //create new user_item_list under user
   Future<void> addUserItemListforUser(UserItemList list) async {
     List<QueryDocumentSnapshot> snapshots = await user_item_lists
         .where('name', isEqualTo: list.name)
@@ -151,6 +153,7 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 
   @override
+  //get all user_item_list specific to user
   Future<List<UserItemList>> getUserItemLists() async {
     List<QueryDocumentSnapshot> snapshots =
         await userItemListCollection.get().then((value) => value.docs);
@@ -168,6 +171,7 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 
   @override
+  //get all user_shop_list specific to user
   Future<List<UserShopList>> getUserShopLists() async {
     List<QueryDocumentSnapshot> snapshots =
         await userShopListCollection.get().then((value) => value.docs);
@@ -276,5 +280,27 @@ class DatabaseServiceImpl implements DatabaseService {
   @override
   Future<void> deleteUserShopList(UserShopList list) async {
     user_shop_lists.doc(list.uid).delete();
+  }
+
+  @override
+  Future<void> deleteUserItemListforUser(UserItemList list) async {
+    List<QueryDocumentSnapshot> snapshots = await userItemListCollection
+        .where('name', isEqualTo: list.name)
+        .get()
+        .then((value) => value.docs);
+    //get document reference and delete
+    DocumentReference doc = snapshots[0].reference;
+    doc.delete();
+  }
+
+  @override
+  Future<void> deleteUserShopListforUser(UserShopList list) async {
+    List<QueryDocumentSnapshot> snapshots = await userShopListCollection
+        .where('name', isEqualTo: list.name)
+        .get()
+        .then((value) => value.docs);
+    //get document reference and delete
+    DocumentReference doc = snapshots[0].reference;
+    doc.delete();
   }
 }
