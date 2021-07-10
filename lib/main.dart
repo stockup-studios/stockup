@@ -51,13 +51,20 @@
 //     );
 //   }
 // }
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/app/app.router.dart';
+import 'package:stockup/models/models.dart';
+import 'package:stockup/services/auth/auth_impl.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   setupLocator();
+
   runApp(StockUP());
 }
 
@@ -66,13 +73,18 @@ class StockUP extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'StockUP',
-      theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
-      ),
-      navigatorKey: StackedService.navigatorKey,
-      onGenerateRoute: StackedRouter().onGenerateRoute,
-    );
+    return MultiProvider(
+        providers: [
+          StreamProvider<AppUser>.value(
+              value: AuthImplementation().user, initialData: AppUser()),
+        ],
+        child: MaterialApp(
+          title: 'StockUP',
+          theme: ThemeData(
+            primarySwatch: Colors.blueGrey,
+          ),
+          navigatorKey: StackedService.navigatorKey,
+          onGenerateRoute: StackedRouter().onGenerateRoute,
+        ));
   }
 }

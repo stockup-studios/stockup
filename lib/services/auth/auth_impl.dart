@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:stockup/services/auth/auth.dart';
 import 'package:stockup/models/app_user.dart';
+import 'package:stockup/services/auth/auth.dart';
 import 'package:stockup/services/database/database_impl.dart';
 
 class AuthImplementation implements AuthService {
