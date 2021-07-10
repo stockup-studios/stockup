@@ -9,7 +9,6 @@
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
-
 import '../services/parser/parser.dart';
 import '../services/scanner/scanner.dart';
 import '../services/user/user_service.dart';

@@ -76,7 +76,7 @@ class UserItemViewModel extends BaseViewModel {
     ++no;
     notifyListeners();
   }
-
+  
   void move(int index) {
     _userService.moveUserItemAtIndex(index);
     notifyListeners();
