@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/product_category.dart';
@@ -76,8 +77,20 @@ class UserShopViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  onSwipe(DismissDirection direction, int index) {
+    if (direction == DismissDirection.startToEnd)
+      move(index);
+    else
+      delete(index);
+  }
+
   void move(int index) {
     _userService.moveUserShopAtIndex(index);
+    notifyListeners();
+  }
+
+  void delete(int index) {
+    _userService.delUserShopAtIndex(index);
     notifyListeners();
   }
 

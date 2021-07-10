@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
@@ -69,6 +70,13 @@ class UserItemViewModel extends BaseViewModel {
     return UserItemSearch(displayList);
   }
 
+  onSwipe(DismissDirection direction, int index) {
+    if (direction == DismissDirection.startToEnd)
+      move(index);
+    else
+      delete(index);
+  }
+
   void add() {
     // _userService.addUserItem(UserItem(
     //   productName: 'Product $no',
@@ -83,6 +91,11 @@ class UserItemViewModel extends BaseViewModel {
 
   void move(int index) {
     _userService.moveUserItemAtIndex(index);
+    notifyListeners();
+  }
+
+  void delete(int index) {
+    _userService.delUserItemAtIndex(index);
     notifyListeners();
   }
 
