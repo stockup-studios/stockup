@@ -73,18 +73,13 @@ class StockUP extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-        providers: [
-          StreamProvider<AppUser>.value(
-              value: AuthImplementation().user, initialData: AppUser()),
-        ],
-        child: MaterialApp(
+    return MaterialApp(
           title: 'StockUP',
           theme: ThemeData(
             primarySwatch: Colors.blueGrey,
           ),
           navigatorKey: StackedService.navigatorKey,
           onGenerateRoute: StackedRouter().onGenerateRoute,
-        ));
+        );
   }
 }

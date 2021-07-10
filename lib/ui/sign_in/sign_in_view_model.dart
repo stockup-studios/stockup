@@ -9,6 +9,7 @@ class SignInViewModel extends BaseViewModel {
   final _authService = locator<AuthImplementation>();
   String _email = '';
   String _password = '';
+  String _error = '';
 
   String emailValidator(String val) {
     return val.contains('@') ? null : 'Enter a valid email';
@@ -28,8 +29,30 @@ class SignInViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  dynamic signInEmail() async {
+    return await _authService.signInWithEmailPassword(_email, _password);
+  }
+
+  dynamic signInGoogle() async {
+    return await _authService.signInWithGoogle();
+  }
+
+  void updateErrorEmail() {
+    _error = 'Wrong email or password';
+  }
+
+  void updateErrorGoogle() {
+    _error = 'Unable to sign in with google';
+  }
+
+  String getError() => _error;
+
   void signUp() {
     _navigationService.navigateTo(Routes.signUpView);
     notifyListeners();
+  }
+
+  void homeScreen() {
+    _navigationService.navigateTo(Routes.userHomeView);
   }
 }
