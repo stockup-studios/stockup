@@ -1,7 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:stockup/screens/login/sign_in.dart';
-import 'package:stockup/screens/login/sign_up.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -43,7 +41,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   widthFactor: 0.70,
                   child: OutlinedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, SignInScreen.id);
+                      //Navigator.pushNamed(context, SignInScreen.id);
                     },
                     child: Text('Sign In'),
                     style: ButtonStyle(
@@ -58,7 +56,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   widthFactor: 0.70,
                   child: OutlinedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, SignUpScreen.id);
+                      //Navigator.pushNamed(context, SignUpScreen.id);
                     },
                     child: Text('Sign Up'),
                     style: ButtonStyle(
