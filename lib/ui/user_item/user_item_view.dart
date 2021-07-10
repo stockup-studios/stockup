@@ -102,7 +102,7 @@ class UserItemView extends StatelessWidget {
                           Text(model.displayList[index].expiryDate.toString()),
                       trailing: IconButton(
                         icon: Icon(Icons.edit),
-                        onPressed: () => model.move(index),
+                        onPressed: () => model.edit(index),
                       ),
                     ),
                   );

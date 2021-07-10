@@ -63,20 +63,25 @@ class UserShopViewModel extends BaseViewModel {
   }
 
   void add() {
-    _userService.addUserShop(
-      UserShop(
-        productName: 'Product $no',
-        productID: no,
-        imageURL: 'url$no',
-        category: ProductCategory.values[no % ProductCategory.values.length],
-      ),
-    );
-    ++no;
+    // _userService.addUserShop(
+    //   UserShop(
+    //     productName: 'Product $no',
+    //     productID: no,
+    //     imageURL: 'url$no',
+    //     category: ProductCategory.values[no % ProductCategory.values.length],
+    //   ),
+    // );
+    // ++no;
+    // TODO: Add user shop manually
     notifyListeners();
   }
 
   void move(int index) {
     _userService.moveUserShopAtIndex(index);
     notifyListeners();
+  }
+
+  void edit(int index) {
+    // TODO: Edit user shop
   }
 }
