@@ -28,6 +28,7 @@ class AuthImplementation implements AuthService {
       return _appUser(user);
     } catch (e) {
       print(e.toString());
+      return null;
     }
   }
 
