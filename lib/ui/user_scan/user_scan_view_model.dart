@@ -12,6 +12,7 @@ class UserScanViewModel extends BaseViewModel {
   final _scanner = locator<Scanner>();
   final _parser = locator<Parser>();
   final List<Product> _productMatches = [];
+  String foundNoTextError = '';
 
   List<Product> get productMatches => _productMatches;
 
@@ -20,6 +21,9 @@ class UserScanViewModel extends BaseViewModel {
     setBusy(true);
     List<String> text = await _scanner.getTextFromImageFile(imageFile);
     List<String> matches = _parser.getBestMatches(text);
+    foundNoTextError = (matches.length == 0)
+        ? "Receipt picture might be rotated. We couldn't find any details"
+        : '';
     for (String match in matches) {
       print(match);
       Product p =
@@ -33,16 +37,21 @@ class UserScanViewModel extends BaseViewModel {
   void addFiles() async {
     List<String> imageFiles = await _scanner.getImageFilePaths();
     setBusy(true);
+    bool added = false;
     for (String imageFile in imageFiles) {
       List<String> text = await _scanner.getTextFromImageFile(imageFile);
       List<String> matches = _parser.getBestMatches(text);
       for (String match in matches) {
+        added = true;
         print(match);
         Product p = productCatalog
             .firstWhere((product) => product.productName == match);
         _productMatches.add(p);
       }
     }
+    foundNoTextError = added
+        ? ''
+        : "Some receipt pictures may be rotated. Skipped those we couldn't find any details";
     setBusy(false);
     notifyListeners();
   }
@@ -57,6 +66,11 @@ class UserScanViewModel extends BaseViewModel {
       _userService.addUserItem(ui);
     }
     _productMatches.clear();
+    notifyListeners();
+  }
+
+  void noItems() {
+    foundNoTextError = 'Scan some items first!';
     notifyListeners();
   }
 }
