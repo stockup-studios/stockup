@@ -84,7 +84,9 @@ class UserItemSearch extends SearchDelegate<UserItem> {
               },
             ),
             title: Text(suggestion.productName),
-            subtitle: Text('Expires in ${suggestion.expiryDate.toString()}'),
+            subtitle: suggestion.daysLeft == '1'
+                ? Text('${suggestion.daysLeft} day left')
+                : Text('${suggestion.daysLeft} days left'),
             trailing: Icon(Icons.edit),
           );
         },

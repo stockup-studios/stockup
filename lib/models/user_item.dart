@@ -29,7 +29,8 @@ class UserItem extends Product {
     expiryDate = _getEstimatedExpiry();
   }
 
-  UserItem.demo(this.productName, this.category, this.imageURL, this.productID, this.expiryDate);
+  UserItem.demo(this.productName, this.category, this.imageURL, this.productID,
+      this.expiryDate);
 
   int _getCurrentTime() {
     return DateTime.now().millisecondsSinceEpoch;
@@ -68,5 +69,11 @@ class UserItem extends Product {
   /// update expiry date
   void updateExpiry(int millisecondsSinceEpoch) {
     expiryDate = millisecondsSinceEpoch;
+  }
+
+  String get daysLeft {
+    Duration difference = DateTime.now()
+        .difference(DateTime.fromMillisecondsSinceEpoch(expiryDate));
+    return (difference.inDays + 1).toString();
   }
 }
