@@ -8,6 +8,8 @@ class SignInView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final emailInput = GlobalKey<FormState>();
+    final passwordInput = GlobalKey<FormState>();
     return ViewModelBuilder<SignInViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
         backgroundColor: Colors.grey.shade200,
@@ -26,6 +28,7 @@ class SignInView extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 50.0, vertical: 5.0),
                         child: Form(
+                          key: emailInput,
                           child: TextFormField(
                             autocorrect: false,
                             keyboardType: TextInputType.emailAddress,

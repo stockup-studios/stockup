@@ -19,10 +19,10 @@ import '../ui/welcome/welcome_view.dart';
 
 class Routes {
   static const String welcomeView = '/welcome-view';
-  static const String signInView = '/sign-in-view';
+  static const String signInView = '/';
   static const String signUpView = '/sign-up-view';
   static const String userHomeView = '/user-home-view';
-  static const String userItemView = '/';
+  static const String userItemView = '/user-item-view';
   static const String userScanView = '/user-scan-view';
   static const String userShopView = '/user-shop-view';
   static const all = <String>{
