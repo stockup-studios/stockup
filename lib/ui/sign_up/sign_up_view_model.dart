@@ -50,14 +50,14 @@ class SignUpViewModel extends BaseViewModel {
   }
 
   void _updateErrorEmail() {
-    _error = 'Please supple a valid email';
+    _error = 'Email already in use';
     notifyListeners();
   }
 
   String getError() => _error;
 
   Future _navigateToHome() async {
-    await _navigationService.navigateTo(Routes.userHomeView);
+    await _navigationService.replaceWith(Routes.userHomeView);
     notifyListeners();
   }
 
