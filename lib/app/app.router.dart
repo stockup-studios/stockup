@@ -18,8 +18,8 @@ import '../ui/user_shop/user_shop_view.dart';
 import '../ui/welcome/welcome_view.dart';
 
 class Routes {
-  static const String welcomeView = '/welcome-view';
-  static const String signInView = '/';
+  static const String welcomeView = '/';
+  static const String signInView = '/sign-in-view';
   static const String signUpView = '/sign-up-view';
   static const String userHomeView = '/user-home-view';
   static const String userItemView = '/user-item-view';

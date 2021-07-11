@@ -17,8 +17,8 @@ import 'package:stockup/ui/welcome/welcome_view.dart';
 
 @StackedApp(
   routes: [
-    MaterialRoute(page: WelcomeView),
-    MaterialRoute(page: SignInView, initial: true),
+    MaterialRoute(page: WelcomeView, initial: true),
+    MaterialRoute(page: SignInView),
     MaterialRoute(page: SignUpView),
     MaterialRoute(page: UserHomeView),
     MaterialRoute(page: UserItemView), //,initial: true),
