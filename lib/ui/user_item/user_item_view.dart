@@ -79,15 +79,39 @@ class UserItemView extends StatelessWidget {
               child: ListView.builder(
                 itemCount: model.displayList.length,
                 itemBuilder: (context, index) {
-                  return Card(
-                    child: ListTile(
-                      leading: Icon(Icons.home),
-                      title: Text(model.displayList[index].productName),
-                      subtitle:
-                          Text(model.displayList[index].expiryDate.toString()),
-                      trailing: IconButton(
-                        icon: Icon(Icons.add_to_photos),
-                        onPressed: () => model.move(index),
+                  return Dismissible(
+                    key: UniqueKey(),
+                    onDismissed: (direction) => model.onSwipe(direction, index),
+                    background: Container(color: Colors.orange),
+                    secondaryBackground: Container(color: Colors.red),
+                    child: Card(
+                      child: ListTile(
+                        leading: Image.network(
+                          model.displayList[index].imageURL,
+                          height: 50,
+                          width: 50,
+                          errorBuilder: (BuildContext context, Object exception,
+                              StackTrace stackTrace) {
+                            return SizedBox(
+                              height: 50,
+                              width: 50,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CircularProgressIndicator(),
+                              ),
+                            );
+                          },
+                        ),
+                        title: Text(model.displayList[index].productName),
+                        subtitle: model.displayList[index].daysLeft == '1'
+                            ? Text(
+                                '${model.displayList[index].daysLeft} day left')
+                            : Text(
+                                '${model.displayList[index].daysLeft} days left'),
+                        trailing: IconButton(
+                          icon: Icon(Icons.edit),
+                          onPressed: () => model.edit(index),
+                        ),
                       ),
                     ),
                   );

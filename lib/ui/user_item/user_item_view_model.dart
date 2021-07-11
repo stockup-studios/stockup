@@ -1,5 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
+import 'package:stockup/app/app.router.dart';
 import 'package:stockup/models/product_category.dart';
 import 'package:stockup/models/user_item.dart';
 import 'package:stockup/models/user_item_list.dart';
@@ -9,6 +12,8 @@ import 'package:stockup/ui/user_item/user_item_search.dart';
 
 class UserItemViewModel extends BaseViewModel {
   final _userService = locator<UserService>();
+  final _navigationService = locator<NavigationService>();
+  final _snackbarService = locator<SnackbarService>();
 
   final Map<String, bool> productCategories = {'All Categories': true};
   List<UserItemList> userItemLists = [];
@@ -66,19 +71,54 @@ class UserItemViewModel extends BaseViewModel {
     return UserItemSearch(displayList);
   }
 
+  onSwipe(DismissDirection direction, int index) {
+    if (direction == DismissDirection.startToEnd) {
+      _snackbarService.showSnackbar(
+        message: displayList[index].productName,
+        title:
+            'Moved an item to shopping list ${_userService.targetUserShopList.name}',
+        duration: Duration(seconds: 2),
+        onTap: (_) {
+          print('snackbar tapped');
+        },
+      );
+      move(index);
+    } else {
+      _snackbarService.showSnackbar(
+        message: displayList[index].productName,
+        title: 'Removed an item from ${_userService.targetUserItemList.name}',
+        duration: Duration(seconds: 2),
+        onTap: (_) {
+          print('snackbar tapped');
+        },
+      );
+      delete(index);
+    }
+  }
+
   void add() {
-    _userService.addUserItem(UserItem(
-      productName: 'Product $no',
-      productID: no,
-      imageURL: 'url$no',
-      category: ProductCategory.values[no % ProductCategory.values.length],
-    ));
-    ++no;
+    // _userService.addUserItem(UserItem(
+    //   productName: 'Product $no',
+    //   productID: no,
+    //   imageURL: 'url$no',
+    //   category: ProductCategory.values[no % ProductCategory.values.length],
+    // ));
+    // ++no;
+    _navigationService.replaceWith(Routes.userScanView);
     notifyListeners();
   }
-  
+
   void move(int index) {
     _userService.moveUserItemAtIndex(index);
     notifyListeners();
+  }
+
+  void delete(int index) {
+    _userService.delUserItemAtIndex(index);
+    notifyListeners();
+  }
+
+  void edit(int index) {
+    // TODO: Edit user item
   }
 }
