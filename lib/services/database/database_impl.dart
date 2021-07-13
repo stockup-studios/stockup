@@ -16,11 +16,15 @@ class DatabaseServiceImpl implements DatabaseService {
   DocumentReference userDocument;
   CollectionReference userShopListCollection; //user specific
   CollectionReference userItemListCollection; //user specific
+  CollectionReference targetShopListCollection;
+  CollectionReference targetItemListCollection;
 
   DatabaseServiceImpl({this.uid}) {
     userDocument = _firestore.collection('users').doc(uid);
     userShopListCollection = userDocument.collection('user_shop_list');
     userItemListCollection = userDocument.collection('user_item_list');
+    targetShopListCollection = userDocument.collection('target_shop_list');
+    targetItemListCollection = userDocument.collection('target_item_list');
   }
 
   // To-do: Initalize account with default data
@@ -33,6 +37,9 @@ class DatabaseServiceImpl implements DatabaseService {
     for (int i = 0; i < demoUserItemList.length; i++) {
       await addUserItemListforUser(demoUserItemList[i]);
     }
+
+    await _addTargetItemList(demoUserItemList[0]);
+    await _addTargetShopList(demoUserShopList[0]);
   }
 
   @override
@@ -123,6 +130,33 @@ class DatabaseServiceImpl implements DatabaseService {
     userShopListCollection.add(target);
   }
 
+  // private method only for initializing. Use update for updating.
+  Future<void> _addTargetShopList(UserShopList list) async {
+    List<QueryDocumentSnapshot> snapshots = await user_shop_lists
+        .where('name', isEqualTo: list.name)
+        .get()
+        .then((value) => value.docs);
+
+    Map<String, dynamic> target = {
+      'reference': snapshots[0].reference,
+      'name': list.name
+    };
+    targetShopListCollection.add(target);
+  }
+
+  Future<void> _addTargetItemList(UserItemList list) async {
+    List<QueryDocumentSnapshot> snapshots = await user_item_lists
+        .where('name', isEqualTo: list.name)
+        .get()
+        .then((value) => value.docs);
+
+    Map<String, dynamic> target = {
+      'reference': snapshots[0].reference,
+      'name': list.name
+    };
+    targetItemListCollection.add(target);
+  }
+
   // Read
   @override
   Future<Map<String, dynamic>> getCredentials() async {
@@ -150,6 +184,24 @@ class DatabaseServiceImpl implements DatabaseService {
         .then((value) => value.docs);
 
     return snapshots.map((doc) => UserShop.fromFirestore(doc)).toList();
+  }
+
+  Future<UserShopList> getTargetShopList() async {
+    List<QueryDocumentSnapshot> snapshot =
+        await targetShopListCollection.get().then((value) => value.docs);
+    List<DocumentReference> reference = snapshot
+        .map((snapshot) => snapshot.get(FieldPath(['target_shop_list'])));
+    DocumentSnapshot target = await reference[0].get();
+    return UserShopList.fromFirestore(target);
+  }
+
+  Future<UserItemList> getTargetItemList() async {
+    List<QueryDocumentSnapshot> snapshot =
+        await targetItemListCollection.get().then((value) => value.docs);
+    List<DocumentReference> reference = snapshot
+        .map((snapshot) => snapshot.get(FieldPath(['target_item_list'])));
+    DocumentSnapshot target = await reference[0].get();
+    return UserItemList.fromFirestore(target);
   }
 
   @override
@@ -245,6 +297,32 @@ class DatabaseServiceImpl implements DatabaseService {
   @override
   Future<void> updateUserItemList(UserItemList list) async {
     user_item_lists.doc(list.uid).update(list.toJson());
+  }
+
+  Future<void> updateTargetItemList(UserItemList list) async {
+    //delete original
+    List<QueryDocumentSnapshot> snapshots =
+        await targetItemListCollection.get().then((value) => value.docs);
+    //get document reference and delete
+    List<DocumentReference> doc = snapshots.map((e) => e.reference);
+    for (int i = 0; i < doc.length; i++) {
+      doc[i].delete();
+    }
+    //add new list
+    _addTargetItemList(list);
+  }
+
+  Future<void> updateTargetShopList(UserShopList list) async {
+    //delete original
+    List<QueryDocumentSnapshot> snapshots =
+        await targetShopListCollection.get().then((value) => value.docs);
+    //get document reference and delete
+    List<DocumentReference> doc = snapshots.map((e) => e.reference);
+    for (int i = 0; i < doc.length; i++) {
+      doc[i].delete();
+    }
+    //add new list
+    _addTargetShopList(list);
   }
 
   // TODO: will we ever change details of existing giant items?
