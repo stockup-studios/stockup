@@ -79,15 +79,36 @@ class UserShopView extends StatelessWidget {
               child: ListView.builder(
                 itemCount: model.displayList.length,
                 itemBuilder: (context, index) {
-                  return Card(
-                    child: ListTile(
-                      leading: Icon(Icons.home),
-                      title: Text(model.displayList[index].productName),
-                      subtitle:
-                          Text(model.displayList[index].quantity.toString()),
-                      trailing: IconButton(
-                        icon: Icon(Icons.check),
-                        onPressed: () => model.move(index),
+                  return Dismissible(
+                    key: UniqueKey(),
+                    onDismissed: (direction) => model.onSwipe(direction, index),
+                    background: Container(color: Colors.red),
+                    secondaryBackground: Container(color: Colors.green),
+                    child: Card(
+                      child: ListTile(
+                        leading: Image.network(
+                          model.displayList[index].imageURL,
+                          height: 50,
+                          width: 50,
+                          errorBuilder: (BuildContext context, Object exception,
+                              StackTrace stackTrace) {
+                            return SizedBox(
+                              height: 50,
+                              width: 50,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CircularProgressIndicator(),
+                              ),
+                            );
+                          },
+                        ),
+                        title: Text(model.displayList[index].productName),
+                        subtitle:
+                            Text(model.displayList[index].quantity.toString()),
+                        trailing: IconButton(
+                          icon: Icon(Icons.edit),
+                          onPressed: () => model.edit(index),
+                        ),
                       ),
                     ),
                   );

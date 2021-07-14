@@ -92,6 +92,13 @@ class UserService {
     }
   }
 
+  /// remove userItem from userItemListing at specified index
+  /// userItemListing remains sorted by increasing expiry date
+  void delUserShopAtIndex(int index) {
+    UserShop userShop = targetUserShopList.userShopListing[index];
+    delAllUserShop(userShop);
+  }
+
   /// userShop will be removed from list
   /// has the effect of removing all quantity of userShop from userShopListing
   ///
