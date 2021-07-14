@@ -6,6 +6,7 @@ import 'package:stockup/services/database/database_impl.dart';
 
 class AuthImplementation implements AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  AppUser appUser;
 
   // create User object based on firebase
   AppUser _appUser(User user) {
@@ -25,6 +26,7 @@ class AuthImplementation implements AuthService {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
       User user = userCredential.user;
+      appUser = _appUser(user);
       return _appUser(user);
     } catch (e) {
       print(e.toString());
@@ -48,7 +50,7 @@ class AuthImplementation implements AuthService {
       };
       _db.addCredentials(credentials);
       await _db.initialize(); // default data
-
+      appUser = _appUser(user);
       return _appUser(user);
     } catch (e) {
       print(e.toString());
