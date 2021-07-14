@@ -1,6 +1,7 @@
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/services/auth/auth_impl.dart';
+import 'package:stockup/services/database/database_impl.dart';
 import 'package:stockup/services/parser/parser.dart';
 import 'package:stockup/services/scanner/scanner.dart';
 import 'package:stockup/services/user/user_service.dart';
@@ -21,14 +22,18 @@ import 'package:stockup/ui/welcome/welcome_view.dart';
     MaterialRoute(page: SignInView),
     MaterialRoute(page: SignUpView),
     MaterialRoute(page: UserHomeView),
-    MaterialRoute(page: UserItemView), //,initial: true),
+    MaterialRoute(page: UserItemView), 
     MaterialRoute(page: UserScanView),
     MaterialRoute(page: UserShopView),
   ],
   dependencies: [
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: AuthImplementation),
+<<<<<<< master
     LazySingleton(classType: SnackbarService),
+=======
+    LazySingleton(classType: DatabaseServiceImpl),
+>>>>>>> database_update
     LazySingleton(classType: UserService),
     LazySingleton(classType: Scanner),
     LazySingleton(classType: Parser),
