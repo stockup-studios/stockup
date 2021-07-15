@@ -32,10 +32,14 @@ class DatabaseServiceImpl implements DatabaseService {
   @override
   Future<void> initialize() async {
     for (int i = 0; i < demoUserShopList.length; i++) {
+      String uid = await addUserShopList(demoUserShopList[i]);
+      demoUserShopList[i].uid = uid;
       await addUserShopListforUser(demoUserShopList[i]);
     }
 
     for (int i = 0; i < demoUserItemList.length; i++) {
+      String uid = await addUserItemList(demoUserItemList[i]);
+      demoUserItemList[i].uid = uid;
       await addUserItemListforUser(demoUserItemList[i]);
     }
 
@@ -104,31 +108,84 @@ class DatabaseServiceImpl implements DatabaseService {
 
   @override
   //create new user_item_list under user
-  Future<void> addUserItemListforUser(UserItemList list) async {
+  Future<String> addUserItemListforUser(UserItemList list) async {
+    String uid;
+    if (list.uid == null) {
+      List<QueryDocumentSnapshot> snapshot = await user_item_lists
+          .where('name', isEqualTo: list.name)
+          .get()
+          .then((value) => value.docs);
+      Map<String, dynamic> data =
+          snapshot.map((e) => e.data()).toList().elementAt(0);
+      uid = data['uid'];
+    } else {
+      uid = list.uid;
+    }
+
     final listDocument = userItemListCollection.doc();
-    Map<String, String> json = {'uid': list.uid};
+    Map<String, String> json = {'uid': uid};
     listDocument.set(json);
+    return uid;
   }
 
   @override
-  Future<void> addUserShopListforUser(UserShopList list) async {
+  Future<String> addUserShopListforUser(UserShopList list) async {
+    String uid;
+    if (list.uid == null) {
+      List<QueryDocumentSnapshot> snapshot = await user_shop_lists
+          .where('name', isEqualTo: list.name)
+          .get()
+          .then((value) => value.docs);
+      Map<String, dynamic> data =
+          snapshot.map((e) => e.data()).toList().elementAt(0);
+      uid = data['uid'];
+    } else {
+      uid = list.uid;
+    }
+
     final listDocument = userShopListCollection.doc();
-    Map<String, String> json = {'uid': list.uid};
+    Map<String, String> json = {'uid': uid};
     listDocument.set(json);
+    return uid;
   }
 
-  // private method only for initializing. Use update for updating.
   @override
   Future<void> addTargetShopList(UserShopList list) async {
+    String uid;
+    if (list.uid == null) {
+      List<QueryDocumentSnapshot> snapshot = await user_shop_lists
+          .where('name', isEqualTo: list.name)
+          .get()
+          .then((value) => value.docs);
+      Map<String, dynamic> data =
+          snapshot.map((e) => e.data()).toList().elementAt(0);
+      uid = data['uid'];
+    } else {
+      uid = list.uid;
+    }
+
     final listDocument = targetShopListCollection.doc();
-    Map<String, String> json = {'uid': list.uid};
+    Map<String, String> json = {'uid': uid};
     listDocument.set(json);
   }
 
   @override
   Future<void> addTargetItemList(UserItemList list) async {
+    String uid;
+    if (list.uid == null) {
+      List<QueryDocumentSnapshot> snapshot = await user_item_lists
+          .where('name', isEqualTo: list.name)
+          .get()
+          .then((value) => value.docs);
+      Map<String, dynamic> data =
+          snapshot.map((e) => e.data()).toList().elementAt(0);
+      uid = data['uid'];
+    } else {
+      uid = list.uid;
+    }
+
     final listDocument = targetItemListCollection.doc();
-    Map<String, String> json = {'uid': list.uid};
+    Map<String, String> json = {'uid': uid};
     listDocument.set(json);
   }
 
@@ -167,17 +224,7 @@ class DatabaseServiceImpl implements DatabaseService {
         await targetShopListCollection.get().then((value) => value.docs);
 
     String uid = snapshots.map((e) => e.get('uid')).toList().elementAt(0);
-
-    //DocumentReference doc = user_item_lists.doc(uid);
-
     DocumentSnapshot target = await user_item_lists.doc(uid).get();
-
-    // List<QueryDocumentSnapshot> snapshot =
-    //     await targetShopListCollection.get().then((value) => value.docs);
-    // List<DocumentReference> reference = snapshot
-    //     .map((snapshot) => snapshot.get(FieldPath(["reference"])))
-    //     .toList();
-    // DocumentSnapshot target = await reference[0].get();
     return UserShopList.fromFirestore(target);
   }
 
@@ -185,32 +232,9 @@ class DatabaseServiceImpl implements DatabaseService {
   Future<UserItemList> getTargetItemList() async {
     List<QueryDocumentSnapshot> snapshots =
         await targetItemListCollection.get().then((value) => value.docs);
-    // String name =
-    //     snapshots.map((e) => e.get('name')).toList().elementAt(0).toString();
-
-    // List<QueryDocumentSnapshot> snapshot = await user_shop_lists
-    //     .where('name', isEqualTo: name)
-    //     .get()
-    //     .then((value) => value.docs);
-
-    // DocumentSnapshot target = snapshot[0];
-
-    // String uid = snapshots
-    //     .map((e) => e.get('reference'))
-    //     .toList()
-    //     .elementAt(0)
-    //     .toString();
-    String uid =
-        snapshots.map((e) => e.get('uid')).toList().elementAt(0).toString();
-
+    Map data = snapshots.map((e) => e.data()).toList().elementAt(0);
+    String uid = data['uid'];
     DocumentSnapshot target = await user_item_lists.doc(uid).get();
-
-    // List<dynamic> temp = snapshots
-    //     .map((snapshot) => snapshot.get(FieldPath(["reference"])))
-    //     .toList();
-    //List<DocumentReference> reference = temp.cast<DocumentReference>();
-    // DocumentReference doc = _firestore.doc(temp[0].toString());
-    // DocumentSnapshot target = await doc.get();
     return UserItemList.fromFirestore(target);
   }
 
@@ -219,28 +243,11 @@ class DatabaseServiceImpl implements DatabaseService {
   Future<List<UserItemList>> getUserItemLists() async {
     List<QueryDocumentSnapshot> snapshots =
         await userItemListCollection.get().then((value) => value.docs);
-
-    // List<String> names =
-    //     snapshots.map((e) => e.get('name').toString()).toList();
-
-    List<String> tempList =
-        snapshots.map((snapshot) => snapshot.get("uid").toString()).toList();
-
-    //List<String> reference = tempList.cast<String>();
-
     List<DocumentSnapshot> processed;
-
-    for (int i = 0; i < tempList.length; i++) {
-      // List<QueryDocumentSnapshot> snapshot = await user_item_lists
-      //     .where("name".toString(),
-      //         isEqualTo: "Personal".toString()) //problem here!! solved
-      //     .get()
-      //     .then((value) => value.docs);
-
-      // DocumentSnapshot temp = snapshot[0];
-      // processed.add(temp);
-      DocumentSnapshot target = await user_item_lists.doc(tempList[i]).get();
-      //DocumentSnapshot temp = await reference[i].get();
+    for (int i = 0; i < snapshots.length; i++) {
+      Map data = snapshots.map((e) => e.data()).toList().elementAt(i);
+      String uid = data['uid'];
+      DocumentSnapshot target = await user_item_lists.doc(uid).get();
       processed.add(target);
     }
     return processed.map((doc) => UserItemList.fromFirestore(doc)).toList();
