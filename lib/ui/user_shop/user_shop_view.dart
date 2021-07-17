@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/app/app.locator.dart';
+import 'package:stockup/models/user_shop.dart';
 import 'package:stockup/models/user_shop_list.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/ui/user_shop/user_shop_detail_view.dart';
@@ -49,8 +50,18 @@ class UserShopView extends StatelessWidget {
                     children: [
                       IconButton(
                         icon: Icon(Icons.search),
-                        onPressed: () => showSearch(
-                            context: context, delegate: model.search()),
+                        onPressed: () async {
+                          UserShop userItem = await showSearch<UserShop>(
+                              context: context, delegate: model.search());
+                          if (userItem != null)
+                            await showModalBottomSheet(
+                              context: context,
+                              builder: (context) => UserShopDetailView(
+                                userShop: userItem,
+                              ),
+                            );
+                          model.update();
+                        },
                       ),
                     ],
                   ),
