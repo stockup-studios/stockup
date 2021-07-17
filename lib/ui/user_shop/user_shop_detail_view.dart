@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/models/product_category.dart';
-import 'package:stockup/models/user_item.dart';
-import 'package:stockup/ui/user_item/user_item_detail_view_model.dart';
+import 'package:stockup/models/user_shop.dart';
+import 'package:stockup/ui/user_shop/user_shop_detail_view_model.dart';
 
-class UserItemDetailView extends StatelessWidget {
-  const UserItemDetailView({
-    @required this.userItem,
+class UserShopDetailView extends StatelessWidget {
+  const UserShopDetailView({
+    @required this.userShop,
     Key key,
   }) : super(key: key);
-  final UserItem userItem;
+  final UserShop userShop;
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<UserItemDetailViewModel>.reactive(
-      onModelReady: (model) => model.init(userItem),
+    return ViewModelBuilder<UserShopDetailViewModel>.reactive(
+      onModelReady: (model) => model.init(userShop),
       builder: (context, model, child) => Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -36,15 +35,13 @@ class UserItemDetailView extends StatelessWidget {
                     alignment: Alignment.center,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: BorderRadius.circular(10)),
                     child: TextField(
+                      enabled: false,
                       onChanged: (newName) {
                         model.name = newName;
                       },
                       decoration: InputDecoration.collapsed(
-                        hintText: model.userItem.productName,
+                        hintText: model.userShop.productName,
                       ),
                     ),
                   ),
@@ -91,19 +88,37 @@ class UserItemDetailView extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 margin: const EdgeInsets.symmetric(horizontal: 10),
-                child: Text('Expires on'),
+                child: Text('Quantity'),
               ),
-              TextButton(
-                onPressed: () => model.changeExpiry(context),
-                child: Row(
-                  children: [
-                    Container(
-                      child:
-                          Text(DateFormat('dd MMM yyyy').format(model.expiry)),
+              IconButton(
+                onPressed: model.delQuantity,
+                icon: Icon(Icons.exposure_minus_1),
+              ),
+              // Text(model.quantity.toString()),
+              Expanded(
+                flex: 3,
+                child: Container(
+                  alignment: Alignment.center,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(10)),
+                  child: TextField(
+                    textAlign: TextAlign.center,
+                    keyboardType: TextInputType.phone,
+                    onChanged: (newVal) {
+                      model.changeQuantity(newVal);
+                    },
+                    decoration: InputDecoration.collapsed(
+                      hintText: model.quantity.toString(),
                     ),
-                    Icon(Icons.calendar_today),
-                  ],
+                  ),
                 ),
+              ),
+              IconButton(
+                onPressed: model.addQuantity,
+                icon: Icon(Icons.exposure_plus_1),
               ),
             ],
           ),
@@ -130,7 +145,7 @@ class UserItemDetailView extends StatelessWidget {
           ),
         ],
       ),
-      viewModelBuilder: () => UserItemDetailViewModel(),
+      viewModelBuilder: () => UserShopDetailViewModel(),
     );
   }
 }
