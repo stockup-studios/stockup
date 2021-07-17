@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
+import 'package:stockup/ui/user_scan/user_scan_detail_view.dart';
 import 'package:stockup/ui/user_scan/user_scan_view_model.dart';
 
 class UserScanView extends StatelessWidget {
@@ -50,21 +51,31 @@ class UserScanView extends StatelessWidget {
                             itemCount: model.productMatches.length,
                             itemBuilder: (BuildContext context, int index) {
                               return ListTile(
-                                leading: Image.network(
-                                        model.productMatches[index].imageURL) ??
-                                    Container(color: Colors.black),
-                                title: Text(
-                                    model.productMatches[index].productName),
-                                subtitle: Text(model
-                                    .productMatches[index].category
-                                    .toString()
-                                    .split('.')
-                                    .last
-                                    .split('_')
-                                    .join(' ')),
-                                trailing: Icon(
-                                    Icons.edit), // TODO: Edit functionality
-                              );
+                                  leading: Image.network(model
+                                          .productMatches[index].imageURL) ??
+                                      Container(color: Colors.black),
+                                  title: Text(
+                                      model.productMatches[index].productName),
+                                  subtitle: Text(model
+                                      .productMatches[index].category
+                                      .toString()
+                                      .split('.')
+                                      .last
+                                      .split('_')
+                                      .join(' ')),
+                                  trailing: IconButton(
+                                    onPressed: () async {
+                                      await showModalBottomSheet(
+                                        context: context,
+                                        builder: (context) =>
+                                            UserScanDetailView(
+                                                product: model
+                                                    .productMatches[index]),
+                                      );
+                                      model.update();
+                                    },
+                                    icon: Icon(Icons.edit),
+                                  ));
                             }),
                       ),
                 Padding(
@@ -74,7 +85,6 @@ class UserScanView extends StatelessWidget {
                     style: TextStyle(color: Colors.red),
                   ),
                 ),
-                // if (!model.isBusy && model.productMatches.length > 0)
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
