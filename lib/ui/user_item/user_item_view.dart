@@ -50,8 +50,18 @@ class UserItemView extends StatelessWidget {
                     children: [
                       IconButton(
                         icon: Icon(Icons.search),
-                        onPressed: () => showSearch(
-                            context: context, delegate: model.search()),
+                        onPressed: () async {
+                          UserItem userItem = await showSearch<UserItem>(
+                              context: context, delegate: model.search());
+                          if (userItem != null)
+                            await showModalBottomSheet(
+                              context: context,
+                              builder: (context) => UserItemDetailView(
+                                userItem: userItem,
+                              ),
+                            );
+                          model.update();
+                        },
                       ),
                     ],
                   ),

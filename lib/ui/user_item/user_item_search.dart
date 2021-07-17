@@ -87,7 +87,12 @@ class UserItemSearch extends SearchDelegate<UserItem> {
             subtitle: suggestion.daysLeft == '1'
                 ? Text('${suggestion.daysLeft} day left')
                 : Text('${suggestion.daysLeft} days left'),
-            trailing: Icon(Icons.edit),
+            trailing: IconButton(
+              icon: Icon(Icons.edit),
+              onPressed: () {
+                Navigator.pop(context, suggestion);
+              },
+            ),
           );
         },
       );
