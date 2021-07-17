@@ -38,3 +38,5 @@ import 'package:stockup/ui/welcome/welcome_view.dart';
   ],
 )
 class AppSetup {}
+
+// flutter pub run build_runner build

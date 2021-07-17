@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/app/app.locator.dart';
+import 'package:stockup/models/models.dart';
 import 'package:stockup/models/user_item_list.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
+import 'package:stockup/ui/user_item/user_item_detail_view.dart';
 import 'package:stockup/ui/user_item/user_item_view_model.dart';
 
 class UserItemView extends StatelessWidget {
@@ -79,6 +81,7 @@ class UserItemView extends StatelessWidget {
               child: ListView.builder(
                 itemCount: model.displayList.length,
                 itemBuilder: (context, index) {
+                  // return UserItemTile(model: model, index: index);
                   return Dismissible(
                     key: UniqueKey(),
                     onDismissed: (direction) => model.onSwipe(direction, index),
@@ -110,7 +113,15 @@ class UserItemView extends StatelessWidget {
                                 '${model.displayList[index].daysLeft} days left'),
                         trailing: IconButton(
                           icon: Icon(Icons.edit),
-                          onPressed: () => model.edit(index),
+                          onPressed: () async {
+                            await showModalBottomSheet(
+                              context: context,
+                              builder: (context) => UserItemDetailView(
+                                userItem: model.displayList[index],
+                              ),
+                            );
+                            model.update();
+                          },
                         ),
                       ),
                     ),

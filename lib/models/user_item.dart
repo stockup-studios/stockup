@@ -8,8 +8,8 @@ import 'package:flutter/foundation.dart';
 
 class UserItem extends Product {
   final int productID;
-  final ProductCategory category;
-  final String productName;
+  ProductCategory category;
+  String productName;
   final String imageURL;
   String uid;
   int addedDate; // time added in milli seconds in relation to epoch time
