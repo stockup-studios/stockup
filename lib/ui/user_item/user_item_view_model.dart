@@ -175,7 +175,8 @@ class UserItemViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void edit(int index) {
-    // TODO: Edit user item
+  /// code to be run on rebuild
+  void update() {
+    notifyListeners();
   }
 }

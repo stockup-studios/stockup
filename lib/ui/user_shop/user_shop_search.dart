@@ -87,7 +87,12 @@ class UserShopSearch extends SearchDelegate<UserShop> {
             //     Container(color: Colors.black),
             title: Text(suggestion.productName),
             subtitle: Text('Quantity: ${suggestion.quantity.toString()}'),
-            trailing: Icon(Icons.edit),
+            trailing: IconButton(
+              icon: Icon(Icons.edit),
+              onPressed: () {
+                Navigator.pop(context, suggestion);
+              },
+            ),
           );
         },
       );

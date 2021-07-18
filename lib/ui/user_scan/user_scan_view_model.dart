@@ -73,4 +73,8 @@ class UserScanViewModel extends BaseViewModel {
     foundNoTextError = 'Scan some items first!';
     notifyListeners();
   }
+
+  void update() {
+    notifyListeners();
+  }
 }

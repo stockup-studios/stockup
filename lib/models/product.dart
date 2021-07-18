@@ -1,13 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'product_category.dart';
 import 'package:flutter/foundation.dart';
 
 class Product {
   final int productID;
   final String uid;
-  final ProductCategory category;
-  final String productName;
+  ProductCategory category;
+  String productName;
   final String imageURL;
 
   Product(

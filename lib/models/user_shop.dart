@@ -5,7 +5,7 @@ import 'package:stockup/models/product_category.dart';
 
 class UserShop extends Product {
   final int productID;
-  final ProductCategory category;
+  ProductCategory category;
   final String productName;
   final String imageURL;
   int quantity;
@@ -34,8 +34,8 @@ class UserShop extends Product {
     --quantity;
   }
 
-  
-  UserShop.demo(this.productName, this.category, this.imageURL, this.productID, this.quantity);
+  UserShop.demo(this.productName, this.category, this.imageURL, this.productID,
+      this.quantity);
 
   factory UserShop.fromFirestore(DocumentSnapshot doc) {
     Map json = doc.data();

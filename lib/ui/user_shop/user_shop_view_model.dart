@@ -115,7 +115,8 @@ class UserShopViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void edit(int index) {
-    // TODO: Edit user shop
+  /// code to be run on rebuild
+  void update() {
+    notifyListeners();
   }
 }
