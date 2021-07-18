@@ -6,6 +6,7 @@ enum ProductCategory {
   snacks_drinks,
   beers_wines_spirits,
   food_pantry,
+  others,
 }
 
 extension CategoryExtension on ProductCategory {
@@ -25,6 +26,8 @@ extension CategoryExtension on ProductCategory {
         return 'Meats & Seafood';
       case ProductCategory.snacks_drinks:
         return 'Snacks & Drinks';
+      case ProductCategory.others:
+        return 'Others';
       default:
         return null;
     }
@@ -43,8 +46,10 @@ extension CategoryExtension on ProductCategory {
       return ProductCategory.beers_wines_spirits;
     } else if (category.contains('Meats & Seafood')) {
       return ProductCategory.meats_seafood;
-    } else {
+    } else if (category.contains('Snacks & Drinks')) {
       return ProductCategory.snacks_drinks;
+    } else {
+      return ProductCategory.others;
     }
   }
 }
