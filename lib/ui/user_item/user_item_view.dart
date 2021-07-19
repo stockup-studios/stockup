@@ -5,6 +5,7 @@ import 'package:stockup/models/models.dart';
 import 'package:stockup/models/user_item_list.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/ui/user_item/user_item_detail_view.dart';
+import 'package:stockup/ui/user_item/user_item_share_view.dart';
 import 'package:stockup/ui/user_item/user_item_view_model.dart';
 
 class UserItemView extends StatelessWidget {
@@ -48,6 +49,18 @@ class UserItemView extends StatelessWidget {
                   ),
                   Row(
                     children: [
+                      IconButton(
+                        onPressed: () async {
+                          await showModalBottomSheet(
+                            context: context,
+                            builder: (context) => UserItemShareView(
+                              userItemList: model.targetUserItemList,
+                            ),
+                          );
+                          model.update();
+                        },
+                        icon: Icon(Icons.share),
+                      ),
                       IconButton(
                         icon: Icon(Icons.search),
                         onPressed: () async {
