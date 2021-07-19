@@ -34,6 +34,8 @@ class UserItemViewModel extends BaseViewModel {
     _db = DatabaseServiceImpl(uid: _authService.appUser.username);
     await _targetUserItemListFromDatabase();
     await _targetUserShopListFromDatabase();
+    await _getAllItemList();
+    print(_targetUserItemList.uid);
     initialize();
     print('user item view model init called');
     notifyListeners();
@@ -58,6 +60,10 @@ class UserItemViewModel extends BaseViewModel {
   Future<void> _getDisplayListFromDatabase() async {
     List<UserItem> unorderedItems = await _db.getUserItems(_targetUserItemList);
     _userItems.addAll(unorderedItems);
+  }
+
+  Future<void> _getAllItemList() async {
+    userItemLists = await _db.getUserItemLists();
   }
 
   // NEED CHECK!!
@@ -123,9 +129,8 @@ class UserItemViewModel extends BaseViewModel {
     UserItem item = displayList[index];
     if (direction == DismissDirection.startToEnd) {
       _snackbarService.showSnackbar(
-        message: item.productName, 
-        title:
-            'Moved an item to shopping list ${_targetUserShopList.name}', 
+        message: item.productName,
+        title: 'Moved an item to shopping list ${_targetUserShopList.name}',
         duration: Duration(seconds: 2),
         onTap: (_) {
           print('snackbar tapped');
@@ -160,7 +165,7 @@ class UserItemViewModel extends BaseViewModel {
   void delete(UserItem item) async {
     //_userService.delUserItemAtIndex(index);
     await _database.deleteUserItem(item, _targetUserItemList);
-    init();
+    await _getDisplayListFromDatabase();
     notifyListeners();
   }
 

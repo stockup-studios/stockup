@@ -244,7 +244,6 @@ class DatabaseServiceImpl implements DatabaseService {
   Future<UserItemList> getTargetItemList() async {
     List<QueryDocumentSnapshot> snapshots =
         await targetItemListCollection.get().then((value) => value.docs);
-    print(snapshots.length);
     Map data = snapshots.map((e) => e.data()).toList().elementAt(0);
     String uid = data['uid'];
     DocumentSnapshot target = await user_item_lists.doc(uid).get();
@@ -256,14 +255,17 @@ class DatabaseServiceImpl implements DatabaseService {
   Future<List<UserItemList>> getUserItemLists() async {
     List<QueryDocumentSnapshot> snapshots =
         await userItemListCollection.get().then((value) => value.docs);
-    List<DocumentSnapshot> processed;
+    print(snapshots.length);
+    List<DocumentSnapshot> processed = [];
     for (int i = 0; i < snapshots.length; i++) {
       Map data = snapshots.map((e) => e.data()).toList().elementAt(i);
       String uid = data['uid'];
       DocumentSnapshot target = await user_item_lists.doc(uid).get();
+      //UserItemList list = UserItemList.fromFirestore(target);
       processed.add(target);
     }
     return processed.map((doc) => UserItemList.fromFirestore(doc)).toList();
+    //return processed;
   }
 
   @override
@@ -358,7 +360,7 @@ class DatabaseServiceImpl implements DatabaseService {
     List<QueryDocumentSnapshot> snapshots =
         await targetItemListCollection.get().then((value) => value.docs);
     //get document reference and delete
-    List<DocumentReference> doc = snapshots.map((e) => e.reference);
+    List<DocumentReference> doc = snapshots.map((e) => e.reference).toList();
     for (int i = 0; i < doc.length; i++) {
       doc[i].delete();
     }
