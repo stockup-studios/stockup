@@ -24,7 +24,7 @@ class DatabaseServiceImpl implements DatabaseService {
     userDocument = _firestore.collection('users').doc(uid);
     userShopListCollection = userDocument.collection('user_shop_list');
     userItemListCollection = userDocument.collection('user_item_list');
-    targetShopListCollection = userDocument.collection('target_shop_list');
+    targetShopListCollection = userDocument.collection("target_shop_list");
     targetItemListCollection = userDocument.collection('target_item_list');
   }
 
@@ -35,12 +35,24 @@ class DatabaseServiceImpl implements DatabaseService {
       String uid = await addUserShopList(demoUserShopList[i]);
       demoUserShopList[i].uid = uid;
       await addUserShopListforUser(demoUserShopList[i]);
+
+      for (UserShop item in demoUserShop[i]) {
+        String uid = await addUserShop(item, demoUserShopList[i]);
+        item.uid = uid;
+        await updateUserShop(item, demoUserShopList[i]);
+      }
     }
 
     for (int i = 0; i < demoUserItemList.length; i++) {
       String uid = await addUserItemList(demoUserItemList[i]);
       demoUserItemList[i].uid = uid;
       await addUserItemListforUser(demoUserItemList[i]);
+
+      for (UserItem item in demoUserItems[i]) {
+        String uid = await addUserItem(item, demoUserItemList[i]);
+        item.uid = uid;
+        await updateUserItem(item, demoUserItemList[i]);
+      }
     }
 
     await addTargetItemList(demoUserItemList[0]);
@@ -222,9 +234,9 @@ class DatabaseServiceImpl implements DatabaseService {
   Future<UserShopList> getTargetShopList() async {
     List<QueryDocumentSnapshot> snapshots =
         await targetShopListCollection.get().then((value) => value.docs);
-
-    String uid = snapshots.map((e) => e.get('uid')).toList().elementAt(0);
-    DocumentSnapshot target = await user_item_lists.doc(uid).get();
+    Map data = snapshots.map((e) => e.data()).toList().elementAt(0);
+    String uid = data['uid'];
+    DocumentSnapshot target = await user_shop_lists.doc(uid).get();
     return UserShopList.fromFirestore(target);
   }
 
@@ -243,14 +255,17 @@ class DatabaseServiceImpl implements DatabaseService {
   Future<List<UserItemList>> getUserItemLists() async {
     List<QueryDocumentSnapshot> snapshots =
         await userItemListCollection.get().then((value) => value.docs);
-    List<DocumentSnapshot> processed;
+    print(snapshots.length);
+    List<DocumentSnapshot> processed = [];
     for (int i = 0; i < snapshots.length; i++) {
       Map data = snapshots.map((e) => e.data()).toList().elementAt(i);
       String uid = data['uid'];
       DocumentSnapshot target = await user_item_lists.doc(uid).get();
+      //UserItemList list = UserItemList.fromFirestore(target);
       processed.add(target);
     }
     return processed.map((doc) => UserItemList.fromFirestore(doc)).toList();
+    //return processed;
   }
 
   @override
@@ -259,16 +274,25 @@ class DatabaseServiceImpl implements DatabaseService {
     List<QueryDocumentSnapshot> snapshots =
         await userShopListCollection.get().then((value) => value.docs);
 
-    List<DocumentReference> reference =
-        snapshots.map((snapshot) => snapshot.get(FieldPath(["reference"])));
+    // List<DocumentReference> reference =
+    //     snapshots.map((snapshot) => snapshot.get(FieldPath(["reference"])));
+
+    // List<DocumentSnapshot> processed;
+
+    // for (int i = 0; i < reference.length; i++) {
+    //   DocumentSnapshot temp = await reference[i].get();
+    //   processed.add(temp);
+    // }
+    // return processed.map((doc) => UserShopList.fromFirestore(doc));
 
     List<DocumentSnapshot> processed;
-
-    for (int i = 0; i < reference.length; i++) {
-      DocumentSnapshot temp = await reference[i].get();
-      processed.add(temp);
+    for (int i = 0; i < snapshots.length; i++) {
+      Map data = snapshots.map((e) => e.data()).toList().elementAt(i);
+      String uid = data['uid'];
+      DocumentSnapshot target = await user_shop_lists.doc(uid).get();
+      processed.add(target);
     }
-    return processed.map((doc) => UserShopList.fromFirestore(doc));
+    return processed.map((doc) => UserShopList.fromFirestore(doc)).toList();
   }
 
   @override
@@ -336,7 +360,7 @@ class DatabaseServiceImpl implements DatabaseService {
     List<QueryDocumentSnapshot> snapshots =
         await targetItemListCollection.get().then((value) => value.docs);
     //get document reference and delete
-    List<DocumentReference> doc = snapshots.map((e) => e.reference);
+    List<DocumentReference> doc = snapshots.map((e) => e.reference).toList();
     for (int i = 0; i < doc.length; i++) {
       doc[i].delete();
     }

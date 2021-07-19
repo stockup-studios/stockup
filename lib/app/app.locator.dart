@@ -16,7 +16,7 @@ import '../services/parser/parser.dart';
 import '../services/scanner/scanner.dart';
 import '../services/user/user_service.dart';
 import '../ui/sign_in/sign_in_view_model.dart';
-import '../ui/user_item/user_item_view_model.dart';
+import '../ui/user_item/user_item_list/user_item_view_model.dart';
 import '../ui/user_shop/user_shop_view_model.dart';
 
 final locator = StackedLocator.instance;
