@@ -9,7 +9,6 @@ import 'package:stockup/services/services.dart';
 import 'package:stockup/ui/user_item/user_item_search.dart';
 
 class UserItemViewModel extends BaseViewModel {
-  //final _userService = locator<UserService>();
   final _navigationService = locator<NavigationService>();
   final _snackbarService = locator<SnackbarService>();
   final _database = locator<DatabaseServiceImpl>();
@@ -66,10 +65,9 @@ class UserItemViewModel extends BaseViewModel {
     userItemLists = await _db.getUserItemLists();
   }
 
-  // NEED CHECK!!
   void _updateTargetItemList(UserItemList list) async {
     await _db.updateTargetItemList(list);
-    _targetUserItemListFromDatabase();
+    await _targetUserItemListFromDatabase();
   }
 
   UserItemList get targetUserItemList {
@@ -86,10 +84,8 @@ class UserItemViewModel extends BaseViewModel {
         .toList();
   }
 
-  //NEED TEST
   set targetUserItemList(UserItemList newTarget) {
     _updateTargetItemList(newTarget);
-    //_userService.setTargetUIL(newTarget);
     notifyListeners();
   }
 
@@ -163,7 +159,6 @@ class UserItemViewModel extends BaseViewModel {
   }
 
   void delete(UserItem item) async {
-    //_userService.delUserItemAtIndex(index);
     await _database.deleteUserItem(item, _targetUserItemList);
     await _getDisplayListFromDatabase();
     notifyListeners();
