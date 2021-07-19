@@ -116,7 +116,7 @@ class UserItemView extends StatelessWidget {
                           },
                         ),
                         title: Text(model.displayList[index].productName),
-                        subtitle: model.displayList[index].daysLeft == '1'
+                        subtitle: model.displayList[index].daysLeft == 1
                             ? Text(
                                 '${model.displayList[index].daysLeft} day left')
                             : Text(

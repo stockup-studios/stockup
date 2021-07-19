@@ -96,11 +96,15 @@ class UserItem extends Product {
     expiryDate = millisecondsSinceEpoch;
   }
 
-  String get daysLeft {
+  int get daysLeft {
     // Duration difference = DateTime.now()
     //     .difference(DateTime.fromMillisecondsSinceEpoch(expiryDate));
     Duration difference = DateTime.fromMillisecondsSinceEpoch(expiryDate)
         .difference(DateTime.now());
-    return (difference.inDays + 1).toString();
+    return (difference.inDays + 1);
+  }
+
+  int get forCompare {
+    return -daysLeft;
   }
 }

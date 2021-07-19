@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:sorted_list/sorted_list.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/app/app.router.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/services/services.dart';
-import 'package:stockup/services/user/user_service.dart';
 import 'package:stockup/ui/user_item/user_item_search.dart';
 
 class UserItemViewModel extends BaseViewModel {
@@ -20,10 +20,14 @@ class UserItemViewModel extends BaseViewModel {
   List<UserItemList> userItemLists = [];
   // List<UserShopList> userShopLists = [];
   int no = 1;
+  int noOfCat = 0;
 
   UserShopList _targetUserShopList;
   UserItemList _targetUserItemList;
-  List<UserItem> _userItems = [];
+
+  //am using a sorted list package is this okay?
+  List<UserItem> _userItems =
+      SortedList<UserItem>((r1, r2) => r2.forCompare.compareTo(r1.forCompare));
 
   /// Only called once. Will not be called again on rebuild
   void init() async {
@@ -32,22 +36,15 @@ class UserItemViewModel extends BaseViewModel {
     await _targetUserShopListFromDatabase();
     initialize();
     print('user item view model init called');
-    print(_targetUserItemList == null);
-    // for (ProductCategory category in ProductCategory.values) {
-    //   String name = category.toString().split('.').last.split('_').join(' ');
-    //   productCategories[name] = false;
-    // }
-    // userItemLists = _userService.getUILs();
     notifyListeners();
   }
 
   void initialize() async {
-    _getDisplayListFromDatabase();
+    await _getDisplayListFromDatabase();
     for (ProductCategory category in ProductCategory.values) {
       String name = category.name;
       productCategories[name] = false;
     }
-    //userItemLists = await _db.getUserItemLists();
   }
 
   Future<void> _targetUserItemListFromDatabase() async {
@@ -58,10 +55,9 @@ class UserItemViewModel extends BaseViewModel {
     _targetUserShopList = await _db.getTargetShopList();
   }
 
-  void _getDisplayListFromDatabase() async {
-    //UserItemList test = UserItemList(uid: "SWwxUh2capg2ytU2rint");
-    _userItems =
-        await _db.getUserItems(_targetUserItemList); //_targetUserItemList);
+  Future<void> _getDisplayListFromDatabase() async {
+    List<UserItem> unorderedItems = await _db.getUserItems(_targetUserItemList);
+    _userItems.addAll(unorderedItems);
   }
 
   // NEED CHECK!!
@@ -74,23 +70,14 @@ class UserItemViewModel extends BaseViewModel {
     return _targetUserItemList;
   }
 
-  //FILTERING HERE
   List<UserItem> get displayList {
     //return all items in target item list
-    if (productCategories['All Categories'])
-      //return targetUserItemList.userItemListing;
-      return _userItems;
+    if (productCategories['All Categories']) return _userItems;
 
     //filtering by category
     return _userItems
         .where((element) => productCategories[element.category.name])
         .toList();
-
-    // what's happening here? R we getting only userItems of specific category?
-    // return userItems.where((UserItem ui) {
-    //   String name = ui.category.toString().split('.').last.split('_').join(' ');
-    //   return productCategories[name];
-    // }).toList();
   }
 
   //NEED TEST
@@ -100,18 +87,30 @@ class UserItemViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  // GONNA CHANGE TO DEFAULT ALL CATEGORIES??
   void filter(int index) {
     if (index == 0) {
+      noOfCat = 0;
       for (String name in productCategories.keys.toList().sublist(1)) {
         productCategories[name] = false;
       }
-      productCategories['All Categories'] =
-          !productCategories['All Categories'];
+      productCategories['All Categories'] = true;
     } else {
-      productCategories['All Categories'] = false;
       String s = productCategories.keys.toList()[index];
-      productCategories[s] = !productCategories[s];
+      if (productCategories[s] == true && noOfCat == 1) {
+        noOfCat = 0;
+        productCategories['All Categories'] = true;
+        productCategories[s] = !productCategories[s];
+      } else if (productCategories[s] == true && noOfCat > 1) {
+        noOfCat -= 1;
+        productCategories[s] = !productCategories[s];
+      } else if (noOfCat == 0) {
+        noOfCat += 1;
+        productCategories['All Categories'] = false;
+        productCategories[s] = !productCategories[s];
+      } else {
+        noOfCat += 1;
+        productCategories[s] = !productCategories[s];
+      }
     }
     notifyListeners();
   }
@@ -124,9 +123,9 @@ class UserItemViewModel extends BaseViewModel {
     UserItem item = displayList[index];
     if (direction == DismissDirection.startToEnd) {
       _snackbarService.showSnackbar(
-        message: item.productName, // displayList[index].productName,
+        message: item.productName, 
         title:
-            'Moved an item to shopping list ${_targetUserShopList.name}', //_userService.targetUserShopList.name
+            'Moved an item to shopping list ${_targetUserShopList.name}', 
         duration: Duration(seconds: 2),
         onTap: (_) {
           print('snackbar tapped');
@@ -158,9 +157,10 @@ class UserItemViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void delete(UserItem item) {
+  void delete(UserItem item) async {
     //_userService.delUserItemAtIndex(index);
-    _database.deleteUserItem(item, _targetUserItemList);
+    await _database.deleteUserItem(item, _targetUserItemList);
+    init();
     notifyListeners();
   }
 
