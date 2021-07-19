@@ -3,18 +3,13 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/app/app.router.dart';
-import 'package:stockup/models/product_category.dart';
-import 'package:stockup/models/user_item.dart';
-import 'package:stockup/models/user_item_list.dart';
-import 'package:stockup/models/user_shop.dart';
-import 'package:stockup/models/user_shop_list.dart';
-import 'package:stockup/services/auth/auth_impl.dart';
-import 'package:stockup/services/database/database_impl.dart';
+import 'package:stockup/models/models.dart';
+import 'package:stockup/services/services.dart';
 import 'package:stockup/services/user/user_service.dart';
 import 'package:stockup/ui/user_item/user_item_search.dart';
 
 class UserItemViewModel extends BaseViewModel {
-  final _userService = locator<UserService>();
+  //final _userService = locator<UserService>();
   final _navigationService = locator<NavigationService>();
   final _snackbarService = locator<SnackbarService>();
   final _database = locator<DatabaseServiceImpl>();
@@ -33,8 +28,10 @@ class UserItemViewModel extends BaseViewModel {
   /// Only called once. Will not be called again on rebuild
   void init() async {
     _db = DatabaseServiceImpl(uid: _authService.appUser.username);
+    await _targetUserItemListFromDatabase();
     initialize();
     print('user item view model init called');
+    print(_targetUserItemList == null);
     // for (ProductCategory category in ProductCategory.values) {
     //   String name = category.toString().split('.').last.split('_').join(' ');
     //   productCategories[name] = false;
@@ -44,17 +41,16 @@ class UserItemViewModel extends BaseViewModel {
   }
 
   void initialize() async {
-    _targetUserItemListFromDatabase();
     _getDisplayListFromDatabase();
     _targetUserShopListFromDatabase();
     for (ProductCategory category in ProductCategory.values) {
       String name = category.name;
       productCategories[name] = false;
     }
-    userItemLists = await _db.getUserItemLists();
+    //userItemLists = await _db.getUserItemLists();
   }
 
-  void _targetUserItemListFromDatabase() async {
+  Future<void> _targetUserItemListFromDatabase() async {
     _targetUserItemList = await _db.getTargetItemList();
   }
 

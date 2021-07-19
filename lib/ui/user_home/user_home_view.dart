@@ -9,10 +9,23 @@ class UserHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserHomeViewModel>.reactive(
+      disposeViewModel: false,
+      initialiseSpecialViewModelsOnce: true,
+      onModelReady: (model) => model.init(),
+      fireOnModelReadyOnce: true,
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           title: Text('Home'),
           centerTitle: true,
+          actions: <Widget>[
+            TextButton.icon(
+              icon: Icon(Icons.person, color: Colors.white,),
+              label: Text('Logout'),
+              onPressed: () async {
+                model.signOut();
+              },
+            )
+          ],
         ),
         body: ListView.builder(
           itemCount: model.messages.length,
