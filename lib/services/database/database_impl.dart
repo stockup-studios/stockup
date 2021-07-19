@@ -234,10 +234,8 @@ class DatabaseServiceImpl implements DatabaseService {
   Future<UserShopList> getTargetShopList() async {
     List<QueryDocumentSnapshot> snapshots =
         await targetShopListCollection.get().then((value) => value.docs);
-    print(snapshots.length);
     Map data = snapshots.map((e) => e.data()).toList().elementAt(0);
     String uid = data['uid'];
-    print(uid);
     DocumentSnapshot target = await user_shop_lists.doc(uid).get();
     return UserShopList.fromFirestore(target);
   }
@@ -246,9 +244,9 @@ class DatabaseServiceImpl implements DatabaseService {
   Future<UserItemList> getTargetItemList() async {
     List<QueryDocumentSnapshot> snapshots =
         await targetItemListCollection.get().then((value) => value.docs);
+    print(snapshots.length);
     Map data = snapshots.map((e) => e.data()).toList().elementAt(0);
     String uid = data['uid'];
-    // print(uid); //YQQG0Jh3sEjpQvywUBMQ
     DocumentSnapshot target = await user_item_lists.doc(uid).get();
     return UserItemList.fromFirestore(target);
   }

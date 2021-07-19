@@ -29,6 +29,7 @@ class UserItemViewModel extends BaseViewModel {
   void init() async {
     _db = DatabaseServiceImpl(uid: _authService.appUser.username);
     await _targetUserItemListFromDatabase();
+    await _targetUserShopListFromDatabase();
     initialize();
     print('user item view model init called');
     print(_targetUserItemList == null);
@@ -42,7 +43,6 @@ class UserItemViewModel extends BaseViewModel {
 
   void initialize() async {
     _getDisplayListFromDatabase();
-    _targetUserShopListFromDatabase();
     for (ProductCategory category in ProductCategory.values) {
       String name = category.name;
       productCategories[name] = false;
@@ -54,8 +54,8 @@ class UserItemViewModel extends BaseViewModel {
     _targetUserItemList = await _db.getTargetItemList();
   }
 
-  void _targetUserShopListFromDatabase() async {
-    _targetUserShopList = await _database.getTargetShopList();
+  Future<void> _targetUserShopListFromDatabase() async {
+    _targetUserShopList = await _db.getTargetShopList();
   }
 
   void _getDisplayListFromDatabase() async {
