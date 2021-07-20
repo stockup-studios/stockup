@@ -12,8 +12,8 @@ import 'package:stockup/ui/user_home/user_home_view.dart';
 import 'package:stockup/ui/user_item/user_item_list/user_item_view.dart';
 import 'package:stockup/ui/user_item/user_item_list/user_item_view_model.dart';
 import 'package:stockup/ui/user_scan/user_scan_view.dart';
-import 'package:stockup/ui/user_shop/user_shop_view.dart';
-import 'package:stockup/ui/user_shop/user_shop_view_model.dart';
+import 'package:stockup/ui/user_shop/user_shop_list/user_shop_view.dart';
+import 'package:stockup/ui/user_shop/user_shop_list/user_shop_view_model.dart';
 import 'package:stockup/ui/welcome/welcome_view.dart';
 
 @StackedApp(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/models/product_category.dart';
 import 'package:stockup/models/user_shop.dart';
-import 'package:stockup/ui/user_shop/user_shop_detail_view_model.dart';
+import 'package:stockup/ui/user_shop/user_shop_detail/user_shop_detail_view_model.dart';
 
 class UserShopDetailView extends StatelessWidget {
   const UserShopDetailView({

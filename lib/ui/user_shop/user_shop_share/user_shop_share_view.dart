@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/models/models.dart';
-import 'package:stockup/ui/user_shop/user_shop_share_view_model.dart';
+import 'package:stockup/ui/user_shop/user_shop_share/user_shop_share_view_model.dart';
 
 class UserShopShareView extends StatelessWidget {
   const UserShopShareView({@required this.userShopList, Key key})

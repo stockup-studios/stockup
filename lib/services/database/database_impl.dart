@@ -317,7 +317,7 @@ class DatabaseServiceImpl implements DatabaseService {
     List<AppUser> shared = [];
     Map data = snapshot.data();
     List.from(data['shared']).forEach((element) {
-      print(element);
+      //print(element);
       AppUser user = AppUser(username: element);
 
       /// create firestore instance
@@ -424,6 +424,14 @@ class DatabaseServiceImpl implements DatabaseService {
     user_item_lists.doc(list.uid).update({
       "shared": FieldValue.arrayUnion([user.username])
     });
+
+    CollectionReference addedUser = _firestore
+        .collection('users')
+        .doc(user.username)
+        .collection('user_item_list');
+    final listDocument = addedUser.doc();
+    Map<String, String> json = {'uid': list.uid};
+    listDocument.set(json);
   }
 
   // Delete
