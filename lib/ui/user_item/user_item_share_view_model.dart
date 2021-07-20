@@ -14,13 +14,13 @@ class UserItemShareViewModel extends BaseViewModel {
   String _shareWith = '';
   String errorMessage = '';
 
-  void init(UserItemList userItemList) async {
+  void init(UserItemList uiList) async {
     _db = DatabaseServiceImpl(uid: _authService.appUser.username);
-    await getSharedUsers();
-    this.userItemList = userItemList;
+    this.userItemList = uiList;
+    await sharedUsersdb();
   }
 
-  Future<void> getSharedUsers() async {
+  Future<void> sharedUsersdb() async {
     sharedUsers = await _db.getItemListUsers(userItemList);
   }
 
@@ -33,21 +33,13 @@ class UserItemShareViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  Future<dynamic> user() async {
-    dynamic temp = await _db.getUser(shareWith);
-    return temp;
-  }
-
   Future<bool> share() async {
     // TODO: Check if user exists. If user exist, then add. Otherwise display error
-    // dynamic temp = await _db.getUser(shareWith);
-    dynamic temp = await user();
-    T cast<T>(x) => x is T ? x : null;
-    AppUser appuser = cast<AppUser>(temp);
-    if (user != null) {
-      await _db.updateSharedUserItemList(userItemList, appuser);
-      await getSharedUsers();
-      //userItemList.shared.add(AppUser(username: shareWith));
+    dynamic temp = await _db.getUser(shareWith);
+
+    if (temp != null) {
+      await _db.updateSharedUserItemList(userItemList, temp);
+      await sharedUsersdb();
       errorMessage = '';
     } else {
       errorMessage = 'Could not find anyone with that username';

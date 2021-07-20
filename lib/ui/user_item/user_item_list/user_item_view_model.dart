@@ -33,15 +33,14 @@ class UserItemViewModel extends BaseViewModel {
     _db = DatabaseServiceImpl(uid: _authService.appUser.username);
     await _targetUserItemListFromDatabase();
     await _targetUserShopListFromDatabase();
-    await _getAllItemList();
-    print(_targetUserItemList.uid);
+    await _allItemList();
     initialize();
     print('user item view model init called');
     notifyListeners();
   }
 
   void initialize() async {
-    await _getDisplayListFromDatabase();
+    await _displayListFromDatabase();
     for (ProductCategory category in ProductCategory.values) {
       String name = category.name;
       productCategories[name] = false;
@@ -56,12 +55,12 @@ class UserItemViewModel extends BaseViewModel {
     _targetUserShopList = await _db.getTargetShopList();
   }
 
-  Future<void> _getDisplayListFromDatabase() async {
+  Future<void> _displayListFromDatabase() async {
     List<UserItem> unorderedItems = await _db.getUserItems(_targetUserItemList);
     _userItems.addAll(unorderedItems);
   }
 
-  Future<void> _getAllItemList() async {
+  Future<void> _allItemList() async {
     userItemLists = await _db.getUserItemLists();
   }
 
@@ -70,11 +69,7 @@ class UserItemViewModel extends BaseViewModel {
     await _targetUserItemListFromDatabase();
   }
 
-  int testCount = 1;
   UserItemList get targetUserItemList {
-    testCount += 1;
-    String test = _targetUserItemList.uid;
-    print("$test called $testCount times");
     return _targetUserItemList;
   }
 
@@ -164,7 +159,7 @@ class UserItemViewModel extends BaseViewModel {
 
   void delete(UserItem item) async {
     await _database.deleteUserItem(item, _targetUserItemList);
-    await _getDisplayListFromDatabase();
+    await _displayListFromDatabase();
     notifyListeners();
   }
 

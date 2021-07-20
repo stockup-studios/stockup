@@ -216,10 +216,13 @@ class DatabaseServiceImpl implements DatabaseService {
         .where('uid', isEqualTo: uid)
         .get()
         .then((value) => value.docs);
-    if (snapshots == null) {
+    print(snapshots.length);
+    if (snapshots.length == 0) {
+      print(null);
       return null;
     } else {
-      AppUser(username: uid);
+      print('user success');
+      return AppUser(username: uid);
     }
   }
 
