@@ -34,7 +34,6 @@ class UserItemShareViewModel extends BaseViewModel {
   }
 
   Future<bool> share() async {
-    // TODO: Check if user exists. If user exist, then add. Otherwise display error
     dynamic temp = await _db.getUser(shareWith);
 
     if (temp != null) {

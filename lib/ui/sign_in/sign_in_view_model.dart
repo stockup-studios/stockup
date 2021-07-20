@@ -2,19 +2,15 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/app/app.router.dart';
-import 'package:stockup/models/app_user.dart';
 import 'package:stockup/services/auth/auth_impl.dart';
-import 'package:stockup/services/database/database_impl.dart';
 
 class SignInViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
   final _authService = locator<AuthImplementation>();
-  //final _database = locator<DatabaseServiceImpl>();
 
   String _email = '';
   String _password = '';
   String _error = '';
-  //AppUser user;
 
   String emailValidator(String val) {
     return val.contains('@') ? null : 'Enter a valid email';
@@ -40,8 +36,6 @@ class SignInViewModel extends BaseViewModel {
     if (result == null) {
       _updateErrorEmail();
     } else {
-      //user = result;
-      //DatabaseServiceImpl _db = DatabaseServiceImpl(uid: user.username);
       await _navigateToHome();
     }
   }

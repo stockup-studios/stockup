@@ -71,6 +71,7 @@ class UserItemView extends StatelessWidget {
                               context: context,
                               builder: (context) => UserItemDetailView(
                                 userItem: userItem,
+                                userItemList: model.targetUserItemList,
                               ),
                             );
                           model.update();
