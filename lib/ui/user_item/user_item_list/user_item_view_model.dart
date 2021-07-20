@@ -56,6 +56,8 @@ class UserItemViewModel extends BaseViewModel {
   }
 
   Future<void> _displayListFromDatabase() async {
+    _userItems.clear();
+    print('cleared user items');
     List<UserItem> unorderedItems = await _db.getUserItems(_targetUserItemList);
     _userItems.addAll(unorderedItems);
   }
@@ -64,7 +66,7 @@ class UserItemViewModel extends BaseViewModel {
     userItemLists = await _db.getUserItemLists();
   }
 
-  void _updateTargetItemList(UserItemList list) async {
+  Future<void> _updateTargetItemList(UserItemList list) async {
     await _db.updateTargetItemList(list);
     await _targetUserItemListFromDatabase();
   }
@@ -83,8 +85,9 @@ class UserItemViewModel extends BaseViewModel {
         .toList();
   }
 
-  set targetUserItemList(UserItemList newTarget) {
-    _updateTargetItemList(newTarget);
+  void updateTargetUserItemList(UserItemList newTarget) async {
+    await _updateTargetItemList(newTarget);
+    await _displayListFromDatabase();
     notifyListeners();
   }
 
@@ -145,20 +148,21 @@ class UserItemViewModel extends BaseViewModel {
     }
   }
 
-  void move(UserItem item) {
+  void move(UserItem item) async {
     UserShop temp = UserShop(
         productID: item.productID,
         category: item.category,
         productName: item.productName,
         imageURL: item.imageURL);
-    _database.deleteUserItem(item, _targetUserItemList);
-    _database.addUserShop(temp, _targetUserShopList);
+    await _db.deleteUserItem(item, _targetUserItemList);
+    await _displayListFromDatabase();
+    _db.addUserShop(temp, _targetUserShopList);
     //_userService.moveUserItemAtIndex(index);
     notifyListeners();
   }
 
   void delete(UserItem item) async {
-    await _database.deleteUserItem(item, _targetUserItemList);
+    await _db.deleteUserItem(item, _targetUserItemList);
     await _displayListFromDatabase();
     notifyListeners();
   }

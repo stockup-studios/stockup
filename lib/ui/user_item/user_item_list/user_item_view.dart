@@ -35,7 +35,7 @@ class UserItemView extends StatelessWidget {
                       value: model.targetUserItemList,
                       icon: Icon(Icons.arrow_downward),
                       onChanged: (UserItemList newList) {
-                        model.targetUserItemList = newList;
+                        model.updateTargetUserItemList(newList);
                       },
                       items: model.userItemLists
                           .map<DropdownMenuItem<UserItemList>>(
