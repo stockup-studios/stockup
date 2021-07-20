@@ -104,6 +104,7 @@ class DatabaseServiceImpl implements DatabaseService {
     final uid = itemDocument.id;
     Map<String, dynamic> json = list.toJson();
     json['uid'] = uid;
+    json['shared'] = FieldValue.arrayUnion([this.uid]);
     itemDocument.set(json);
     return uid;
   }
@@ -114,6 +115,7 @@ class DatabaseServiceImpl implements DatabaseService {
     final uid = itemDocument.id;
     Map<String, dynamic> json = list.toJson();
     json['uid'] = uid;
+    json['shared'] = FieldValue.arrayUnion([this.uid]);
     itemDocument.set(json);
     return uid;
   }
@@ -208,6 +210,19 @@ class DatabaseServiceImpl implements DatabaseService {
     return json.data();
   }
 
+  Future<dynamic> getUser(String uid) async {
+    List<QueryDocumentSnapshot> snapshots = await _firestore
+        .collection('users')
+        .where('uid', isEqualTo: uid)
+        .get()
+        .then((value) => value.docs);
+    if (snapshots == null) {
+      return null;
+    } else {
+      AppUser(username: uid);
+    }
+  }
+
   @override
   Future<List<UserItem>> getUserItems(UserItemList list) async {
     List<QueryDocumentSnapshot> snapshots = await user_item_lists
@@ -255,17 +270,15 @@ class DatabaseServiceImpl implements DatabaseService {
   Future<List<UserItemList>> getUserItemLists() async {
     List<QueryDocumentSnapshot> snapshots =
         await userItemListCollection.get().then((value) => value.docs);
-    print(snapshots.length);
+    //print(snapshots.length);
     List<DocumentSnapshot> processed = [];
     for (int i = 0; i < snapshots.length; i++) {
       Map data = snapshots.map((e) => e.data()).toList().elementAt(i);
       String uid = data['uid'];
       DocumentSnapshot target = await user_item_lists.doc(uid).get();
-      //UserItemList list = UserItemList.fromFirestore(target);
       processed.add(target);
     }
     return processed.map((doc) => UserItemList.fromFirestore(doc)).toList();
-    //return processed;
   }
 
   @override
@@ -293,6 +306,22 @@ class DatabaseServiceImpl implements DatabaseService {
       processed.add(target);
     }
     return processed.map((doc) => UserShopList.fromFirestore(doc)).toList();
+  }
+
+  @override
+  Future<List<AppUser>> getItemListUsers(UserItemList list) async {
+    DocumentSnapshot snapshot = await user_item_lists.doc(list.uid).get();
+    List<AppUser> shared = [];
+    Map data = snapshot.data();
+    List.from(data['shared']).forEach((element) {
+      print(element);
+      AppUser user = AppUser(username: element);
+
+      /// create firestore instance
+      shared.add(user);
+    });
+
+    return shared;
   }
 
   @override
@@ -386,6 +415,12 @@ class DatabaseServiceImpl implements DatabaseService {
   @override
   Future<void> updateGiantItem(Product item) async {
     giantCollection.doc(item.uid).update(item.toJson());
+  }
+
+  Future<void> updateSharedUserItemList(UserItemList list, AppUser user) async {
+    user_item_lists.doc(list.uid).update({
+      "shared": FieldValue.arrayUnion([user.username])
+    });
   }
 
   // Delete

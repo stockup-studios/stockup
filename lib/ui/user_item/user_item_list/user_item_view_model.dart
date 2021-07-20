@@ -70,7 +70,11 @@ class UserItemViewModel extends BaseViewModel {
     await _targetUserItemListFromDatabase();
   }
 
+  int testCount = 1;
   UserItemList get targetUserItemList {
+    testCount += 1;
+    String test = _targetUserItemList.uid;
+    print("$test called $testCount times");
     return _targetUserItemList;
   }
 

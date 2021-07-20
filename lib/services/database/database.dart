@@ -45,6 +45,8 @@ abstract class DatabaseService {
 
   Future<List<Product>> getGiantItems();
 
+  Future<List<AppUser>> getItemListUsers(UserItemList list);
+
   // Update
   Future<void> updateCredentials(Map<String, dynamic> credentials);
 

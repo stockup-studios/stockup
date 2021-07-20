@@ -60,13 +60,13 @@ class UserItemShareView extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               scrollDirection: Axis.vertical,
-              itemCount: model.userItemList.shared.length,
+              itemCount: model.sharedUsers.length,
               itemBuilder: (context, index) => FractionallySizedBox(
                 widthFactor: 0.9,
                 child: Card(
                   child: ListTile(
                     title: Text(
-                      model.userItemList.shared[index].username,
+                      model.sharedUsers[index].username,
                       softWrap: true,
                     ),
                   ),
@@ -84,8 +84,8 @@ class UserItemShareView extends StatelessWidget {
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Colors.green),
                 ),
-                onPressed: () {
-                  if (model.share()) Navigator.pop(context);
+                onPressed: () async {
+                  if (await model.share()) Navigator.pop(context);
                 },
               ),
             ),
