@@ -8,6 +8,8 @@ abstract class DatabaseService {
   // Create
   Future<void> addCredentials(Map<String, dynamic> credentials);
 
+  // Future<void> addAppUser(AppUser user);
+
   Future<String> addUserItem(UserItem item, UserItemList list);
 
   Future<String> addUserShop(UserShop item, UserShopList list);
@@ -45,7 +47,7 @@ abstract class DatabaseService {
 
   Future<List<Product>> getGiantItems();
 
-  Future<List<AppUser>> getItemListUsers(UserItemList list);
+  Future<List<String>> getItemListUsers(UserItemList list);
 
   // Update
   Future<void> updateCredentials(Map<String, dynamic> credentials);

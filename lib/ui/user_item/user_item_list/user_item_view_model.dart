@@ -153,7 +153,8 @@ class UserItemViewModel extends BaseViewModel {
         productID: item.productID,
         category: item.category,
         productName: item.productName,
-        imageURL: item.imageURL);
+        imageURL: item.imageURL,
+        quantity: 1);
     await _db.deleteUserItem(item, _targetUserItemList);
     await _displayListFromDatabase();
     _db.addUserShop(temp, _targetUserShopList);

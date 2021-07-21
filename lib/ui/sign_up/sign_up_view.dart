@@ -44,6 +44,20 @@ class SignUpView extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 50.0, vertical: 5),
                             child: TextFormField(
+                              autocorrect: false,
+                              keyboardType: TextInputType.name,
+                              decoration: const InputDecoration(
+                                  icon: Icon(Icons.email),
+                                  hintText: 'Input a username',
+                                  labelText: 'Username'),
+                              validator: model.nameValidator,
+                              onChanged: model.updateName,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 50.0, vertical: 5),
+                            child: TextFormField(
                               obscureText: true,
                               autocorrect: false,
                               decoration: const InputDecoration(
