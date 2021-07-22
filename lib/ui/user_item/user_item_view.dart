@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/models.dart';
@@ -105,11 +106,27 @@ class UserItemView extends StatelessWidget {
                 itemCount: model.displayList.length,
                 itemBuilder: (context, index) {
                   // return UserItemTile(model: model, index: index);
-                  return Dismissible(
-                    key: UniqueKey(),
-                    onDismissed: (direction) => model.onSwipe(direction, index),
-                    background: Container(color: Colors.orange),
-                    secondaryBackground: Container(color: Colors.red),
+                  return Slidable(
+                    actionPane: SlidableDrawerActionPane(),
+                    actionExtentRatio: 0.25,
+                    actions: [
+                      IconSlideAction(
+                        caption: 'Move',
+                        foregroundColor: Colors.white,
+                        color: Colors.orange,
+                        icon: Icons.list,
+                        onTap: () => model.onMove(index),
+                      )
+                    ],
+                    secondaryActions: [
+                      IconSlideAction(
+                        caption: 'Consume',
+                        foregroundColor: Colors.white,
+                        color: Colors.green,
+                        icon: Icons.check,
+                        onTap: () => model.onConsume(index),
+                      )
+                    ],
                     child: Card(
                       child: ListTile(
                         leading: Image.network(
