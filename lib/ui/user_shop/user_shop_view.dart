@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/user_shop.dart';
@@ -104,11 +105,27 @@ class UserShopView extends StatelessWidget {
               child: ListView.builder(
                 itemCount: model.displayList.length,
                 itemBuilder: (context, index) {
-                  return Dismissible(
-                    key: UniqueKey(),
-                    onDismissed: (direction) => model.onSwipe(direction, index),
-                    background: Container(color: Colors.red),
-                    secondaryBackground: Container(color: Colors.green),
+                  return Slidable(
+                    actionPane: SlidableDrawerActionPane(),
+                    actionExtentRatio: 0.25,
+                    actions: [
+                      IconSlideAction(
+                        caption: 'Delete',
+                        foregroundColor: Colors.white,
+                        color: Colors.red,
+                        icon: Icons.delete,
+                        onTap: () => model.onDelete(index),
+                      )
+                    ],
+                    secondaryActions: [
+                      IconSlideAction(
+                        caption: 'Bought',
+                        foregroundColor: Colors.white,
+                        color: Colors.green,
+                        icon: Icons.check,
+                        onTap: () => model.onMove(index),
+                      )
+                    ],
                     child: Card(
                       child: ListTile(
                         leading: Image.network(
