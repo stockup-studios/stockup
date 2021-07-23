@@ -9,10 +9,10 @@ class UserItemShareViewModel extends BaseViewModel {
   DatabaseServiceImpl _db;
 
   UserItemList userItemList;
-  List<String> sharedUsersName = [];
+  List<String> sharedUsersEmail = [];
 
   String _shareWithEmail = '';
-  String _shareWithName = '';
+  //String _shareWithName = '';
   String errorMessage = '';
 
   void init(UserItemList uiList) async {
@@ -37,9 +37,9 @@ class UserItemShareViewModel extends BaseViewModel {
   // }
 
   Future<void> sharedUsersdb() async {
-    sharedUsersName.clear();
+    sharedUsersEmail.clear();
     print('shared users list cleared');
-    sharedUsersName = await _db.getItemListUsers(userItemList);
+    sharedUsersEmail = await _db.getItemListUsers(userItemList);
   }
 
   // String get shareWith {
@@ -49,33 +49,35 @@ class UserItemShareViewModel extends BaseViewModel {
   void shareWith(String input) {
     if (input.contains('@')) {
       _shareWithEmail = input;
-    } else {
-      _shareWithName = input;
+      // } else {
+      //   _shareWithName = input;
+      // }
+      notifyListeners();
     }
-    notifyListeners();
   }
 
-  // set shareWithEmail(String email) {
-  //   _shareWith = shareWith;
-  //   notifyListeners();
-  // }
+    // set shareWithEmail(String email) {
+    //   _shareWith = shareWith;
+    //   notifyListeners();
+    // }
 
-  Future<bool> share() async {
-    dynamic temp;
-    if (_shareWithEmail == '') {
-      temp = await _db.getUserbyName(_shareWithName);
-    } else {
+    Future<bool> share() async {
+      dynamic temp;
+      // if (_shareWithEmail == '') {
+      //   temp = await _db.getUserbyName(_shareWithName);
+      //   _shareWithName = '';
+      // } else {
       temp = await _db.getUserbyEmail(_shareWithEmail);
-    }
+      _shareWithEmail = '';
 
-    if (temp != null) {
-      await _db.updateSharedUserItemList(userItemList, temp);
-      await sharedUsersdb();
-      errorMessage = '';
-    } else {
-      errorMessage = 'Could not find anyone with that username or email';
+      if (temp != null) {
+        await _db.updateSharedUserItemList(userItemList, temp);
+        await sharedUsersdb();
+        errorMessage = '';
+      } else {
+        errorMessage = 'Could not find anyone with that username or email';
+      }
+      notifyListeners();
+      return errorMessage == '';
     }
-    notifyListeners();
-    return errorMessage == '';
   }
-}

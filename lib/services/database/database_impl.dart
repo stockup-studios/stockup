@@ -82,14 +82,9 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 
   Future<void> addCredentials(Map<String, dynamic> credentials) async {
-    //will have name, email and uid
+    //will have email and uid
     userDocument.set(credentials);
   }
-
-  // @override
-  // Future<void> addAppUser(AppUser user) async {
-  //   userDocument.set(user.toJson());
-  // }
 
   @override
   Future<String> addUserShop(UserShop item, UserShopList list) async {
@@ -110,7 +105,7 @@ class DatabaseServiceImpl implements DatabaseService {
     Map<String, dynamic> json = list.toJson();
     json['uid'] = uid;
     Map data = await userDocument.get().then((value) => value.data());
-    json['shared'] = FieldValue.arrayUnion([data['name']]);
+    json['shared'] = FieldValue.arrayUnion([data['email']]);
     itemDocument.set(json);
     return uid;
   }
@@ -122,7 +117,7 @@ class DatabaseServiceImpl implements DatabaseService {
     Map<String, dynamic> json = list.toJson();
     json['uid'] = uid;
     Map data = await userDocument.get().then((value) => value.data());
-    json['shared'] = FieldValue.arrayUnion([data['name']]);
+    json['shared'] = FieldValue.arrayUnion([data['email']]);
     itemDocument.set(json);
     return uid;
   }
@@ -211,12 +206,19 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 
   // Read
+  // @override
+  // Future<Map<String, dynamic>> getCredentials() async {
+  //   DocumentSnapshot json = await userDocument.get();
+  //   return json.data();
+  // }
+
   @override
-  Future<Map<String, dynamic>> getCredentials() async {
-    DocumentSnapshot json = await userDocument.get();
-    return json.data();
+  Future<AppUser> getUser() async {
+    DocumentSnapshot doc = await userDocument.get();
+    return AppUser.fromFirestore(doc);
   }
 
+  @override
   Future<dynamic> getUserbyEmail(String email) async {
     List<QueryDocumentSnapshot> snapshots = await _firestore
         .collection('users')
@@ -233,31 +235,31 @@ class DatabaseServiceImpl implements DatabaseService {
     }
   }
 
-  Future<dynamic> getUserbyName(String name) async {
-    List<QueryDocumentSnapshot> snapshots = await _firestore
-        .collection('users')
-        .where('name', isEqualTo: name)
-        .get()
-        .then((value) => value.docs);
-    print(snapshots.length);
-    if (snapshots.length == 0) {
-      return null;
-    } else {
-      print('user success');
-      DocumentSnapshot doc = snapshots.elementAt(0);
-      return AppUser.fromFirestore(doc);
-    }
-  }
+  // Future<dynamic> getUserbyName(String name) async {
+  //   List<QueryDocumentSnapshot> snapshots = await _firestore
+  //       .collection('users')
+  //       .where('name', isEqualTo: name)
+  //       .get()
+  //       .then((value) => value.docs);
+  //   print(snapshots.length);
+  //   if (snapshots.length == 0) {
+  //     return null;
+  //   } else {
+  //     print('user success');
+  //     DocumentSnapshot doc = snapshots.elementAt(0);
+  //     return AppUser.fromFirestore(doc);
+  //   }
+  // }
 
-  Future<bool> isNameTaken(String name) async {
-    List<QueryDocumentSnapshot> snapshots = await _firestore
-        .collection('users')
-        .where('name', isEqualTo: name)
-        .get()
-        .then((value) => value.docs);
-    print(snapshots.length == 0);
-    return snapshots.length == 0;
-  }
+  // Future<bool> isNameTaken(String name) async {
+  //   List<QueryDocumentSnapshot> snapshots = await _firestore
+  //       .collection('users')
+  //       .where('name', isEqualTo: name)
+  //       .get()
+  //       .then((value) => value.docs);
+  //   print(snapshots.length == 0);
+  //   return snapshots.length == 0;
+  // }
 
   @override
   Future<List<UserItem>> getUserItems(UserItemList list) async {
@@ -333,8 +335,7 @@ class DatabaseServiceImpl implements DatabaseService {
     //   processed.add(temp);
     // }
     // return processed.map((doc) => UserShopList.fromFirestore(doc));
-
-    List<DocumentSnapshot> processed;
+    List<DocumentSnapshot> processed = [];
     for (int i = 0; i < snapshots.length; i++) {
       Map data = snapshots.map((e) => e.data()).toList().elementAt(i);
       String uid = data['uid'];
@@ -455,7 +456,7 @@ class DatabaseServiceImpl implements DatabaseService {
 
   Future<void> updateSharedUserItemList(UserItemList list, AppUser user) async {
     user_item_lists.doc(list.uid).update({
-      "shared": FieldValue.arrayUnion([user.name])
+      "shared": FieldValue.arrayUnion([user.email])
     });
 
     CollectionReference addedUser = _firestore

@@ -11,7 +11,7 @@ class SignInViewModel extends BaseViewModel {
   String _email = '';
   String _password = '';
   String _error = '';
-  String _name = '';
+  //String _name = '';
 
   String emailValidator(String val) {
     return val.contains('@') ? null : 'Enter a valid email';
@@ -31,10 +31,10 @@ class SignInViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void updateName(val) {
-    _name = val;
-    notifyListeners();
-  }
+  // void updateName(val) {
+  //   _name = val;
+  //   notifyListeners();
+  // }
 
   void signInEmail() async {
     //should just get uid or null maybe

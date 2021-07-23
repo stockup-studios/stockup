@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:stockup/models/app_user.dart';
@@ -7,20 +8,23 @@ import 'package:stockup/services/database/database_impl.dart';
 class AuthImplementation implements AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   AppUser appUser;
-  // String appUserUid;
-  // String userUid;
 
   // create User object based on firebase
   AppUser _appUser(User user) {
-    return user != null ? AppUser(username: user.uid) : null;
+    if (user != null) {
+      appUser = AppUser(username: user.uid, email: user.email);
+      return appUser;
+    } else {
+      return null;
+    }
   }
 
   //can get from database
   // auth change AppUser stream
-  // @override
-  // Stream<AppUser> get user {
-  //   return _auth.authStateChanges().map((element) => _appUser(element, name));
-  // }
+  @override
+  Stream<AppUser> get user {
+    return _auth.authStateChanges().map((element) => _appUser(element));
+  }
 
   // sign in using email and password
   @override
@@ -30,8 +34,9 @@ class AuthImplementation implements AuthService {
           email: email, password: password);
       User user = userCredential.user;
       // appUser = _appUser(user); //create a database method get user.
-      DatabaseServiceImpl _db = DatabaseServiceImpl(uid: user.uid);
-      appUser = await _db.getUserbyName(user.uid);
+      // DatabaseServiceImpl _db = DatabaseServiceImpl(uid: user.uid);
+
+      appUser = _appUser(user);
       return appUser;
     } catch (e) {
       print(e.toString());
@@ -41,8 +46,7 @@ class AuthImplementation implements AuthService {
 
   // register with email and password
   @override
-  Future registerWithEmailPassword(
-      String email, String password, String name) async {
+  Future registerWithEmailPassword(String email, String password) async {
     try {
       UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(email: email, password: password);
@@ -53,13 +57,12 @@ class AuthImplementation implements AuthService {
       Map<String, dynamic> credentials = {
         'uid': user.uid,
         'email': email,
-        'name': name,
       };
       // await _db.addAppUser(appUser);
       await _db.addCredentials(credentials);
       await _db.initialize(); // default data
-      appUser = await _db.getUserbyName(name);
-      //appUser = _appUser(user, name);
+      appUser = _appUser(user);
+      //appUser = _appUser(user);
       return appUser;
     } catch (e) {
       print(e.toString());

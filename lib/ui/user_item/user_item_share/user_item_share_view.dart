@@ -39,7 +39,7 @@ class UserItemShareView extends StatelessWidget {
                 child: TextField(
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                      hintText: 'Add by username or email',
+                      hintText: 'Add by entering email',
                       border: InputBorder.none),
                   onChanged: (String shareWith) {
                     model.shareWith(shareWith);
@@ -61,13 +61,13 @@ class UserItemShareView extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               scrollDirection: Axis.vertical,
-              itemCount: model.sharedUsersName.length,
+              itemCount: model.sharedUsersEmail.length,
               itemBuilder: (context, index) => FractionallySizedBox(
                 widthFactor: 0.9,
                 child: Card(
                   child: ListTile(
                     title: Text(
-                      model.sharedUsersName[index],
+                      model.sharedUsersEmail[index],
                       softWrap: true,
                     ),
                   ),

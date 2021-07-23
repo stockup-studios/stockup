@@ -1,63 +1,125 @@
 import 'package:flutter/material.dart';
+import 'package:sorted_list/sorted_list.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
-import 'package:stockup/models/product_category.dart';
-import 'package:stockup/models/user_shop.dart';
-import 'package:stockup/models/user_shop_list.dart';
+import 'package:stockup/models/models.dart';
+import 'package:stockup/services/services.dart';
 import 'package:stockup/services/user/user_service.dart';
 import 'package:stockup/ui/user_shop/user_shop_search.dart';
 
 class UserShopViewModel extends BaseViewModel {
-  final _userService = locator<UserService>();
-  final Map<String, bool> productCategories = {'All Categories': true};
+  final _navigationService = locator<NavigationService>();
   final _snackbarService = locator<SnackbarService>();
+  final _database = locator<DatabaseServiceImpl>();
+  static final _authService = locator<AuthImplementation>();
+  DatabaseServiceImpl _db;
 
+  // final _userService = locator<UserService>();
+  final Map<String, bool> productCategories = {'All Categories': true};
   List<UserShopList> userShopLists = [];
   int no = 1;
+  int noOfCat = 0;
 
-  UserShopList get targetUserShopList {
-    return _userService.getTargetUSL();
-  }
+  UserShopList _targetUserShopList;
+  UserItemList _targetUserItemList;
 
-  List<UserShop> get displayList {
-    if (productCategories['All Categories'])
-      return targetUserShopList.userShopListing;
+  List<UserShop> _userShops =
+      SortedList<UserShop>((r1, r2) => r2.productName.substring(0, 1).compareTo(r1.productName.substring(0, 1)));
 
-    return targetUserShopList.userShopListing.where((UserShop ui) {
-      String name = ui.category.toString().split('.').last.split('_').join(' ');
-      return productCategories[name];
-    }).toList();
-  }
+  // /// Only called once. Will not be called again on rebuild
+  // void init() {
+  //   userShopLists = _userService.getUSLs();
+  //   targetUserShopList = _userService.getTargetUSL();
+  //   notifyListeners();
+  // }
 
-  set targetUserShopList(UserShopList newTarget) {
-    _userService.setTargetUSL(newTarget);
+  void init() async {
+    _db = DatabaseServiceImpl(uid: _authService.appUser.username);
+    await _targetUserItemListFromDatabase();
+    await _targetUserShopListFromDatabase();
+    await _allShopList();
+    initialize();
+    print('user shop view model init called');
     notifyListeners();
   }
 
-  /// Only called once. Will not be called again on rebuild
-  void init() {
-    print('user shop view model init called');
+  void initialize() async {
+    await _displayListFromDatabase();
     for (ProductCategory category in ProductCategory.values) {
-      String name = category.toString().split('.').last.split('_').join(' ');
+      String name = category.name;
       productCategories[name] = false;
     }
-    userShopLists = _userService.getUSLs();
-    targetUserShopList = _userService.getTargetUSL();
+  }
+
+  Future<void> _targetUserItemListFromDatabase() async {
+    _targetUserItemList = await _db.getTargetItemList();
+  }
+
+  Future<void> _targetUserShopListFromDatabase() async {
+    _targetUserShopList = await _db.getTargetShopList();
+  }
+
+  Future<void> _displayListFromDatabase() async {
+    _userShops.clear();
+    print('cleared user shops');
+    List<UserShop> unorderedItems = await _db.getUserShops(_targetUserShopList);
+    _userShops.addAll(unorderedItems);
+  }
+
+  Future<void> _allShopList() async {
+    userShopLists = await _db.getUserShopLists();
+  }
+
+  Future<void> _updateTargetShopList(UserShopList list) async {
+    await _db.updateTargetShopList(list);
+    await _targetUserShopListFromDatabase();
+  }
+
+  UserShopList get targetUserShopList {
+    return _targetUserShopList;
+  }
+
+  List<UserShop> get displayList {
+    //return all items in target item list
+    if (productCategories['All Categories']) return _userShops;
+
+    //filtering by category
+    return _userShops
+        .where((element) => productCategories[element.category.name])
+        .toList();
+  }
+
+  void updateTargetUserShopList(UserShopList newTarget) async {
+    await _updateTargetShopList(newTarget);
+    await _displayListFromDatabase();
     notifyListeners();
   }
 
   void filter(int index) {
     if (index == 0) {
+      noOfCat = 0;
       for (String name in productCategories.keys.toList().sublist(1)) {
         productCategories[name] = false;
       }
-      productCategories['All Categories'] =
-          !productCategories['All Categories'];
+      productCategories['All Categories'] = true;
     } else {
-      productCategories['All Categories'] = false;
       String s = productCategories.keys.toList()[index];
-      productCategories[s] = !productCategories[s];
+      if (productCategories[s] == true && noOfCat == 1) {
+        noOfCat = 0;
+        productCategories['All Categories'] = true;
+        productCategories[s] = !productCategories[s];
+      } else if (productCategories[s] == true && noOfCat > 1) {
+        noOfCat -= 1;
+        productCategories[s] = !productCategories[s];
+      } else if (noOfCat == 0) {
+        noOfCat += 1;
+        productCategories['All Categories'] = false;
+        productCategories[s] = !productCategories[s];
+      } else {
+        noOfCat += 1;
+        productCategories[s] = !productCategories[s];
+      }
     }
     notifyListeners();
   }
@@ -81,42 +143,106 @@ class UserShopViewModel extends BaseViewModel {
   }
 
   onSwipe(DismissDirection direction, int index) {
+    UserShop item = displayList[index];
     if (direction == DismissDirection.startToEnd) {
       _snackbarService.showSnackbar(
-        message: displayList[index].productName,
-        title: 'Removed an item from ${_userService.targetUserShopList.name}',
+        message: item.productName,
+        title: 'Removed an item from ${_targetUserShopList.name}',
         duration: Duration(seconds: 2),
         onTap: (_) {
           print('snackbar tapped');
         },
       );
-      delete(index);
+      delete(item);
     } else {
       _snackbarService.showSnackbar(
-        message: displayList[index].productName,
+        message: item.productName,
         title:
-            'Moved an item to item list ${_userService.targetUserItemList.name}',
+            'Moved an item to item list ${_targetUserItemList.name}',
         duration: Duration(seconds: 2),
         onTap: (_) {
           print('snackbar tapped');
         },
       );
-      move(index);
+      move(item);
     }
   }
 
-  void move(int index) {
-    _userService.moveUserShopAtIndex(index);
+  void move(UserShop item) async {
+    UserItem temp = UserItem(
+        productID: item.productID,
+        category: item.category,
+        productName: item.productName,
+        imageURL: item.imageURL,
+        );
+    await _db.deleteUserShop(item, _targetUserShopList);
+    await _displayListFromDatabase();
+    _db.addUserItem(temp, _targetUserItemList);
+    //_userService.moveUserItemAtIndex(index);
     notifyListeners();
   }
 
-  void delete(int index) {
-    _userService.delUserShopAtIndex(index);
+  void delete(UserShop item) async {
+    await _db.deleteUserShop(item, _targetUserShopList);
+    await _displayListFromDatabase();
     notifyListeners();
   }
+
+  // void move(int index) {
+  //   _userService.moveUserShopAtIndex(index);
+  //   notifyListeners();
+  // }
+
+  // void delete(int index) {
+  //   _userService.delUserShopAtIndex(index);
+  //   notifyListeners();
+  // }
 
   /// code to be run on rebuild
   void update() {
     notifyListeners();
   }
 }
+
+
+
+
+
+  // UserShopList get targetUserShopList {
+  //   return _userService.getTargetUSL();
+  // }
+
+  // List<UserShop> get displayList {
+  //   if (productCategories['All Categories'])
+  //     return targetUserShopList.userShopListing;
+
+  //   return targetUserShopList.userShopListing.where((UserShop ui) {
+  //     String name = ui.category.toString().split('.').last.split('_').join(' ');
+  //     return productCategories[name];
+  //   }).toList();
+  // }
+
+  // set targetUserShopList(UserShopList newTarget) {
+  //   _userService.setTargetUSL(newTarget);
+  //   notifyListeners();
+  // }
+
+
+  // void filter(int index) {
+  //   if (index == 0) {
+  //     for (String name in productCategories.keys.toList().sublist(1)) {
+  //       productCategories[name] = false;
+  //     }
+  //     productCategories['All Categories'] =
+  //         !productCategories['All Categories'];
+  //   } else {
+  //     productCategories['All Categories'] = false;
+  //     String s = productCategories.keys.toList()[index];
+  //     productCategories[s] = !productCategories[s];
+  //   }
+  //   notifyListeners();
+  // }
+
+  // UserShopSearch search() {
+  //   return UserShopSearch(displayList);
+  // }

@@ -2,26 +2,24 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/app/app.router.dart';
-import 'package:stockup/models/existingNames.dart';
 import 'package:stockup/services/auth/auth_impl.dart';
-import 'package:stockup/services/database/database_impl.dart';
 
 class SignUpViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
   final _authService = locator<AuthImplementation>();
-  final _database = locator<DatabaseServiceImpl>();
+  // final _database = locator<DatabaseServiceImpl>();
   String _email = '';
   String _password = '';
   String _confirmPassword = '';
   String _error = '';
-  String _name = '';
+  // String _name = '';
+  // bool nameCheck;
 
-  bool nameCheck;
-  DatabaseServiceImpl _db;
+  // DatabaseServiceImpl _db;
 
-  void init() async {
-    _db = DatabaseServiceImpl(uid: _authService.appUser.username);
-  }
+  // void init() async {
+  //   // _db = DatabaseServiceImpl(uid: _authService.appUser.username);
+  // }
 
   String emailValidator(String val) {
     return val.contains('@') ? null : 'Enter a valid email';
@@ -35,19 +33,19 @@ class SignUpViewModel extends BaseViewModel {
     return val == _password ? null : 'Password does not match';
   }
 
-  String nameValidator(String val) {
-    if (val.isEmpty) {
-      return 'Enter a username';
-    } else if (val.contains('@')) {
-      return 'Username must not contain "@" ';
-    } else {
-      return null;
-    }
-    // } else {
-    //   // await _nameCheck(val);
-    //   // return nameCheck ? null : 'Username already taken';
-    // }
-  }
+  // String nameValidator(String val) {
+  //   if (val.isEmpty) {
+  //     return 'Enter a username';
+  //   } else if (val.contains('@')) {
+  //     return 'Username must not contain "@" ';
+  //   } else {
+  //     return null;
+  //   }
+  //   // } else {
+  //   //   // await _nameCheck(val);
+  //   //   // return nameCheck ? null : 'Username already taken';
+  //   // }
+  // }
 
   // void _nameCheck(String val) async {
   //   nameCheck = await _db.isNameTaken(val);
@@ -68,14 +66,14 @@ class SignUpViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void updateName(val) {
-    _name = val;
-    notifyListeners();
-  }
+  // void updateName(val) {
+  //   _name = val;
+  //   notifyListeners();
+  // }
 
   void registerWithEmail() async {
     dynamic result =
-        await _authService.registerWithEmailPassword(_email, _password, _name);
+        await _authService.registerWithEmailPassword(_email, _password);
     if (result == null) {
       _updateErrorEmail();
     } else {

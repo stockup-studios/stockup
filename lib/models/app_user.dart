@@ -4,12 +4,12 @@ import 'package:stockup/models/user_shop_list.dart';
 
 class AppUser {
   final String username;
-  final String name;
+  //final String name;
   final String email;
   //List<UserItemList> userItemLists;
   //List<UserShopList> userShopLists;
 
-  AppUser({this.username, this.name, this.email});
+  AppUser({this.username, this.email});
 
   @override
   String toString() {
@@ -22,7 +22,6 @@ class AppUser {
     return AppUser(
       username: json['uid'],
       email: json['email'],
-      name: json['name'],
     );
   }
 
@@ -30,7 +29,6 @@ class AppUser {
     return {
       'email': email,
       'uid': username,
-      'name': name,
     };
   }
 }

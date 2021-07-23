@@ -29,7 +29,11 @@ abstract class DatabaseService {
   Future<String> addGiantItem(Product item);
 
   // Read
-  Future<Map<String, dynamic>> getCredentials();
+  // Future<Map<String, dynamic>> getCredentials();
+
+  Future<AppUser> getUser();
+
+  Future<dynamic> getUserbyEmail(String email);
 
   Future<List<UserItem>> getUserItems(UserItemList list);
 

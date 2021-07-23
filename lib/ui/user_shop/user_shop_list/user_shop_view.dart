@@ -35,7 +35,7 @@ class UserShopView extends StatelessWidget {
                       value: model.targetUserShopList,
                       icon: Icon(Icons.arrow_downward),
                       onChanged: (UserShopList newList) {
-                        model.targetUserShopList = newList;
+                        model.updateTargetUserShopList(newList);
                       },
                       items: model.userShopLists
                           .map<DropdownMenuItem<UserShopList>>(
@@ -64,13 +64,13 @@ class UserShopView extends StatelessWidget {
                       IconButton(
                         icon: Icon(Icons.search),
                         onPressed: () async {
-                          UserShop userItem = await showSearch<UserShop>(
+                          UserShop userShop = await showSearch<UserShop>(
                               context: context, delegate: model.search());
-                          if (userItem != null)
+                          if (userShop != null)
                             await showModalBottomSheet(
                               context: context,
                               builder: (context) => UserShopDetailView(
-                                userShop: userItem,
+                                userShop: userShop,
                               ),
                             );
                           model.update();
