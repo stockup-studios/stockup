@@ -4,12 +4,8 @@ import 'package:stacked/stacked.dart';
 import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
-<<<<<<< HEAD
-import 'package:stockup/ui/user_item/user_item_add_view.dart';
-import 'package:stockup/ui/user_item/user_item_share_view.dart';
-=======
+import 'package:stockup/ui/user_item/user_item_add/user_item_add_view.dart';
 import 'package:stockup/ui/user_item/user_item_share/user_item_share_view.dart';
->>>>>>> 836b4ca766554a65cebd0bebe662d364e837d2c5
 import 'package:stockup/ui/user_item/user_item_detail/user_item_detail_view.dart';
 import 'package:stockup/ui/user_item/user_item_list/user_item_view_model.dart';
 
@@ -120,25 +116,25 @@ class UserItemView extends StatelessWidget {
                         foregroundColor: Colors.white,
                         color: Colors.orange,
                         icon: Icons.list,
-                        onTap: () => model.onMove(index),
+                        onTap: () => model.move(model.displayList[index]),
                       ),
                       IconSlideAction(
                         caption: 'Delete',
                         foregroundColor: Colors.white,
                         color: Colors.red,
                         icon: Icons.delete,
-                        onTap: () => model.onDelete(index),
-                      )
-                    ],
-                    secondaryActions: [
-                      IconSlideAction(
-                        caption: 'Consume',
-                        foregroundColor: Colors.white,
-                        color: Colors.green,
-                        icon: Icons.check,
                         onTap: () => model.delete(model.displayList[index]),
                       )
                     ],
+                    // secondaryActions: [
+                    //   IconSlideAction(
+                    //     caption: 'Consume',
+                    //     foregroundColor: Colors.white,
+                    //     color: Colors.green,
+                    //     icon: Icons.check,
+                    //     onTap: () => model.delete(model.displayList[index]),
+                    //   )
+                    // ],
                     child: Card(
                       child: ListTile(
                         leading: Image.network(

@@ -28,13 +28,6 @@ class UserShopViewModel extends BaseViewModel {
   List<UserShop> _userShops =
       SortedList<UserShop>((r1, r2) => r2.quantity.compareTo(r1.quantity));
 
-  // /// Only called once. Will not be called again on rebuild
-  // void init() {
-  //   userShopLists = _userService.getUSLs();
-  //   targetUserShopList = _userService.getTargetUSL();
-  //   notifyListeners();
-  // }
-
   void init() async {
     _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     await _targetUserItemListFromDatabase();
@@ -206,61 +199,8 @@ class UserShopViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  // void move(int index) {
-  //   _userService.moveUserShopAtIndex(index);
-  //   notifyListeners();
-  // }
-
-  // void delete(int index) {
-  //   _userService.delUserShopAtIndex(index);
-  //   notifyListeners();
-  // }
-
   /// code to be run on rebuild
   void update() {
     notifyListeners();
   }
 }
-
-
-
-
-
-  // UserShopList get targetUserShopList {
-  //   return _userService.getTargetUSL();
-  // }
-
-  // List<UserShop> get displayList {
-  //   if (productCategories['All Categories'])
-  //     return targetUserShopList.userShopListing;
-
-  //   return targetUserShopList.userShopListing.where((UserShop ui) {
-  //     String name = ui.category.toString().split('.').last.split('_').join(' ');
-  //     return productCategories[name];
-  //   }).toList();
-  // }
-
-  // set targetUserShopList(UserShopList newTarget) {
-  //   _userService.setTargetUSL(newTarget);
-  //   notifyListeners();
-  // }
-
-
-  // void filter(int index) {
-  //   if (index == 0) {
-  //     for (String name in productCategories.keys.toList().sublist(1)) {
-  //       productCategories[name] = false;
-  //     }
-  //     productCategories['All Categories'] =
-  //         !productCategories['All Categories'];
-  //   } else {
-  //     productCategories['All Categories'] = false;
-  //     String s = productCategories.keys.toList()[index];
-  //     productCategories[s] = !productCategories[s];
-  //   }
-  //   notifyListeners();
-  // }
-
-  // UserShopSearch search() {
-  //   return UserShopSearch(displayList);
-  // }

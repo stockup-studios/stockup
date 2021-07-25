@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/models/product_category.dart';
 import 'package:stockup/models/user_item_list.dart';
-import 'package:stockup/ui/user_item/user_item_add_view_model.dart';
+import 'package:stockup/ui/user_item/user_item_add/user_item_add_view_model.dart';
 
 class UserItemAddView extends StatelessWidget {
   const UserItemAddView({@required this.userItemList, Key key})
