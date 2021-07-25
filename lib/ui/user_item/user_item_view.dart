@@ -117,6 +117,13 @@ class UserItemView extends StatelessWidget {
                         color: Colors.orange,
                         icon: Icons.list,
                         onTap: () => model.onMove(index),
+                      ),
+                      IconSlideAction(
+                        caption: 'Delete',
+                        foregroundColor: Colors.white,
+                        color: Colors.red,
+                        icon: Icons.delete,
+                        onTap: () => model.onDelete(index),
                       )
                     ],
                     secondaryActions: [

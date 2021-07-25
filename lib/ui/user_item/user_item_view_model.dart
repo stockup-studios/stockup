@@ -72,8 +72,8 @@ class UserItemViewModel extends BaseViewModel {
 
   void onConsume(int index) {
     _snackbarService.showSnackbar(
-      message: displayList[index].productName,
-      title: 'Removed an item from ${_userService.targetUserItemList.name}',
+      title: displayList[index].productName,
+      message: 'has been consumed',
       duration: Duration(seconds: 2),
       onTap: (_) {
         print('snackbar tapped');
@@ -84,15 +84,29 @@ class UserItemViewModel extends BaseViewModel {
 
   void onMove(int index) {
     _snackbarService.showSnackbar(
-      message: displayList[index].productName,
-      title:
-          'Moved an item to shopping list ${_userService.targetUserShopList.name}',
+      title: displayList[index].productName,
+      message:
+          'has been moved to shopping list: ${_userService.targetUserShopList.name}',
       duration: Duration(seconds: 2),
       onTap: (_) {
         print('snackbar tapped');
       },
     );
     move(index);
+  }
+
+  void onDelete(int index) {
+    _snackbarService.showSnackbar(
+      title: displayList[index].productName,
+      message:
+          'has been deleted from item list: ${_userService.targetUserItemList.name}',
+      duration: Duration(seconds: 2),
+      onTap: (_) {
+        print('snackbar tapped');
+      },
+    );
+    delete(index);
+    // TODO: Add database function to add into list of expired items
   }
 
   void add() {

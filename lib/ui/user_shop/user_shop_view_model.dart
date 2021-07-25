@@ -81,8 +81,9 @@ class UserShopViewModel extends BaseViewModel {
 
   void onDelete(int index) {
     _snackbarService.showSnackbar(
-      message: displayList[index].productName,
-      title: 'Removed an item from ${_userService.targetUserShopList.name}',
+      title: displayList[index].productName,
+      message:
+          'has been deleted from shopping list: ${_userService.targetUserShopList.name}',
       duration: Duration(seconds: 2),
       onTap: (_) {
         print('snackbar tapped');
@@ -93,9 +94,9 @@ class UserShopViewModel extends BaseViewModel {
 
   void onMove(int index) {
     _snackbarService.showSnackbar(
-      message: displayList[index].productName,
-      title:
-          'Moved an item to item list ${_userService.targetUserItemList.name}',
+      title: displayList[index].productName,
+      message:
+          'has been moved to item list: ${_userService.targetUserItemList.name}',
       duration: Duration(seconds: 2),
       onTap: (_) {
         print('snackbar tapped');
