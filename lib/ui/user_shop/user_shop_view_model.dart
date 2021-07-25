@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
@@ -80,29 +79,29 @@ class UserShopViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  onSwipe(DismissDirection direction, int index) {
-    if (direction == DismissDirection.startToEnd) {
-      _snackbarService.showSnackbar(
-        message: displayList[index].productName,
-        title: 'Removed an item from ${_userService.targetUserShopList.name}',
-        duration: Duration(seconds: 2),
-        onTap: (_) {
-          print('snackbar tapped');
-        },
-      );
-      delete(index);
-    } else {
-      _snackbarService.showSnackbar(
-        message: displayList[index].productName,
-        title:
-            'Moved an item to item list ${_userService.targetUserItemList.name}',
-        duration: Duration(seconds: 2),
-        onTap: (_) {
-          print('snackbar tapped');
-        },
-      );
-      move(index);
-    }
+  void onDelete(int index) {
+    _snackbarService.showSnackbar(
+      message: displayList[index].productName,
+      title: 'Removed an item from ${_userService.targetUserShopList.name}',
+      duration: Duration(seconds: 2),
+      onTap: (_) {
+        print('snackbar tapped');
+      },
+    );
+    delete(index);
+  }
+
+  void onMove(int index) {
+    _snackbarService.showSnackbar(
+      message: displayList[index].productName,
+      title:
+          'Moved an item to item list ${_userService.targetUserItemList.name}',
+      duration: Duration(seconds: 2),
+      onTap: (_) {
+        print('snackbar tapped');
+      },
+    );
+    move(index);
   }
 
   void move(int index) {
