@@ -11,10 +11,10 @@ class UserScanViewModel extends BaseViewModel {
   final _userService = locator<UserService>();
   final _scanner = locator<Scanner>();
   final _parser = locator<Parser>();
-  final List<Product> _productMatches = [];
+  final List<UserItem> _productMatches = [];
   String foundNoTextError = '';
 
-  List<Product> get productMatches => _productMatches;
+  List<UserItem> get productMatches => _productMatches;
 
   void addFile() async {
     String imageFile = await _scanner.getImageFilePath();
@@ -22,13 +22,18 @@ class UserScanViewModel extends BaseViewModel {
     List<String> text = await _scanner.getTextFromImageFile(imageFile);
     List<String> matches = _parser.getBestMatches(text);
     foundNoTextError = (matches.length == 0)
-        ? "Receipt picture might be rotated. We couldn't find any details"
+        ? "Couldn't find any details. Receipt picture might be rotated"
         : '';
     for (String match in matches) {
       print(match);
       Product p =
           productCatalog.firstWhere((product) => product.productName == match);
-      _productMatches.add(p);
+      UserItem userItem = UserItem(
+          productName: p.productName,
+          productID: p.productID,
+          category: p.category,
+          imageURL: p.imageURL);
+      _productMatches.add(userItem);
     }
     setBusy(false);
     notifyListeners();
@@ -46,7 +51,12 @@ class UserScanViewModel extends BaseViewModel {
         print(match);
         Product p = productCatalog
             .firstWhere((product) => product.productName == match);
-        _productMatches.add(p);
+        UserItem userItem = UserItem(
+            productName: p.productName,
+            productID: p.productID,
+            category: p.category,
+            imageURL: p.imageURL);
+        _productMatches.add(userItem);
       }
     }
     foundNoTextError = added
@@ -57,15 +67,15 @@ class UserScanViewModel extends BaseViewModel {
   }
 
   void addToItems() {
-    for (Product p in _productMatches) {
-      UserItem ui = UserItem(
-          productName: p.productName,
-          productID: p.productID,
-          category: p.category,
-          imageURL: p.imageURL);
+    for (UserItem ui in _productMatches) {
       _userService.addUserItem(ui);
     }
     _productMatches.clear();
+    notifyListeners();
+  }
+
+  void delete(int index) {
+    _productMatches.removeAt(index);
     notifyListeners();
   }
 

@@ -63,18 +63,29 @@ class UserScanView extends StatelessWidget {
                                       .last
                                       .split('_')
                                       .join(' ')),
-                                  trailing: IconButton(
-                                    onPressed: () async {
-                                      await showModalBottomSheet(
-                                        context: context,
-                                        builder: (context) =>
-                                            UserScanDetailView(
-                                                product: model
-                                                    .productMatches[index]),
-                                      );
-                                      model.update();
-                                    },
-                                    icon: Icon(Icons.edit),
+                                  trailing: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      IconButton(
+                                        onPressed: () async {
+                                          await showModalBottomSheet(
+                                            context: context,
+                                            builder: (context) =>
+                                                UserScanDetailView(
+                                                    product: model
+                                                        .productMatches[index]),
+                                          );
+                                          model.update();
+                                        },
+                                        icon: Icon(Icons.edit),
+                                      ),
+                                      IconButton(
+                                        onPressed: () {
+                                          model.delete(index);
+                                        },
+                                        icon: Icon(Icons.delete),
+                                      )
+                                    ],
                                   ));
                             }),
                       ),
