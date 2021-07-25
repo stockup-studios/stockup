@@ -11,11 +11,12 @@ import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../services/auth/auth_impl.dart';
+import '../services/database/database_impl.dart';
 import '../services/parser/parser.dart';
 import '../services/scanner/scanner.dart';
 import '../services/user/user_service.dart';
 import '../ui/sign_in/sign_in_view_model.dart';
-import '../ui/user_item/user_item_view_model.dart';
+import '../ui/user_item/user_item_list/user_item_view_model.dart';
 import '../ui/user_shop/user_shop_view_model.dart';
 
 final locator = StackedLocator.instance;
@@ -29,6 +30,7 @@ void setupLocator({String environment, EnvironmentFilter environmentFilter}) {
   locator.registerLazySingleton(() => NavigationService());
   locator.registerLazySingleton(() => AuthImplementation());
   locator.registerLazySingleton(() => SnackbarService());
+  locator.registerLazySingleton(() => DatabaseServiceImpl());
   locator.registerLazySingleton(() => UserService());
   locator.registerLazySingleton(() => Scanner());
   locator.registerLazySingleton(() => Parser());

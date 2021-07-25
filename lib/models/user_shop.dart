@@ -17,14 +17,13 @@ class UserShop extends Product {
       @required this.category,
       @required this.productName,
       @required this.imageURL,
-      this.uid})
+      this.uid,
+      this.quantity})
       : super(
             productName: productName,
             productID: productID,
             category: category,
-            imageURL: imageURL) {
-    this.quantity = 1;
-  }
+            imageURL: imageURL);
 
   void addQuantity() {
     ++quantity;
@@ -47,6 +46,7 @@ class UserShop extends Product {
           CategoryExtension.getCategory(json['product_category'].toString()),
       imageURL: json['product_img_url'],
       productID: json['product_code'],
+      quantity: json['quantity'],
     );
   }
 
@@ -57,11 +57,12 @@ class UserShop extends Product {
       'product_category': category.name,
       'product_img_url': imageURL,
       'product_code': productID,
+      'quantity': quantity,
     };
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator == (Object other) {
     return (other is UserShop) &&
         (this.productName == other.productName) &&
         (this.productID == other.productID) &&

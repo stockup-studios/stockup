@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart' as intl;
+import 'package:intl/intl.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/models/product_category.dart';
 import 'package:stockup/models/user_item.dart';
-import 'package:stockup/ui/user_item/user_item_detail_view_model.dart';
+import 'package:stockup/ui/user_item/user_item_detail/user_item_detail_view_model.dart';
 
 class UserItemDetailView extends StatelessWidget {
   const UserItemDetailView({
@@ -98,8 +98,8 @@ class UserItemDetailView extends StatelessWidget {
                 child: Row(
                   children: [
                     Container(
-                      child: Text(
-                          intl.DateFormat('dd MMM yyyy').format(model.expiry)),
+                      child:
+                          Text(DateFormat('dd MMM yyyy').format(model.expiry)),
                     ),
                     Icon(Icons.calendar_today),
                   ],

@@ -5,9 +5,9 @@ import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/models/user_item_list.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
-import 'package:stockup/ui/user_item/user_item_detail_view.dart';
 import 'package:stockup/ui/user_item/user_item_share_view.dart';
-import 'package:stockup/ui/user_item/user_item_view_model.dart';
+import 'package:stockup/ui/user_item/user_item_detail/user_item_detail_view.dart';
+import 'package:stockup/ui/user_item/user_item_list/user_item_view_model.dart';
 
 class UserItemView extends StatelessWidget {
   const UserItemView({Key key}) : super(key: key);
@@ -146,7 +146,7 @@ class UserItemView extends StatelessWidget {
                           },
                         ),
                         title: Text(model.displayList[index].productName),
-                        subtitle: model.displayList[index].daysLeft == '1'
+                        subtitle: model.displayList[index].daysLeft == 1
                             ? Text(
                                 '${model.displayList[index].daysLeft} day left')
                             : Text(
