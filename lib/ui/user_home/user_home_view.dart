@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart' as intl;
 import 'package:stacked/stacked.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/ui/user_home/user_home_view_model.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class UserHomeView extends StatelessWidget {
   const UserHomeView({Key key}) : super(key: key);
@@ -9,21 +11,48 @@ class UserHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserHomeViewModel>.reactive(
+      disposeViewModel: false,
+      initialiseSpecialViewModelsOnce: true,
+      onModelReady: (model) => model.init(),
+      fireOnModelReadyOnce: true,
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           title: Text('Home'),
           centerTitle: true,
+          actions: <Widget>[
+            TextButton.icon(
+              icon: Icon(Icons.person, color: Colors.white,),
+              label: Text('Logout'),
+              onPressed: () async {
+                model.signOut();
+              },
+            )
+          ],
         ),
-        body: ListView.builder(
-          itemCount: model.messages.length,
-          itemBuilder: (context, index) {
-            return HomeTile(
-              // TODO: Replace with service
-              colorLeft: Colors.orangeAccent,
-              colorRight: Colors.deepOrangeAccent,
-              text: model.messages[index],
-            );
-          },
+        body: ListView(
+          children: [
+            for (int index = 0; index < model.messages.length; ++index)
+              HomeTile(
+                // TODO: Replace with service
+                colorLeft: Colors.orangeAccent,
+                colorRight: Colors.deepOrangeAccent,
+                text: model.messages[index],
+              ),
+            SfCartesianChart(
+              title: ChartTitle(text: 'Food Wastage Statistics'),
+              tooltipBehavior: TooltipBehavior(enable: true),
+              primaryXAxis: CategoryAxis(),
+              series: <LineSeries<dynamic, String>>[
+                LineSeries<dynamic, String>(
+                  name: 'Expired items',
+                  dataSource: model.expiredItemData,
+                  xValueMapper: (dynamic data, _) =>
+                      intl.DateFormat('dd MMM').format(data.time),
+                  yValueMapper: (dynamic data, _) => data.amount,
+                )
+              ],
+            ),
+          ],
         ),
         bottomNavigationBar: BottomNavigation(currentIndex: 0),
       ),
@@ -80,7 +109,7 @@ class HomeTile extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                   ),
-                )
+                ),
             ],
           ),
         ),

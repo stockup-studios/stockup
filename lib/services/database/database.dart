@@ -20,6 +20,10 @@ abstract class DatabaseService {
 
   Future<void> addUserShopListforUser(UserShopList list);
 
+  Future<void> addTargetShopList(UserShopList list);
+
+  Future<void> addTargetItemList(UserItemList list);
+
   Future<String> addGiantItem(Product item);
 
   // Read
@@ -35,6 +39,10 @@ abstract class DatabaseService {
   //get all user_shop_list specific to user
   Future<List<UserShopList>> getUserShopLists();
 
+  Future<UserShopList> getTargetShopList();
+
+  Future<UserItemList> getTargetItemList();
+
   Future<List<Product>> getGiantItems();
 
   // Update
@@ -47,6 +55,10 @@ abstract class DatabaseService {
   Future<void> updateUserShopList(UserShopList list);
 
   Future<void> updateUserItemList(UserItemList list);
+
+  Future<void> updateTargetItemList(UserItemList list);
+
+  Future<void> updateTargetShopList(UserShopList list);
 
   Future<void> updateGiantItem(Product item);
 

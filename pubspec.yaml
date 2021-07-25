@@ -48,6 +48,8 @@ dependencies:
 
   # http
   http: ^0.13.3
+  # charts & graphs
+  syncfusion_flutter_charts: ^19.2.48
 
 dev_dependencies:
   flutter_test:
