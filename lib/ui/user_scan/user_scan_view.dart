@@ -5,6 +5,7 @@ import 'package:stockup/ui/user_scan/user_scan_detail_view.dart';
 import 'package:stockup/ui/user_scan/user_scan_view_model.dart';
 
 class UserScanView extends StatelessWidget {
+  static const int index = 2;
   const UserScanView({Key key}) : super(key: key);
 
   @override

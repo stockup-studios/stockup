@@ -14,6 +14,7 @@ import 'package:stockup/ui/user_item/user_item_detail/user_item_detail_view.dart
 import 'package:stockup/ui/user_item/user_item_list/user_item_view_model.dart';
 
 class UserItemView extends StatelessWidget {
+  static const int index = 1;
   const UserItemView({Key key}) : super(key: key);
 
   @override
@@ -93,6 +94,7 @@ class UserItemView extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: FilterChip(
+                      //autofocus: true,
                       selected: model.productCategories.values.toList()[index],
                       onSelected: (e) {
                         model.filter(index);
@@ -149,11 +151,11 @@ class UserItemView extends StatelessWidget {
                           },
                         ),
                         title: Text(model.displayList[index].productName),
-                        subtitle: model.displayList[index].daysLeft == 1
-                            ? Text(
-                                '${model.displayList[index].daysLeft} day left')
-                            : Text(
-                                '${model.displayList[index].daysLeft} days left'),
+                        subtitle: 
+                        //model.displayList[index].daysLeft == 1
+                            Text(model.getExpiryDays(model.displayList[index])),
+                            // : Text(
+                            //     '${model.displayList[index].daysLeft} days left'),
                         trailing: IconButton(
                           icon: Icon(Icons.edit),
                           onPressed: () async {

@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:sorted_list/sorted_list.dart';
 import 'package:stockup/business_logic/defaultData/defaultData.dart';
+import 'package:stockup/business_logic/defaultData/expired_items.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/services/database/database.dart';
 
@@ -19,6 +21,7 @@ class DatabaseServiceImpl implements DatabaseService {
   CollectionReference userItemListCollection; //user specific
   CollectionReference targetShopListCollection;
   CollectionReference targetItemListCollection;
+  DocumentReference userItemExpiredDoc;
 
   DatabaseServiceImpl({this.uid}) {
     userDocument = _firestore.collection('users').doc(uid);
@@ -26,6 +29,9 @@ class DatabaseServiceImpl implements DatabaseService {
     userItemListCollection = userDocument.collection('user_item_list');
     targetShopListCollection = userDocument.collection("target_shop_list");
     targetItemListCollection = userDocument.collection('target_item_list');
+
+    userItemExpiredDoc =
+        userDocument.collection('expired_items').doc('records');
   }
 
   // To-do: Initalize account with default data
@@ -57,6 +63,11 @@ class DatabaseServiceImpl implements DatabaseService {
 
     await addTargetItemList(demoUserItemList[0]);
     await addTargetShopList(demoUserShopList[0]);
+
+    final expiredDocument =
+        userDocument.collection('expired_items').doc('records');
+    Map<String, dynamic> json = {'expired_items': expiredItems};
+    expiredDocument.set(json);
   }
 
   @override
@@ -330,17 +341,6 @@ class DatabaseServiceImpl implements DatabaseService {
   Future<List<UserShopList>> getUserShopLists() async {
     List<QueryDocumentSnapshot> snapshots =
         await userShopListCollection.get().then((value) => value.docs);
-
-    // List<DocumentReference> reference =
-    //     snapshots.map((snapshot) => snapshot.get(FieldPath(["reference"])));
-
-    // List<DocumentSnapshot> processed;
-
-    // for (int i = 0; i < reference.length; i++) {
-    //   DocumentSnapshot temp = await reference[i].get();
-    //   processed.add(temp);
-    // }
-    // return processed.map((doc) => UserShopList.fromFirestore(doc));
     List<DocumentSnapshot> processed = [];
     for (int i = 0; i < snapshots.length; i++) {
       Map data = snapshots.map((e) => e.data()).toList().elementAt(i);
@@ -372,6 +372,16 @@ class DatabaseServiceImpl implements DatabaseService {
     });
     print(shared.length);
     return shared;
+  }
+
+  Future<List<int>> getExpiredItems() async {
+    DocumentSnapshot snapshot = await userItemExpiredDoc.get();
+    List<int> result = [];
+    Map data = snapshot.data();
+    List.from(data['expired_items']).forEach((element) {
+      result.add(element);
+    });
+    return result;
   }
 
   @override
@@ -490,15 +500,34 @@ class DatabaseServiceImpl implements DatabaseService {
     CollectionReference addedUser = _firestore
         .collection('users')
         .doc(user.username)
-        .collection('user_item_list');
+        .collection('user_shop_list');
     final listDocument = addedUser.doc();
     Map<String, String> json = {'uid': list.uid};
     listDocument.set(json);
   }
 
+  Future<void> updateExpiredItems(int date) async {
+    //UserItem updateditem = UserItem.fromFirestore(doc)
+    DocumentReference doc = userItemExpiredDoc;
+    List<int> temp = SortedList<int>((r1, r2) => r2.compareTo(r1));
+    Map data = await doc.get().then((value) => value.data());
+    List.from(data['expired_items']).forEach((element) {
+      temp.add(element);
+    });
+    temp.add(date);
+    Map<String, dynamic> json = {'expired_items': temp};
+    doc.set(json);
+  }
+
   // Delete
   @override
   Future<void> deleteUserItem(UserItem item, UserItemList list) async {
+    int temp = item.daysLeft;
+    if (temp <= 0) {
+      // update user => expired
+      int expiry = item.expiryDate;
+      updateExpiredItems(expiry);
+    }
     user_item_lists
         .doc(list.uid)
         .collection('user_item')

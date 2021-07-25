@@ -145,20 +145,33 @@ class UserShopViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  onSwipe(DismissDirection direction, int index) {
-    UserShop item = displayList[index];
-    if (direction == DismissDirection.startToEnd) {
-      _snackbarService.showSnackbar(
-        message: item.productName,
-        title: 'Removed an item from ${_targetUserShopList.name}',
-        duration: Duration(seconds: 2),
-        onTap: (_) {
-          print('snackbar tapped');
-        },
-      );
-      delete(item);
-    } else {
-      _snackbarService.showSnackbar(
+  // onSwipe(DismissDirection direction, int index) {
+  //   UserShop item = displayList[index];
+  //   if (direction == DismissDirection.startToEnd) {
+  //     _snackbarService.showSnackbar(
+  //       message: item.productName,
+  //       title: 'Removed an item from ${_targetUserShopList.name}',
+  //       duration: Duration(seconds: 2),
+  //       onTap: (_) {
+  //         print('snackbar tapped');
+  //       },
+  //     );
+  //     delete(item);
+  //   } else {
+  //     _snackbarService.showSnackbar(
+  //       message: item.productName,
+  //       title: 'Moved an item to item list ${_targetUserItemList.name}',
+  //       duration: Duration(seconds: 2),
+  //       onTap: (_) {
+  //         print('snackbar tapped');
+  //       },
+  //     );
+  //     move(item);
+  //   }
+  // }
+
+  void move(UserShop item) async {
+     _snackbarService.showSnackbar(
         message: item.productName,
         title: 'Moved an item to item list ${_targetUserItemList.name}',
         duration: Duration(seconds: 2),
@@ -166,11 +179,6 @@ class UserShopViewModel extends BaseViewModel {
           print('snackbar tapped');
         },
       );
-      move(item);
-    }
-  }
-
-  void move(UserShop item) async {
     UserItem temp = UserItem(
       productID: item.productID,
       category: item.category,
@@ -185,6 +193,14 @@ class UserShopViewModel extends BaseViewModel {
   }
 
   void delete(UserShop item) async {
+    _snackbarService.showSnackbar(
+        message: item.productName,
+        title: 'Removed an item from ${_targetUserShopList.name}',
+        duration: Duration(seconds: 2),
+        onTap: (_) {
+          print('snackbar tapped');
+        },
+      );
     await _database.deleteUserShop(item, _targetUserShopList);
     await _displayListFromDatabase();
     notifyListeners();

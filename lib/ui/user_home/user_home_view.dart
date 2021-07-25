@@ -6,6 +6,7 @@ import 'package:stockup/ui/user_home/user_home_view_model.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class UserHomeView extends StatelessWidget {
+  static const int index = 0;
   const UserHomeView({Key key}) : super(key: key);
 
   @override
@@ -21,7 +22,10 @@ class UserHomeView extends StatelessWidget {
           centerTitle: true,
           actions: <Widget>[
             TextButton.icon(
-              icon: Icon(Icons.person, color: Colors.white,),
+              icon: Icon(
+                Icons.person,
+                color: Colors.white,
+              ),
               label: Text('Logout'),
               onPressed: () async {
                 model.signOut();
@@ -45,7 +49,7 @@ class UserHomeView extends StatelessWidget {
               series: <LineSeries<dynamic, String>>[
                 LineSeries<dynamic, String>(
                   name: 'Expired items',
-                  dataSource: model.expiredItemData,
+                  dataSource: model.expiredData,
                   xValueMapper: (dynamic data, _) =>
                       intl.DateFormat('dd MMM').format(data.time),
                   yValueMapper: (dynamic data, _) => data.amount,

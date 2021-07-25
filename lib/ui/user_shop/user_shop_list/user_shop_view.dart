@@ -17,6 +17,7 @@ import 'package:stockup/ui/user_shop/user_shop_list/user_shop_view_model.dart';
 >>>>>>> 836b4ca766554a65cebd0bebe662d364e837d2c5:lib/ui/user_shop/user_shop_list/user_shop_view.dart
 
 class UserShopView extends StatelessWidget {
+  static const int index = 3;
   const UserShopView({Key key}) : super(key: key);
 
   @override
