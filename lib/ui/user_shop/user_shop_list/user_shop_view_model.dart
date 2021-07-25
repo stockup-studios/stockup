@@ -6,7 +6,7 @@ import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/app/app.router.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/services/services.dart';
-import 'package:stockup/services/user/user_service.dart';
+//import 'package:stockup/services/user/user_service.dart';
 import 'package:stockup/ui/user_shop/user_shop_search.dart';
 
 class UserShopViewModel extends BaseViewModel {
