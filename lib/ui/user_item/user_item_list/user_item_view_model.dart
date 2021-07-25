@@ -193,7 +193,7 @@ class UserItemViewModel extends BaseViewModel {
         print('snackbar tapped');
       },
     );
-    await _database.deleteUserItem(item, _targetUserItemList);
+    await _database.deleteUserItem(item, _targetUserItemList); //change this to check for expiry date 
     await _displayListFromDatabase();
     notifyListeners();
   }

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stockup/business_logic/defaultData/defaultData.dart';
+import 'package:stockup/business_logic/defaultData/expired_items.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/services/database/database.dart';
 
@@ -19,6 +20,7 @@ class DatabaseServiceImpl implements DatabaseService {
   CollectionReference userItemListCollection; //user specific
   CollectionReference targetShopListCollection;
   CollectionReference targetItemListCollection;
+  DocumentReference userItemExpiredDoc;
 
   DatabaseServiceImpl({this.uid}) {
     userDocument = _firestore.collection('users').doc(uid);
@@ -26,6 +28,9 @@ class DatabaseServiceImpl implements DatabaseService {
     userItemListCollection = userDocument.collection('user_item_list');
     targetShopListCollection = userDocument.collection("target_shop_list");
     targetItemListCollection = userDocument.collection('target_item_list');
+
+    userItemExpiredDoc =
+        userDocument.collection('expired_items').doc('records');
   }
 
   // To-do: Initalize account with default data
@@ -57,6 +62,11 @@ class DatabaseServiceImpl implements DatabaseService {
 
     await addTargetItemList(demoUserItemList[0]);
     await addTargetShopList(demoUserShopList[0]);
+
+    final expiredDocument =
+        userDocument.collection('expired_items').doc('records');
+    Map<String, dynamic> json = {'expired_items': expiredItems};
+    expiredDocument.set(json);
   }
 
   @override
@@ -485,9 +495,21 @@ class DatabaseServiceImpl implements DatabaseService {
     listDocument.set(json);
   }
 
+  Future<void> updateExpiredItems(UserItem item) async {
+    //UserItem updateditem = UserItem.fromFirestore(doc)
+    userItemExpiredDoc.update({
+      'expired_items': FieldValue.arrayUnion([item.expiryDate])
+    });
+  }
+
   // Delete
   @override
   Future<void> deleteUserItem(UserItem item, UserItemList list) async {
+    int temp = item.daysLeft;
+    if (temp < 0) {
+      // update user => expired
+      updateExpiredItems(item);
+    }
     user_item_lists
         .doc(list.uid)
         .collection('user_item')
