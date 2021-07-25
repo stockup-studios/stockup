@@ -33,4 +33,18 @@ class UserHomeViewModel extends BaseViewModel {
       'Click to view',
     ],
   ];
+
+  final List<ExpiredItemData> expiredItemData = [
+    ExpiredItemData(DateTime.now(), 7),
+    ExpiredItemData(DateTime.now().add(Duration(days: 1)), 5),
+    ExpiredItemData(DateTime.now().add(Duration(days: 2)), 4),
+    ExpiredItemData(DateTime.now().add(Duration(days: 3)), 2),
+    ExpiredItemData(DateTime.now().add(Duration(days: 4)), 1),
+  ];
+}
+
+class ExpiredItemData {
+  ExpiredItemData(this.time, this.amount);
+  final DateTime time;
+  final int amount;
 }
