@@ -89,6 +89,7 @@ class UserItemView extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: FilterChip(
+                      //autofocus: true,
                       selected: model.productCategories.values.toList()[index],
                       onSelected: (e) {
                         model.filter(index);

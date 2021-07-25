@@ -330,17 +330,6 @@ class DatabaseServiceImpl implements DatabaseService {
   Future<List<UserShopList>> getUserShopLists() async {
     List<QueryDocumentSnapshot> snapshots =
         await userShopListCollection.get().then((value) => value.docs);
-
-    // List<DocumentReference> reference =
-    //     snapshots.map((snapshot) => snapshot.get(FieldPath(["reference"])));
-
-    // List<DocumentSnapshot> processed;
-
-    // for (int i = 0; i < reference.length; i++) {
-    //   DocumentSnapshot temp = await reference[i].get();
-    //   processed.add(temp);
-    // }
-    // return processed.map((doc) => UserShopList.fromFirestore(doc));
     List<DocumentSnapshot> processed = [];
     for (int i = 0; i < snapshots.length; i++) {
       Map data = snapshots.map((e) => e.data()).toList().elementAt(i);
@@ -490,7 +479,7 @@ class DatabaseServiceImpl implements DatabaseService {
     CollectionReference addedUser = _firestore
         .collection('users')
         .doc(user.username)
-        .collection('user_item_list');
+        .collection('user_shop_list');
     final listDocument = addedUser.doc();
     Map<String, String> json = {'uid': list.uid};
     listDocument.set(json);
