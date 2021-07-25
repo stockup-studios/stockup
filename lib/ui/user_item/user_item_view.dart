@@ -5,6 +5,7 @@ import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/models/user_item_list.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
+import 'package:stockup/ui/user_item/user_item_add_view.dart';
 import 'package:stockup/ui/user_item/user_item_detail_view.dart';
 import 'package:stockup/ui/user_item/user_item_share_view.dart';
 import 'package:stockup/ui/user_item/user_item_view_model.dart';
@@ -173,7 +174,14 @@ class UserItemView extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
-          onPressed: model.add,
+          onPressed: () async {
+            await showModalBottomSheet(
+              context: context,
+              builder: (context) =>
+                  UserItemAddView(userItemList: model.targetUserItemList),
+            );
+            model.update();
+          },
         ),
         bottomNavigationBar: BottomNavigation(currentIndex: 1),
       ),
