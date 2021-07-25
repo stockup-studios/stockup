@@ -5,6 +5,7 @@ import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/user_shop.dart';
 import 'package:stockup/models/user_shop_list.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
+import 'package:stockup/ui/user_shop/user_shop_add_view.dart';
 import 'package:stockup/ui/user_shop/user_shop_detail_view.dart';
 import 'package:stockup/ui/user_shop/user_shop_share_view.dart';
 import 'package:stockup/ui/user_shop/user_shop_view_model.dart';
@@ -168,10 +169,17 @@ class UserShopView extends StatelessWidget {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: model
-              .add, // TODO: Implement adding functionality with service in ViewModel
-        ),
+            child: Icon(Icons.add),
+            onPressed: () async {
+              await showModalBottomSheet(
+                isScrollControlled: true,
+                context: context,
+                builder: (context) => UserShopAddView(
+                  userShopList: model.targetUserShopList,
+                ),
+              );
+              model.update();
+            }),
         bottomNavigationBar: BottomNavigation(currentIndex: 3),
       ),
       viewModelBuilder: () => locator<UserShopViewModel>(),
