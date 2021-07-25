@@ -22,7 +22,10 @@ class UserHomeView extends StatelessWidget {
           centerTitle: true,
           actions: <Widget>[
             TextButton.icon(
-              icon: Icon(Icons.person, color: Colors.white,),
+              icon: Icon(
+                Icons.person,
+                color: Colors.white,
+              ),
               label: Text('Logout'),
               onPressed: () async {
                 model.signOut();
@@ -46,7 +49,7 @@ class UserHomeView extends StatelessWidget {
               series: <LineSeries<dynamic, String>>[
                 LineSeries<dynamic, String>(
                   name: 'Expired items',
-                  dataSource: model.expiredItemData,
+                  dataSource: model.expiredData,
                   xValueMapper: (dynamic data, _) =>
                       intl.DateFormat('dd MMM').format(data.time),
                   yValueMapper: (dynamic data, _) => data.amount,

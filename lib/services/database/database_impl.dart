@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:sorted_list/sorted_list.dart';
 import 'package:stockup/business_logic/defaultData/defaultData.dart';
 import 'package:stockup/business_logic/defaultData/expired_items.dart';
 import 'package:stockup/models/models.dart';
@@ -373,6 +374,16 @@ class DatabaseServiceImpl implements DatabaseService {
     return shared;
   }
 
+  Future<List<int>> getExpiredItems() async {
+    DocumentSnapshot snapshot = await userItemExpiredDoc.get();
+    List<int> result = [];
+    Map data = snapshot.data();
+    List.from(data['expired_items']).forEach((element) {
+      result.add(element);
+    });
+    return result;
+  }
+
   @override
   Future<List<Product>> getGiantItems() async {
     List<QueryDocumentSnapshot> snapshots =
@@ -495,20 +506,27 @@ class DatabaseServiceImpl implements DatabaseService {
     listDocument.set(json);
   }
 
-  Future<void> updateExpiredItems(UserItem item) async {
+  Future<void> updateExpiredItems(int date) async {
     //UserItem updateditem = UserItem.fromFirestore(doc)
-    userItemExpiredDoc.update({
-      'expired_items': FieldValue.arrayUnion([item.expiryDate])
+    DocumentReference doc = userItemExpiredDoc;
+    List<int> temp = SortedList<int>((r1, r2) => r2.compareTo(r1));
+    Map data = await doc.get().then((value) => value.data());
+    List.from(data['expired_items']).forEach((element) {
+      temp.add(element);
     });
+    temp.add(date);
+    Map<String, dynamic> json = {'expired_items': temp};
+    doc.set(json);
   }
 
   // Delete
   @override
   Future<void> deleteUserItem(UserItem item, UserItemList list) async {
     int temp = item.daysLeft;
-    if (temp < 0) {
+    if (temp <= 0) {
       // update user => expired
-      updateExpiredItems(item);
+      int expiry = item.expiryDate;
+      updateExpiredItems(expiry);
     }
     user_item_lists
         .doc(list.uid)

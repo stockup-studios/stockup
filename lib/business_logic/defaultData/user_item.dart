@@ -26,7 +26,7 @@ List<List<UserItem>> demoUserItems = [
         ProductCategory.fruit_vegetables,
         'https://coldstorage-s3.dexecure.net/product/5055950_01_5055950.jpg',
         5055950,
-        DateTime.utc(2021, 8, 4).millisecondsSinceEpoch),
+        DateTime.utc(2021, 7, 24).millisecondsSinceEpoch),
   ],
   [
     UserItem.demo(
