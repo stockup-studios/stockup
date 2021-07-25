@@ -6,6 +6,7 @@ import 'package:stockup/ui/user_home/user_home_view_model.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class UserHomeView extends StatelessWidget {
+  static const int index = 0;
   const UserHomeView({Key key}) : super(key: key);
 
   @override

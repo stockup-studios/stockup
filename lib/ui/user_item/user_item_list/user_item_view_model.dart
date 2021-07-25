@@ -177,14 +177,6 @@ class UserItemViewModel extends BaseViewModel {
     );
     ++no;
     _database.addUserItem(toAdd, _targetUserItemList);
-    // _userService.addUserItem(UserItem(
-    //   productName: 'Product $no',
-    //   productID: no,
-    //   imageURL: 'url$no',
-    //   category: ProductCategory.values[no % ProductCategory.values.length],
-    // ));
-
-    // ++no;
     _navigationService.replaceWith(Routes.userScanView);
     notifyListeners();
   }

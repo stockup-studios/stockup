@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/app/app.router.dart';
-import 'package:stockup/screens/home/home.dart';
-import 'package:stockup/screens/items/item_list.dart';
-import 'package:stockup/screens/scan/add_files.dart';
-import 'package:stockup/screens/shopping_list/shop_list.dart';
+import 'package:stockup/ui/user_home/user_home_view.dart';
+import 'package:stockup/ui/user_item/user_item_list/user_item_view.dart';
+import 'package:stockup/ui/user_scan/user_scan_view.dart';
+import 'package:stockup/ui/user_shop/user_shop_list/user_shop_view.dart';
 
 class BottomNavigation extends StatelessWidget {
   final int currentIndex;
@@ -17,16 +17,16 @@ class BottomNavigation extends StatelessWidget {
     void _onBottomNavigationBarItemTapped(int index) {
       if (index == currentIndex) return;
       switch (index) {
-        case HomeScreen.index:
+        case UserHomeView.index:
           _navigationService.replaceWith(Routes.userHomeView);
           break;
-        case ItemListScreen.index:
+        case UserItemView.index:
           _navigationService.replaceWith(Routes.userItemView);
           break;
-        case AddFilesScreen.index:
+        case UserScanView.index:
           _navigationService.replaceWith(Routes.userScanView);
           break;
-        case ShopListScreen.index:
+        case UserShopView.index:
           _navigationService.replaceWith(Routes.userShopView);
           break;
         default:
