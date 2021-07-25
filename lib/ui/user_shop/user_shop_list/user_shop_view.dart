@@ -5,16 +5,10 @@ import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/user_shop.dart';
 import 'package:stockup/models/user_shop_list.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
-<<<<<<< HEAD:lib/ui/user_shop/user_shop_view.dart
 import 'package:stockup/ui/user_shop/user_shop_add_view.dart';
 import 'package:stockup/ui/user_shop/user_shop_detail_view.dart';
 import 'package:stockup/ui/user_shop/user_shop_share_view.dart';
 import 'package:stockup/ui/user_shop/user_shop_view_model.dart';
-=======
-import 'package:stockup/ui/user_shop/user_shop_detail/user_shop_detail_view.dart';
-import 'package:stockup/ui/user_shop/user_shop_share/user_shop_share_view.dart';
-import 'package:stockup/ui/user_shop/user_shop_list/user_shop_view_model.dart';
->>>>>>> 836b4ca766554a65cebd0bebe662d364e837d2c5:lib/ui/user_shop/user_shop_list/user_shop_view.dart
 
 class UserShopView extends StatelessWidget {
   const UserShopView({Key key}) : super(key: key);
