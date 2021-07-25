@@ -21,14 +21,15 @@ class UserItem extends Product {
       @required this.productID,
       @required this.category,
       @required this.imageURL,
-      this.uid})
+      this.uid,
+      this.expiryDate})
       : super(
             productName: productName,
             productID: productID,
             category: category,
             imageURL: imageURL) {
     addedDate = _getCurrentTime();
-    expiryDate = _getEstimatedExpiry();
+    //expiryDate = _getEstimatedExpiry();
   }
 
   UserItem.demo(this.productName, this.category, this.imageURL, this.productID,
@@ -42,13 +43,13 @@ class UserItem extends Product {
     Map json = doc.data();
 
     return UserItem(
-      productName: json['product_name'],
-      uid: json['uid'],
-      category:
-          CategoryExtension.getCategory(json['product_category'].toString()),
-      imageURL: json['product_img_url'],
-      productID: json['product_code'],
-    );
+        productName: json['product_name'],
+        uid: json['uid'],
+        category:
+            CategoryExtension.getCategory(json['product_category'].toString()),
+        imageURL: json['product_img_url'],
+        productID: json['product_code'],
+        expiryDate: json['expiry_date']);
   }
 
   Map<String, dynamic> toJson() {
@@ -58,7 +59,7 @@ class UserItem extends Product {
       'product_category': category.name,
       'product_img_url': imageURL,
       'product_code': productID,
-      'addedDate': addedDate,
+      'expiry_date': expiryDate,
     };
   }
 
@@ -99,7 +100,8 @@ class UserItem extends Product {
   int get daysLeft {
     // Duration difference = DateTime.now()
     //     .difference(DateTime.fromMillisecondsSinceEpoch(expiryDate));
-    Duration difference = DateTime.fromMillisecondsSinceEpoch(expiryDate)
+    int expiry = _getEstimatedExpiry();
+    Duration difference = DateTime.fromMillisecondsSinceEpoch(expiry)
         .difference(DateTime.now());
     return (difference.inDays + 1);
   }

@@ -146,11 +146,11 @@ class UserItemView extends StatelessWidget {
                           },
                         ),
                         title: Text(model.displayList[index].productName),
-                        subtitle: model.displayList[index].daysLeft == 1
-                            ? Text(
-                                '${model.displayList[index].daysLeft} day left')
-                            : Text(
-                                '${model.displayList[index].daysLeft} days left'),
+                        subtitle: 
+                        //model.displayList[index].daysLeft == 1
+                            Text(model.getExpiryDays(model.displayList[index])),
+                            // : Text(
+                            //     '${model.displayList[index].daysLeft} days left'),
                         trailing: IconButton(
                           icon: Icon(Icons.edit),
                           onPressed: () async {
