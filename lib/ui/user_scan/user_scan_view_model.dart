@@ -74,6 +74,19 @@ class UserScanViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  void duplicate(int index) {
+    UserItem current = _productMatches[index];
+    UserItem duplicate = UserItem(
+      productName: current.productName,
+      productID: current.productID,
+      category: current.category,
+      imageURL: current.imageURL,
+    );
+    duplicate.expiryDate = current.expiryDate;
+    _productMatches.insert(index, duplicate);
+    notifyListeners();
+  }
+
   void delete(int index) {
     _productMatches.removeAt(index);
     notifyListeners();

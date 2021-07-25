@@ -52,6 +52,15 @@ class UserScanView extends StatelessWidget {
                             itemCount: model.productMatches.length,
                             itemBuilder: (BuildContext context, int index) {
                               return ListTile(
+                                  onTap: () async {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      context: context,
+                                      builder: (context) => UserScanDetailView(
+                                          product: model.productMatches[index]),
+                                    );
+                                    model.update();
+                                  },
                                   leading: Image.network(model
                                           .productMatches[index].imageURL) ??
                                       Container(color: Colors.black),
@@ -63,18 +72,10 @@ class UserScanView extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       IconButton(
-                                        onPressed: () async {
-                                          await showModalBottomSheet(
-                                            isScrollControlled: true,
-                                            context: context,
-                                            builder: (context) =>
-                                                UserScanDetailView(
-                                                    product: model
-                                                        .productMatches[index]),
-                                          );
-                                          model.update();
+                                        onPressed: () {
+                                          model.duplicate(index);
                                         },
-                                        icon: Icon(Icons.edit),
+                                        icon: Icon(Icons.add_to_photos),
                                       ),
                                       IconButton(
                                         onPressed: () {
