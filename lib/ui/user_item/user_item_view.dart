@@ -176,6 +176,7 @@ class UserItemView extends StatelessWidget {
           child: Icon(Icons.add),
           onPressed: () async {
             await showModalBottomSheet(
+              isScrollControlled: true,
               context: context,
               builder: (context) =>
                   UserItemAddView(userItemList: model.targetUserItemList),

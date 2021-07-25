@@ -79,7 +79,7 @@ class UserItemAddViewModel extends BaseViewModel {
   Future<void> checkImage() async {
     if (imageURL == '') {
       imageURL =
-          'https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png?format=jpg&quality=90&v=1530129081';
+          'https://previews.123rf.com/images/wangsinawang/wangsinawang1807/wangsinawang180700403/114807640-restaurant-icon-vector.jpg';
       _imageError = '';
       notifyListeners();
       return;
@@ -113,11 +113,13 @@ class UserItemAddViewModel extends BaseViewModel {
   Future<bool> add() async {
     await checkImage();
     if (nameError == '' && imageError == '') {
-      userItemList.addUserItem(UserItem(
+      UserItem userItem = UserItem(
           productName: name,
           productID: -1,
           category: category,
-          imageURL: imageURL));
+          imageURL: imageURL);
+      userItem.expiryDate = expiry.millisecondsSinceEpoch;
+      userItemList.addUserItem(userItem);
       return true;
     }
     return false;
