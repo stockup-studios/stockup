@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/ui/user_scan/user_scan_detail_view.dart';
@@ -56,19 +57,15 @@ class UserScanView extends StatelessWidget {
                                       Container(color: Colors.black),
                                   title: Text(
                                       model.productMatches[index].productName),
-                                  subtitle: Text(model
-                                      .productMatches[index].category
-                                      .toString()
-                                      .split('.')
-                                      .last
-                                      .split('_')
-                                      .join(' ')),
+                                  subtitle: Text(
+                                      'Expires on ${DateFormat('dd MMM yyyy').format(DateTime.fromMillisecondsSinceEpoch(model.productMatches[index].expiryDate))}'),
                                   trailing: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       IconButton(
                                         onPressed: () async {
                                           await showModalBottomSheet(
+                                            isScrollControlled: true,
                                             context: context,
                                             builder: (context) =>
                                                 UserScanDetailView(
