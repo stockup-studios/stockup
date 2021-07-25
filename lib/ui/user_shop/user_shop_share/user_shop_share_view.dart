@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/models/models.dart';
-import 'package:stockup/ui/user_item/user_item_share_view_model.dart';
+import 'package:stockup/ui/user_shop/user_shop_share/user_shop_share_view_model.dart';
 
-class UserItemShareView extends StatelessWidget {
-  const UserItemShareView({@required this.userItemList, Key key})
+class UserShopShareView extends StatelessWidget {
+  const UserShopShareView({@required this.userShopList, Key key})
       : super(key: key);
 
-  final UserItemList userItemList;
+  final UserShopList userShopList;
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<UserItemShareViewModel>.reactive(
-      onModelReady: (model) => model.init(userItemList),
+    return ViewModelBuilder<UserShopShareViewModel>.reactive(
+      onModelReady: (model) => model.init(userShopList),
       builder: (context, model, child) => Column(
         children: [
           Padding(
@@ -39,11 +39,28 @@ class UserItemShareView extends StatelessWidget {
                 child: TextField(
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                      hintText: 'Add by username',
+                      hintText: 'Add by inputting email',
                       border: InputBorder.none),
                   onChanged: (String shareWith) {
-                    model.shareWith = shareWith;
+                    model.shareWith(shareWith);
                   },
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: model.sharedUsersEmail.length,
+              itemBuilder: (context, index) => FractionallySizedBox(
+                widthFactor: 0.9,
+                child: Card(
+                  child: ListTile(
+                    title: Text(
+                      model.sharedUsersEmail[index],
+                      softWrap: true,
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -57,23 +74,6 @@ class UserItemShareView extends StatelessWidget {
                     TextStyle(color: Colors.red, fontWeight: FontWeight.w500),
               ),
             ),
-          Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              itemCount: model.userItemList.shared.length,
-              itemBuilder: (context, index) => FractionallySizedBox(
-                widthFactor: 0.9,
-                child: Card(
-                  child: ListTile(
-                    title: Text(
-                      model.userItemList.shared[index].username,
-                      softWrap: true,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
           FractionallySizedBox(
             widthFactor: 0.7,
             child: Padding(
@@ -84,8 +84,8 @@ class UserItemShareView extends StatelessWidget {
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Colors.green),
                 ),
-                onPressed: () {
-                  if (model.share()) Navigator.pop(context);
+                onPressed: () async {
+                  if (await model.share()) Navigator.pop(context);
                 },
               ),
             ),
@@ -96,7 +96,7 @@ class UserItemShareView extends StatelessWidget {
           ),
         ],
       ),
-      viewModelBuilder: () => UserItemShareViewModel(),
+      viewModelBuilder: () => UserShopShareViewModel(),
     );
   }
 }

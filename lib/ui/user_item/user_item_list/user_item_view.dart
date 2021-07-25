@@ -3,12 +3,15 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/models.dart';
-import 'package:stockup/models/user_item_list.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
+<<<<<<< HEAD
 import 'package:stockup/ui/user_item/user_item_add_view.dart';
-import 'package:stockup/ui/user_item/user_item_detail_view.dart';
 import 'package:stockup/ui/user_item/user_item_share_view.dart';
-import 'package:stockup/ui/user_item/user_item_view_model.dart';
+=======
+import 'package:stockup/ui/user_item/user_item_share/user_item_share_view.dart';
+>>>>>>> 836b4ca766554a65cebd0bebe662d364e837d2c5
+import 'package:stockup/ui/user_item/user_item_detail/user_item_detail_view.dart';
+import 'package:stockup/ui/user_item/user_item_list/user_item_view_model.dart';
 
 class UserItemView extends StatelessWidget {
   const UserItemView({Key key}) : super(key: key);
@@ -17,9 +20,7 @@ class UserItemView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserItemViewModel>.reactive(
       disposeViewModel: false,
-      initialiseSpecialViewModelsOnce: true,
       onModelReady: (model) => model.init(),
-      fireOnModelReadyOnce: true,
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           title: Text('Items'),
@@ -37,7 +38,7 @@ class UserItemView extends StatelessWidget {
                       value: model.targetUserItemList,
                       icon: Icon(Icons.arrow_downward),
                       onChanged: (UserItemList newList) {
-                        model.targetUserItemList = newList;
+                        model.updateTargetUserItemList(newList);
                       },
                       items: model.userItemLists
                           .map<DropdownMenuItem<UserItemList>>(
@@ -73,6 +74,7 @@ class UserItemView extends StatelessWidget {
                               context: context,
                               builder: (context) => UserItemDetailView(
                                 userItem: userItem,
+                                userItemList: model.targetUserItemList,
                               ),
                             );
                           model.update();
@@ -132,7 +134,7 @@ class UserItemView extends StatelessWidget {
                         foregroundColor: Colors.white,
                         color: Colors.green,
                         icon: Icons.check,
-                        onTap: () => model.onConsume(index),
+                        onTap: () => model.delete(model.displayList[index]),
                       )
                     ],
                     child: Card(
@@ -154,7 +156,7 @@ class UserItemView extends StatelessWidget {
                           },
                         ),
                         title: Text(model.displayList[index].productName),
-                        subtitle: model.displayList[index].daysLeft == '1'
+                        subtitle: model.displayList[index].daysLeft == 1
                             ? Text(
                                 '${model.displayList[index].daysLeft} day left')
                             : Text(
@@ -166,6 +168,7 @@ class UserItemView extends StatelessWidget {
                               context: context,
                               builder: (context) => UserItemDetailView(
                                 userItem: model.displayList[index],
+                                userItemList: model.targetUserItemList,
                               ),
                             );
                             model.update();

@@ -24,6 +24,13 @@ class UserItemList {
     return {'name': name, 'uid': uid};
   }
 
+  @override
+  bool operator ==(Object other) {
+    return (other is UserItemList) &&
+        (this.name == other.name) &&
+        (this.uid == other.uid);
+  }
+
   /// add item to userItemListing and sorts based on increasing expiry date
   /// (userItems expiring soon will appear first)
   void addUserItem(UserItem userItem) {

@@ -4,6 +4,7 @@ import 'package:stockup/models/models.dart';
 import 'package:stockup/services/database/database.dart';
 
 class DatabaseServiceImpl implements DatabaseService {
+  //static final _authService = AuthImplementation();
   final String uid;
   static final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final CollectionReference giantCollection = _firestore.collection('Giant');
@@ -16,23 +17,46 @@ class DatabaseServiceImpl implements DatabaseService {
   DocumentReference userDocument;
   CollectionReference userShopListCollection; //user specific
   CollectionReference userItemListCollection; //user specific
+  CollectionReference targetShopListCollection;
+  CollectionReference targetItemListCollection;
 
   DatabaseServiceImpl({this.uid}) {
     userDocument = _firestore.collection('users').doc(uid);
     userShopListCollection = userDocument.collection('user_shop_list');
     userItemListCollection = userDocument.collection('user_item_list');
+    targetShopListCollection = userDocument.collection("target_shop_list");
+    targetItemListCollection = userDocument.collection('target_item_list');
   }
 
   // To-do: Initalize account with default data
   @override
   Future<void> initialize() async {
     for (int i = 0; i < demoUserShopList.length; i++) {
+      String uid = await addUserShopList(demoUserShopList[i]);
+      demoUserShopList[i].uid = uid;
       await addUserShopListforUser(demoUserShopList[i]);
+
+      for (UserShop item in demoUserShop[i]) {
+        String uid = await addUserShop(item, demoUserShopList[i]);
+        item.uid = uid;
+        await updateUserShop(item, demoUserShopList[i]);
+      }
     }
 
     for (int i = 0; i < demoUserItemList.length; i++) {
+      String uid = await addUserItemList(demoUserItemList[i]);
+      demoUserItemList[i].uid = uid;
       await addUserItemListforUser(demoUserItemList[i]);
+
+      for (UserItem item in demoUserItems[i]) {
+        String uid = await addUserItem(item, demoUserItemList[i]);
+        item.uid = uid;
+        await updateUserItem(item, demoUserItemList[i]);
+      }
     }
+
+    await addTargetItemList(demoUserItemList[0]);
+    await addTargetShopList(demoUserShopList[0]);
   }
 
   @override
@@ -57,8 +81,8 @@ class DatabaseServiceImpl implements DatabaseService {
     return uid;
   }
 
-  @override
   Future<void> addCredentials(Map<String, dynamic> credentials) async {
+    //will have email and uid
     userDocument.set(credentials);
   }
 
@@ -80,6 +104,8 @@ class DatabaseServiceImpl implements DatabaseService {
     final uid = itemDocument.id;
     Map<String, dynamic> json = list.toJson();
     json['uid'] = uid;
+    Map data = await userDocument.get().then((value) => value.data());
+    json['shared'] = FieldValue.arrayUnion([data['email']]);
     itemDocument.set(json);
     return uid;
   }
@@ -90,45 +116,155 @@ class DatabaseServiceImpl implements DatabaseService {
     final uid = itemDocument.id;
     Map<String, dynamic> json = list.toJson();
     json['uid'] = uid;
+    Map data = await userDocument.get().then((value) => value.data());
+    json['shared'] = FieldValue.arrayUnion([data['email']]);
     itemDocument.set(json);
     return uid;
   }
 
   @override
   //create new user_item_list under user
-  Future<void> addUserItemListforUser(UserItemList list) async {
-    List<QueryDocumentSnapshot> snapshots = await user_item_lists
-        .where('name', isEqualTo: list.name)
-        .get()
-        .then((value) => value.docs);
+  Future<String> addUserItemListforUser(UserItemList list) async {
+    String uid;
+    if (list.uid == null) {
+      List<QueryDocumentSnapshot> snapshot = await user_item_lists
+          .where('name', isEqualTo: list.name)
+          .get()
+          .then((value) => value.docs);
+      Map<String, dynamic> data =
+          snapshot.map((e) => e.data()).toList().elementAt(0);
+      uid = data['uid'];
+    } else {
+      uid = list.uid;
+    }
 
-    Map<String, dynamic> target = {
-      'reference': snapshots[0].reference,
-      'name': list.name
-    };
-    userItemListCollection.add(target);
+    final listDocument = userItemListCollection.doc();
+    Map<String, String> json = {'uid': uid};
+    listDocument.set(json);
+    return uid;
   }
 
   @override
-  Future<void> addUserShopListforUser(UserShopList list) async {
-    List<QueryDocumentSnapshot> snapshots = await user_shop_lists
-        .where('name', isEqualTo: list.name)
-        .get()
-        .then((value) => value.docs);
+  Future<String> addUserShopListforUser(UserShopList list) async {
+    String uid;
+    if (list.uid == null) {
+      List<QueryDocumentSnapshot> snapshot = await user_shop_lists
+          .where('name', isEqualTo: list.name)
+          .get()
+          .then((value) => value.docs);
+      Map<String, dynamic> data =
+          snapshot.map((e) => e.data()).toList().elementAt(0);
+      uid = data['uid'];
+    } else {
+      uid = list.uid;
+    }
 
-    Map<String, dynamic> target = {
-      'reference': snapshots[0].reference,
-      'name': list.name
-    };
-    userShopListCollection.add(target);
+    final listDocument = userShopListCollection.doc();
+    Map<String, String> json = {'uid': uid};
+    listDocument.set(json);
+    return uid;
+  }
+
+  @override
+  Future<void> addTargetShopList(UserShopList list) async {
+    String uid;
+    if (list.uid == null) {
+      List<QueryDocumentSnapshot> snapshot = await user_shop_lists
+          .where('name', isEqualTo: list.name)
+          .get()
+          .then((value) => value.docs);
+      Map<String, dynamic> data =
+          snapshot.map((e) => e.data()).toList().elementAt(0);
+      uid = data['uid'];
+    } else {
+      uid = list.uid;
+    }
+
+    final listDocument = targetShopListCollection.doc();
+    Map<String, String> json = {'uid': uid};
+    listDocument.set(json);
+  }
+
+  @override
+  Future<void> addTargetItemList(UserItemList list) async {
+    String uid;
+    if (list.uid == null) {
+      List<QueryDocumentSnapshot> snapshot = await user_item_lists
+          .where('name', isEqualTo: list.name)
+          .get()
+          .then((value) => value.docs);
+      Map<String, dynamic> data =
+          snapshot.map((e) => e.data()).toList().elementAt(0);
+      uid = data['uid'];
+    } else {
+      uid = list.uid;
+    }
+
+    final listDocument = targetItemListCollection.doc();
+    Map<String, String> json = {'uid': uid};
+    listDocument.set(json);
   }
 
   // Read
+  // @override
+  // Future<Map<String, dynamic>> getCredentials() async {
+  //   DocumentSnapshot json = await userDocument.get();
+  //   return json.data();
+  // }
+
   @override
-  Future<Map<String, dynamic>> getCredentials() async {
-    DocumentSnapshot json = await userDocument.get();
-    return json.data();
+  Future<AppUser> getUser() async {
+    DocumentSnapshot doc = await userDocument.get();
+    return AppUser.fromFirestore(doc);
   }
+
+  Future<Map<String, dynamic>> getCredentials() async {
+    DocumentSnapshot doc = await userDocument.get();
+    return doc.data();
+  }
+
+  @override
+  Future<dynamic> getUserbyEmail(String email) async {
+    List<QueryDocumentSnapshot> snapshots = await _firestore
+        .collection('users')
+        .where('email', isEqualTo: email)
+        .get()
+        .then((value) => value.docs);
+    print(snapshots.length);
+    if (snapshots.length == 0) {
+      return null;
+    } else {
+      print('user success');
+      DocumentSnapshot doc = snapshots.elementAt(0);
+      return AppUser.fromFirestore(doc);
+    }
+  }
+
+  // Future<dynamic> getUserbyName(String name) async {
+  //   List<QueryDocumentSnapshot> snapshots = await _firestore
+  //       .collection('users')
+  //       .where('name', isEqualTo: name)
+  //       .get()
+  //       .then((value) => value.docs);
+  //   print(snapshots.length);
+  //   if (snapshots.length == 0) {
+  //     return null;
+  //   } else {
+  //     print('user success');
+  //     DocumentSnapshot doc = snapshots.elementAt(0);
+  //     return AppUser.fromFirestore(doc);
+  //   }
+  // }
+
+  // Future<bool> isNameTaken(String name) async {
+  //   List<QueryDocumentSnapshot> snapshots = await _firestore
+  //       .collection('users')
+  //       .where('name', isEqualTo: name)
+  //       .get()
+  //       .then((value) => value.docs);
+  //   print(snapshots.length == 0);
+  //   return snapshots.length == 0;
+  // }
 
   @override
   Future<List<UserItem>> getUserItems(UserItemList list) async {
@@ -153,21 +289,40 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 
   @override
+  Future<UserShopList> getTargetShopList() async {
+    List<QueryDocumentSnapshot> snapshots =
+        await targetShopListCollection.get().then((value) => value.docs);
+    Map data = snapshots.map((e) => e.data()).toList().elementAt(0);
+    String uid = data['uid'];
+    DocumentSnapshot target = await user_shop_lists.doc(uid).get();
+    return UserShopList.fromFirestore(target);
+  }
+
+  @override
+  Future<UserItemList> getTargetItemList() async {
+    List<QueryDocumentSnapshot> snapshots =
+        await targetItemListCollection.get().then((value) => value.docs);
+    Map data = snapshots.map((e) => e.data()).toList().elementAt(0);
+    String uid = data['uid'];
+    DocumentSnapshot target = await user_item_lists.doc(uid).get();
+    return UserItemList.fromFirestore(target);
+    //return UserItemList.fromFirestore(target);
+  }
+
+  @override
   //get all user_item_list specific to user
   Future<List<UserItemList>> getUserItemLists() async {
     List<QueryDocumentSnapshot> snapshots =
         await userItemListCollection.get().then((value) => value.docs);
-
-    List<DocumentReference> reference =
-        snapshots.map((snapshot) => snapshot.get(FieldPath(['reference'])));
-
-    List<DocumentSnapshot> processed;
-
-    for (int i = 0; i < reference.length; i++) {
-      DocumentSnapshot temp = await reference[i].get();
-      processed.add(temp);
+    print(snapshots.length);
+    List<DocumentSnapshot> processed = [];
+    for (int i = 0; i < snapshots.length; i++) {
+      Map data = snapshots.map((e) => e.data()).toList().elementAt(i);
+      String uid = data['uid'];
+      DocumentSnapshot target = await user_item_lists.doc(uid).get();
+      processed.add(target);
     }
-    return processed.map((doc) => UserItemList.fromFirestore(doc));
+    return processed.map((doc) => UserItemList.fromFirestore(doc)).toList();
   }
 
   @override
@@ -176,16 +331,47 @@ class DatabaseServiceImpl implements DatabaseService {
     List<QueryDocumentSnapshot> snapshots =
         await userShopListCollection.get().then((value) => value.docs);
 
-    List<DocumentReference> reference =
-        snapshots.map((snapshot) => snapshot.get(FieldPath(['reference'])));
+    // List<DocumentReference> reference =
+    //     snapshots.map((snapshot) => snapshot.get(FieldPath(["reference"])));
 
-    List<DocumentSnapshot> processed;
+    // List<DocumentSnapshot> processed;
 
-    for (int i = 0; i < reference.length; i++) {
-      DocumentSnapshot temp = await reference[i].get();
-      processed.add(temp);
+    // for (int i = 0; i < reference.length; i++) {
+    //   DocumentSnapshot temp = await reference[i].get();
+    //   processed.add(temp);
+    // }
+    // return processed.map((doc) => UserShopList.fromFirestore(doc));
+    List<DocumentSnapshot> processed = [];
+    for (int i = 0; i < snapshots.length; i++) {
+      Map data = snapshots.map((e) => e.data()).toList().elementAt(i);
+      String uid = data['uid'];
+      DocumentSnapshot target = await user_shop_lists.doc(uid).get();
+      processed.add(target);
     }
-    return processed.map((doc) => UserShopList.fromFirestore(doc));
+    return processed.map((doc) => UserShopList.fromFirestore(doc)).toList();
+  }
+
+  @override
+  Future<List<String>> getItemListUsers(UserItemList list) async {
+    DocumentSnapshot snapshot = await user_item_lists.doc(list.uid).get();
+    List<String> shared = [];
+    Map data = snapshot.data();
+    List.from(data['shared']).forEach((element) {
+      shared.add(element);
+    });
+
+    return shared;
+  }
+
+  Future<List<String>> getShopListUsers(UserShopList list) async {
+    DocumentSnapshot snapshot = await user_shop_lists.doc(list.uid).get();
+    List<String> shared = [];
+    Map data = snapshot.data();
+    List.from(data['shared']).forEach((element) {
+      shared.add(element);
+    });
+    print(shared.length);
+    return shared;
   }
 
   @override
@@ -247,10 +433,67 @@ class DatabaseServiceImpl implements DatabaseService {
     user_item_lists.doc(list.uid).update(list.toJson());
   }
 
+  @override
+  Future<void> updateTargetItemList(UserItemList list) async {
+    //delete original
+    List<QueryDocumentSnapshot> snapshots =
+        await targetItemListCollection.get().then((value) => value.docs);
+    //get document reference and delete
+    List<DocumentReference> doc = snapshots.map((e) => e.reference).toList();
+    for (int i = 0; i < doc.length; i++) {
+      doc[i].delete();
+    }
+    //add new list
+    addTargetItemList(list);
+  }
+
+  @override
+  Future<void> updateTargetShopList(UserShopList list) async {
+    //delete original
+    List<QueryDocumentSnapshot> snapshots =
+        await targetShopListCollection.get().then((value) => value.docs);
+    //get document reference and delete
+    List<DocumentReference> doc = snapshots.map((e) => e.reference).toList();
+    for (int i = 0; i < doc.length; i++) {
+      doc[i].delete();
+    }
+    //add new list
+    addTargetShopList(list);
+  }
+
   // TODO: will we ever change details of existing giant items?
   @override
   Future<void> updateGiantItem(Product item) async {
     giantCollection.doc(item.uid).update(item.toJson());
+  }
+
+  Future<void> updateSharedUserItemList(UserItemList list, AppUser user) async {
+    print(list.uid);
+    user_item_lists.doc(list.uid).update({
+      "shared": FieldValue.arrayUnion([user.email])
+    });
+
+    CollectionReference addedUser = _firestore
+        .collection('users')
+        .doc(user.username)
+        .collection('user_item_list');
+    final listDocument = addedUser.doc();
+    Map<String, String> json = {'uid': list.uid};
+    listDocument.set(json);
+  }
+
+  Future<void> updateSharedUserShopList(UserShopList list, AppUser user) async {
+    user_shop_lists.doc(list.uid).update({
+      "shared": FieldValue.arrayUnion([user.email])
+    });
+
+    CollectionReference addedUser = _firestore
+        .collection('users')
+        .doc(user.username)
+        .collection('user_item_list');
+    final listDocument = addedUser.doc();
+    Map<String, String> json = {'uid': list.uid};
+    listDocument.set(json);
   }
 
   // Delete
@@ -285,7 +528,7 @@ class DatabaseServiceImpl implements DatabaseService {
   @override
   Future<void> deleteUserItemListforUser(UserItemList list) async {
     List<QueryDocumentSnapshot> snapshots = await userItemListCollection
-        .where('name', isEqualTo: list.name)
+        .where('uid'.toString(), isEqualTo: list.uid.toString())
         .get()
         .then((value) => value.docs);
     //get document reference and delete

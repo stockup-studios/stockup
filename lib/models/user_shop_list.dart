@@ -26,6 +26,13 @@ class UserShopList {
 
   UserShopList.demo(this.name);
 
+  @override
+  bool operator ==(Object other) {
+    return (other is UserShopList) &&
+        (this.name == other.name) &&
+        (this.uid == other.uid);
+  }
+
   /// add one quantity of userShop to userShopListing
   void addShopItem(UserShop userShop) {
     int index = userShopListing.indexOf(userShop);
