@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:stockup/models/app_user.dart';
@@ -10,13 +11,19 @@ class AuthImplementation implements AuthService {
 
   // create User object based on firebase
   AppUser _appUser(User user) {
-    return user != null ? AppUser(username: user.uid) : null;
+    if (user != null) {
+      appUser = AppUser(username: user.uid, email: user.email);
+      return appUser;
+    } else {
+      return null;
+    }
   }
 
+  //can get from database
   // auth change AppUser stream
   @override
   Stream<AppUser> get user {
-    return _auth.authStateChanges().map(_appUser);
+    return _auth.authStateChanges().map((element) => _appUser(element));
   }
 
   // sign in using email and password
@@ -26,8 +33,11 @@ class AuthImplementation implements AuthService {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
       User user = userCredential.user;
+      // appUser = _appUser(user); //create a database method get user.
+      // DatabaseServiceImpl _db = DatabaseServiceImpl(uid: user.uid);
+
       appUser = _appUser(user);
-      return _appUser(user);
+      return appUser;
     } catch (e) {
       print(e.toString());
       return null;
@@ -48,10 +58,12 @@ class AuthImplementation implements AuthService {
         'uid': user.uid,
         'email': email,
       };
-      _db.addCredentials(credentials);
+      // await _db.addAppUser(appUser);
+      await _db.addCredentials(credentials);
       await _db.initialize(); // default data
       appUser = _appUser(user);
-      return _appUser(user);
+      //appUser = _appUser(user);
+      return appUser;
     } catch (e) {
       print(e.toString());
     }
@@ -87,6 +99,10 @@ class AuthImplementation implements AuthService {
           'email': profile['email'],
           'name': profile['name'],
         };
+
+        // AppUser appUser = AppUser(
+        //     username: user.uid, name: profile['name'], email: profile['email']);
+        // await _db.addAppUser(appUser);
         _db.addCredentials(credentials);
         await _db.initialize();
       }

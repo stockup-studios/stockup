@@ -5,9 +5,9 @@ import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/user_shop.dart';
 import 'package:stockup/models/user_shop_list.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
-import 'package:stockup/ui/user_shop/user_shop_detail_view.dart';
-import 'package:stockup/ui/user_shop/user_shop_share_view.dart';
-import 'package:stockup/ui/user_shop/user_shop_view_model.dart';
+import 'package:stockup/ui/user_shop/user_shop_detail/user_shop_detail_view.dart';
+import 'package:stockup/ui/user_shop/user_shop_share/user_shop_share_view.dart';
+import 'package:stockup/ui/user_shop/user_shop_list/user_shop_view_model.dart';
 
 class UserShopView extends StatelessWidget {
   const UserShopView({Key key}) : super(key: key);
@@ -16,9 +16,7 @@ class UserShopView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserShopViewModel>.reactive(
       disposeViewModel: false,
-      initialiseSpecialViewModelsOnce: true,
       onModelReady: (model) => model.init(),
-      fireOnModelReadyOnce: true,
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           title: Text('Shopping Lists'),
@@ -36,7 +34,7 @@ class UserShopView extends StatelessWidget {
                       value: model.targetUserShopList,
                       icon: Icon(Icons.arrow_downward),
                       onChanged: (UserShopList newList) {
-                        model.targetUserShopList = newList;
+                        model.updateTargetUserShopList(newList);
                       },
                       items: model.userShopLists
                           .map<DropdownMenuItem<UserShopList>>(
@@ -65,13 +63,14 @@ class UserShopView extends StatelessWidget {
                       IconButton(
                         icon: Icon(Icons.search),
                         onPressed: () async {
-                          UserShop userItem = await showSearch<UserShop>(
+                          UserShop userShop = await showSearch<UserShop>(
                               context: context, delegate: model.search());
-                          if (userItem != null)
+                          if (userShop != null)
                             await showModalBottomSheet(
                               context: context,
                               builder: (context) => UserShopDetailView(
-                                userShop: userItem,
+                                userShopList: model.targetUserShopList,
+                                userShop: userShop,
                               ),
                             );
                           model.update();
@@ -114,7 +113,7 @@ class UserShopView extends StatelessWidget {
                         foregroundColor: Colors.white,
                         color: Colors.red,
                         icon: Icons.delete,
-                        onTap: () => model.onDelete(index),
+                        onTap: () => model.delete(model.displayList[index]),
                       )
                     ],
                     secondaryActions: [
@@ -123,7 +122,7 @@ class UserShopView extends StatelessWidget {
                         foregroundColor: Colors.white,
                         color: Colors.green,
                         icon: Icons.check,
-                        onTap: () => model.onMove(index),
+                        onTap: () => model.move(model.displayList[index]),
                       )
                     ],
                     child: Card(
@@ -154,6 +153,7 @@ class UserShopView extends StatelessWidget {
                               context: context,
                               builder: (context) => UserShopDetailView(
                                 userShop: model.displayList[index],
+                                userShopList: model.targetUserShopList,
                               ),
                             );
                             model.update();

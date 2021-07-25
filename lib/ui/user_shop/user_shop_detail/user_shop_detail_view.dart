@@ -2,18 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/models/product_category.dart';
 import 'package:stockup/models/user_shop.dart';
-import 'package:stockup/ui/user_shop/user_shop_detail_view_model.dart';
+import 'package:stockup/models/user_shop_list.dart';
+import 'package:stockup/ui/user_shop/user_shop_detail/user_shop_detail_view_model.dart';
 
 class UserShopDetailView extends StatelessWidget {
   const UserShopDetailView({
     @required this.userShop,
+    @required this.userShopList,
     Key key,
   }) : super(key: key);
   final UserShop userShop;
+  final UserShopList userShopList;
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserShopDetailViewModel>.reactive(
-      onModelReady: (model) => model.init(userShop),
+      onModelReady: (model) => model.init(userShop, userShopList),
       builder: (context, model, child) => Column(
         mainAxisSize: MainAxisSize.min,
         children: [

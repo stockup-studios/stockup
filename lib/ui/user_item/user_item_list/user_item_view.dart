@@ -5,7 +5,7 @@ import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/models/user_item_list.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
-import 'package:stockup/ui/user_item/user_item_share_view.dart';
+import 'package:stockup/ui/user_item/user_item_share/user_item_share_view.dart';
 import 'package:stockup/ui/user_item/user_item_detail/user_item_detail_view.dart';
 import 'package:stockup/ui/user_item/user_item_list/user_item_view_model.dart';
 
@@ -16,9 +16,7 @@ class UserItemView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserItemViewModel>.reactive(
       disposeViewModel: false,
-      initialiseSpecialViewModelsOnce: true,
       onModelReady: (model) => model.init(),
-      fireOnModelReadyOnce: true,
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           title: Text('Items'),
@@ -36,7 +34,7 @@ class UserItemView extends StatelessWidget {
                       value: model.targetUserItemList,
                       icon: Icon(Icons.arrow_downward),
                       onChanged: (UserItemList newList) {
-                        model.targetUserItemList = newList;
+                        model.updateTargetUserItemList(newList);
                       },
                       items: model.userItemLists
                           .map<DropdownMenuItem<UserItemList>>(
@@ -72,6 +70,7 @@ class UserItemView extends StatelessWidget {
                               context: context,
                               builder: (context) => UserItemDetailView(
                                 userItem: userItem,
+                                userItemList: model.targetUserItemList,
                               ),
                             );
                           model.update();
@@ -115,7 +114,7 @@ class UserItemView extends StatelessWidget {
                         foregroundColor: Colors.white,
                         color: Colors.orange,
                         icon: Icons.list,
-                        onTap: () => model.onMove(index),
+                        onTap: () => model.move(model.displayList[index]),
                       )
                     ],
                     secondaryActions: [
@@ -124,7 +123,7 @@ class UserItemView extends StatelessWidget {
                         foregroundColor: Colors.white,
                         color: Colors.green,
                         icon: Icons.check,
-                        onTap: () => model.onConsume(index),
+                        onTap: () => model.delete(model.displayList[index]),
                       )
                     ],
                     child: Card(
@@ -158,6 +157,7 @@ class UserItemView extends StatelessWidget {
                               context: context,
                               builder: (context) => UserItemDetailView(
                                 userItem: model.displayList[index],
+                                userItemList: model.targetUserItemList,
                               ),
                             );
                             model.update();
