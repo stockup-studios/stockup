@@ -18,15 +18,25 @@ class UserItemAddViewModel extends BaseViewModel {
   List<String> imageFormats = ['png', 'jpeg', 'jpg', 'tiff', 'tif'];
 
   /// used for error messages on view
-  String _nameError = 'Item name cannot be empty';
+  String _nameError = '';
   String _imageError = '';
 
   String get nameError {
     return _nameError;
   }
 
+  set nameError(String message) {
+    _nameError = message;
+    notifyListeners();
+  }
+
   String get imageError {
     return _imageError;
+  }
+
+  set imageError(String message) {
+    _imageError = message;
+    notifyListeners();
   }
 
   /// standard getters and setters with notifyListeners
@@ -35,8 +45,8 @@ class UserItemAddViewModel extends BaseViewModel {
   }
 
   set name(String name) {
-    _nameError = (name == '') ? 'Item name cannot be empty' : '';
     _name = name;
+    checkName();
     notifyListeners();
   }
 
@@ -76,12 +86,15 @@ class UserItemAddViewModel extends BaseViewModel {
     this.expiry = DateTime.now();
   }
 
+  void checkName() {
+    nameError = (name == '') ? 'Item name cannot be empty' : '';
+  }
+
   Future<void> checkImage() async {
     if (imageURL == '') {
       imageURL =
           'https://previews.123rf.com/images/wangsinawang/wangsinawang1807/wangsinawang180700403/114807640-restaurant-icon-vector.jpg';
-      _imageError = '';
-      notifyListeners();
+      imageError = '';
       return;
     }
     var url;
@@ -90,23 +103,22 @@ class UserItemAddViewModel extends BaseViewModel {
       url = Uri.parse(imageURL);
       response = await http.get(url);
       if (response.statusCode != 200) {
-        _imageError = 'Invalid image URL';
-        notifyListeners();
+        imageError = 'Invalid image URL';
         return;
       }
     } catch (e) {
-      _imageError = 'Invalid image URL';
+      imageError = 'Invalid image URL';
       notifyListeners();
       return;
     }
 
     if (!imageFormats.contains(imageURL.split('.').last)) {
-      _imageError = 'Image URL must end in a common image format';
+      imageError = 'Image URL must end in a common image format';
       notifyListeners();
       return;
     }
 
-    _imageError = '';
+    imageError = '';
   }
 
   /// to add new item to userItemList
