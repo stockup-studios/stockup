@@ -11,9 +11,9 @@ import 'package:stockup/ui/user_item/user_item_search.dart';
 class UserItemViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
   final _snackbarService = locator<SnackbarService>();
-  final _database = locator<DatabaseServiceImpl>();
+  DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
   static final _authService = locator<AuthImplementation>();
-  DatabaseServiceImpl _db;
+  //DatabaseServiceImpl _db;
 
   final Map<String, bool> productCategories = {'All Categories': true};
   List<UserItemList> userItemLists = [];
@@ -24,24 +24,22 @@ class UserItemViewModel extends BaseViewModel {
   UserShopList _targetUserShopList;
   UserItemList _targetUserItemList;
 
-  //am using a sorted list package is this okay?
   List<UserItem> _userItems =
       SortedList<UserItem>((r1, r2) => r2.forCompare.compareTo(r1.forCompare));
 
   /// Only called once. Will not be called again on rebuild
   void init() async {
-    _db = DatabaseServiceImpl(uid: _authService.appUser.username);
+    _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     await _targetUserItemListFromDatabase();
     await _targetUserShopListFromDatabase();
-    await _getAllItemList();
-    print(_targetUserItemList.uid);
+    await _allItemList();
     initialize();
     print('user item view model init called');
     notifyListeners();
   }
 
   void initialize() async {
-    await _getDisplayListFromDatabase();
+    await _displayListFromDatabase();
     for (ProductCategory category in ProductCategory.values) {
       String name = category.name;
       productCategories[name] = false;
@@ -49,24 +47,27 @@ class UserItemViewModel extends BaseViewModel {
   }
 
   Future<void> _targetUserItemListFromDatabase() async {
-    _targetUserItemList = await _db.getTargetItemList();
+    _targetUserItemList = await _database.getTargetItemList();
   }
 
   Future<void> _targetUserShopListFromDatabase() async {
-    _targetUserShopList = await _db.getTargetShopList();
+    _targetUserShopList = await _database.getTargetShopList();
   }
 
-  Future<void> _getDisplayListFromDatabase() async {
-    List<UserItem> unorderedItems = await _db.getUserItems(_targetUserItemList);
+  Future<void> _displayListFromDatabase() async {
+    _userItems.clear();
+    print('cleared user items');
+    List<UserItem> unorderedItems =
+        await _database.getUserItems(_targetUserItemList);
     _userItems.addAll(unorderedItems);
   }
 
-  Future<void> _getAllItemList() async {
-    userItemLists = await _db.getUserItemLists();
+  Future<void> _allItemList() async {
+    userItemLists = await _database.getUserItemLists();
   }
 
-  void _updateTargetItemList(UserItemList list) async {
-    await _db.updateTargetItemList(list);
+  Future<void> _updateTargetItemList(UserItemList list) async {
+    await _database.updateTargetItemList(list);
     await _targetUserItemListFromDatabase();
   }
 
@@ -84,8 +85,9 @@ class UserItemViewModel extends BaseViewModel {
         .toList();
   }
 
-  set targetUserItemList(UserItemList newTarget) {
-    _updateTargetItemList(newTarget);
+  void updateTargetUserItemList(UserItemList newTarget) async {
+    await _updateTargetItemList(newTarget);
+    await _displayListFromDatabase();
     notifyListeners();
   }
 
@@ -146,13 +148,15 @@ class UserItemViewModel extends BaseViewModel {
     }
   }
 
-  void move(UserItem item) {
+  void move(UserItem item) async {
     UserShop temp = UserShop(
         productID: item.productID,
         category: item.category,
         productName: item.productName,
-        imageURL: item.imageURL);
-    _database.deleteUserItem(item, _targetUserItemList);
+        imageURL: item.imageURL,
+        quantity: 1);
+    await _database.deleteUserItem(item, _targetUserItemList);
+    await _displayListFromDatabase();
     _database.addUserShop(temp, _targetUserShopList);
     //_userService.moveUserItemAtIndex(index);
     notifyListeners();
@@ -160,7 +164,7 @@ class UserItemViewModel extends BaseViewModel {
 
   void delete(UserItem item) async {
     await _database.deleteUserItem(item, _targetUserItemList);
-    await _getDisplayListFromDatabase();
+    await _displayListFromDatabase();
     notifyListeners();
   }
 
@@ -172,7 +176,7 @@ class UserItemViewModel extends BaseViewModel {
       category: ProductCategory.values[no % ProductCategory.values.length],
     );
     ++no;
-    _db.addUserItem(toAdd, _targetUserItemList);
+    _database.addUserItem(toAdd, _targetUserItemList);
     // _userService.addUserItem(UserItem(
     //   productName: 'Product $no',
     //   productID: no,

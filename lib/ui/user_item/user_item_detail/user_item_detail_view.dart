@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stockup/models/models.dart';
 import 'package:stockup/models/product_category.dart';
 import 'package:stockup/models/user_item.dart';
 import 'package:stockup/ui/user_item/user_item_detail/user_item_detail_view_model.dart';
@@ -8,13 +9,18 @@ import 'package:stockup/ui/user_item/user_item_detail/user_item_detail_view_mode
 class UserItemDetailView extends StatelessWidget {
   const UserItemDetailView({
     @required this.userItem,
+    @required this.userItemList,
     Key key,
   }) : super(key: key);
   final UserItem userItem;
+  final UserItemList userItemList;
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserItemDetailViewModel>.reactive(
-      onModelReady: (model) => model.init(userItem),
+      onModelReady: (model) => model.init(
+        userItem,
+        userItemList,
+      ),
       builder: (context, model, child) => Column(
         mainAxisSize: MainAxisSize.min,
         children: [
