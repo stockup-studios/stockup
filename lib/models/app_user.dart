@@ -1,6 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:stockup/models/user_item_list.dart';
-import 'package:stockup/models/user_shop_list.dart';
 
 class AppUser {
   final String username;

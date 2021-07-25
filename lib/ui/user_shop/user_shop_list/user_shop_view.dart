@@ -15,9 +15,7 @@ class UserShopView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserShopViewModel>.reactive(
       disposeViewModel: false,
-      initialiseSpecialViewModelsOnce: true,
       onModelReady: (model) => model.init(),
-      fireOnModelReadyOnce: true,
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           title: Text('Shopping Lists'),
@@ -70,6 +68,7 @@ class UserShopView extends StatelessWidget {
                             await showModalBottomSheet(
                               context: context,
                               builder: (context) => UserShopDetailView(
+                                userShopList: model.targetUserShopList,
                                 userShop: userShop,
                               ),
                             );
@@ -137,6 +136,7 @@ class UserShopView extends StatelessWidget {
                               context: context,
                               builder: (context) => UserShopDetailView(
                                 userShop: model.displayList[index],
+                                userShopList: model.targetUserShopList,
                               ),
                             );
                             model.update();

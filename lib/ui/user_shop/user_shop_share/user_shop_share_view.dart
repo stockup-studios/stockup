@@ -39,11 +39,28 @@ class UserShopShareView extends StatelessWidget {
                 child: TextField(
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                      hintText: 'Add by username',
+                      hintText: 'Add by inputting email',
                       border: InputBorder.none),
                   onChanged: (String shareWith) {
-                    model.shareWith = shareWith;
+                    model.shareWith(shareWith);
                   },
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: model.sharedUsersEmail.length,
+              itemBuilder: (context, index) => FractionallySizedBox(
+                widthFactor: 0.9,
+                child: Card(
+                  child: ListTile(
+                    title: Text(
+                      model.sharedUsersEmail[index],
+                      softWrap: true,
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -57,23 +74,6 @@ class UserShopShareView extends StatelessWidget {
                     TextStyle(color: Colors.red, fontWeight: FontWeight.w500),
               ),
             ),
-          Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              itemCount: model.userShopList.shared.length,
-              itemBuilder: (context, index) => FractionallySizedBox(
-                widthFactor: 0.9,
-                child: Card(
-                  child: ListTile(
-                    title: Text(
-                      model.userShopList.shared[index].username,
-                      softWrap: true,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
           FractionallySizedBox(
             widthFactor: 0.7,
             child: Padding(
@@ -84,8 +84,8 @@ class UserShopShareView extends StatelessWidget {
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Colors.green),
                 ),
-                onPressed: () {
-                  if (model.share()) Navigator.pop(context);
+                onPressed: () async {
+                  if (await model.share()) Navigator.pop(context);
                 },
               ),
             ),

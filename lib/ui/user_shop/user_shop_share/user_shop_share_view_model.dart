@@ -1,31 +1,61 @@
 import 'package:stacked/stacked.dart';
+import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/models.dart';
+import 'package:stockup/services/services.dart';
 
 class UserShopShareViewModel extends BaseViewModel {
+  DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
+  static final _authService = locator<AuthImplementation>();
+
   UserShopList userShopList;
+  List<String> sharedUsersEmail = [];
+
   String _shareWith = '';
   String errorMessage = '';
 
-  String get shareWith {
-    return _shareWith;
+  void init(UserShopList uiList) async {
+    _database = DatabaseServiceImpl(uid: _authService.appUser.username);
+    this.userShopList = uiList;
+    await sharedUsersdb();
+    print(sharedUsersEmail.length);
   }
 
-  set shareWith(String shareWith) {
-    _shareWith = shareWith;
-    notifyListeners();
+  Future<void> sharedUsersdb() async {
+    sharedUsersEmail.clear();
+    print('shared users list cleared');
+    sharedUsersEmail = await _database.getShopListUsers(userShopList);
   }
 
-  void init(UserShopList userShopList) {
-    this.userShopList = userShopList;
+  // String get shareWith {
+  //   return _shareWith;
+  // }
+
+  void shareWith(String input) {
+    if (input.contains('@')) {
+      _shareWith = input;
+      // } else {
+      //   _shareWithName = input;
+      // }
+      notifyListeners();
+    }
   }
 
-  bool share() {
-    // TODO: Check if user exists. If user exist, then add. Otherwise display error
-    if (true) {
-      userShopList.shared.add(AppUser(username: shareWith));
+  // set shareWith(String shareWith) {
+  //   _shareWith = shareWith;
+  //   notifyListeners();
+  // }
+
+  Future<bool> share() async {
+    dynamic temp;
+    temp = await _database.getUserbyEmail(_shareWith);
+    _shareWith = '';
+
+    if (temp != null) {
+      await _database.updateSharedUserShopList(userShopList, temp);
+      await sharedUsersdb();
       errorMessage = '';
     } else {
-      errorMessage = 'Could not find anyone with that username';
+      errorMessage = 'Could not find anyone with that email';
     }
     notifyListeners();
     return errorMessage == '';

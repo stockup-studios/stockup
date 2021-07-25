@@ -15,9 +15,7 @@ class UserItemView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserItemViewModel>.reactive(
       disposeViewModel: false,
-      initialiseSpecialViewModelsOnce: true,
       onModelReady: (model) => model.init(),
-      fireOnModelReadyOnce: true,
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           title: Text('Items'),

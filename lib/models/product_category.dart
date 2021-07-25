@@ -17,7 +17,7 @@ extension CategoryExtension on ProductCategory {
       case ProductCategory.beers_wines_spirits:
         return 'Beer, Wine & Spirit';
       case ProductCategory.dairy_chilled_frozen:
-        return 'Dairy Chilled & Frozen';
+        return 'Dairy, Chilled & Frozen';
       case ProductCategory.food_pantry:
         return 'Food Pantry';
       case ProductCategory.fruit_vegetables:
@@ -38,7 +38,7 @@ extension CategoryExtension on ProductCategory {
       return ProductCategory.fruit_vegetables;
     } else if (category.contains('Food Pantry')) {
       return ProductCategory.food_pantry;
-    } else if (category.contains('Diary, Chilled & Frozen')) {
+    } else if (category.contains('Dairy, Chilled & Frozen')) {
       return ProductCategory.dairy_chilled_frozen;
     } else if (category.contains('Bakery, Cereals & Spreads')) {
       return ProductCategory.bakery_cereals_spreads;

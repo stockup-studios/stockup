@@ -218,6 +218,11 @@ class DatabaseServiceImpl implements DatabaseService {
     return AppUser.fromFirestore(doc);
   }
 
+  Future<Map<String, dynamic>> getCredentials() async {
+    DocumentSnapshot doc = await userDocument.get();
+    return doc.data();
+  }
+
   @override
   Future<dynamic> getUserbyEmail(String email) async {
     List<QueryDocumentSnapshot> snapshots = await _firestore
@@ -301,6 +306,7 @@ class DatabaseServiceImpl implements DatabaseService {
     String uid = data['uid'];
     DocumentSnapshot target = await user_item_lists.doc(uid).get();
     return UserItemList.fromFirestore(target);
+    //return UserItemList.fromFirestore(target);
   }
 
   @override
@@ -308,7 +314,7 @@ class DatabaseServiceImpl implements DatabaseService {
   Future<List<UserItemList>> getUserItemLists() async {
     List<QueryDocumentSnapshot> snapshots =
         await userItemListCollection.get().then((value) => value.docs);
-    //print(snapshots.length);
+    print(snapshots.length);
     List<DocumentSnapshot> processed = [];
     for (int i = 0; i < snapshots.length; i++) {
       Map data = snapshots.map((e) => e.data()).toList().elementAt(i);
@@ -351,13 +357,20 @@ class DatabaseServiceImpl implements DatabaseService {
     List<String> shared = [];
     Map data = snapshot.data();
     List.from(data['shared']).forEach((element) {
-      //print(element);
-      // AppUser user = getUserbyName(name);
-
-      /// create firestore instance
       shared.add(element);
     });
 
+    return shared;
+  }
+
+  Future<List<String>> getShopListUsers(UserShopList list) async {
+    DocumentSnapshot snapshot = await user_shop_lists.doc(list.uid).get();
+    List<String> shared = [];
+    Map data = snapshot.data();
+    List.from(data['shared']).forEach((element) {
+      shared.add(element);
+    });
+    print(shared.length);
     return shared;
   }
 
@@ -440,7 +453,7 @@ class DatabaseServiceImpl implements DatabaseService {
     List<QueryDocumentSnapshot> snapshots =
         await targetShopListCollection.get().then((value) => value.docs);
     //get document reference and delete
-    List<DocumentReference> doc = snapshots.map((e) => e.reference);
+    List<DocumentReference> doc = snapshots.map((e) => e.reference).toList();
     for (int i = 0; i < doc.length; i++) {
       doc[i].delete();
     }
@@ -455,7 +468,22 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 
   Future<void> updateSharedUserItemList(UserItemList list, AppUser user) async {
+    print(list.uid);
     user_item_lists.doc(list.uid).update({
+      "shared": FieldValue.arrayUnion([user.email])
+    });
+
+    CollectionReference addedUser = _firestore
+        .collection('users')
+        .doc(user.username)
+        .collection('user_item_list');
+    final listDocument = addedUser.doc();
+    Map<String, String> json = {'uid': list.uid};
+    listDocument.set(json);
+  }
+
+  Future<void> updateSharedUserShopList(UserShopList list, AppUser user) async {
+    user_shop_lists.doc(list.uid).update({
       "shared": FieldValue.arrayUnion([user.email])
     });
 

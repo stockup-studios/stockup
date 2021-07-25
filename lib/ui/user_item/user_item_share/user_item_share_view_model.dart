@@ -1,12 +1,15 @@
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
+import 'package:stockup/app/app.router.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/services/services.dart';
 
 class UserItemShareViewModel extends BaseViewModel {
-  final _database = locator<DatabaseServiceImpl>();
+  DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
+  final _navigationService = locator<NavigationService>();
   static final _authService = locator<AuthImplementation>();
-  DatabaseServiceImpl _db;
+  //DatabaseServiceImpl _db;
 
   UserItemList userItemList;
   List<String> sharedUsersEmail = [];
@@ -16,9 +19,10 @@ class UserItemShareViewModel extends BaseViewModel {
   String errorMessage = '';
 
   void init(UserItemList uiList) async {
-    _db = DatabaseServiceImpl(uid: _authService.appUser.username);
+    String useruid = _authService.appUser.username;
+    print('share user uid is $useruid');
+    _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     this.userItemList = uiList;
-    print(userItemList.uid);
     await sharedUsersdb();
   }
 
@@ -38,8 +42,7 @@ class UserItemShareViewModel extends BaseViewModel {
 
   Future<void> sharedUsersdb() async {
     sharedUsersEmail.clear();
-    print('shared users list cleared');
-    sharedUsersEmail = await _db.getItemListUsers(userItemList);
+    sharedUsersEmail = await _database.getItemListUsers(userItemList);
   }
 
   // String get shareWith {
@@ -56,28 +59,34 @@ class UserItemShareViewModel extends BaseViewModel {
     }
   }
 
-    // set shareWithEmail(String email) {
-    //   _shareWith = shareWith;
-    //   notifyListeners();
-    // }
+  // set shareWithEmail(String email) {
+  //   _shareWith = shareWith;
+  //   notifyListeners();
+  // }
 
-    Future<bool> share() async {
-      dynamic temp;
-      // if (_shareWithEmail == '') {
-      //   temp = await _db.getUserbyName(_shareWithName);
-      //   _shareWithName = '';
-      // } else {
-      temp = await _db.getUserbyEmail(_shareWithEmail);
-      _shareWithEmail = '';
+  Future<bool> share() async {
+    dynamic temp;
+    // if (_shareWithEmail == '') {
+    //   temp = await _db.getUserbyName(_shareWithName);
+    //   _shareWithName = '';
+    // } else {
+    temp = await _database.getUserbyEmail(_shareWithEmail);
+    _shareWithEmail = '';
 
-      if (temp != null) {
-        await _db.updateSharedUserItemList(userItemList, temp);
-        await sharedUsersdb();
-        errorMessage = '';
-      } else {
-        errorMessage = 'Could not find anyone with that username or email';
-      }
-      notifyListeners();
-      return errorMessage == '';
+    if (temp != null) {
+      await _database.updateSharedUserItemList(userItemList, temp);
+      await sharedUsersdb();
+      errorMessage = '';
+    } else {
+      errorMessage = 'Could not find anyone with that username or email';
     }
+    notifyListeners();
+    return errorMessage == '';
   }
+
+  Future navigateToUserItem() async {
+    await _navigationService.replaceWith(Routes.userItemView);
+    notifyListeners();
+  }
+
+}

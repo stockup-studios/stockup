@@ -3,6 +3,7 @@ import 'package:sorted_list/sorted_list.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
+import 'package:stockup/app/app.router.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/services/services.dart';
 import 'package:stockup/services/user/user_service.dart';
@@ -11,9 +12,9 @@ import 'package:stockup/ui/user_shop/user_shop_search.dart';
 class UserShopViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
   final _snackbarService = locator<SnackbarService>();
-  final _database = locator<DatabaseServiceImpl>();
+  DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
   static final _authService = locator<AuthImplementation>();
-  DatabaseServiceImpl _db;
+  //DatabaseServiceImpl _db;
 
   // final _userService = locator<UserService>();
   final Map<String, bool> productCategories = {'All Categories': true};
@@ -25,7 +26,7 @@ class UserShopViewModel extends BaseViewModel {
   UserItemList _targetUserItemList;
 
   List<UserShop> _userShops =
-      SortedList<UserShop>((r1, r2) => r2.productName.substring(0, 1).compareTo(r1.productName.substring(0, 1)));
+      SortedList<UserShop>((r1, r2) => r2.quantity.compareTo(r1.quantity));
 
   // /// Only called once. Will not be called again on rebuild
   // void init() {
@@ -35,7 +36,7 @@ class UserShopViewModel extends BaseViewModel {
   // }
 
   void init() async {
-    _db = DatabaseServiceImpl(uid: _authService.appUser.username);
+    _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     await _targetUserItemListFromDatabase();
     await _targetUserShopListFromDatabase();
     await _allShopList();
@@ -53,26 +54,27 @@ class UserShopViewModel extends BaseViewModel {
   }
 
   Future<void> _targetUserItemListFromDatabase() async {
-    _targetUserItemList = await _db.getTargetItemList();
+    _targetUserItemList = await _database.getTargetItemList();
   }
 
   Future<void> _targetUserShopListFromDatabase() async {
-    _targetUserShopList = await _db.getTargetShopList();
+    _targetUserShopList = await _database.getTargetShopList();
   }
 
   Future<void> _displayListFromDatabase() async {
     _userShops.clear();
     print('cleared user shops');
-    List<UserShop> unorderedItems = await _db.getUserShops(_targetUserShopList);
+    List<UserShop> unorderedItems =
+        await _database.getUserShops(_targetUserShopList);
     _userShops.addAll(unorderedItems);
   }
 
   Future<void> _allShopList() async {
-    userShopLists = await _db.getUserShopLists();
+    userShopLists = await _database.getUserShopLists();
   }
 
   Future<void> _updateTargetShopList(UserShopList list) async {
-    await _db.updateTargetShopList(list);
+    await _database.updateTargetShopList(list);
     await _targetUserShopListFromDatabase();
   }
 
@@ -139,6 +141,7 @@ class UserShopViewModel extends BaseViewModel {
     // );
     // ++no;
     // TODO: Add user shop manually
+     _navigationService.replaceWith(Routes.userScanView);
     notifyListeners();
   }
 
@@ -157,8 +160,7 @@ class UserShopViewModel extends BaseViewModel {
     } else {
       _snackbarService.showSnackbar(
         message: item.productName,
-        title:
-            'Moved an item to item list ${_targetUserItemList.name}',
+        title: 'Moved an item to item list ${_targetUserItemList.name}',
         duration: Duration(seconds: 2),
         onTap: (_) {
           print('snackbar tapped');
@@ -170,20 +172,20 @@ class UserShopViewModel extends BaseViewModel {
 
   void move(UserShop item) async {
     UserItem temp = UserItem(
-        productID: item.productID,
-        category: item.category,
-        productName: item.productName,
-        imageURL: item.imageURL,
-        );
-    await _db.deleteUserShop(item, _targetUserShopList);
+      productID: item.productID,
+      category: item.category,
+      productName: item.productName,
+      imageURL: item.imageURL,
+    );
+    await _database.deleteUserShop(item, _targetUserShopList);
     await _displayListFromDatabase();
-    _db.addUserItem(temp, _targetUserItemList);
+    _database.addUserItem(temp, _targetUserItemList);
     //_userService.moveUserItemAtIndex(index);
     notifyListeners();
   }
 
   void delete(UserShop item) async {
-    await _db.deleteUserShop(item, _targetUserShopList);
+    await _database.deleteUserShop(item, _targetUserShopList);
     await _displayListFromDatabase();
     notifyListeners();
   }

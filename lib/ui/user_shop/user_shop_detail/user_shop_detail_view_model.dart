@@ -1,7 +1,13 @@
 import 'package:stacked/stacked.dart';
+import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/models.dart';
+import 'package:stockup/services/services.dart';
 
 class UserShopDetailViewModel extends BaseViewModel {
+  DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
+  static final _authService = locator<AuthImplementation>();
+
+  UserShopList currentList;
   UserShop userShop;
   String name;
   ProductCategory _category;
@@ -47,16 +53,20 @@ class UserShopDetailViewModel extends BaseViewModel {
     }
   }
 
-  void init(UserShop ui) {
+  void init(UserShop ui, UserShopList list, ) {
+    _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     userShop = ui;
+    currentList = list;
     name = userShop.productName;
     category = userShop.category;
     quantity = userShop.quantity;
   }
 
   void save() {
+    //userShop.productName = name;
     userShop.category = category;
     userShop.quantity = quantity;
+    _database.updateUserShop(userShop, currentList);
     notifyListeners();
   }
 }

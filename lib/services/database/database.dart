@@ -1,5 +1,6 @@
 // create item class
 import 'package:stockup/models/models.dart';
+import 'package:observable_ish/observable_ish.dart';
 
 abstract class DatabaseService {
   // Initialize the account with default data when user sign up.
@@ -36,6 +37,7 @@ abstract class DatabaseService {
   Future<dynamic> getUserbyEmail(String email);
 
   Future<List<UserItem>> getUserItems(UserItemList list);
+  // List<UserItem> getUserItems(UserItemList list);
 
   Future<List<UserShop>> getUserShops(UserShopList list);
 
@@ -46,8 +48,10 @@ abstract class DatabaseService {
   Future<List<UserShopList>> getUserShopLists();
 
   Future<UserShopList> getTargetShopList();
+  //UserShopList getTargetShopList();
 
   Future<UserItemList> getTargetItemList();
+  // UserItemList getTargetItemList();
 
   Future<List<Product>> getGiantItems();
 

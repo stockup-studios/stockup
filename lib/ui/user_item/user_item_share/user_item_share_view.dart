@@ -13,6 +13,7 @@ class UserItemShareView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserItemShareViewModel>.reactive(
       onModelReady: (model) => model.init(userItemList),
+      //disposeViewModel: false,
       builder: (context, model, child) => Column(
         children: [
           Padding(
@@ -86,7 +87,8 @@ class UserItemShareView extends StatelessWidget {
                       MaterialStateProperty.all<Color>(Colors.green),
                 ),
                 onPressed: () async {
-                  if (await model.share()) Navigator.pop(context);
+                    if (await model.share()) 
+                      model.navigateToUserItem();
                 },
               ),
             ),
