@@ -136,31 +136,6 @@ class UserItemViewModel extends BaseViewModel {
     return UserItemSearch(displayList);
   }
 
-  // onSwipe(DismissDirection direction, int index) {
-  //   UserItem item = displayList[index];
-  //   if (direction == DismissDirection.startToEnd) {
-  //     _snackbarService.showSnackbar(
-  //       message: item.productName,
-  //       title: 'Moved an item to shopping list ${_targetUserShopList.name}',
-  //       duration: Duration(seconds: 2),
-  //       onTap: (_) {
-  //         print('snackbar tapped');
-  //       },
-  //     );
-  //     move(item);
-  //   } else {
-  //     _snackbarService.showSnackbar(
-  //       message: item.productName,
-  //       title: 'Removed an item from ${_targetUserItemList.name}',
-  //       duration: Duration(seconds: 2),
-  //       onTap: (_) {
-  //         print('snackbar tapped');
-  //       },
-  //     );
-  //     delete(item);
-  //   }
-  // }
-
   void move(UserItem item) async {
     _snackbarService.showSnackbar(
       message: item.productName,
@@ -207,22 +182,8 @@ class UserItemViewModel extends BaseViewModel {
         print('snackbar tapped');
       },
     );
-    await _database.deleteExpiredUserItem(
-        item, _targetUserItemList); 
+    await _database.deleteExpiredUserItem(item, _targetUserItemList);
     await _displayListFromDatabase();
-    notifyListeners();
-  }
-
-  void add() {
-    UserItem toAdd = UserItem(
-      productName: 'Product $no',
-      productID: no,
-      imageURL: 'url$no',
-      category: ProductCategory.values[no % ProductCategory.values.length],
-    );
-    ++no;
-    _database.addUserItem(toAdd, _targetUserItemList);
-    _navigationService.replaceWith(Routes.userScanView);
     notifyListeners();
   }
 
