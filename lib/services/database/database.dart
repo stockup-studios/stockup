@@ -30,9 +30,9 @@ abstract class DatabaseService {
   Future<String> addGiantItem(Product item);
 
   // Read
-  // Future<Map<String, dynamic>> getCredentials();
+  //Future<AppUser> getUser();
 
-  Future<AppUser> getUser();
+  Future<Map<String, dynamic>> getCredentials();
 
   Future<dynamic> getUserbyEmail(String email);
 
@@ -52,6 +52,8 @@ abstract class DatabaseService {
 
   Future<UserItemList> getTargetItemList();
   // UserItemList getTargetItemList();
+
+  Future<UserItemList> getRequestedList(String listName, String userEmail);
 
   Future<List<Product>> getGiantItems();
 

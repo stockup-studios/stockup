@@ -224,12 +224,13 @@ class DatabaseServiceImpl implements DatabaseService {
   //   return json.data();
   // }
 
-  @override
-  Future<AppUser> getUser() async {
-    DocumentSnapshot doc = await userDocument.get();
-    return AppUser.fromFirestore(doc);
-  }
+  // @override
+  // Future<AppUser> getUser() async {
+  //   DocumentSnapshot doc = await userDocument.get();
+  //   return AppUser.fromFirestore(doc);
+  // }
 
+  @override
   Future<Map<String, dynamic>> getCredentials() async {
     DocumentSnapshot doc = await userDocument.get();
     return doc.data();
@@ -362,6 +363,28 @@ class DatabaseServiceImpl implements DatabaseService {
     });
 
     return shared;
+  }
+
+  @override
+  Future<UserItemList> getRequestedList(
+      String listName, String userEmail) async {
+    List<QueryDocumentSnapshot> snapshots = await user_item_lists
+        .where('name', isEqualTo: listName)
+        .where('shared', arrayContains: userEmail)
+        .get()
+        .then((value) => value.docs);
+
+    for (QueryDocumentSnapshot snapshot in snapshots) {
+      Map<String, dynamic> data = snapshot.data();
+      String uid = data['uid'];
+      if (userItemListCollection.where('uid', isEqualTo: uid).get() != null) {
+        DocumentSnapshot target = await user_item_lists.doc(uid).get();
+        return UserItemList.fromFirestore(target);
+      }
+    }
+
+    print('no personal list found for user $userEmail');
+    return null;
   }
 
   @override

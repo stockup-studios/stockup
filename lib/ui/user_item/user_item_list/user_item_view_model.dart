@@ -154,7 +154,6 @@ class UserItemViewModel extends BaseViewModel {
     await _database.deleteUserItem(item, _targetUserItemList);
     await _displayListFromDatabase();
     _database.addUserShop(temp, _targetUserShopList);
-    //_userService.moveUserItemAtIndex(index);
     notifyListeners();
   }
 
@@ -168,7 +167,7 @@ class UserItemViewModel extends BaseViewModel {
       },
     );
     await _database.deleteUserItem(
-        item, _targetUserItemList); //change this to check for expiry date
+        item, _targetUserItemList); 
     await _displayListFromDatabase();
     notifyListeners();
   }

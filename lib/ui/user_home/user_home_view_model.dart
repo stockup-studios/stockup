@@ -1,7 +1,9 @@
+import 'package:sorted_list/sorted_list.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/app/app.router.dart';
+import 'package:stockup/models/models.dart';
 import 'package:stockup/services/services.dart';
 
 class UserHomeViewModel extends BaseViewModel {
@@ -12,11 +14,51 @@ class UserHomeViewModel extends BaseViewModel {
   List<ExpiredItemData> expiredData = [];
   List<int> expiredDb = [];
 
+  List<UserItem> expiredItems = [];
+  List<UserItem> expiringItems = [];
+  int totalItems = 0;
+  UserItemList personal;
+
   void init() async {
     _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     await getExpiredData();
+    await _personalListFromDb();
+    await _processItemsinList();
     print('home view model init called');
     notifyListeners();
+  }
+
+  Future<void> _personalListFromDb() async {
+    personal = await _database.getRequestedList(
+        'Personal', _authService.appUser.email);
+    print('user home personal list is ${personal == null}');
+  }
+
+  Future<void> _processItemsinList() async {
+    List<UserItem> all = SortedList<UserItem>(
+        (r1, r2) => r2.forCompare.compareTo(r1.forCompare));
+    List<UserItem> unordered = await _database.getUserItems(personal);
+    totalItems = unordered.length;
+    all.addAll(unordered);
+
+    for (UserItem item in all) {
+      int daysLeft = item.daysLeft;
+      if (daysLeft <= 0) {
+        //increase expired
+        expiredItems.add(item);
+      } else if (daysLeft < 4) {
+        // increase expire soon
+        if (expiringItems.length < 6) {
+          expiringItems.add(item);
+        }
+      } else {
+        // break since sorted list so no more items to look through
+        break;
+      }
+    }
+
+    print('expired items ${expiredItems.length}');
+    print('expiring items ${expiringItems.length}');
   }
 
   Future<void> _expiredItemsFromDatabase() async {
@@ -26,7 +68,7 @@ class UserHomeViewModel extends BaseViewModel {
   Future<void> getExpiredData() async {
     Map<int, int> map = {};
     await _expiredItemsFromDatabase();
-  
+
     expiredDb.forEach((element) {
       if (!map.containsKey(element)) {
         map[element] = 1;
@@ -35,15 +77,10 @@ class UserHomeViewModel extends BaseViewModel {
       }
     });
     for (int element in map.keys) {
-      ExpiredItemData data =
-          ExpiredItemData(DateTime.fromMillisecondsSinceEpoch(element), map[element]);
+      ExpiredItemData data = ExpiredItemData(
+          DateTime.fromMillisecondsSinceEpoch(element), map[element]);
       expiredData.add(data);
     }
-    // for (int i = 0; i < map.keys.length; i++) {
-    //   ExpiredItemData data =
-    //       ExpiredItemData(DateTime.fromMillisecondsSinceEpoch(map.keys.toList()[i]), map.values.toList()[i]);
-    //   expiredData.add(data);
-    // }
   }
 
   void signOut() async {
