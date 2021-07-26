@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/models/product.dart';
 import 'package:stockup/models/product_category.dart';
@@ -18,54 +19,46 @@ class UserScanDetailView extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    child: Text('Name'),
-                  ),
-                ),
-                Expanded(
-                  flex: 3,
-                  child: Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: BorderRadius.circular(10)),
-                    child: TextField(
-                      onChanged: (newName) {
-                        model.name = newName;
-                      },
-                      decoration: InputDecoration.collapsed(
-                        hintText: model.name,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            padding:
+                const EdgeInsets.only(left: 10, top: 20, right: 10, bottom: 5),
+            child: Text(
+              'Edit item',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w500,
+              ),
+              textAlign: TextAlign.left,
             ),
           ),
-          Row(
-            children: [
-              Container(
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: FractionallySizedBox(
+              widthFactor: 0.9,
+              child: Container(
                 alignment: Alignment.center,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                margin: const EdgeInsets.symmetric(horizontal: 10),
-                child: Text('Category'),
+                decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(10)),
+                child: TextField(
+                  onChanged: (newName) {
+                    model.name = newName;
+                  },
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 10),
+                    hintText: model.name,
+                  ),
+                ),
               ),
-              Container(
-                alignment: Alignment.center,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                margin: const EdgeInsets.symmetric(horizontal: 10),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: FractionallySizedBox(
+              widthFactor: 0.9,
+              child: Container(
                 child: DropdownButton<ProductCategory>(
+                  isExpanded: true,
                   value: model.category,
                   icon: Icon(Icons.arrow_downward),
                   onChanged: (ProductCategory newCategory) {
@@ -81,7 +74,33 @@ class UserScanDetailView extends StatelessWidget {
                   }).toList(),
                 ),
               ),
-            ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: FractionallySizedBox(
+              widthFactor: 0.9,
+              child: TextButton(
+                onPressed: () async {
+                  final DateTime newDate = await showDatePicker(
+                    context: context,
+                    initialDate: model.expiry,
+                    firstDate: DateTime.now(),
+                    lastDate: DateTime(DateTime.now().year + 1),
+                  );
+                  if (newDate != null) model.expiry = newDate;
+                },
+                child: Row(
+                  children: [
+                    Container(
+                      child: Text(
+                          'Expires on ${DateFormat('dd MMM yyyy').format(model.expiry)}'),
+                    ),
+                    Icon(Icons.calendar_today),
+                  ],
+                ),
+              ),
+            ),
           ),
           FractionallySizedBox(
             widthFactor: 0.7,
