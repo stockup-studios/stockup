@@ -9,6 +9,11 @@ class UserHomeViewModel extends BaseViewModel {
   static final _authService = locator<AuthImplementation>();
   DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
 
+  /// temp variables only for UI testing. Use version taken from database for actual
+  int noExpired = 1;
+  int noExpiringSoon = 1;
+  int totalItems = 1;
+
   List<ExpiredItemData> expiredData = [];
   List<int> expiredDb = [];
 
@@ -26,7 +31,7 @@ class UserHomeViewModel extends BaseViewModel {
   Future<void> getExpiredData() async {
     Map<int, int> map = {};
     await _expiredItemsFromDatabase();
-  
+
     expiredDb.forEach((element) {
       if (!map.containsKey(element)) {
         map[element] = 1;
@@ -35,8 +40,8 @@ class UserHomeViewModel extends BaseViewModel {
       }
     });
     for (int element in map.keys) {
-      ExpiredItemData data =
-          ExpiredItemData(DateTime.fromMillisecondsSinceEpoch(element), map[element]);
+      ExpiredItemData data = ExpiredItemData(
+          DateTime.fromMillisecondsSinceEpoch(element), map[element]);
       expiredData.add(data);
     }
     // for (int i = 0; i < map.keys.length; i++) {
@@ -49,6 +54,16 @@ class UserHomeViewModel extends BaseViewModel {
   void signOut() async {
     await _authService.signOut();
     _navigationService.replaceWith(Routes.welcomeView);
+  }
+
+  void viewItems() {
+    _navigationService.replaceWith(Routes.userItemView);
+    notifyListeners();
+  }
+
+  void add() {
+    _navigationService.replaceWith(Routes.userScanView);
+    notifyListeners();
   }
 
   final List<List<String>> messages = [

@@ -23,30 +23,98 @@ class UserHomeView extends StatelessWidget {
         ),
         body: ListView(
           children: [
-            for (int index = 0; index < model.messages.length; ++index)
-              HomeTile(
-                // TODO: Replace with service
-                colorLeft: Colors.orangeAccent,
-                colorRight: Colors.deepOrangeAccent,
-                text: model.messages[index],
+            if (model.noExpired > 0)
+              SummaryTile(
+                title:
+                    '1 item expired', // TODO: Replace with expired details from model (remember to send top 5 only)
+                details: [
+                  // TODO: Replace with expired details from model (remember to send top 5 only)
+                  '1 day ago | item 1',
+                  '1 day ago | item 1',
+                  '1 day ago | item 1',
+                ],
+                leftColor: Colors.red,
+                rightColor: Colors.redAccent,
+                onTap: model.viewItems,
+              )
+            else
+              SummaryTile(
+                title: 'You have no expired items',
+                details: ['Keep it up!'],
+                leftColor: Colors.lightGreen,
+                rightColor: Colors.green,
+                onTap: () {},
               ),
-            SfCartesianChart(
-              title: ChartTitle(text: 'Food Wastage Statistics'),
-              tooltipBehavior: TooltipBehavior(enable: true),
-              primaryXAxis: CategoryAxis(),
-              series: <LineSeries<dynamic, String>>[
-                LineSeries<dynamic, String>(
-                  name: 'Expired items',
-                  dataSource: model.expiredData,
-                  xValueMapper: (dynamic data, _) =>
-                      intl.DateFormat('dd MMM').format(data.time),
-                  yValueMapper: (dynamic data, _) => data.amount,
-                )
-              ],
+            if (model.noExpiringSoon > 0)
+              SummaryTile(
+                // TODO: Replace with expiring soon details from model (remember to send top 5 only)
+                title: '1 item expiring soon',
+                details: [
+                  // TODO: Replace with expiring soon details from model (remember to send top 5 only)
+                  '1 day ago | item 1',
+                  '1 day ago | item 1',
+                  '1 day ago | item 1',
+                ],
+                leftColor: Colors.orange,
+                rightColor: Colors.orangeAccent,
+                onTap: model.viewItems,
+              )
+            else
+              SummaryTile(
+                title: "You don't have any items expiring soon",
+                details: ['You can relax'],
+                leftColor: Colors.lightGreen,
+                rightColor: Colors.green,
+                onTap: () {},
+              ),
+            if (model.totalItems == 0)
+              SummaryTile(
+                title: 'Your personal list is empty',
+                details: ["Let's scan some items!"],
+                leftColor: Colors.lightGreen,
+                rightColor: Colors.green,
+                onTap: model.add,
+              ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SfCartesianChart(
+                    title: ChartTitle(
+                      text: 'Food Wastage',
+                      // textStyle: TextStyle(color: Colors.white),
+                    ),
+                    tooltipBehavior: TooltipBehavior(
+                      enable: true,
+                      // textStyle: TextStyle(color: Colors.white),
+                    ),
+                    primaryXAxis: CategoryAxis(),
+                    series: <LineSeries<dynamic, String>>[
+                      LineSeries<dynamic, String>(
+                        name: 'Expired items',
+                        dataSource: model.expiredData,
+                        xValueMapper: (dynamic data, _) =>
+                            intl.DateFormat('dd MMM').format(data.time),
+                        yValueMapper: (dynamic data, _) => data.amount,
+                      )
+                    ],
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: <Color>[Colors.grey.shade300, Colors.grey.shade300],
+                  ),
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Card(
+              child: FractionallySizedBox(
+                widthFactor: 0.9,
                 child: OutlinedButton(
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.red)),
@@ -65,6 +133,73 @@ class UserHomeView extends StatelessWidget {
         bottomNavigationBar: BottomNavigation(currentIndex: 0),
       ),
       viewModelBuilder: () => UserHomeViewModel(),
+    );
+  }
+}
+
+class SummaryTile extends StatelessWidget {
+  const SummaryTile({
+    Key key,
+    @required this.title,
+    @required this.details,
+    @required this.leftColor,
+    @required this.rightColor,
+    @required this.onTap,
+  }) : super(key: key);
+
+  final String title;
+  final List<String> details;
+  final Color leftColor;
+  final Color rightColor;
+  final Function onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListTile(
+            title: Text(
+              this.title,
+              style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            subtitle: Padding(
+              padding: const EdgeInsets.only(top: 8, left: 4, bottom: 8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (String detail in this.details)
+                    Text(
+                      detail,
+                      style: TextStyle(color: Colors.white),
+                    ),
+                ],
+              ),
+            ),
+            onTap: this.onTap,
+          ),
+        ),
+        // shape: RoundedRectangleBorder(
+        //   borderRadius: BorderRadius.circular(10),
+        // ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              this.leftColor,
+              this.rightColor,
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
