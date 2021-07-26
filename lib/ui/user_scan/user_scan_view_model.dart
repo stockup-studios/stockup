@@ -12,19 +12,20 @@ class UserScanViewModel extends BaseViewModel {
   final _scanner = locator<Scanner>();
   final _parser = locator<Parser>();
 
-  final List<Product> _productMatches = [];
+  final List<UserItem> _productMatches = [];
   String foundNoTextError = '';
 
-  List<Product> get productMatches => _productMatches;
+  List<UserItem> get productMatches => _productMatches;
+  
   UserItemList _currentList;
-
+  
   void init() async {
     _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     await _targetUserItemListFromDatabase();
     print(_currentList.uid);
     notifyListeners();
   }
-
+  
   Future<void> _targetUserItemListFromDatabase() async {
     _currentList = await _database.getTargetItemList();
   }
@@ -35,13 +36,18 @@ class UserScanViewModel extends BaseViewModel {
     List<String> text = await _scanner.getTextFromImageFile(imageFile);
     List<String> matches = _parser.getBestMatches(text);
     foundNoTextError = (matches.length == 0)
-        ? "Receipt picture might be rotated. We couldn't find any details"
+        ? "Couldn't find any details. Receipt picture might be rotated"
         : '';
     for (String match in matches) {
       print(match);
       Product p =
           productCatalog.firstWhere((product) => product.productName == match);
-      _productMatches.add(p);
+      UserItem userItem = UserItem(
+          productName: p.productName,
+          productID: p.productID,
+          category: p.category,
+          imageURL: p.imageURL);
+      _productMatches.add(userItem);
     }
     setBusy(false);
     notifyListeners();
@@ -59,7 +65,12 @@ class UserScanViewModel extends BaseViewModel {
         print(match);
         Product p = productCatalog
             .firstWhere((product) => product.productName == match);
-        _productMatches.add(p);
+        UserItem userItem = UserItem(
+            productName: p.productName,
+            productID: p.productID,
+            category: p.category,
+            imageURL: p.imageURL);
+        _productMatches.add(userItem);
       }
     }
     foundNoTextError = added
@@ -70,16 +81,29 @@ class UserScanViewModel extends BaseViewModel {
   }
 
   void addToItems() {
-    for (Product p in _productMatches) {
-      UserItem ui = UserItem(
-          productName: p.productName,
-          productID: p.productID,
-          category: p.category,
-          imageURL: p.imageURL);
-      _database.addUserItem(ui, _currentList);
-      //_userService.addUserItem(ui);
+
+    for (UserItem ui in _productMatches) {
+       _database.addUserItem(ui, _currentList);
     }
     _productMatches.clear();
+    notifyListeners();
+  }
+
+  void duplicate(int index) {
+    UserItem current = _productMatches[index];
+    UserItem duplicate = UserItem(
+      productName: current.productName,
+      productID: current.productID,
+      category: current.category,
+      imageURL: current.imageURL,
+    );
+    duplicate.expiryDate = current.expiryDate;
+    _productMatches.insert(index, duplicate);
+    notifyListeners();
+  }
+
+  void delete(int index) {
+    _productMatches.removeAt(index);
     notifyListeners();
   }
 
