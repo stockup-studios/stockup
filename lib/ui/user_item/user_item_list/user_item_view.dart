@@ -69,7 +69,7 @@ class UserItemView extends StatelessWidget {
                               context: context, delegate: model.search());
                           if (userItem != null)
                             await showModalBottomSheet(
-                              isScrollControlled: true,
+                              //isScrollControlled: true,
                               context: context,
                               builder: (context) => UserItemDetailView(
                                 userItem: userItem,
@@ -135,7 +135,15 @@ class UserItemView extends StatelessWidget {
                         color: Colors.green,
                         icon: Icons.check,
                         onTap: () => model.delete(model.displayList[index]),
-                      )
+                      ),
+                      IconSlideAction(
+                        // TODO: Edit position in secondary actions if needed
+                        caption: 'Throw',
+                        foregroundColor: Colors.white,
+                        color: Colors.red,
+                        icon: Icons.clear,
+                        onTap: () => model.thrown(model.displayList[index]),
+                      ),
                     ],
                     child: Card(
                       child: ListTile(
@@ -157,10 +165,7 @@ class UserItemView extends StatelessWidget {
                         ),
                         title: Text(model.displayList[index].productName),
                         subtitle:
-                            //model.displayList[index].daysLeft == 1
                             Text(model.getExpiryDays(model.displayList[index])),
-                        // : Text(
-                        //     '${model.displayList[index].daysLeft} days left'),
                         trailing: IconButton(
                           icon: Icon(Icons.edit),
                           onPressed: () async {
@@ -187,7 +192,7 @@ class UserItemView extends StatelessWidget {
           child: Icon(Icons.add),
           onPressed: () async {
             await showModalBottomSheet(
-              isScrollControlled: true,
+              //isScrollControlled: true,
               context: context,
               builder: (context) =>
                   UserItemAddView(userItemList: model.targetUserItemList),

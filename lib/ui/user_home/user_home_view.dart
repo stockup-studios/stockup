@@ -26,18 +26,14 @@ class UserHomeView extends StatelessWidget {
             if (model.expiredItems.length > 0)
               SummaryTile(
                 title: model
-                    .expiredTitleMessage, // TODO: Replace with expired details from model (remember to send top 5 only)
+                    .expiredTitleMessage,
                 details: model.expiredDetailMessage
-                // TODO: Replace with expired details from model (remember to send top 5 only)
-                // '1 day ago | item 1',
-                // '1 day ago | item 1',
-                // '1 day ago | item 1',
                 ,
                 leftColor: Colors.red,
                 rightColor: Colors.redAccent,
                 onTap: model.viewItems,
               )
-            else
+            else if (model.expiredItems.length == 0)
               SummaryTile(
                 title: 'You have no expired items',
                 details: ['Keep it up!'],

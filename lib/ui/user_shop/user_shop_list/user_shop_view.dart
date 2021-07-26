@@ -124,7 +124,7 @@ class UserShopView extends StatelessWidget {
                         foregroundColor: Colors.white,
                         color: Colors.green,
                         icon: Icons.check,
-                        onTap: () => model.move(model.displayList[index]),
+                        onTap: () async => await model.move(model.displayList[index]),
                       )
                     ],
                     child: Card(

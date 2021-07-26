@@ -24,7 +24,7 @@ class UserShopShareView extends StatelessWidget {
                 fontSize: 24,
                 fontWeight: FontWeight.w500,
               ),
-              textAlign: TextAlign.left,
+              textAlign: TextAlign.center,
             ),
           ),
           Padding(

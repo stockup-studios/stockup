@@ -92,6 +92,31 @@ class UserItem extends Product {
     }
   }
 
+  static int getRecommendedExpiry(ProductCategory category) {
+    DateTime current = DateTime.now();
+    DateTime today = DateTime(current.year, current.month, current.day);
+    switch (category) {
+      case ProductCategory.bakery_cereals_spreads:
+        return today.add(Duration(days: 7)).millisecondsSinceEpoch;
+      case ProductCategory.beers_wines_spirits:
+        return today.add(Duration(days: 60)).millisecondsSinceEpoch;
+      case ProductCategory.dairy_chilled_frozen:
+        return today.add(Duration(days: 5)).millisecondsSinceEpoch;
+      case ProductCategory.food_pantry:
+        return today.add(Duration(days: 30)).millisecondsSinceEpoch;
+      case ProductCategory.fruit_vegetables:
+        return today.add(Duration(days: 4)).millisecondsSinceEpoch;
+      case ProductCategory.meats_seafood:
+        return today.add(Duration(days: 3)).millisecondsSinceEpoch;
+      case ProductCategory.snacks_drinks:
+        return today.add(Duration(days: 40)).millisecondsSinceEpoch;
+      case ProductCategory.others:
+        return today.add(Duration(days: 1)).millisecondsSinceEpoch;
+      default:
+        return today.millisecondsSinceEpoch;
+    }
+  }
+
   /// update expiry date
   void updateExpiry(int millisecondsSinceEpoch) {
     expiryDate = millisecondsSinceEpoch;
@@ -101,9 +126,11 @@ class UserItem extends Product {
     // Duration difference = DateTime.now()
     //     .difference(DateTime.fromMillisecondsSinceEpoch(expiryDate));
     int expiry = _getEstimatedExpiry();
-    Duration difference = DateTime.fromMillisecondsSinceEpoch(expiry)
-        .difference(DateTime.now());
-    return (difference.inDays + 1);
+    DateTime current = DateTime.now();
+    DateTime today = DateTime(current.year, current.month, current.day);
+    Duration difference =
+        DateTime.fromMillisecondsSinceEpoch(expiry).difference(today);
+    return (difference.inDays);
   }
 
   int get forCompare {

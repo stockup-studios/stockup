@@ -46,7 +46,8 @@ class UserScanViewModel extends BaseViewModel {
           productName: p.productName,
           productID: p.productID,
           category: p.category,
-          imageURL: p.imageURL);
+          imageURL: p.imageURL,
+          expiryDate: UserItem.getRecommendedExpiry(p.category));
       _productMatches.add(userItem);
     }
     setBusy(false);
@@ -70,7 +71,8 @@ class UserScanViewModel extends BaseViewModel {
             productName: p.productName,
             productID: p.productID,
             category: p.category,
-            imageURL: p.imageURL);
+            imageURL: p.imageURL,
+            expiryDate: UserItem.getRecommendedExpiry(p.category));
         _productMatches.add(userItem);
       }
     }
@@ -96,6 +98,7 @@ class UserScanViewModel extends BaseViewModel {
       productID: current.productID,
       category: current.category,
       imageURL: current.imageURL,
+      expiryDate: current.expiryDate,
     );
     duplicate.expiryDate = current.expiryDate;
     _productMatches.insert(index, duplicate);

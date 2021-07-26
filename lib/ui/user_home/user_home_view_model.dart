@@ -40,6 +40,8 @@ class UserHomeViewModel extends BaseViewModel {
   }
 
   Future<void> _processItemsinList() async {
+    expiredItems.clear();
+    expiringItems.clear();
     List<UserItem> all = SortedList<UserItem>(
         (r1, r2) => r2.forCompare.compareTo(r1.forCompare));
     List<UserItem> unordered = await _database.getUserItems(personal);
@@ -48,7 +50,7 @@ class UserHomeViewModel extends BaseViewModel {
 
     for (UserItem item in all) {
       int daysLeft = item.daysLeft;
-      if (daysLeft <= 0) {
+      if (daysLeft < 0) {
         //increase expired
         if (expiredItems.length < 6) {
           expiredItems.add(item);
@@ -80,6 +82,7 @@ class UserHomeViewModel extends BaseViewModel {
     List<String> messages = [];
     for (UserItem item in expiredItems) {
       String message;
+
       if (item.daysLeft == -1) {
         message = '${-item.daysLeft} day ago | ${item.productName}';
       } else {
@@ -92,9 +95,9 @@ class UserHomeViewModel extends BaseViewModel {
 
   String get expiringTitleMessage {
     if (expiringItems.length == 1) {
-      return '${expiringItems.length} item expired';
+      return '${expiringItems.length} item expiring soon';
     } else {
-      return '${expiringItems.length} items expired';
+      return '${expiringItems.length} items expiring soon';
     }
   }
 
@@ -104,6 +107,8 @@ class UserHomeViewModel extends BaseViewModel {
       String message;
       if (item.daysLeft == 1) {
         message = '${item.daysLeft} day left | ${item.productName}';
+      } else if (item.daysLeft == 0) {
+        message = 'expiring today | ${item.productName}';
       } else {
         message = '${item.daysLeft} days left | ${item.productName}';
       }

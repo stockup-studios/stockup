@@ -452,9 +452,9 @@ class DatabaseServiceImpl implements DatabaseService {
 
   @override
   Future<void> updateUserShop(UserShop item, UserShopList list) async {
-    user_item_lists
+    user_shop_lists
         .doc(list.uid)
-        .collection('user_item')
+        .collection('user_shop')
         .doc(item.uid)
         .update(item.toJson());
   }
@@ -560,7 +560,18 @@ class DatabaseServiceImpl implements DatabaseService {
 
   @override
   Future<void> deleteExpiredUserItem(UserItem item, UserItemList list) async {
-    int expiry = item.expiryDate;
+    DateTime current = DateTime.now();
+    DateTime today = DateTime(current.year, current.month, current.day);
+    int expiry;
+
+    Duration temp =
+        DateTime.fromMillisecondsSinceEpoch(item.expiryDate).difference(today);
+    if (temp.isNegative) {
+      expiry = item.expiryDate;
+    } else {
+      expiry = today.millisecondsSinceEpoch;
+    }
+
     updateExpiredItems(expiry);
     user_item_lists
         .doc(list.uid)
