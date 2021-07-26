@@ -73,6 +73,7 @@ class StockUP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'StockUP',
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,

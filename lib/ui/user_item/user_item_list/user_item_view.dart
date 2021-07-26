@@ -4,12 +4,8 @@ import 'package:stacked/stacked.dart';
 import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
-<<<<<<< HEAD
-import 'package:stockup/ui/user_item/user_item_add_view.dart';
-import 'package:stockup/ui/user_item/user_item_share_view.dart';
-=======
+import 'package:stockup/ui/user_item/user_item_add/user_item_add_view.dart';
 import 'package:stockup/ui/user_item/user_item_share/user_item_share_view.dart';
->>>>>>> 836b4ca766554a65cebd0bebe662d364e837d2c5
 import 'package:stockup/ui/user_item/user_item_detail/user_item_detail_view.dart';
 import 'package:stockup/ui/user_item/user_item_list/user_item_view_model.dart';
 
@@ -56,6 +52,7 @@ class UserItemView extends StatelessWidget {
                       IconButton(
                         onPressed: () async {
                           await showModalBottomSheet(
+                            // isScrollControlled: true,
                             context: context,
                             builder: (context) => UserItemShareView(
                               userItemList: model.targetUserItemList,
@@ -72,6 +69,7 @@ class UserItemView extends StatelessWidget {
                               context: context, delegate: model.search());
                           if (userItem != null)
                             await showModalBottomSheet(
+                              isScrollControlled: true,
                               context: context,
                               builder: (context) => UserItemDetailView(
                                 userItem: userItem,
@@ -120,14 +118,14 @@ class UserItemView extends StatelessWidget {
                         foregroundColor: Colors.white,
                         color: Colors.orange,
                         icon: Icons.list,
-                        onTap: () => model.onMove(index),
+                        onTap: () => model.move(model.displayList[index]),
                       ),
                       IconSlideAction(
                         caption: 'Delete',
                         foregroundColor: Colors.white,
                         color: Colors.red,
                         icon: Icons.delete,
-                        onTap: () => model.onDelete(index),
+                        onTap: () => model.delete(model.displayList[index]),
                       )
                     ],
                     secondaryActions: [
@@ -158,15 +156,16 @@ class UserItemView extends StatelessWidget {
                           },
                         ),
                         title: Text(model.displayList[index].productName),
-                        subtitle: 
-                        //model.displayList[index].daysLeft == 1
+                        subtitle:
+                            //model.displayList[index].daysLeft == 1
                             Text(model.getExpiryDays(model.displayList[index])),
-                            // : Text(
-                            //     '${model.displayList[index].daysLeft} days left'),
+                        // : Text(
+                        //     '${model.displayList[index].daysLeft} days left'),
                         trailing: IconButton(
                           icon: Icon(Icons.edit),
                           onPressed: () async {
                             await showModalBottomSheet(
+                              isScrollControlled: true,
                               context: context,
                               builder: (context) => UserItemDetailView(
                                 userItem: model.displayList[index],
@@ -193,7 +192,7 @@ class UserItemView extends StatelessWidget {
               builder: (context) =>
                   UserItemAddView(userItemList: model.targetUserItemList),
             );
-            model.update();
+            model.init();
           },
         ),
         bottomNavigationBar: BottomNavigation(currentIndex: 1),

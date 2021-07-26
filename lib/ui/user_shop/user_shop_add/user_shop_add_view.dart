@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/models/product_category.dart';
 import 'package:stockup/models/user_shop_list.dart';
-import 'package:stockup/ui/user_shop/user_shop_add_view_model.dart';
+import 'package:stockup/ui/user_shop/user_shop_add/user_shop_add_view_model.dart';
 
 class UserShopAddView extends StatelessWidget {
   const UserShopAddView({@required this.userShopList, Key key})

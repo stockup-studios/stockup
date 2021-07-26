@@ -20,18 +20,6 @@ class UserHomeView extends StatelessWidget {
         appBar: AppBar(
           title: Text('Home'),
           centerTitle: true,
-          actions: <Widget>[
-            TextButton.icon(
-              icon: Icon(
-                Icons.person,
-                color: Colors.white,
-              ),
-              label: Text('Logout'),
-              onPressed: () async {
-                model.signOut();
-              },
-            )
-          ],
         ),
         body: ListView(
           children: [
@@ -55,6 +43,22 @@ class UserHomeView extends StatelessWidget {
                   yValueMapper: (dynamic data, _) => data.amount,
                 )
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Card(
+                child: OutlinedButton(
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.red)),
+                  child: Text(
+                    'Logout',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () async {
+                    model.signOut();
+                  },
+                ),
+              ),
             ),
           ],
         ),

@@ -24,21 +24,26 @@ class UserHomeViewModel extends BaseViewModel {
   }
 
   Future<void> getExpiredData() async {
+    Map<int, int> map = {};
     await _expiredItemsFromDatabase();
-    int current = 0;
-    int count = 0;
-    for (int i = 0; i < expiredDb.length; i++) {
-      if (current != expiredDb[i]) {
-        ExpiredItemData temp = ExpiredItemData(
-            DateTime.fromMillisecondsSinceEpoch(current), count);
-        expiredData.add(temp);
-
-        current = expiredDb[i];
-        count = 0;
+  
+    expiredDb.forEach((element) {
+      if (!map.containsKey(element)) {
+        map[element] = 1;
       } else {
-        count += 1;
+        map[element] += 1;
       }
+    });
+    for (int element in map.keys) {
+      ExpiredItemData data =
+          ExpiredItemData(DateTime.fromMillisecondsSinceEpoch(element), map[element]);
+      expiredData.add(data);
     }
+    // for (int i = 0; i < map.keys.length; i++) {
+    //   ExpiredItemData data =
+    //       ExpiredItemData(DateTime.fromMillisecondsSinceEpoch(map.keys.toList()[i]), map.values.toList()[i]);
+    //   expiredData.add(data);
+    // }
   }
 
   void signOut() async {
@@ -60,14 +65,6 @@ class UserHomeViewModel extends BaseViewModel {
       '1 Shared List',
     ],
   ];
-
-  // final List<ExpiredItemData> expiredItemData = [
-  //   // ExpiredItemData(DateTime.now(), 7),
-  //   // ExpiredItemData(DateTime.now().add(Duration(days: 1)), 5),
-  //   // ExpiredItemData(DateTime.now().add(Duration(days: 2)), 4),
-  //   // ExpiredItemData(DateTime.now().add(Duration(days: 3)), 2),
-  //   // ExpiredItemData(DateTime.now().add(Duration(days: 4)), 1),
-  // ];
 }
 
 class ExpiredItemData {

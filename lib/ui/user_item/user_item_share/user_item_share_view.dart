@@ -14,7 +14,8 @@ class UserItemShareView extends StatelessWidget {
     return ViewModelBuilder<UserItemShareViewModel>.reactive(
       onModelReady: (model) => model.init(userItemList),
       //disposeViewModel: false,
-      builder: (context, model, child) => Column(
+      builder: (context, model, child) => ListView(
+        // mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
             padding:
@@ -25,7 +26,7 @@ class UserItemShareView extends StatelessWidget {
                 fontSize: 24,
                 fontWeight: FontWeight.w500,
               ),
-              textAlign: TextAlign.left,
+              textAlign: TextAlign.center,
             ),
           ),
           Padding(
@@ -61,6 +62,7 @@ class UserItemShareView extends StatelessWidget {
             ),
           Expanded(
             child: ListView.builder(
+              shrinkWrap: true,
               scrollDirection: Axis.vertical,
               itemCount: model.sharedUsersEmail.length,
               itemBuilder: (context, index) => FractionallySizedBox(

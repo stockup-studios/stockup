@@ -17,7 +17,8 @@ class UserShopShareViewModel extends BaseViewModel {
     _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     this.userShopList = uiList;
     await sharedUsersdb();
-    print(sharedUsersEmail.length);
+    print('shared email length is ${sharedUsersEmail.length}');
+    notifyListeners();
   }
 
   Future<void> sharedUsersdb() async {

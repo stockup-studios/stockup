@@ -19,11 +19,11 @@ class UserItemShareViewModel extends BaseViewModel {
   String errorMessage = '';
 
   void init(UserItemList uiList) async {
-    String useruid = _authService.appUser.username;
-    print('share user uid is $useruid');
+    //String useruid = _authService.appUser.username;
     _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     this.userItemList = uiList;
     await sharedUsersdb();
+    notifyListeners();
   }
 
   // void refresh(UserItemList uiList) async {
@@ -88,5 +88,4 @@ class UserItemShareViewModel extends BaseViewModel {
     await _navigationService.replaceWith(Routes.userItemView);
     notifyListeners();
   }
-
 }
