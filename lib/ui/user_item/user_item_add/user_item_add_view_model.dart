@@ -1,12 +1,17 @@
 import 'package:stacked/stacked.dart';
+import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/models/user_item.dart';
 import 'package:stockup/models/user_item_list.dart';
 import 'package:http/http.dart' as http;
+import 'package:stockup/services/services.dart';
 
 String apiKey = 'f1798c4b05msh0ea4de1e4b0963cp11bc95jsn389dca3fa79b';
 
 class UserItemAddViewModel extends BaseViewModel {
+  DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
+  static final _authService = locator<AuthImplementation>();
+  
   UserItemList userItemList;
 
   /// required fields for adding new item
@@ -79,6 +84,7 @@ class UserItemAddViewModel extends BaseViewModel {
 
   /// initialization code. Will be run on build
   void init(UserItemList userItemList) {
+    _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     this.userItemList = userItemList;
     this.name = '';
     this.imageURL = '';
@@ -129,9 +135,11 @@ class UserItemAddViewModel extends BaseViewModel {
           productName: name,
           productID: -1,
           category: category,
-          imageURL: imageURL);
-      userItem.expiryDate = expiry.millisecondsSinceEpoch;
-      userItemList.addUserItem(userItem);
+          imageURL: imageURL,
+          expiryDate: expiry.millisecondsSinceEpoch);
+
+      _database.addUserItem(userItem, userItemList);
+      // userItemList.addUserItem(userItem);
       return true;
     }
     return false;

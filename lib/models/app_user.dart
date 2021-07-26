@@ -4,8 +4,6 @@ class AppUser {
   final String username;
   //final String name;
   final String email;
-  //List<UserItemList> userItemLists;
-  //List<UserShopList> userShopLists;
 
   AppUser({this.username, this.email});
 

@@ -126,15 +126,15 @@ class UserItemView extends StatelessWidget {
                         onTap: () => model.delete(model.displayList[index]),
                       )
                     ],
-                    // secondaryActions: [
-                    //   IconSlideAction(
-                    //     caption: 'Consume',
-                    //     foregroundColor: Colors.white,
-                    //     color: Colors.green,
-                    //     icon: Icons.check,
-                    //     onTap: () => model.delete(model.displayList[index]),
-                    //   )
-                    // ],
+                    secondaryActions: [
+                      IconSlideAction(
+                        caption: 'Consume',
+                        foregroundColor: Colors.white,
+                        color: Colors.green,
+                        icon: Icons.check,
+                        onTap: () => model.delete(model.displayList[index]),
+                      )
+                    ],
                     child: Card(
                       child: ListTile(
                         leading: Image.network(
@@ -189,7 +189,7 @@ class UserItemView extends StatelessWidget {
               builder: (context) =>
                   UserItemAddView(userItemList: model.targetUserItemList),
             );
-            model.update();
+            model.init();
           },
         ),
         bottomNavigationBar: BottomNavigation(currentIndex: 1),

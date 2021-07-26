@@ -1,10 +1,15 @@
 import 'package:stacked/stacked.dart';
+import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/product_category.dart';
 import 'package:stockup/models/user_shop.dart';
 import 'package:stockup/models/user_shop_list.dart';
 import 'package:http/http.dart' as http;
+import 'package:stockup/services/services.dart';
 
 class UserShopAddViewModel extends BaseViewModel {
+  DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
+  static final _authService = locator<AuthImplementation>();
+
   UserShopList userShopList;
 
   /// required fields for adding new shop item
@@ -87,6 +92,7 @@ class UserShopAddViewModel extends BaseViewModel {
 
   /// initialization code. Will be run on build
   void init(UserShopList userShopList) {
+    _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     this.userShopList = userShopList;
     this.name = '';
     this.imageURL = '';
@@ -163,9 +169,12 @@ class UserShopAddViewModel extends BaseViewModel {
           productName: name,
           productID: -1,
           category: category,
-          imageURL: imageURL);
-      userShop.quantity = quantity;
-      userShopList.addShopItem(userShop);
+          imageURL: imageURL,
+          quantity: quantity);
+      // userShop.quantity = quantity;
+
+      _database.addUserShop(userShop, userShopList);
+      // userShopList.addShopItem(userShop);
       return true;
     }
     return false;

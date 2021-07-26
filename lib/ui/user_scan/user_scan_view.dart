@@ -11,6 +11,8 @@ class UserScanView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserScanViewModel>.reactive(
+      disposeViewModel: false,
+      onModelReady: (model) => model.init(),
       builder: (context, model, child) => Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blueGrey,
