@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:sorted_list/sorted_list.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -6,7 +5,6 @@ import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/app/app.router.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/services/services.dart';
-//import 'package:stockup/services/user/user_service.dart';
 import 'package:stockup/ui/user_shop/user_shop_search.dart';
 
 class UserShopViewModel extends BaseViewModel {
@@ -123,55 +121,17 @@ class UserShopViewModel extends BaseViewModel {
     return UserShopSearch(displayList);
   }
 
-  void add() {
-    // _userService.addUserShop(
-    //   UserShop(
-    //     productName: 'Product $no',
-    //     productID: no,
-    //     imageURL: 'url$no',
-    //     category: ProductCategory.values[no % ProductCategory.values.length],
-    //   ),
-    // );
-    // ++no;
-    // TODO: Add user shop manually
-     _navigationService.replaceWith(Routes.userScanView);
-    notifyListeners();
-  }
-
-  // onSwipe(DismissDirection direction, int index) {
-  //   UserShop item = displayList[index];
-  //   if (direction == DismissDirection.startToEnd) {
-  //     _snackbarService.showSnackbar(
-  //       message: item.productName,
-  //       title: 'Removed an item from ${_targetUserShopList.name}',
-  //       duration: Duration(seconds: 2),
-  //       onTap: (_) {
-  //         print('snackbar tapped');
-  //       },
-  //     );
-  //     delete(item);
-  //   } else {
-  //     _snackbarService.showSnackbar(
-  //       message: item.productName,
-  //       title: 'Moved an item to item list ${_targetUserItemList.name}',
-  //       duration: Duration(seconds: 2),
-  //       onTap: (_) {
-  //         print('snackbar tapped');
-  //       },
-  //     );
-  //     move(item);
-  //   }
-  // }
-
   void move(UserShop item) async {
-     _snackbarService.showSnackbar(
-        message: item.productName,
-        title: 'Moved an item to item list ${_targetUserItemList.name}',
-        duration: Duration(seconds: 2),
-        onTap: (_) {
-          print('snackbar tapped');
-        },
-      );
+    _snackbarService.showSnackbar(
+      message: item.productName,
+      title: 'Moved an item to item list ${_targetUserItemList.name}',
+      duration: Duration(seconds: 2),
+      onTap: (_) {
+        print('snackbar tapped');
+      },
+    );
+    int quantity = item.quantity;
+
     UserItem temp = UserItem(
       productID: item.productID,
       category: item.category,
@@ -180,20 +140,21 @@ class UserShopViewModel extends BaseViewModel {
     );
     await _database.deleteUserShop(item, _targetUserShopList);
     await _displayListFromDatabase();
-    _database.addUserItem(temp, _targetUserItemList);
-    //_userService.moveUserItemAtIndex(index);
+    for (int i = 1; i < quantity; i++) {
+      await _database.addUserItem(temp, _targetUserItemList);
+    }
     notifyListeners();
   }
 
   void delete(UserShop item) async {
     _snackbarService.showSnackbar(
-        message: item.productName,
-        title: 'Removed an item from ${_targetUserShopList.name}',
-        duration: Duration(seconds: 2),
-        onTap: (_) {
-          print('snackbar tapped');
-        },
-      );
+      message: item.productName,
+      title: 'Removed an item from ${_targetUserShopList.name}',
+      duration: Duration(seconds: 2),
+      onTap: (_) {
+        print('snackbar tapped');
+      },
+    );
     await _database.deleteUserShop(item, _targetUserShopList);
     await _displayListFromDatabase();
     notifyListeners();

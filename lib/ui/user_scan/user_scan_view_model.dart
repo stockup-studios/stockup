@@ -16,16 +16,16 @@ class UserScanViewModel extends BaseViewModel {
   String foundNoTextError = '';
 
   List<UserItem> get productMatches => _productMatches;
-  
+
   UserItemList _currentList;
-  
+
   void init() async {
     _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     await _targetUserItemListFromDatabase();
     print(_currentList.uid);
     notifyListeners();
   }
-  
+
   Future<void> _targetUserItemListFromDatabase() async {
     _currentList = await _database.getTargetItemList();
   }
@@ -50,6 +50,7 @@ class UserScanViewModel extends BaseViewModel {
       _productMatches.add(userItem);
     }
     setBusy(false);
+    print('productMatches is ${_productMatches.length}');
     notifyListeners();
   }
 
@@ -81,9 +82,8 @@ class UserScanViewModel extends BaseViewModel {
   }
 
   void addToItems() {
-
     for (UserItem ui in _productMatches) {
-       _database.addUserItem(ui, _currentList);
+      _database.addUserItem(ui, _currentList);
     }
     _productMatches.clear();
     notifyListeners();
