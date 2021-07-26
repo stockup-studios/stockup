@@ -33,17 +33,17 @@ class UserShopViewModel extends BaseViewModel {
     await _targetUserItemListFromDatabase();
     await _targetUserShopListFromDatabase();
     await _allShopList();
-    initialize();
-    print('user shop view model init called');
+    await initialize();
     notifyListeners();
   }
 
-  void initialize() async {
+  Future<void> initialize() async {
     await _displayListFromDatabase();
     for (ProductCategory category in ProductCategory.values) {
       String name = category.name;
       productCategories[name] = false;
     }
+    productCategories['All Categories'] = true;
   }
 
   Future<void> _targetUserItemListFromDatabase() async {
