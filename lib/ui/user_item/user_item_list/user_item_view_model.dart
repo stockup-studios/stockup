@@ -198,6 +198,21 @@ class UserItemViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  void thrown(UserItem item) async {
+    _snackbarService.showSnackbar(
+      message: item.productName,
+      title: 'Thrown an item from ${_targetUserItemList.name}',
+      duration: Duration(seconds: 2),
+      onTap: (_) {
+        print('snackbar tapped');
+      },
+    );
+    await _database.deleteExpiredUserItem(
+        item, _targetUserItemList); 
+    await _displayListFromDatabase();
+    notifyListeners();
+  }
+
   void add() {
     UserItem toAdd = UserItem(
       productName: 'Product $no',

@@ -92,6 +92,7 @@ class DatabaseServiceImpl implements DatabaseService {
     return uid;
   }
 
+  @override
   Future<void> addCredentials(Map<String, dynamic> credentials) async {
     //will have email and uid
     userDocument.set(credentials);
@@ -363,6 +364,7 @@ class DatabaseServiceImpl implements DatabaseService {
     return shared;
   }
 
+  @override
   Future<List<String>> getShopListUsers(UserShopList list) async {
     DocumentSnapshot snapshot = await user_shop_lists.doc(list.uid).get();
     List<String> shared = [];
@@ -374,6 +376,7 @@ class DatabaseServiceImpl implements DatabaseService {
     return shared;
   }
 
+  @override
   Future<List<int>> getExpiredItems() async {
     DocumentSnapshot snapshot = await userItemExpiredDoc.get();
     List<int> result = [];
@@ -477,6 +480,7 @@ class DatabaseServiceImpl implements DatabaseService {
     giantCollection.doc(item.uid).update(item.toJson());
   }
 
+  @override
   Future<void> updateSharedUserItemList(UserItemList list, AppUser user) async {
     print(list.uid);
     user_item_lists.doc(list.uid).update({
@@ -492,6 +496,7 @@ class DatabaseServiceImpl implements DatabaseService {
     listDocument.set(json);
   }
 
+  @override
   Future<void> updateSharedUserShopList(UserShopList list, AppUser user) async {
     user_shop_lists.doc(list.uid).update({
       "shared": FieldValue.arrayUnion([user.email])
@@ -506,6 +511,7 @@ class DatabaseServiceImpl implements DatabaseService {
     listDocument.set(json);
   }
 
+  @override
   Future<void> updateExpiredItems(int date) async {
     //UserItem updateditem = UserItem.fromFirestore(doc)
     DocumentReference doc = userItemExpiredDoc;
@@ -522,12 +528,17 @@ class DatabaseServiceImpl implements DatabaseService {
   // Delete
   @override
   Future<void> deleteUserItem(UserItem item, UserItemList list) async {
-    int temp = item.daysLeft;
-    if (temp <= 0) {
-      // update user => expired
-      int expiry = item.expiryDate;
-      updateExpiredItems(expiry);
-    }
+    user_item_lists
+        .doc(list.uid)
+        .collection('user_item')
+        .doc(item.uid)
+        .delete();
+  }
+
+  @override
+  Future<void> deleteExpiredUserItem(UserItem item, UserItemList list) async {
+    int expiry = item.expiryDate;
+    updateExpiredItems(expiry);
     user_item_lists
         .doc(list.uid)
         .collection('user_item')

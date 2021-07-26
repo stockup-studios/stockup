@@ -81,7 +81,6 @@ class UserScanViewModel extends BaseViewModel {
   }
 
   void addToItems() {
-
     for (UserItem ui in _productMatches) {
        _database.addUserItem(ui, _currentList);
     }

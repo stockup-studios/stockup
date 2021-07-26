@@ -134,7 +134,7 @@ class UserShopViewModel extends BaseViewModel {
     // );
     // ++no;
     // TODO: Add user shop manually
-     _navigationService.replaceWith(Routes.userScanView);
+    _navigationService.replaceWith(Routes.userScanView);
     notifyListeners();
   }
 
@@ -164,14 +164,16 @@ class UserShopViewModel extends BaseViewModel {
   // }
 
   void move(UserShop item) async {
-     _snackbarService.showSnackbar(
-        message: item.productName,
-        title: 'Moved an item to item list ${_targetUserItemList.name}',
-        duration: Duration(seconds: 2),
-        onTap: (_) {
-          print('snackbar tapped');
-        },
-      );
+    _snackbarService.showSnackbar(
+      message: item.productName,
+      title: 'Moved an item to item list ${_targetUserItemList.name}',
+      duration: Duration(seconds: 2),
+      onTap: (_) {
+        print('snackbar tapped');
+      },
+    );
+    int quantity = item.quantity;
+
     UserItem temp = UserItem(
       productID: item.productID,
       category: item.category,
@@ -180,20 +182,21 @@ class UserShopViewModel extends BaseViewModel {
     );
     await _database.deleteUserShop(item, _targetUserShopList);
     await _displayListFromDatabase();
-    _database.addUserItem(temp, _targetUserItemList);
-    //_userService.moveUserItemAtIndex(index);
+    for (int i = 1; i < quantity; i++) {
+      await _database.addUserItem(temp, _targetUserItemList);
+    }
     notifyListeners();
   }
 
   void delete(UserShop item) async {
     _snackbarService.showSnackbar(
-        message: item.productName,
-        title: 'Removed an item from ${_targetUserShopList.name}',
-        duration: Duration(seconds: 2),
-        onTap: (_) {
-          print('snackbar tapped');
-        },
-      );
+      message: item.productName,
+      title: 'Removed an item from ${_targetUserShopList.name}',
+      duration: Duration(seconds: 2),
+      onTap: (_) {
+        print('snackbar tapped');
+      },
+    );
     await _database.deleteUserShop(item, _targetUserShopList);
     await _displayListFromDatabase();
     notifyListeners();
