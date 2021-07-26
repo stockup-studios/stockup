@@ -21,7 +21,6 @@ class UserHomeViewModel extends BaseViewModel {
 
   List<UserItem> expiredItems = [];
   List<UserItem> expiringItems = [];
-  int totalItems = 0;
   UserItemList personal;
 
   void init() async {

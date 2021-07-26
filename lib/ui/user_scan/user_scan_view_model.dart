@@ -3,10 +3,8 @@ import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/models/product_catalog/product_catalog.dart';
 import 'package:stockup/services/services.dart';
-//import 'package:stockup/services/user/user_service.dart';
 
 class UserScanViewModel extends BaseViewModel {
-  //final _userService = locator<UserService>();
   DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
   static final _authService = locator<AuthImplementation>();
   final _scanner = locator<Scanner>();
@@ -43,15 +41,43 @@ class UserScanViewModel extends BaseViewModel {
       Product p =
           productCatalog.firstWhere((product) => product.productName == match);
       UserItem userItem = UserItem(
-          productName: p.productName,
-          productID: p.productID,
-          category: p.category,
-          imageURL: p.imageURL);
+        productName: p.productName,
+        productID: p.productID,
+        category: p.category,
+        imageURL: p.imageURL,
+        expiryDate: getRecommendedExpiry(p.category),
+      );
       _productMatches.add(userItem);
     }
     setBusy(false);
     print('productMatches is ${_productMatches.length}');
     notifyListeners();
+  }
+
+  /// returns millisecondsSinceEpoch of recommended expiry date
+  int getRecommendedExpiry(ProductCategory category) {
+    DateTime current = DateTime.now();
+    DateTime today = DateTime(current.year, current.month, current.day);
+    switch (category) {
+      case ProductCategory.bakery_cereals_spreads:
+        return today.add(Duration(days: 1)).millisecondsSinceEpoch;
+      case ProductCategory.beers_wines_spirits:
+        return today.add(Duration(days: 1)).millisecondsSinceEpoch;
+      case ProductCategory.dairy_chilled_frozen:
+        return today.add(Duration(days: 1)).millisecondsSinceEpoch;
+      case ProductCategory.food_pantry:
+        return today.add(Duration(days: 1)).millisecondsSinceEpoch;
+      case ProductCategory.fruit_vegetables:
+        return today.add(Duration(days: 1)).millisecondsSinceEpoch;
+      case ProductCategory.meats_seafood:
+        return today.add(Duration(days: 1)).millisecondsSinceEpoch;
+      case ProductCategory.snacks_drinks:
+        return today.add(Duration(days: 1)).millisecondsSinceEpoch;
+      case ProductCategory.others:
+        return today.add(Duration(days: 1)).millisecondsSinceEpoch;
+      default:
+        return today.millisecondsSinceEpoch;
+    }
   }
 
   void addFiles() async {
@@ -67,10 +93,12 @@ class UserScanViewModel extends BaseViewModel {
         Product p = productCatalog
             .firstWhere((product) => product.productName == match);
         UserItem userItem = UserItem(
-            productName: p.productName,
-            productID: p.productID,
-            category: p.category,
-            imageURL: p.imageURL);
+          productName: p.productName,
+          productID: p.productID,
+          category: p.category,
+          imageURL: p.imageURL,
+          expiryDate: getRecommendedExpiry(p.category),
+        );
         _productMatches.add(userItem);
       }
     }
@@ -96,8 +124,8 @@ class UserScanViewModel extends BaseViewModel {
       productID: current.productID,
       category: current.category,
       imageURL: current.imageURL,
+      expiryDate: current.expiryDate,
     );
-    duplicate.expiryDate = current.expiryDate;
     _productMatches.insert(index, duplicate);
     notifyListeners();
   }

@@ -2,13 +2,11 @@ import 'package:sorted_list/sorted_list.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
-import 'package:stockup/app/app.router.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/services/services.dart';
 import 'package:stockup/ui/user_item/user_item_search.dart';
 
 class UserItemViewModel extends BaseViewModel {
-  final _navigationService = locator<NavigationService>();
   final _snackbarService = locator<SnackbarService>();
   DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
   static final _authService = locator<AuthImplementation>();
@@ -166,8 +164,7 @@ class UserItemViewModel extends BaseViewModel {
         print('snackbar tapped');
       },
     );
-    await _database.deleteUserItem(
-        item, _targetUserItemList); 
+    await _database.deleteUserItem(item, _targetUserItemList);
     await _displayListFromDatabase();
     notifyListeners();
   }
