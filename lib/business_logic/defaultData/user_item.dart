@@ -7,14 +7,14 @@ List<List<UserItem>> demoUserItems = [
       ProductCategory.bakery_cereals_spreads,
       'https://coldstorage-s3.dexecure.net/product/5171374_1528886245740.jpg',
       5021536,
-      DateTime.utc(2021, 8, 12).millisecondsSinceEpoch,
+      DateTime.utc(2021, 7, 26).millisecondsSinceEpoch,
     ),
     UserItem.demo(
         "NESCAFE 3 IN 1 BLEND & BREW COFFEE - MILD 25SX19G",
         ProductCategory.snacks_drinks,
         'https://coldstorage-s3.dexecure.net/product/116571%20NESCAFE_B_B_Mild%2025s%20packshots%20_front%20view_.jpg',
         5009489,
-        DateTime.utc(2021, 8, 10).millisecondsSinceEpoch),
+        DateTime.utc(2021, 7, 29).millisecondsSinceEpoch),
     UserItem.demo(
         "MALAYSIA SWEET CORN 1S",
         ProductCategory.fruit_vegetables,

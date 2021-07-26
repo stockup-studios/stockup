@@ -31,7 +31,7 @@ class UserHomeViewModel extends BaseViewModel {
   Future<void> _personalListFromDb() async {
     personal = await _database.getRequestedList(
         'Personal', _authService.appUser.email);
-    print('user home personal list is ${personal == null}');
+    print('user home personal list is ${personal != null}');
   }
 
   Future<void> _processItemsinList() async {

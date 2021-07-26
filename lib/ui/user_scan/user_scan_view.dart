@@ -118,8 +118,8 @@ class UserScanView extends StatelessWidget {
                                         Container(color: Colors.black),
                                     title: Text(model
                                         .productMatches[index].productName),
-                                    subtitle: Text(
-                                        'Expires on ${DateFormat('dd MMM yyyy').format(DateTime.fromMillisecondsSinceEpoch(model.productMatches[index].expiryDate))}'),
+                                    // subtitle: Text(
+                                    //     'Expires on ${DateFormat('dd MMM yyyy').format(DateTime.fromMillisecondsSinceEpoch(model.productMatches[index].expiryDate))}'),
                                     trailing: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
