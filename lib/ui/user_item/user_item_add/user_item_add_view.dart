@@ -16,7 +16,6 @@ class UserItemAddView extends StatelessWidget {
     return ViewModelBuilder<UserItemAddViewModel>.reactive(
       onModelReady: (model) => model.init(userItemList),
       builder: (context, model, child) => ListView(
-        //mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
             padding:

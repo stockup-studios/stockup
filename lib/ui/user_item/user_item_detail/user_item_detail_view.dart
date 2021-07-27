@@ -21,18 +21,18 @@ class UserItemDetailView extends StatelessWidget {
         userItem,
         userItemList,
       ),
-      builder: (context, model, child) => Column(
-        mainAxisSize: MainAxisSize.min,
+      builder: (context, model, child) => ListView(
+        //mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: 15),
             child: Row(
               children: [
                 Expanded(
                   child: Container(
                     alignment: Alignment.center,
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
+                        horizontal: 10, vertical: 15),
                     child: Text('Name'),
                   ),
                 ),
@@ -63,14 +63,14 @@ class UserItemDetailView extends StatelessWidget {
               Container(
                 alignment: Alignment.center,
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: Text('Category'),
               ),
               Container(
                 alignment: Alignment.center,
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: DropdownButton<ProductCategory>(
                   value: model.category,
@@ -95,7 +95,7 @@ class UserItemDetailView extends StatelessWidget {
               Container(
                 alignment: Alignment.center,
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: Text('Expires on'),
               ),
@@ -116,7 +116,7 @@ class UserItemDetailView extends StatelessWidget {
           FractionallySizedBox(
             widthFactor: 0.7,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
               child: ElevatedButton(
                 child: Text('Save'),
                 style: ButtonStyle(

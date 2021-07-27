@@ -84,9 +84,10 @@ class UserItemSearch extends SearchDelegate<UserItem> {
               },
             ),
             title: Text(suggestion.productName),
-            subtitle: suggestion.daysLeft == '1'
-                ? Text('${suggestion.daysLeft} day left')
-                : Text('${suggestion.daysLeft} days left'),
+            subtitle: Text(getExpiryDays(suggestion)),
+            // suggestion.daysLeft == '1'
+            //     ? Text('${suggestion.daysLeft} day left')
+            //     : Text('${suggestion.daysLeft} days left'),
             trailing: IconButton(
               icon: Icon(Icons.edit),
               onPressed: () {
@@ -96,4 +97,20 @@ class UserItemSearch extends SearchDelegate<UserItem> {
           );
         },
       );
+}
+
+String getExpiryDays(UserItem item) {
+  int daysLeft = item.daysLeft;
+  String message = '';
+  if (daysLeft < 0) {
+    message = "Item expired";
+  } else if (daysLeft == 0) {
+    message = 'expiring today';
+  } else if (daysLeft == 1) {
+    message = '$daysLeft day left';
+  } else {
+    message = '$daysLeft days left';
+  }
+
+  return message;
 }

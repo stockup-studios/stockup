@@ -14,8 +14,7 @@ class UserShopAddView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserShopAddViewModel>.reactive(
       onModelReady: (model) => model.init(userShopList),
-      builder: (context, model, child) => Column(
-        mainAxisSize: MainAxisSize.min,
+      builder: (context, model, child) => ListView(
         children: [
           Padding(
             padding:

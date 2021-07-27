@@ -17,18 +17,18 @@ class UserShopDetailView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserShopDetailViewModel>.reactive(
       onModelReady: (model) => model.init(userShop, userShopList),
-      builder: (context, model, child) => Column(
-        mainAxisSize: MainAxisSize.min,
+      builder: (context, model, child) => ListView(
+        // mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: 15),
             child: Row(
               children: [
                 Expanded(
                   child: Container(
                     alignment: Alignment.center,
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
+                        horizontal: 10, vertical: 15),
                     child: Text('Name'),
                   ),
                 ),
@@ -37,7 +37,7 @@ class UserShopDetailView extends StatelessWidget {
                   child: Container(
                     alignment: Alignment.center,
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
+                        horizontal: 10, vertical: 15),
                     child: TextField(
                       enabled: false,
                       onChanged: (newName) {
@@ -57,14 +57,14 @@ class UserShopDetailView extends StatelessWidget {
               Container(
                 alignment: Alignment.center,
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: Text('Category'),
               ),
               Container(
                 alignment: Alignment.center,
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: DropdownButton<ProductCategory>(
                   value: model.category,
@@ -89,7 +89,7 @@ class UserShopDetailView extends StatelessWidget {
               Container(
                 alignment: Alignment.center,
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: Text('Quantity'),
               ),
@@ -128,7 +128,7 @@ class UserShopDetailView extends StatelessWidget {
           FractionallySizedBox(
             widthFactor: 0.7,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
               child: ElevatedButton(
                 child: Text('Save'),
                 style: ButtonStyle(

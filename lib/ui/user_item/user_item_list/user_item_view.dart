@@ -52,7 +52,6 @@ class UserItemView extends StatelessWidget {
                       IconButton(
                         onPressed: () async {
                           await showModalBottomSheet(
-                            // isScrollControlled: true,
                             context: context,
                             builder: (context) => UserItemShareView(
                               userItemList: model.targetUserItemList,
@@ -69,7 +68,6 @@ class UserItemView extends StatelessWidget {
                               context: context, delegate: model.search());
                           if (userItem != null)
                             await showModalBottomSheet(
-                              //isScrollControlled: true,
                               context: context,
                               builder: (context) => UserItemDetailView(
                                 userItem: userItem,
@@ -92,7 +90,6 @@ class UserItemView extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: FilterChip(
-                      //autofocus: true,
                       selected: model.productCategories.values.toList()[index],
                       onSelected: (e) {
                         model.filter(index);
@@ -108,7 +105,6 @@ class UserItemView extends StatelessWidget {
               child: ListView.builder(
                 itemCount: model.displayList.length,
                 itemBuilder: (context, index) {
-                  // return UserItemTile(model: model, index: index);
                   return Slidable(
                     actionPane: SlidableDrawerActionPane(),
                     actionExtentRatio: 0.25,
@@ -137,7 +133,6 @@ class UserItemView extends StatelessWidget {
                         onTap: () => model.delete(model.displayList[index]),
                       ),
                       IconSlideAction(
-                        // TODO: Edit position in secondary actions if needed
                         caption: 'Throw',
                         foregroundColor: Colors.white,
                         color: Colors.red,
@@ -170,7 +165,6 @@ class UserItemView extends StatelessWidget {
                           icon: Icon(Icons.edit),
                           onPressed: () async {
                             await showModalBottomSheet(
-                              isScrollControlled: true,
                               context: context,
                               builder: (context) => UserItemDetailView(
                                 userItem: model.displayList[index],
@@ -192,7 +186,6 @@ class UserItemView extends StatelessWidget {
           child: Icon(Icons.add),
           onPressed: () async {
             await showModalBottomSheet(
-              //isScrollControlled: true,
               context: context,
               builder: (context) =>
                   UserItemAddView(userItemList: model.targetUserItemList),

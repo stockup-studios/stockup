@@ -173,7 +173,6 @@ class UserShopView extends StatelessWidget {
             child: Icon(Icons.add),
             onPressed: () async {
               await showModalBottomSheet(
-                isScrollControlled: true,
                 context: context,
                 builder: (context) => UserShopAddView(
                   userShopList: model.targetUserShopList,

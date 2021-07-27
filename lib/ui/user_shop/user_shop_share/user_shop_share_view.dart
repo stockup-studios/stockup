@@ -13,7 +13,7 @@ class UserShopShareView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserShopShareViewModel>.reactive(
       onModelReady: (model) => model.init(userShopList),
-      builder: (context, model, child) => Column(
+      builder: (context, model, child) => ListView(
         children: [
           Padding(
             padding:
@@ -50,6 +50,7 @@ class UserShopShareView extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
+              shrinkWrap: true,
               scrollDirection: Axis.vertical,
               itemCount: model.sharedUsersEmail.length,
               itemBuilder: (context, index) => FractionallySizedBox(
