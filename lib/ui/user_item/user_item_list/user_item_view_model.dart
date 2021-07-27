@@ -87,8 +87,10 @@ class UserItemViewModel extends BaseViewModel {
   String getExpiryDays(UserItem item) {
     int daysLeft = item.daysLeft;
     String message = '';
-    if (daysLeft <= 0) {
+    if (daysLeft < 0) {
       message = "Item expired";
+    } else if (daysLeft == 0) {
+      message = 'expiring today';
     } else if (daysLeft == 1) {
       message = '$daysLeft day left';
     } else {
@@ -166,8 +168,7 @@ class UserItemViewModel extends BaseViewModel {
         print('snackbar tapped');
       },
     );
-    await _database.deleteUserItem(
-        item, _targetUserItemList); 
+    await _database.deleteUserItem(item, _targetUserItemList);
     await _displayListFromDatabase();
     notifyListeners();
   }

@@ -23,21 +23,17 @@ class UserHomeView extends StatelessWidget {
         ),
         body: ListView(
           children: [
-            if (model.noExpired > 0)
+            if (model.expiredItems.length > 0)
               SummaryTile(
-                title:
-                    '1 item expired', // TODO: Replace with expired details from model (remember to send top 5 only)
-                details: [
-                  // TODO: Replace with expired details from model (remember to send top 5 only)
-                  '1 day ago | item 1',
-                  '1 day ago | item 1',
-                  '1 day ago | item 1',
-                ],
+                title: model
+                    .expiredTitleMessage,
+                details: model.expiredDetailMessage
+                ,
                 leftColor: Colors.red,
                 rightColor: Colors.redAccent,
                 onTap: model.viewItems,
               )
-            else
+            else if (model.expiredItems.length == 0)
               SummaryTile(
                 title: 'You have no expired items',
                 details: ['Keep it up!'],
@@ -45,16 +41,11 @@ class UserHomeView extends StatelessWidget {
                 rightColor: Colors.green,
                 onTap: () {},
               ),
-            if (model.noExpiringSoon > 0)
+            if (model.expiringItems.length > 0)
               SummaryTile(
                 // TODO: Replace with expiring soon details from model (remember to send top 5 only)
-                title: '1 item expiring soon',
-                details: [
-                  // TODO: Replace with expiring soon details from model (remember to send top 5 only)
-                  '1 day ago | item 1',
-                  '1 day ago | item 1',
-                  '1 day ago | item 1',
-                ],
+                title: model.expiringTitleMessage,
+                details: model.expiringDetailMessage,
                 leftColor: Colors.orange,
                 rightColor: Colors.orangeAccent,
                 onTap: model.viewItems,

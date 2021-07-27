@@ -52,7 +52,6 @@ class UserItemView extends StatelessWidget {
                       IconButton(
                         onPressed: () async {
                           await showModalBottomSheet(
-                            // isScrollControlled: true,
                             context: context,
                             builder: (context) => UserItemShareView(
                               userItemList: model.targetUserItemList,
@@ -69,7 +68,6 @@ class UserItemView extends StatelessWidget {
                               context: context, delegate: model.search());
                           if (userItem != null)
                             await showModalBottomSheet(
-                              isScrollControlled: true,
                               context: context,
                               builder: (context) => UserItemDetailView(
                                 userItem: userItem,
@@ -92,7 +90,6 @@ class UserItemView extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: FilterChip(
-                      //autofocus: true,
                       selected: model.productCategories.values.toList()[index],
                       onSelected: (e) {
                         model.filter(index);
@@ -108,7 +105,6 @@ class UserItemView extends StatelessWidget {
               child: ListView.builder(
                 itemCount: model.displayList.length,
                 itemBuilder: (context, index) {
-                  // return UserItemTile(model: model, index: index);
                   return Slidable(
                     actionPane: SlidableDrawerActionPane(),
                     actionExtentRatio: 0.25,
@@ -135,7 +131,14 @@ class UserItemView extends StatelessWidget {
                         color: Colors.green,
                         icon: Icons.check,
                         onTap: () => model.delete(model.displayList[index]),
-                      )
+                      ),
+                      IconSlideAction(
+                        caption: 'Throw',
+                        foregroundColor: Colors.white,
+                        color: Colors.red,
+                        icon: Icons.clear,
+                        onTap: () => model.thrown(model.displayList[index]),
+                      ),
                     ],
                     child: Card(
                       child: ListTile(
@@ -157,15 +160,11 @@ class UserItemView extends StatelessWidget {
                         ),
                         title: Text(model.displayList[index].productName),
                         subtitle:
-                            //model.displayList[index].daysLeft == 1
                             Text(model.getExpiryDays(model.displayList[index])),
-                        // : Text(
-                        //     '${model.displayList[index].daysLeft} days left'),
                         trailing: IconButton(
                           icon: Icon(Icons.edit),
                           onPressed: () async {
                             await showModalBottomSheet(
-                              isScrollControlled: true,
                               context: context,
                               builder: (context) => UserItemDetailView(
                                 userItem: model.displayList[index],
@@ -187,7 +186,6 @@ class UserItemView extends StatelessWidget {
           child: Icon(Icons.add),
           onPressed: () async {
             await showModalBottomSheet(
-              isScrollControlled: true,
               context: context,
               builder: (context) =>
                   UserItemAddView(userItemList: model.targetUserItemList),

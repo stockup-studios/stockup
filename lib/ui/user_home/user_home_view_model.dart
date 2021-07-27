@@ -12,9 +12,9 @@ class UserHomeViewModel extends BaseViewModel {
   DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
 
   /// temp variables only for UI testing. Use version taken from database for actual
-  int noExpired = 1;
-  int noExpiringSoon = 1;
-  int totalItems = 1;
+  // int noExpired = 1;
+  // int noExpiringSoon = 1;
+  // int totalItems = 1;
 
   List<ExpiredItemData> expiredData = [];
   List<int> expiredDb = [];
@@ -40,6 +40,8 @@ class UserHomeViewModel extends BaseViewModel {
   }
 
   Future<void> _processItemsinList() async {
+    expiredItems.clear();
+    expiringItems.clear();
     List<UserItem> all = SortedList<UserItem>(
         (r1, r2) => r2.forCompare.compareTo(r1.forCompare));
     List<UserItem> unordered = await _database.getUserItems(personal);
@@ -48,9 +50,11 @@ class UserHomeViewModel extends BaseViewModel {
 
     for (UserItem item in all) {
       int daysLeft = item.daysLeft;
-      if (daysLeft <= 0) {
+      if (daysLeft < 0) {
         //increase expired
-        expiredItems.add(item);
+        if (expiredItems.length < 6) {
+          expiredItems.add(item);
+        }
       } else if (daysLeft < 4) {
         // increase expire soon
         if (expiringItems.length < 6) {
@@ -64,6 +68,53 @@ class UserHomeViewModel extends BaseViewModel {
 
     print('expired items ${expiredItems.length}');
     print('expiring items ${expiringItems.length}');
+  }
+
+  String get expiredTitleMessage {
+    if (expiredItems.length == 1) {
+      return '${expiredItems.length} item expired';
+    } else {
+      return '${expiredItems.length} items expired';
+    }
+  }
+
+  List<String> get expiredDetailMessage {
+    List<String> messages = [];
+    for (UserItem item in expiredItems) {
+      String message;
+
+      if (item.daysLeft == -1) {
+        message = '${-item.daysLeft} day ago | ${item.productName}';
+      } else {
+        message = '${-item.daysLeft} days ago | ${item.productName}';
+      }
+      messages.add(message);
+    }
+    return messages;
+  }
+
+  String get expiringTitleMessage {
+    if (expiringItems.length == 1) {
+      return '${expiringItems.length} item expiring soon';
+    } else {
+      return '${expiringItems.length} items expiring soon';
+    }
+  }
+
+  List<String> get expiringDetailMessage {
+    List<String> messages = [];
+    for (UserItem item in expiringItems) {
+      String message;
+      if (item.daysLeft == 1) {
+        message = '${item.daysLeft} day left | ${item.productName}';
+      } else if (item.daysLeft == 0) {
+        message = 'expiring today | ${item.productName}';
+      } else {
+        message = '${item.daysLeft} days left | ${item.productName}';
+      }
+      messages.add(message);
+    }
+    return messages;
   }
 
   Future<void> _expiredItemsFromDatabase() async {

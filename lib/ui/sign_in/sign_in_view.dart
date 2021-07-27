@@ -96,51 +96,51 @@ class SignInView extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  ElevatedButton(
-                                    style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all<Color>(
-                                              Colors.blue.shade900),
-                                    ),
-                                    onPressed: () {},
-                                    child: Row(
-                                      children: [
-                                        FaIcon(FontAwesomeIcons.facebookF),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text('Sign In'),
-                                      ],
-                                    ),
-                                  ),
-                                  ElevatedButton(
-                                    style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all<Color>(
-                                              Colors.red.shade900),
-                                    ),
-                                    onPressed: () {
-                                      model.signInGoogle();
-                                    },
-                                    child: Row(
-                                      children: [
-                                        FaIcon(FontAwesomeIcons.google),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text('Sign In'),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            // Padding(
+                            //   padding: const EdgeInsets.all(8.0),
+                            //   child: Row(
+                            //     mainAxisAlignment:
+                            //         MainAxisAlignment.spaceEvenly,
+                            //     children: [
+                            //       ElevatedButton(
+                            //         style: ButtonStyle(
+                            //           backgroundColor:
+                            //               MaterialStateProperty.all<Color>(
+                            //                   Colors.blue.shade900),
+                            //         ),
+                            //         onPressed: () {},
+                            //         child: Row(
+                            //           children: [
+                            //             FaIcon(FontAwesomeIcons.facebookF),
+                            //             SizedBox(
+                            //               width: 10,
+                            //             ),
+                            //             Text('Sign In'),
+                            //           ],
+                            //         ),
+                            //       ),
+                            //       ElevatedButton(
+                            //         style: ButtonStyle(
+                            //           backgroundColor:
+                            //               MaterialStateProperty.all<Color>(
+                            //                   Colors.red.shade900),
+                            //         ),
+                            //         onPressed: () {
+                            //           model.signInGoogle();
+                            //         },
+                            //         child: Row(
+                            //           children: [
+                            //             FaIcon(FontAwesomeIcons.google),
+                            //             SizedBox(
+                            //               width: 10,
+                            //             ),
+                            //             Text('Sign In'),
+                            //           ],
+                            //         ),
+                            //       ),
+                            //     ],
+                            //   ),
+                            // ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(

@@ -15,8 +15,7 @@ class UserItemAddView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserItemAddViewModel>.reactive(
       onModelReady: (model) => model.init(userItemList),
-      builder: (context, model, child) => Column(
-        mainAxisSize: MainAxisSize.min,
+      builder: (context, model, child) => ListView(
         children: [
           Padding(
             padding:
@@ -27,7 +26,7 @@ class UserItemAddView extends StatelessWidget {
                 fontSize: 24,
                 fontWeight: FontWeight.w500,
               ),
-              textAlign: TextAlign.left,
+              textAlign: TextAlign.center,
             ),
           ),
           Padding(
@@ -55,6 +54,7 @@ class UserItemAddView extends StatelessWidget {
             Text(
               model.nameError,
               style: TextStyle(color: Colors.red),
+              textAlign: TextAlign.center,
             ),
           Padding(
             padding: const EdgeInsets.all(8.0),

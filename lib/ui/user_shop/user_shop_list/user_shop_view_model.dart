@@ -121,7 +121,7 @@ class UserShopViewModel extends BaseViewModel {
     return UserShopSearch(displayList);
   }
 
-  void move(UserShop item) async {
+  Future<void> move(UserShop item) async {
     _snackbarService.showSnackbar(
       message: item.productName,
       title: 'Moved an item to item list ${_targetUserItemList.name}',
@@ -130,17 +130,17 @@ class UserShopViewModel extends BaseViewModel {
         print('snackbar tapped');
       },
     );
-    int quantity = item.quantity;
 
     UserItem temp = UserItem(
-      productID: item.productID,
-      category: item.category,
-      productName: item.productName,
-      imageURL: item.imageURL,
-    );
+        productID: item.productID,
+        category: item.category,
+        productName: item.productName,
+        imageURL: item.imageURL,
+        expiryDate: UserItem.getRecommendedExpiry(item.category));
     await _database.deleteUserShop(item, _targetUserShopList);
     await _displayListFromDatabase();
-    for (int i = 1; i < quantity; i++) {
+    print('item shop quantity is ${item.quantity}');
+    for (int i = 0; i < item.quantity; i++) {
       await _database.addUserItem(temp, _targetUserItemList);
     }
     notifyListeners();
