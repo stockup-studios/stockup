@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/models.dart';
-import 'package:stockup/models/user_item.dart';
 import 'package:stockup/services/services.dart';
 
 class UserItemDetailViewModel extends BaseViewModel {

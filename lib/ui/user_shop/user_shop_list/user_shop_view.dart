@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/app/app.locator.dart';
-import 'package:stockup/models/user_shop.dart';
-import 'package:stockup/models/user_shop_list.dart';
+import 'package:stockup/models/models.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/ui/user_shop/user_shop_add/user_shop_add_view.dart';
 import 'package:stockup/ui/user_shop/user_shop_detail/user_shop_detail_view.dart';
@@ -124,7 +123,8 @@ class UserShopView extends StatelessWidget {
                         foregroundColor: Colors.white,
                         color: Colors.green,
                         icon: Icons.check,
-                        onTap: () async => await model.move(model.displayList[index]),
+                        onTap: () async =>
+                            await model.move(model.displayList[index]),
                       )
                     ],
                     child: Card(

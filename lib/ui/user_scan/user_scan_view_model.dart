@@ -3,10 +3,8 @@ import 'package:stockup/app/app.locator.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/models/product_catalog/product_catalog.dart';
 import 'package:stockup/services/services.dart';
-//import 'package:stockup/services/user/user_service.dart';
 
 class UserScanViewModel extends BaseViewModel {
-  //final _userService = locator<UserService>();
   DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
   static final _authService = locator<AuthImplementation>();
   final _scanner = locator<Scanner>();

@@ -13,9 +13,7 @@ class UserItemShareView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<UserItemShareViewModel>.reactive(
       onModelReady: (model) => model.init(userItemList),
-      //disposeViewModel: false,
       builder: (context, model, child) => ListView(
-        // mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
             padding:
@@ -45,7 +43,6 @@ class UserItemShareView extends StatelessWidget {
                       border: InputBorder.none),
                   onChanged: (String shareWith) {
                     model.shareWith(shareWith);
-                    //odel.shareWith = shareWith;
                   },
                 ),
               ),

@@ -538,7 +538,7 @@ class DatabaseServiceImpl implements DatabaseService {
   Future<void> updateExpiredItems(int date) async {
     //UserItem updateditem = UserItem.fromFirestore(doc)
     DocumentReference doc = userItemExpiredDoc;
-    List<int> temp = SortedList<int>((r1, r2) => r2.compareTo(r1));
+    List<int> temp = SortedList<int>((r1, r2) => r1.compareTo(r2));
     Map data = await doc.get().then((value) => value.data());
     List.from(data['expired_items']).forEach((element) {
       temp.add(element);
