@@ -66,6 +66,11 @@ class SignInViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  void updateSuccessMessage() {
+    _error = 'A password reset link has been sent';
+    notifyListeners();
+  }
+
   String getError() => _error;
 
   Future navigateToSignUp() async {

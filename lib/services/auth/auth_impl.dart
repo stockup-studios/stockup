@@ -113,7 +113,19 @@ class AuthImplementation implements AuthService {
     }
   }
 
+// password reset
+  @override
+  dynamic resetPassword(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+      return 1;
+    } catch (e) {
+      return null;
+    }
+  }
+
   // sign out
+  @override
   Future signOut() async {
     try {
       return await _auth.signOut();
