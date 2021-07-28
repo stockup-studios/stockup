@@ -3,7 +3,6 @@ import 'package:intl/intl.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/models/product_category.dart';
-import 'package:stockup/models/user_item.dart';
 import 'package:stockup/ui/user_item/user_item_detail/user_item_detail_view_model.dart';
 
 class UserItemDetailView extends StatelessWidget {
