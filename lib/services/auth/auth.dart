@@ -13,6 +13,9 @@ abstract class AuthService {
   // sign in with google
   Future signInWithGoogle();
 
+  // password reset
+  dynamic resetPassword(String email);
+
   // sign out
   Future signOut();
 }

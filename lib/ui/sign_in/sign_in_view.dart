@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stockup/ui/sign_in/password_reset/password_reset_view.dart';
 import 'package:stockup/ui/sign_in/sign_in_view_model.dart';
 
 class SignInView extends StatelessWidget {
@@ -88,11 +89,16 @@ class SignInView extends StatelessWidget {
                                   color: Colors.red[400], fontSize: 16.0),
                             ),
                             TextButton(
-                              onPressed: () {}, // TODO: Implement in ViewModel
+                              onPressed: () async {
+                                await showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) => PasswordResetView(),
+                                );
+                              },
                               child: Text(
                                 'Forgot password?',
                                 style: TextStyle(
-                                  color: Colors.grey,
+                                  color: Colors.blue,
                                 ),
                               ),
                             ),
