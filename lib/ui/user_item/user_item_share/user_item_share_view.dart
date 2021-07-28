@@ -53,6 +53,7 @@ class UserItemShareView extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 model.errorMessage,
+                textAlign: TextAlign.center,
                 style:
                     TextStyle(color: Colors.red, fontWeight: FontWeight.w500),
               ),
@@ -73,7 +74,6 @@ class UserItemShareView extends StatelessWidget {
                 ),
               ),
             ),
-          
           FractionallySizedBox(
             widthFactor: 0.7,
             child: Padding(
