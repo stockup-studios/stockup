@@ -24,7 +24,7 @@ class UserItemDetailView extends StatelessWidget {
         //mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 15),
+            padding: const EdgeInsets.only(top: 30),
             child: Row(
               children: [
                 Expanded(
@@ -112,6 +112,11 @@ class UserItemDetailView extends StatelessWidget {
               ),
             ],
           ),
+          Text(
+            model.getError(),
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.red[400], fontSize: 16.0),
+          ),
           FractionallySizedBox(
             widthFactor: 0.7,
             child: Padding(
@@ -128,10 +133,6 @@ class UserItemDetailView extends StatelessWidget {
                 },
               ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-                bottom: MediaQuery.of(context).viewInsets.bottom),
           ),
         ],
       ),

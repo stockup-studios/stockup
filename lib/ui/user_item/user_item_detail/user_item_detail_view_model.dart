@@ -14,6 +14,7 @@ class UserItemDetailViewModel extends BaseViewModel {
   String _name = '';
   ProductCategory _category;
   DateTime _expiry;
+  String _error = '';
 
   ProductCategory get category {
     return _category;
@@ -42,7 +43,19 @@ class UserItemDetailViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  String getError() {
+    return _error;
+  }
+
+  void _updateErrorExpiry() {
+    _error = 'Item expired. Cannot change expiry date anymore';
+    notifyListeners();
+  }
+
   void changeExpiry(BuildContext context) async {
+    if (expiry.isBefore(DateTime.now())) {
+      _updateErrorExpiry();
+    }
     final DateTime newDate = await showDatePicker(
       context: context,
       initialDate: expiry,
