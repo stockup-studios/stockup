@@ -117,7 +117,8 @@ class AuthImplementation implements AuthService {
   @override
   dynamic resetPassword(String email) async {
     try {
-      return await _auth.sendPasswordResetEmail(email: email);
+      await _auth.sendPasswordResetEmail(email: email);
+      return 1;
     } catch (e) {
       return null;
     }

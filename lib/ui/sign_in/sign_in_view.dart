@@ -94,6 +94,7 @@ class SignInView extends StatelessWidget {
                                   context: context,
                                   builder: (context) => PasswordResetView(),
                                 );
+                                model.updateSuccessMessage();
                               },
                               child: Text(
                                 'Forgot password?',

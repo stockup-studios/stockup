@@ -28,6 +28,7 @@ class PasswordResetViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+
   Future<void> sendEmail() async {
     dynamic result = await _authService.resetPassword(_email);
     if (result == null) {
