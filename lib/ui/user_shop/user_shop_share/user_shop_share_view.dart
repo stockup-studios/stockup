@@ -48,19 +48,17 @@ class UserShopShareView extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              itemCount: model.sharedUsersEmail.length,
-              itemBuilder: (context, index) => FractionallySizedBox(
-                widthFactor: 0.9,
-                child: Card(
-                  child: ListTile(
-                    title: Text(
-                      model.sharedUsersEmail[index],
-                      softWrap: true,
-                    ),
+          ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            itemCount: model.sharedUsersEmail.length,
+            itemBuilder: (context, index) => FractionallySizedBox(
+              widthFactor: 0.9,
+              child: Card(
+                child: ListTile(
+                  title: Text(
+                    model.sharedUsersEmail[index],
+                    softWrap: true,
                   ),
                 ),
               ),
@@ -71,6 +69,7 @@ class UserShopShareView extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 model.errorMessage,
+                textAlign: TextAlign.center,
                 style:
                     TextStyle(color: Colors.red, fontWeight: FontWeight.w500),
               ),
@@ -90,10 +89,6 @@ class UserShopShareView extends StatelessWidget {
                 },
               ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-                bottom: MediaQuery.of(context).viewInsets.bottom),
           ),
         ],
       ),

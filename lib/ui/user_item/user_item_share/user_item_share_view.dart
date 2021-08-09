@@ -53,12 +53,12 @@ class UserItemShareView extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 model.errorMessage,
+                textAlign: TextAlign.center,
                 style:
                     TextStyle(color: Colors.red, fontWeight: FontWeight.w500),
               ),
             ),
-          Expanded(
-            child: ListView.builder(
+           ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
               itemCount: model.sharedUsersEmail.length,
@@ -74,7 +74,6 @@ class UserItemShareView extends StatelessWidget {
                 ),
               ),
             ),
-          ),
           FractionallySizedBox(
             widthFactor: 0.7,
             child: Padding(
@@ -91,10 +90,6 @@ class UserItemShareView extends StatelessWidget {
                 },
               ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-                bottom: MediaQuery.of(context).viewInsets.bottom),
           ),
         ],
       ),

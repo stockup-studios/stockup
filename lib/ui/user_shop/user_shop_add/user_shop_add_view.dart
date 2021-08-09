@@ -25,7 +25,7 @@ class UserShopAddView extends StatelessWidget {
                 fontSize: 24,
                 fontWeight: FontWeight.w500,
               ),
-              textAlign: TextAlign.left,
+              textAlign: TextAlign.center,
             ),
           ),
           Padding(
@@ -52,6 +52,7 @@ class UserShopAddView extends StatelessWidget {
           if (model.nameError != '')
             Text(
               model.nameError,
+              textAlign: TextAlign.center,
               style: TextStyle(color: Colors.red),
             ),
           Padding(
@@ -78,6 +79,7 @@ class UserShopAddView extends StatelessWidget {
           if (model.imageError != '')
             Text(
               model.imageError,
+              textAlign: TextAlign.center,
               style: TextStyle(color: Colors.red),
             ),
           Padding(
@@ -144,6 +146,7 @@ class UserShopAddView extends StatelessWidget {
           if (model.quantityError != '')
             Text(
               model.quantityError,
+              textAlign: TextAlign.center,
               style: TextStyle(color: Colors.red),
             ),
           FractionallySizedBox(
@@ -169,10 +172,10 @@ class UserShopAddView extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(
-                bottom: MediaQuery.of(context).viewInsets.bottom),
-          ),
+          // Padding(
+          //   padding: EdgeInsets.only(
+          //       bottom: MediaQuery.of(context).viewInsets.bottom),
+          // ),
         ],
       ),
       viewModelBuilder: () => UserShopAddViewModel(),

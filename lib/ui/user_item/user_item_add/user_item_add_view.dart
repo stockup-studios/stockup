@@ -155,10 +155,6 @@ class UserItemAddView extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(
-                bottom: MediaQuery.of(context).viewInsets.bottom),
-          ),
         ],
       ),
       viewModelBuilder: () => UserItemAddViewModel(),
