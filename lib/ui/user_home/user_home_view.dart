@@ -25,10 +25,8 @@ class UserHomeView extends StatelessWidget {
           children: [
             if (model.expiredItems.length > 0)
               SummaryTile(
-                title: model
-                    .expiredTitleMessage,
-                details: model.expiredDetailMessage
-                ,
+                title: model.expiredTitleMessage,
+                details: model.expiredDetailMessage,
                 leftColor: Colors.red,
                 rightColor: Colors.redAccent,
                 onTap: model.viewItems,
@@ -102,6 +100,31 @@ class UserHomeView extends StatelessWidget {
                 ),
               ),
             ),
+            Card(
+              child: SfCircularChart(
+                title: ChartTitle(
+                  text: 'Food Wastage by Category',
+                  // textStyle: const TextStyle(fontSize: 20),
+                ),
+                legend: Legend(
+                  isVisible: true,
+                  overflowMode: LegendItemOverflowMode.wrap,
+                  position: LegendPosition.bottom,
+                ),
+                series: <CircularSeries>[
+                  DoughnutSeries<DoughnutData, String>(
+                    dataSource: getDoughnutData(),
+                    xValueMapper: (DoughnutData data, _) => data.category,
+                    yValueMapper: (DoughnutData data, _) => data.amount,
+                    dataLabelSettings: DataLabelSettings(
+                      isVisible: true,
+                      labelPosition: ChartDataLabelPosition.outside,
+                    ),
+                  ),
+                ],
+                tooltipBehavior: TooltipBehavior(enable: true),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: FractionallySizedBox(
@@ -126,6 +149,24 @@ class UserHomeView extends StatelessWidget {
       viewModelBuilder: () => UserHomeViewModel(),
     );
   }
+}
+
+/// Data source for SF Circular Chart
+List<DoughnutData> getDoughnutData() {
+  final List<DoughnutData> data = [
+    DoughnutData('Category 1', 1),
+    DoughnutData('Category 2', 2),
+    DoughnutData('Category 3', 3),
+  ];
+  return data;
+}
+
+/// Data type for SF Circular Chart
+class DoughnutData {
+  final String category;
+  final int amount;
+
+  DoughnutData(this.category, this.amount);
 }
 
 class SummaryTile extends StatelessWidget {
