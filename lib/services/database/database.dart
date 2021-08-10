@@ -61,7 +61,7 @@ abstract class DatabaseService {
 
   Future<List<String>> getShopListUsers(UserShopList list);
 
-  Future<List<int>> getExpiredItems();
+  Future<Map<String, dynamic>> getExpiredItems();
 
   // Update
   Future<void> updateCredentials(Map<String, dynamic> credentials);
@@ -84,7 +84,7 @@ abstract class DatabaseService {
 
   Future<void> updateSharedUserItemList(UserItemList list, AppUser user);
 
-  Future<void> updateExpiredItems(int date);
+  Future<void> updateExpiredItems(int date, String category);
 
   // Delete
   Future<void> deleteUserItem(UserItem item, UserItemList list);
