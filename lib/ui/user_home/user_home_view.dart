@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart' as intl;
 import 'package:stacked/stacked.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/ui/user_home/user_home_view_model.dart';
@@ -64,39 +63,40 @@ class UserHomeView extends StatelessWidget {
                 rightColor: Colors.green,
                 onTap: model.add,
               ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SfCartesianChart(
-                    title: ChartTitle(
-                      text: 'Food Wastage',
-                      // textStyle: TextStyle(color: Colors.white),
-                    ),
-                    tooltipBehavior: TooltipBehavior(
-                      enable: true,
-                      // textStyle: TextStyle(color: Colors.white),
-                    ),
-                    primaryXAxis: CategoryAxis(),
-                    series: <LineSeries<dynamic, String>>[
-                      LineSeries<dynamic, String>(
-                        name: 'Expired items',
-                        dataSource: model.expiredData,
-                        xValueMapper: (dynamic data, _) =>
-                            intl.DateFormat('dd MMM').format(data.time),
-                        yValueMapper: (dynamic data, _) => data.amount,
-                      )
-                    ],
-                  ),
+            Card(
+              child: SfCartesianChart(
+                title: ChartTitle(
+                  text: 'Food Wastage',
                 ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.0),
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: <Color>[Colors.grey.shade300, Colors.grey.shade300],
+                tooltipBehavior: TooltipBehavior(
+                  enable: true,
+                ),
+                legend: Legend(
+                  isVisible: true,
+                  overflowMode: LegendItemOverflowMode.wrap,
+                  position: LegendPosition.bottom,
+                ),
+                series: <ChartSeries>[
+                  StackedAreaSeries<ExpiredItemData, DateTime>(
+                    dataSource: model.expiredData, // source for series 1
+                    xValueMapper: (ExpiredItemData data, _) => data.time,
+                    yValueMapper: (ExpiredItemData data, _) => data.amount,
+                    name: 'Category 1',
                   ),
+                  StackedAreaSeries<ExpiredItemData, DateTime>(
+                    dataSource: model.expiredData, // source for series 2
+                    xValueMapper: (ExpiredItemData data, _) => data.time,
+                    yValueMapper: (ExpiredItemData data, _) => data.amount,
+                    name: 'Category 2',
+                  ),
+                ],
+                primaryXAxis: DateTimeAxis(
+                  majorGridLines: MajorGridLines(width: 0),
+                  axisLine: AxisLine(width: 0),
+                ),
+                primaryYAxis: NumericAxis(
+                  majorGridLines: MajorGridLines(width: 0),
+                  axisLine: AxisLine(width: 0),
                 ),
               ),
             ),
@@ -104,7 +104,6 @@ class UserHomeView extends StatelessWidget {
               child: SfCircularChart(
                 title: ChartTitle(
                   text: 'Food Wastage by Category',
-                  // textStyle: const TextStyle(fontSize: 20),
                 ),
                 legend: Legend(
                   isVisible: true,
