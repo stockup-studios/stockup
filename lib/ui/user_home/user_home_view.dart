@@ -21,6 +21,33 @@ class UserHomeView extends StatelessWidget {
         appBar: AppBar(
           title: Text('Home'),
           centerTitle: true,
+          actions: [
+            PopupMenuButton(
+              icon: Icon(Icons.settings),
+              itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+                PopupMenuItem(
+                  child: Container(
+                    child: Row(
+                      children: [
+                        Text('Logout'),
+                        IconButton(
+                          icon: Icon(
+                            Icons.logout,
+                            color: Colors.red.shade200,
+                          ),
+                          onPressed: () {
+                            model.signOut();
+                          },
+                        ),
+                      ],
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
         body: ListView(
           children: [
@@ -252,23 +279,6 @@ class UserHomeView extends StatelessWidget {
                   ),
                 ],
                 tooltipBehavior: TooltipBehavior(enable: true),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: FractionallySizedBox(
-                widthFactor: 0.9,
-                child: OutlinedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.red)),
-                  child: Text(
-                    'Logout',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () async {
-                    model.signOut();
-                  },
-                ),
               ),
             ),
           ],
