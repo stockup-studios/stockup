@@ -17,7 +17,8 @@ class UserHomeViewModel extends BaseViewModel {
   // int totalItems = 1;
 
   List<ExpiredItemData> expiredData = [];
-  List<int> expiredDb = [];
+  // List<int> expiredDb = [];
+  Map<String, dynamic> expiredDb;
 
   List<UserItem> expiredItems = [];
   List<UserItem> expiringItems = [];
@@ -119,23 +120,40 @@ class UserHomeViewModel extends BaseViewModel {
 
   Future<void> _expiredItemsFromDatabase() async {
     expiredDb = await _database.getExpiredItems();
+    //expiredDb = await _database.getExpiredItems();
   }
 
   Future<void> getExpiredData() async {
-    Map<int, int> map = {};
+    Map<String, Map<int, int>> map = {
+      'Bakery, Cereals & Spreads': {},
+      'Beer, Wine & Spirit': {},
+      'Dairy, Chilled & Frozen': {},
+      'Food Pantry': {},
+      'Fruit & Vegetables': {},
+      'Meats & Seafood': {},
+      'Snacks & Drinks': {},
+      'Others': {},
+    };
+
     await _expiredItemsFromDatabase();
 
-    expiredDb.forEach((element) {
-      if (!map.containsKey(element)) {
-        map[element] = 1;
-      } else {
-        map[element] += 1;
+    for (String cat in expiredDb.keys) {
+      expiredDb[cat].forEach((element) {
+        if (!map[cat].containsKey(element)) {
+          map[cat][element] = 1;
+        } else {
+          map[cat][element] += 1;
+        }
+      });
+    }
+
+    for (String cat in map.keys) {
+      //what to do with cat?
+      for (int element in map[cat].keys) {
+        ExpiredItemData data = ExpiredItemData(
+            DateTime.fromMillisecondsSinceEpoch(element), map[cat][element]);
+        expiredData.add(data);
       }
-    });
-    for (int element in map.keys) {
-      ExpiredItemData data = ExpiredItemData(
-          DateTime.fromMillisecondsSinceEpoch(element), map[element]);
-      expiredData.add(data);
     }
   }
 
@@ -154,20 +172,20 @@ class UserHomeViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  final List<List<String>> messages = [
-    [
-      '1 Item Expired',
-      'Yesterday | Marigold HL Milk',
-    ],
-    [
-      '2 Items Expiring Soon',
-      '2 days | Golden Churn Butter Block - Salted',
-      '3 days | UFC Refresh 100% Natural Coconut Water',
-    ],
-    [
-      '1 Shared List',
-    ],
-  ];
+  // final List<List<String>> messages = [
+  //   [
+  //     '1 Item Expired',
+  //     'Yesterday | Marigold HL Milk',
+  //   ],
+  //   [
+  //     '2 Items Expiring Soon',
+  //     '2 days | Golden Churn Butter Block - Salted',
+  //     '3 days | UFC Refresh 100% Natural Coconut Water',
+  //   ],
+  //   [
+  //     '1 Shared List',
+  //   ],
+  // ];
 }
 
 class ExpiredItemData {

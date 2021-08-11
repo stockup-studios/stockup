@@ -66,8 +66,8 @@ class DatabaseServiceImpl implements DatabaseService {
 
     final expiredDocument =
         userDocument.collection('expired_items').doc('records');
-    Map<String, dynamic> json = {'expired_items': expiredItems};
-    expiredDocument.set(json);
+    //Map<String, dynamic> json = {'expired_items': expiredItems};
+    expiredDocument.set(expiredItems);
   }
 
   @override
@@ -400,14 +400,15 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 
   @override
-  Future<List<int>> getExpiredItems() async {
+  Future<Map<String, dynamic>> getExpiredItems() async {
     DocumentSnapshot snapshot = await userItemExpiredDoc.get();
-    List<int> result = [];
-    Map data = snapshot.data();
-    List.from(data['expired_items']).forEach((element) {
-      result.add(element);
-    });
-    return result;
+    // List<int> result = [];
+    // Map data = snapshot.data();
+    // List.from(data['expired_items']).forEach((element) {
+    //   result.add(element);
+    // });
+    // return result;
+    return snapshot.data();
   }
 
   @override
@@ -535,17 +536,26 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 
   @override
-  Future<void> updateExpiredItems(int date) async {
+  Future<void> updateExpiredItems(int date, String category) async {
     //UserItem updateditem = UserItem.fromFirestore(doc)
     DocumentReference doc = userItemExpiredDoc;
     List<int> temp = SortedList<int>((r1, r2) => r1.compareTo(r2));
     Map data = await doc.get().then((value) => value.data());
-    List.from(data['expired_items']).forEach((element) {
+    //data is map of arrays
+    //Map<String, dynamic> all = {category: ...};
+
+    List.from(data.remove(category)).forEach((element) {
       temp.add(element);
     });
     temp.add(date);
-    Map<String, dynamic> json = {'expired_items': temp};
-    doc.set(json);
+    data.putIfAbsent(category, () => temp);
+
+    // List.from(data['expired_items']).forEach((element) {
+    //   temp.add(element);
+    // });
+    // temp.add(date);
+    // Map<String, dynamic> json = {'expired_items': temp};
+    doc.set(data);
   }
 
   // Delete
@@ -572,7 +582,7 @@ class DatabaseServiceImpl implements DatabaseService {
       expiry = today.millisecondsSinceEpoch;
     }
 
-    updateExpiredItems(expiry);
+    updateExpiredItems(expiry, item.category.name);
     user_item_lists
         .doc(list.uid)
         .collection('user_item')
