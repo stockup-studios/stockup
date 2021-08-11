@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart' as intl;
 import 'package:stacked/stacked.dart';
+import 'package:stockup/models/product.dart';
+import 'package:stockup/models/product_category.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/ui/user_home/user_home_view_model.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -20,103 +21,264 @@ class UserHomeView extends StatelessWidget {
         appBar: AppBar(
           title: Text('Home'),
           centerTitle: true,
+          actions: [
+            PopupMenuButton(
+              icon: Icon(Icons.settings),
+              itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+                PopupMenuItem(
+                  child: Container(
+                    child: Row(
+                      children: [
+                        Text('Logout'),
+                        IconButton(
+                          icon: Icon(
+                            Icons.logout,
+                            color: Colors.red.shade200,
+                          ),
+                          onPressed: () {
+                            model.signOut();
+                          },
+                        ),
+                      ],
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
         body: ListView(
           children: [
-            if (model.expiredItems.length > 0)
-              SummaryTile(
-                title: model
-                    .expiredTitleMessage,
-                details: model.expiredDetailMessage
-                ,
-                leftColor: Colors.red,
-                rightColor: Colors.redAccent,
-                onTap: model.viewItems,
-              )
-            else if (model.expiredItems.length == 0)
-              SummaryTile(
-                title: 'You have no expired items',
-                details: ['Keep it up!'],
-                leftColor: Colors.lightGreen,
-                rightColor: Colors.green,
-                onTap: () {},
-              ),
-            if (model.expiringItems.length > 0)
-              SummaryTile(
-                // TODO: Replace with expiring soon details from model (remember to send top 5 only)
-                title: model.expiringTitleMessage,
-                details: model.expiringDetailMessage,
-                leftColor: Colors.orange,
-                rightColor: Colors.orangeAccent,
-                onTap: model.viewItems,
-              )
-            else
-              SummaryTile(
-                title: "You don't have any items expiring soon",
-                details: ['You can relax'],
-                leftColor: Colors.lightGreen,
-                rightColor: Colors.green,
-                onTap: () {},
-              ),
-            if (model.totalItems == 0)
-              SummaryTile(
-                title: 'Your personal list is empty',
-                details: ["Let's scan some items!"],
-                leftColor: Colors.lightGreen,
-                rightColor: Colors.green,
-                onTap: model.add,
-              ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            Card(
               child: Container(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: SfCartesianChart(
-                    title: ChartTitle(
-                      text: 'Food Wastage',
-                      // textStyle: TextStyle(color: Colors.white),
-                    ),
-                    tooltipBehavior: TooltipBehavior(
-                      enable: true,
-                      // textStyle: TextStyle(color: Colors.white),
-                    ),
-                    primaryXAxis: CategoryAxis(),
-                    series: <LineSeries<dynamic, String>>[
-                      LineSeries<dynamic, String>(
-                        name: 'Expired items',
-                        dataSource: model.expiredData,
-                        xValueMapper: (dynamic data, _) =>
-                            intl.DateFormat('dd MMM').format(data.time),
-                        yValueMapper: (dynamic data, _) => data.amount,
-                      )
+                  child: Column(
+                    children: [
+                      Container(
+                        child: Column(
+                          // Summary card header
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 8.0),
+                              child: Text(
+                                'Hi, Username!', // TODO Use string interpolation for actual username
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 8.0),
+                              child: Text(
+                                'Welcome to StockUP',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          color: Colors.white,
+                          child: ExpansionTile(
+                            leading: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              // TODO Use boolean expression from model
+                              child: false
+                                  ? Icon(
+                                      Icons.check_circle_rounded,
+                                      color: Colors.green,
+                                    )
+                                  : Icon(
+                                      Icons.cancel_rounded,
+                                      color: Colors.red,
+                                    ),
+                            ),
+                            title: Text(
+                              'Expired',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
+                            ),
+                            subtitle: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 8.0),
+                              // TODO Use boolean expression from model
+                              child: true
+                                  ? Text('You have no expired items! 👍 !!')
+                                  : Text('You have ??? expired items!'),
+                            ),
+                            // TODO Use data from model
+                            children: [
+                              for (Product p in products)
+                                ListTile(
+                                  leading: Image.network(
+                                    p.imageURL,
+                                    height: 50,
+                                    width: 50,
+                                    errorBuilder: (BuildContext context,
+                                        Object exception,
+                                        StackTrace stackTrace) {
+                                      return SizedBox(
+                                        height: 50,
+                                        width: 50,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: CircularProgressIndicator(),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                  title: Text(p.productName),
+                                  subtitle: Text('Expired ??? days ago'),
+                                ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          color: Colors.white,
+                          child: ExpansionTile(
+                            leading: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              // TODO Use boolean expression from model
+                              child: true
+                                  ? Icon(
+                                      Icons.check_circle_rounded,
+                                      color: Colors.green,
+                                    )
+                                  : Icon(
+                                      Icons.cancel_rounded,
+                                      color: Colors.red,
+                                    ),
+                            ),
+                            title: Text(
+                              'Expiring Soon',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
+                            ),
+                            subtitle: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 8.0),
+                              // TODO Use boolean expression from model
+                              child: true
+                                  ? Text('You have no expired items! 🎉 !!')
+                                  : Text('You have ??? expired items!'),
+                            ),
+                            // TODO Use data from model
+                            children: [
+                              for (Product p in products)
+                                ListTile(
+                                  leading: Image.network(
+                                    p.imageURL,
+                                    height: 50,
+                                    width: 50,
+                                    errorBuilder: (BuildContext context,
+                                        Object exception,
+                                        StackTrace stackTrace) {
+                                      return SizedBox(
+                                        height: 50,
+                                        width: 50,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: CircularProgressIndicator(),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                  title: Text(p.productName),
+                                  subtitle: Text('Expired ??? days ago'),
+                                ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.0),
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: <Color>[Colors.grey.shade300, Colors.grey.shade300],
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/summary_background.png'),
+                    fit: BoxFit.fill,
                   ),
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: FractionallySizedBox(
-                widthFactor: 0.9,
-                child: OutlinedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.red)),
-                  child: Text(
-                    'Logout',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () async {
-                    model.signOut();
-                  },
+            Card(
+              child: SfCartesianChart(
+                title: ChartTitle(
+                  text: 'Food Wastage',
                 ),
+                tooltipBehavior: TooltipBehavior(
+                  enable: true,
+                ),
+                legend: Legend(
+                  isVisible: true,
+                  overflowMode: LegendItemOverflowMode.wrap,
+                  position: LegendPosition.bottom,
+                ),
+                series: <ChartSeries>[
+                  StackedAreaSeries<ExpiredItemData, DateTime>(
+                    dataSource: model.expiredData, // source for series 1
+                    xValueMapper: (ExpiredItemData data, _) => data.time,
+                    yValueMapper: (ExpiredItemData data, _) => data.amount,
+                    name: 'Category 1',
+                  ),
+                  StackedAreaSeries<ExpiredItemData, DateTime>(
+                    dataSource: model.expiredData, // source for series 2
+                    xValueMapper: (ExpiredItemData data, _) => data.time,
+                    yValueMapper: (ExpiredItemData data, _) => data.amount,
+                    name: 'Category 2',
+                  ),
+                ],
+                primaryXAxis: DateTimeAxis(
+                  majorGridLines: MajorGridLines(width: 0),
+                  axisLine: AxisLine(width: 0),
+                ),
+                primaryYAxis: NumericAxis(
+                  majorGridLines: MajorGridLines(width: 0),
+                  axisLine: AxisLine(width: 0),
+                ),
+              ),
+            ),
+            Card(
+              child: SfCircularChart(
+                title: ChartTitle(
+                  text: 'Food Wastage by Category',
+                ),
+                legend: Legend(
+                  isVisible: true,
+                  overflowMode: LegendItemOverflowMode.wrap,
+                  position: LegendPosition.bottom,
+                ),
+                series: <CircularSeries>[
+                  DoughnutSeries<DoughnutData, String>(
+                    dataSource: getDoughnutData(),
+                    xValueMapper: (DoughnutData data, _) => data.category,
+                    yValueMapper: (DoughnutData data, _) => data.amount,
+                    dataLabelSettings: DataLabelSettings(
+                      isVisible: true,
+                      labelPosition: ChartDataLabelPosition.outside,
+                    ),
+                  ),
+                ],
+                tooltipBehavior: TooltipBehavior(enable: true),
               ),
             ),
           ],
@@ -127,6 +289,44 @@ class UserHomeView extends StatelessWidget {
     );
   }
 }
+
+/// Data source for SF Circular Chart
+List<DoughnutData> getDoughnutData() {
+  final List<DoughnutData> data = [
+    DoughnutData('Category 1', 1),
+    DoughnutData('Category 2', 2),
+    DoughnutData('Category 3', 3),
+  ];
+  return data;
+}
+
+/// Data type for SF Circular Chart
+class DoughnutData {
+  final String category;
+  final int amount;
+
+  DoughnutData(this.category, this.amount);
+}
+
+/// sample products for expansion panel. Replace with actual items
+List<Product> products = [
+  Product(
+      productID: 5021536,
+      category: ProductCategory.bakery_cereals_spreads,
+      productName: "MISSION WHOLEMEAL PITA 5S",
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product/5171374_1528886245740.jpg'),
+  Product(
+      productID: 5023538,
+      category: ProductCategory.bakery_cereals_spreads,
+      productName: "KELLOGG'S CRUNCHY NUT OAT GRANOLA CHOCOLATE 380G",
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5023538.jpg'),
+  Product(
+      productID: 5031528,
+      category: ProductCategory.bakery_cereals_spreads,
+      productName: "QUAKER 3IN1 OAT CEREAL DRINK - BERRY BLAST 15SX28G",
+      imageURL: 'https://coldstorage-s3.dexecure.net/product/5031528.jpg'),
+];
 
 class SummaryTile extends StatelessWidget {
   const SummaryTile({
