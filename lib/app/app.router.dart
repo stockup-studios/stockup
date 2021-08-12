@@ -15,18 +15,15 @@ import '../ui/user_home/user_home_view.dart';
 import '../ui/user_item/user_item_list/user_item_view.dart';
 import '../ui/user_scan/user_scan_view.dart';
 import '../ui/user_shop/user_shop_list/user_shop_view.dart';
-import '../ui/welcome/welcome_view.dart';
 
 class Routes {
-  static const String welcomeView = '/';
-  static const String signInView = '/sign-in-view';
+  static const String signInView = '/';
   static const String signUpView = '/sign-up-view';
   static const String userHomeView = '/user-home-view';
   static const String userItemView = '/user-item-view';
   static const String userScanView = '/user-scan-view';
   static const String userShopView = '/user-shop-view';
   static const all = <String>{
-    welcomeView,
     signInView,
     signUpView,
     userHomeView,
@@ -40,7 +37,6 @@ class StackedRouter extends RouterBase {
   @override
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
-    RouteDef(Routes.welcomeView, page: WelcomeView),
     RouteDef(Routes.signInView, page: SignInView),
     RouteDef(Routes.signUpView, page: SignUpView),
     RouteDef(Routes.userHomeView, page: UserHomeView),
@@ -51,12 +47,6 @@ class StackedRouter extends RouterBase {
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, StackedRouteFactory>{
-    WelcomeView: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => const WelcomeView(),
-        settings: data,
-      );
-    },
     SignInView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => const SignInView(),

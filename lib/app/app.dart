@@ -14,15 +14,13 @@ import 'package:stockup/ui/user_item/user_item_list/user_item_view_model.dart';
 import 'package:stockup/ui/user_scan/user_scan_view.dart';
 import 'package:stockup/ui/user_shop/user_shop_list/user_shop_view.dart';
 import 'package:stockup/ui/user_shop/user_shop_list/user_shop_view_model.dart';
-import 'package:stockup/ui/welcome/welcome_view.dart';
 
 @StackedApp(
   routes: [
-    MaterialRoute(page: WelcomeView, initial: true),
-    MaterialRoute(page: SignInView),
+    MaterialRoute(page: SignInView, initial: true),
     MaterialRoute(page: SignUpView),
     MaterialRoute(page: UserHomeView),
-    MaterialRoute(page: UserItemView), 
+    MaterialRoute(page: UserItemView),
     MaterialRoute(page: UserScanView),
     MaterialRoute(page: UserShopView),
   ],
