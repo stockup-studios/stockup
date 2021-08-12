@@ -21,18 +21,21 @@ class SignInView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  AnimatedTextKit(
-                    animatedTexts: [
-                      TypewriterAnimatedText(
-                        'StockUP',
-                        curve: Curves.slowMiddle,
-                        textStyle: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          fontSize: 60.0,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 50),
+                    child: AnimatedTextKit(
+                      animatedTexts: [
+                        TypewriterAnimatedText(
+                          'StockUP',
+                          curve: Curves.slowMiddle,
+                          textStyle: TextStyle(
+                            fontWeight: FontWeight.w800,
+                            fontSize: 60.0,
+                          ),
+                          speed: const Duration(milliseconds: 400),
                         ),
-                        speed: const Duration(milliseconds: 400),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   Container(
                     child: Column(
@@ -161,7 +164,7 @@ class SignInView extends StatelessWidget {
                       ),
                       TextButton(
                         child: Text(
-                          'Create account',
+                          'Sign Up',
                           style: TextStyle(color: Colors.blue),
                         ),
                         onPressed: () => model.navigateToSignUp(),
