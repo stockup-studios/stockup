@@ -617,7 +617,8 @@ List<Product> fruitVegetablesCatalog = [
       productID: 5067062,
       category: ProductCategory.fruit_vegetables,
       productName: "USA STRAWBERRY 250G",
-      imageURL: 'https://coldstorage-s3.dexecure.net/product/5067062.jpg'),
+      imageURL:
+          'https://coldstorage-s3.dexecure.net/product_thumb/5067062-1.jpg'),
   Product(
       productID: 5047326,
       category: ProductCategory.fruit_vegetables,

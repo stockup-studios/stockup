@@ -1,9 +1,9 @@
 import 'package:stockup/models/models.dart';
 
 List<UserShopList> demoUserShopList = [
-  UserShopList.demo("Personal"
+  UserShopList.demo("Shop 1"
   ),
-  UserShopList.demo("Outing"
+  UserShopList.demo("Shop 2"
   ),
 
   // UserShopList.demo("Share"),

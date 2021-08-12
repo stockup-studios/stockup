@@ -11,33 +11,34 @@ class UserHomeViewModel extends BaseViewModel {
   static final _authService = locator<AuthImplementation>();
   DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
 
-  /// temp variables only for UI testing. Use version taken from database for actual
-  // int noExpired = 1;
-  // int noExpiringSoon = 1;
-  // int totalItems = 1;
-
-  List<ExpiredItemData> expiredData = [];
-  // List<int> expiredDb = [];
+  List<ExpiredItemData> expiredData =
+      SortedList<ExpiredItemData>((r1, r2) => r2.time.compareTo(r1.time));
   Map<String, dynamic> expiredDb;
+
+  List<DoughnutData> categoryWaste = [];
 
   List<UserItem> expiredItems = [];
   List<UserItem> expiringItems = [];
+
   int totalItems = 0;
   UserItemList personal;
 
+  bool expiringExcess = false;
+  bool expiredExcess = false;
+
   void init() async {
     _database = DatabaseServiceImpl(uid: _authService.appUser.username);
-    await getExpiredData();
     await _personalListFromDb();
+    await _expiredItemsFromDatabase();
+    getExpiredData();
+    getDoughnutData();
     await _processItemsinList();
-    print('home view model init called');
     notifyListeners();
   }
 
   Future<void> _personalListFromDb() async {
     personal = await _database.getRequestedList(
         'Personal', _authService.appUser.email);
-    print('user home personal list is ${personal != null}');
   }
 
   Future<void> _processItemsinList() async {
@@ -55,20 +56,21 @@ class UserHomeViewModel extends BaseViewModel {
         //increase expired
         if (expiredItems.length < 6) {
           expiredItems.add(item);
+        } else {
+          expiredExcess = true;
         }
       } else if (daysLeft < 4) {
         // increase expire soon
         if (expiringItems.length < 6) {
           expiringItems.add(item);
+        } else {
+          expiringExcess = true;
         }
       } else {
         // break since sorted list so no more items to look through
         break;
       }
     }
-
-    print('expired items ${expiredItems.length}');
-    print('expiring items ${expiringItems.length}');
   }
 
   String get expiredTitleMessage {
@@ -79,19 +81,14 @@ class UserHomeViewModel extends BaseViewModel {
     }
   }
 
-  List<String> get expiredDetailMessage {
-    List<String> messages = [];
-    for (UserItem item in expiredItems) {
-      String message;
-
-      if (item.daysLeft == -1) {
-        message = '${-item.daysLeft} day ago | ${item.productName}';
-      } else {
-        message = '${-item.daysLeft} days ago | ${item.productName}';
-      }
-      messages.add(message);
+  String expiredDetail(UserItem item) {
+    String message;
+    if (item.daysLeft == -1) {
+      message = 'Expired ${-item.daysLeft} day ago';
+    } else {
+      message = 'Expired ${-item.daysLeft} days ago';
     }
-    return messages;
+    return message;
   }
 
   String get expiringTitleMessage {
@@ -102,58 +99,48 @@ class UserHomeViewModel extends BaseViewModel {
     }
   }
 
-  List<String> get expiringDetailMessage {
-    List<String> messages = [];
-    for (UserItem item in expiringItems) {
-      String message;
-      if (item.daysLeft == 1) {
-        message = '${item.daysLeft} day left | ${item.productName}';
-      } else if (item.daysLeft == 0) {
-        message = 'expiring today | ${item.productName}';
-      } else {
-        message = '${item.daysLeft} days left | ${item.productName}';
-      }
-      messages.add(message);
+  String expiringDetail(UserItem item) {
+    String message;
+    if (item.daysLeft == 1) {
+      message = 'Expiring in ${item.daysLeft} day';
+    } else if (item.daysLeft == 0) {
+      message = 'Expiring today!';
+    } else {
+      message = 'Expiring in ${item.daysLeft} days';
     }
-    return messages;
+    return message;
   }
 
   Future<void> _expiredItemsFromDatabase() async {
     expiredDb = await _database.getExpiredItems();
-    //expiredDb = await _database.getExpiredItems();
   }
 
-  Future<void> getExpiredData() async {
-    Map<String, Map<int, int>> map = {
-      'Bakery, Cereals & Spreads': {},
-      'Beer, Wine & Spirit': {},
-      'Dairy, Chilled & Frozen': {},
-      'Food Pantry': {},
-      'Fruit & Vegetables': {},
-      'Meats & Seafood': {},
-      'Snacks & Drinks': {},
-      'Others': {},
-    };
-
-    await _expiredItemsFromDatabase();
+  void getExpiredData() {
+    Map<int, int> map = {};
 
     for (String cat in expiredDb.keys) {
       expiredDb[cat].forEach((element) {
-        if (!map[cat].containsKey(element)) {
-          map[cat][element] = 1;
+        if (!map.containsKey(element)) {
+          map[element] = 1;
         } else {
-          map[cat][element] += 1;
+          map[element] += 1;
         }
       });
     }
 
-    for (String cat in map.keys) {
-      //what to do with cat?
-      for (int element in map[cat].keys) {
-        ExpiredItemData data = ExpiredItemData(
-            DateTime.fromMillisecondsSinceEpoch(element), map[cat][element]);
-        expiredData.add(data);
-      }
+    for (int element in map.keys) {
+      ExpiredItemData data = ExpiredItemData(
+          DateTime.fromMillisecondsSinceEpoch(element), map[element]);
+      expiredData.add(data);
+    }
+  }
+
+  /// Data source for SF Circular Chart
+  void getDoughnutData() {
+    for (String category in expiredDb.keys) {
+      List<dynamic> expired = expiredDb[category];
+      DoughnutData data = DoughnutData(category, expired.length);
+      categoryWaste.add(data);
     }
   }
 
@@ -171,25 +158,18 @@ class UserHomeViewModel extends BaseViewModel {
     _navigationService.replaceWith(Routes.userScanView);
     notifyListeners();
   }
-
-  // final List<List<String>> messages = [
-  //   [
-  //     '1 Item Expired',
-  //     'Yesterday | Marigold HL Milk',
-  //   ],
-  //   [
-  //     '2 Items Expiring Soon',
-  //     '2 days | Golden Churn Butter Block - Salted',
-  //     '3 days | UFC Refresh 100% Natural Coconut Water',
-  //   ],
-  //   [
-  //     '1 Shared List',
-  //   ],
-  // ];
 }
 
 class ExpiredItemData {
   ExpiredItemData(this.time, this.amount);
   final DateTime time;
   final int amount;
+}
+
+/// Data type for SF Circular Chart
+class DoughnutData {
+  final String category;
+  final int amount;
+
+  DoughnutData(this.category, this.amount);
 }

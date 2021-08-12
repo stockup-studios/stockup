@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stockup/models/product.dart';
+import 'package:stockup/models/models.dart';
 import 'package:stockup/models/product_category.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/ui/user_home/user_home_view_model.dart';
@@ -65,7 +65,7 @@ class UserHomeView extends StatelessWidget {
                               padding:
                                   const EdgeInsets.symmetric(vertical: 8.0),
                               child: Text(
-                                'Hi, Username!', // TODO Use string interpolation for actual username
+                                'Hi There!', // TODO Use string interpolation for actual username
                                 style: TextStyle(
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold,
@@ -94,8 +94,7 @@ class UserHomeView extends StatelessWidget {
                           child: ExpansionTile(
                             leading: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              // TODO Use boolean expression from model
-                              child: false
+                              child: model.expiredItems.length == 0
                                   ? Icon(
                                       Icons.check_circle_rounded,
                                       color: Colors.green,
@@ -115,14 +114,13 @@ class UserHomeView extends StatelessWidget {
                             subtitle: Padding(
                               padding:
                                   const EdgeInsets.symmetric(vertical: 8.0),
-                              // TODO Use boolean expression from model
-                              child: true
+                              child: model.expiredItems.length == 0
                                   ? Text('You have no expired items! 👍 !!')
-                                  : Text('You have ??? expired items!'),
+                                  : Text(model.expiredTitleMessage),
                             ),
-                            // TODO Use data from model
                             children: [
-                              for (Product p in products)
+                              for (Product p in model.expiredItems)
+                                // TODO add navigation
                                 ListTile(
                                   leading: Image.network(
                                     p.imageURL,
@@ -142,8 +140,17 @@ class UserHomeView extends StatelessWidget {
                                     },
                                   ),
                                   title: Text(p.productName),
-                                  subtitle: Text('Expired ??? days ago'),
+                                  subtitle: Text(model.expiredDetail(p)),
                                 ),
+                              if (model.expiredExcess)
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.more_horiz_outlined,
+                                  ),
+                                  onPressed: () {
+                                    model.viewItems();
+                                  },
+                                )
                             ],
                           ),
                         ),
@@ -155,8 +162,7 @@ class UserHomeView extends StatelessWidget {
                           child: ExpansionTile(
                             leading: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              // TODO Use boolean expression from model
-                              child: true
+                              child: model.expiringItems.length == 0
                                   ? Icon(
                                       Icons.check_circle_rounded,
                                       color: Colors.green,
@@ -176,14 +182,13 @@ class UserHomeView extends StatelessWidget {
                             subtitle: Padding(
                               padding:
                                   const EdgeInsets.symmetric(vertical: 8.0),
-                              // TODO Use boolean expression from model
-                              child: true
-                                  ? Text('You have no expired items! 🎉 !!')
-                                  : Text('You have ??? expired items!'),
+                              child: model.expiringItems.length == 0
+                                  ? Text(
+                                      "You don't have any items expiring soon! 🎉!")
+                                  : Text(model.expiringTitleMessage),
                             ),
-                            // TODO Use data from model
                             children: [
-                              for (Product p in products)
+                              for (UserItem p in model.expiringItems)
                                 ListTile(
                                   leading: Image.network(
                                     p.imageURL,
@@ -203,8 +208,17 @@ class UserHomeView extends StatelessWidget {
                                     },
                                   ),
                                   title: Text(p.productName),
-                                  subtitle: Text('Expired ??? days ago'),
+                                  subtitle: Text(model.expiringDetail(p)),
                                 ),
+                              if (model.expiringExcess)
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.more_horiz_outlined,
+                                  ),
+                                  onPressed: () {
+                                    model.viewItems();
+                                  },
+                                )
                             ],
                           ),
                         ),
@@ -234,18 +248,13 @@ class UserHomeView extends StatelessWidget {
                   position: LegendPosition.bottom,
                 ),
                 series: <ChartSeries>[
-                  StackedAreaSeries<ExpiredItemData, DateTime>(
-                    dataSource: model.expiredData, // source for series 1
-                    xValueMapper: (ExpiredItemData data, _) => data.time,
-                    yValueMapper: (ExpiredItemData data, _) => data.amount,
-                    name: 'Category 1',
-                  ),
-                  StackedAreaSeries<ExpiredItemData, DateTime>(
-                    dataSource: model.expiredData, // source for series 2
-                    xValueMapper: (ExpiredItemData data, _) => data.time,
-                    yValueMapper: (ExpiredItemData data, _) => data.amount,
-                    name: 'Category 2',
-                  ),
+                  SplineAreaSeries<ExpiredItemData, DateTime>(
+                      dataSource: model.expiredData,
+                      xValueMapper: (ExpiredItemData data, _) => data.time,
+                      yValueMapper: (ExpiredItemData data, _) => data.amount,
+                      isVisibleInLegend: false,
+                      name: 'Food Waste',
+                      color: Colors.amber[700])
                 ],
                 primaryXAxis: DateTimeAxis(
                   majorGridLines: MajorGridLines(width: 0),
@@ -269,7 +278,7 @@ class UserHomeView extends StatelessWidget {
                 ),
                 series: <CircularSeries>[
                   DoughnutSeries<DoughnutData, String>(
-                    dataSource: getDoughnutData(),
+                    dataSource: model.categoryWaste,
                     xValueMapper: (DoughnutData data, _) => data.category,
                     yValueMapper: (DoughnutData data, _) => data.amount,
                     dataLabelSettings: DataLabelSettings(
@@ -290,110 +299,72 @@ class UserHomeView extends StatelessWidget {
   }
 }
 
-/// Data source for SF Circular Chart
-List<DoughnutData> getDoughnutData() {
-  final List<DoughnutData> data = [
-    DoughnutData('Category 1', 1),
-    DoughnutData('Category 2', 2),
-    DoughnutData('Category 3', 3),
-  ];
-  return data;
-}
+// class SummaryTile extends StatelessWidget {
+//   const SummaryTile({
+//     Key key,
+//     @required this.title,
+//     @required this.details,
+//     @required this.leftColor,
+//     @required this.rightColor,
+//     @required this.onTap,
+//   }) : super(key: key);
 
-/// Data type for SF Circular Chart
-class DoughnutData {
-  final String category;
-  final int amount;
+//   final String title;
+//   final List<String> details;
+//   final Color leftColor;
+//   final Color rightColor;
+//   final Function onTap;
 
-  DoughnutData(this.category, this.amount);
-}
-
-/// sample products for expansion panel. Replace with actual items
-List<Product> products = [
-  Product(
-      productID: 5021536,
-      category: ProductCategory.bakery_cereals_spreads,
-      productName: "MISSION WHOLEMEAL PITA 5S",
-      imageURL:
-          'https://coldstorage-s3.dexecure.net/product/5171374_1528886245740.jpg'),
-  Product(
-      productID: 5023538,
-      category: ProductCategory.bakery_cereals_spreads,
-      productName: "KELLOGG'S CRUNCHY NUT OAT GRANOLA CHOCOLATE 380G",
-      imageURL: 'https://coldstorage-s3.dexecure.net/product/5023538.jpg'),
-  Product(
-      productID: 5031528,
-      category: ProductCategory.bakery_cereals_spreads,
-      productName: "QUAKER 3IN1 OAT CEREAL DRINK - BERRY BLAST 15SX28G",
-      imageURL: 'https://coldstorage-s3.dexecure.net/product/5031528.jpg'),
-];
-
-class SummaryTile extends StatelessWidget {
-  const SummaryTile({
-    Key key,
-    @required this.title,
-    @required this.details,
-    @required this.leftColor,
-    @required this.rightColor,
-    @required this.onTap,
-  }) : super(key: key);
-
-  final String title;
-  final List<String> details;
-  final Color leftColor;
-  final Color rightColor;
-  final Function onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ListTile(
-            title: Text(
-              this.title,
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            subtitle: Padding(
-              padding: const EdgeInsets.only(top: 8, left: 4, bottom: 8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  for (String detail in this.details)
-                    Text(
-                      detail,
-                      style: TextStyle(color: Colors.white),
-                    ),
-                ],
-              ),
-            ),
-            onTap: this.onTap,
-          ),
-        ),
-        // shape: RoundedRectangleBorder(
-        //   borderRadius: BorderRadius.circular(10),
-        // ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.0),
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              this.leftColor,
-              this.rightColor,
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.all(8.0),
+//       child: Container(
+//         child: Padding(
+//           padding: const EdgeInsets.all(8.0),
+//           child: ListTile(
+//             title: Text(
+//               this.title,
+//               style: TextStyle(
+//                 fontSize: 32,
+//                 fontWeight: FontWeight.bold,
+//                 color: Colors.white,
+//               ),
+//             ),
+//             subtitle: Padding(
+//               padding: const EdgeInsets.only(top: 8, left: 4, bottom: 8),
+//               child: Column(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   for (String detail in this.details)
+//                     Text(
+//                       detail,
+//                       style: TextStyle(color: Colors.white),
+//                     ),
+//                 ],
+//               ),
+//             ),
+//             onTap: this.onTap,
+//           ),
+//         ),
+//         // shape: RoundedRectangleBorder(
+//         //   borderRadius: BorderRadius.circular(10),
+//         // ),
+//         decoration: BoxDecoration(
+//           borderRadius: BorderRadius.circular(20.0),
+//           gradient: LinearGradient(
+//             begin: Alignment.topLeft,
+//             end: Alignment.bottomRight,
+//             colors: [
+//               this.leftColor,
+//               this.rightColor,
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class HomeTile extends StatelessWidget {
   final colorLeft;

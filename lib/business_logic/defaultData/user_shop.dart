@@ -22,11 +22,11 @@ List<List<UserShop>> demoUserShop = [
         5055950,
         1),
     UserShop.demo("USA STRAWBERRY 250G", ProductCategory.fruit_vegetables,
-        'https://coldstorage-s3.dexecure.net/product/5067062.jpg', 5067062, 1)
+        'https://coldstorage-s3.dexecure.net/product_thumb/5067062-1.jpg', 5067062, 1)
   ],
   [
     UserShop.demo("USA STRAWBERRY 250G", ProductCategory.fruit_vegetables,
-        'https://coldstorage-s3.dexecure.net/product/5067062.jpg', 5067062, 1),
+        'https://coldstorage-s3.dexecure.net/product_thumb/5067062-1.jpg', 5067062, 1),
     UserShop.demo(
         "MEADOWS OAT SALTINES 100G",
         ProductCategory.snacks_drinks,
