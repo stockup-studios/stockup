@@ -26,11 +26,11 @@ class SignUpViewModel extends BaseViewModel {
   }
 
   String passwordValidator(String val) {
-    return val.length < 6 ? '6 or more characters password' : null;
+    return val.length < 6 ? 'Password must be six or more characters' : null;
   }
 
   String passwordMatchValidator(String val) {
-    return val == _password ? null : 'Password does not match';
+    return val == _password ? null : 'Passwords do not match';
   }
 
   // String nameValidator(String val) {

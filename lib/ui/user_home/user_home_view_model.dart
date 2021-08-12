@@ -146,7 +146,7 @@ class UserHomeViewModel extends BaseViewModel {
 
   void signOut() async {
     await _authService.signOut();
-    _navigationService.replaceWith(Routes.welcomeView);
+    _navigationService.replaceWith(Routes.signInView);
   }
 
   void viewItems() {

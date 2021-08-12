@@ -10,90 +10,129 @@ class SignUpView extends StatelessWidget {
     final _key = GlobalKey<FormState>();
     return ViewModelBuilder<SignUpViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
-        backgroundColor: Colors.grey.shade200,
-        body: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-          child: Form(
-            key: _key,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
+          backgroundColor: Colors.grey.shade200,
+          body: Column(
+            children: [
+              Expanded(
+                flex: 3,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      child: Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 50.0, vertical: 5),
-                            child: TextFormField(
-                              autocorrect: false,
-                              keyboardType: TextInputType.emailAddress,
-                              decoration: const InputDecoration(
-                                  icon: Icon(Icons.email),
-                                  hintText: 'Enter your email',
-                                  labelText: 'Email'),
-                              validator: model.emailValidator,
-                              onChanged: model.updateEmail,
+                          Form(
+                            key: _key,
+                            child: Column(
+                              children: [
+                                Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: FractionallySizedBox(
+                                        widthFactor: 0.8,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.grey[300],
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 8.0),
+                                            child: TextFormField(
+                                              autocorrect: false,
+                                              keyboardType:
+                                                  TextInputType.emailAddress,
+                                              decoration: const InputDecoration(
+                                                icon: Icon(Icons.email),
+                                                hintText: 'Enter your email',
+                                                labelText: 'Email',
+                                                border: InputBorder.none,
+                                              ),
+                                              validator: model.emailValidator,
+                                              onChanged: model.updateEmail,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: FractionallySizedBox(
+                                        widthFactor: 0.8,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.grey[300],
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 8.0),
+                                            child: TextFormField(
+                                              obscureText: true,
+                                              autocorrect: false,
+                                              decoration: const InputDecoration(
+                                                icon: Icon(Icons.lock),
+                                                hintText: 'Enter your password',
+                                                labelText: 'Password',
+                                                border: InputBorder.none,
+                                              ),
+                                              validator:
+                                                  model.passwordValidator,
+                                              onChanged: model.updatePassword,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: FractionallySizedBox(
+                                        widthFactor: 0.8,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.grey[300],
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 8.0),
+                                            child: TextFormField(
+                                              obscureText: true,
+                                              autocorrect: false,
+                                              decoration: const InputDecoration(
+                                                icon: Icon(Icons.lock),
+                                                hintText:
+                                                    'Enter your password again',
+                                                labelText: 'Confirm Password',
+                                                border: InputBorder.none,
+                                              ),
+                                              validator:
+                                                  model.passwordMatchValidator,
+                                              onChanged:
+                                                  model.updateConfirmPassword,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
-                          ),
-                          // Padding(
-                          //   padding: const EdgeInsets.symmetric(
-                          //       horizontal: 50.0, vertical: 5),
-                          //   child: TextFormField(
-                          //     autocorrect: false,
-                          //     keyboardType: TextInputType.name,
-                          //     decoration: const InputDecoration(
-                          //         icon: Icon(Icons.email),
-                          //         hintText: 'Input a username',
-                          //         labelText: 'Username'),
-                          //     validator: model.nameValidator,
-                          //     onChanged: model.updateName,
-                          //   ),
-                          // ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 50.0, vertical: 5),
-                            child: TextFormField(
-                              obscureText: true,
-                              autocorrect: false,
-                              decoration: const InputDecoration(
-                                  icon: Icon(Icons.lock),
-                                  hintText: 'Must be 6 or more characters',
-                                  labelText: 'Password'),
-                              validator: model.passwordValidator,
-                              onChanged: model.updatePassword,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 50.0, vertical: 5),
-                            child: TextFormField(
-                              obscureText: true,
-                              autocorrect: false,
-                              decoration: const InputDecoration(
-                                  icon: Icon(Icons.lock),
-                                  hintText: 'Enter password again',
-                                  labelText: 'Confirm Password'),
-                              validator: model.passwordMatchValidator,
-                              onChanged: model.updateConfirmPassword,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
                           ),
                           FractionallySizedBox(
-                            widthFactor: 0.7,
+                            widthFactor: 0.75,
                             child: OutlinedButton(
                               onPressed: () async {
                                 if (_key.currentState.validate()) {
                                   model.registerWithEmail();
                                 }
                               },
-                              child: Text('Register'),
+                              child: Text('Sign Up'),
                               style: ButtonStyle(
                                 foregroundColor:
                                     MaterialStateProperty.all<Color>(
@@ -106,40 +145,29 @@ class SignUpView extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Column(
-                        children: [
-                          Text(
-                            model.getError(),
-                            style: TextStyle(
-                                color: Colors.red[400], fontSize: 16.0),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                'Already have an account?',
-                              ),
-                              TextButton(
-                                onPressed: () => model.navigateToSignIn(),
-                                child: Text(
-                                  'Sign in',
-                                  style: TextStyle(
-                                    color: Colors.blue,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-        ),
-      ),
+              ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Already have an account?",
+                    ),
+                    TextButton(
+                      child: Text(
+                        'Sign In',
+                        style: TextStyle(color: Colors.blue),
+                      ),
+                      onPressed: () => model.navigateToSignIn(),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )),
       viewModelBuilder: () => SignUpViewModel(),
     );
   }
