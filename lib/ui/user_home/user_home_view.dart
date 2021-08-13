@@ -65,7 +65,8 @@ class UserHomeView extends StatelessWidget {
                               padding:
                                   const EdgeInsets.symmetric(vertical: 8.0),
                               child: Text(
-                                'Hi There!', // TODO Use string interpolation for actual username
+                                model
+                                    .name, // TODO Use string interpolation for actual username
                                 style: TextStyle(
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold,
@@ -120,7 +121,6 @@ class UserHomeView extends StatelessWidget {
                             ),
                             children: [
                               for (Product p in model.expiredItems)
-                                // TODO add navigation
                                 ListTile(
                                   leading: Image.network(
                                     p.imageURL,

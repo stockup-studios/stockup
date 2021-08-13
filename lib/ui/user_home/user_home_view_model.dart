@@ -81,6 +81,11 @@ class UserHomeViewModel extends BaseViewModel {
     }
   }
 
+  String get name {
+    int end = _authService.appUser.email.indexOf('@');
+    return 'Hi, ${_authService.appUser.email.substring(0, end)} !';
+  }
+
   String expiredDetail(UserItem item) {
     String message;
     if (item.daysLeft == -1) {
