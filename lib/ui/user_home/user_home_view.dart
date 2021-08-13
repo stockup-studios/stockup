@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/models/models.dart';
-import 'package:stockup/models/product_category.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
 import 'package:stockup/ui/user_home/user_home_view_model.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -65,10 +64,9 @@ class UserHomeView extends StatelessWidget {
                               padding:
                                   const EdgeInsets.symmetric(vertical: 8.0),
                               child: Text(
-                                model
-                                    .name, // TODO Use string interpolation for actual username
+                                model.name,
                                 style: TextStyle(
-                                  fontSize: 24,
+                                  fontSize: 30,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
