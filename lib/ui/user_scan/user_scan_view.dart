@@ -235,7 +235,8 @@ class UserScanView extends StatelessWidget {
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Icon(Icons.check),
-                                    Text('Add Items'),
+                                    Text(
+                                        'Add ${model.productMatches.length} Items'),
                                   ],
                                 ),
                               ),
