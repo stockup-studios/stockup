@@ -59,66 +59,81 @@ class UserScanView extends StatelessWidget {
                 if (model.productMatches.length == 0 && !model.isBusy)
                   Padding(
                     padding: const EdgeInsets.only(bottom: 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
+                    child: Column(
                       children: [
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ListTile(
-                              title: IconButton(
-                                onPressed: model.addFile,
-                                icon: Icon(
-                                  Icons.insert_drive_file,
-                                  color: Colors.grey.shade400,
-                                ),
-                                iconSize: 72,
-                              ),
-                              subtitle: Text(
-                                'Single scan',
-                                textAlign: TextAlign.center,
-                              ),
+                        Padding(
+                          padding: const EdgeInsets.all(15),
+                          child: Text(
+                            'Let\'s scan some receipts!',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w500,
                             ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ListTile(
-                              title: IconButton(
-                                onPressed: model.addFiles,
-                                icon: Icon(
-                                  Icons.file_copy_sharp,
-                                  color: Colors.grey.shade600,
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: OutlinedButton(
+                                  style: OutlinedButton.styleFrom(
+                                    side: BorderSide(
+                                      color: Colors.orangeAccent.shade100,
+                                    ),
+                                  ),
+                                  onPressed: model.addFile,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: ListTile(
+                                      title: Icon(
+                                        Icons.insert_drive_file,
+                                        size: 72,
+                                        color: Colors.orangeAccent.shade100,
+                                      ),
+                                      subtitle: Text(
+                                        'Scan Single Receipt',
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                                iconSize: 72,
-                              ),
-                              subtitle: Text(
-                                'Bulk Scan',
-                                textAlign: TextAlign.center,
                               ),
                             ),
-                          ),
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: OutlinedButton(
+                                  style: OutlinedButton.styleFrom(
+                                    side: BorderSide(
+                                      color: Colors.deepOrangeAccent.shade100,
+                                    ),
+                                  ),
+                                  onPressed: model.addFiles,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: ListTile(
+                                      title: Icon(
+                                        Icons.file_copy_sharp,
+                                        size: 72,
+                                        color: Colors.deepOrangeAccent.shade100,
+                                      ),
+                                      subtitle: Text(
+                                        'Scan Multiple Receipts',
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ),
-                // ElevatedButton(
-                //   style: ButtonStyle(
-                //     backgroundColor:
-                //         MaterialStateProperty.all<Color>(Colors.blue),
-                //   ),
-                //   child: Text('Pick image from storage'),
-                //   onPressed: model.addFile,
-                // ),
-                // ElevatedButton(
-                //   child: Text('Pick multiple images from storage'),
-                //   style: ButtonStyle(
-                //     backgroundColor:
-                //         MaterialStateProperty.all<Color>(Colors.blue.shade700),
-                //   ),
-                //   onPressed: model.addFiles,
-                // ),
                 if (model.productMatches.length > 0 || model.isBusy)
                   Container(
                     child: model.isBusy
@@ -196,11 +211,11 @@ class UserScanView extends StatelessWidget {
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Icon(Icons.file_copy_sharp),
-                                    Text('Scan More'),
+                                    Text('Scan Another'),
                                   ],
                                 ),
                               ),
-                              onPressed: model.addFiles,
+                              onPressed: model.addFile,
                               style: ButtonStyle(
                                 backgroundColor:
                                     MaterialStateProperty.all<Color>(
