@@ -146,6 +146,7 @@ class SignInView extends StatelessWidget {
                       await showModalBottomSheet(
                         context: context,
                         builder: (context) => PasswordResetView(),
+                        isScrollControlled: true,
                       );
                       model.updateSuccessMessage();
                     },
