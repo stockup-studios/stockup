@@ -1,10 +1,13 @@
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
+import 'package:stockup/app/app.router.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/models/product_catalog/product_catalog.dart';
 import 'package:stockup/services/services.dart';
 
 class UserScanViewModel extends BaseViewModel {
+  final _navigationService = locator<NavigationService>();
   DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
   static final _authService = locator<AuthImplementation>();
   final _scanner = locator<Scanner>();
@@ -87,6 +90,7 @@ class UserScanViewModel extends BaseViewModel {
     }
     _productMatches.clear();
     notifyListeners();
+    _navigationService.replaceWith(Routes.userItemView);
   }
 
   void duplicate(int index) {
