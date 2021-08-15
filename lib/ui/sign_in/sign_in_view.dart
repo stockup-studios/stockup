@@ -24,7 +24,6 @@ class SignInView extends StatelessWidget {
                   Padding(
                     padding:
                         const EdgeInsets.only(left: 30, top: 40, right: 10),
-                    //const EdgeInsets.symmetric(vertical: 50),
                     child: AnimatedTextKit(
                       animatedTexts: [
                         TypewriterAnimatedText(
@@ -53,11 +52,6 @@ class SignInView extends StatelessWidget {
                                     child: FractionallySizedBox(
                                       widthFactor: 0.9,
                                       child: Container(
-                                        // decoration: BoxDecoration(
-                                        //   color: Colors.grey[300],
-                                        //   borderRadius:
-                                        //       BorderRadius.circular(10),
-                                        // ),
                                         child: Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: TextFormField(
@@ -86,11 +80,6 @@ class SignInView extends StatelessWidget {
                                     child: FractionallySizedBox(
                                       widthFactor: 0.9,
                                       child: Container(
-                                        // decoration: BoxDecoration(
-                                        //   color: Colors.grey[300],
-                                        //   borderRadius:
-                                        //       BorderRadius.circular(10),
-                                        // ),
                                         child: Padding(
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 8.0),
@@ -148,8 +137,6 @@ class SignInView extends StatelessWidget {
                 ],
               ),
             ),
-            // Expanded(
-            //   child:
             Padding(
               padding: const EdgeInsets.only(left: 0, bottom: 40, right: 0),
               child: Column(
@@ -165,7 +152,6 @@ class SignInView extends StatelessWidget {
                         builder: (context) => PasswordResetView(),
                         isScrollControlled: true,
                       );
-                      //model.updateSuccessMessage();
                     },
                     child: Text(
                       'Forgot password?',

@@ -14,19 +14,19 @@ List<List<UserItem>> demoUserItems = [
         ProductCategory.snacks_drinks,
         'https://coldstorage-s3.dexecure.net/product/116571%20NESCAFE_B_B_Mild%2025s%20packshots%20_front%20view_.jpg',
         5009489,
-        DateTime.utc(2021, 8, 20).millisecondsSinceEpoch),
+        DateTime.utc(2021, 8, 30).millisecondsSinceEpoch),
     UserItem.demo(
         "MALAYSIA SWEET CORN 1S",
         ProductCategory.fruit_vegetables,
         'https://coldstorage-s3.dexecure.net/product/shutterstock_203770027.jpg',
         5053903,
-        DateTime.utc(2021, 8, 15).millisecondsSinceEpoch),
+        DateTime.utc(2021, 8, 18).millisecondsSinceEpoch),
     UserItem.demo(
         "FARM FRESH SPRING ONIONS +/-100G",
         ProductCategory.fruit_vegetables,
         'https://coldstorage-s3.dexecure.net/product/5055950_01_5055950.jpg',
         5055950,
-        DateTime.utc(2021, 8, 16).millisecondsSinceEpoch),
+        DateTime.utc(2021, 8, 20).millisecondsSinceEpoch),
   ],
   [
     UserItem.demo(
@@ -40,12 +40,12 @@ List<List<UserItem>> demoUserItems = [
         ProductCategory.fruit_vegetables,
         'https://coldstorage-s3.dexecure.net/product/shutterstock_203770027.jpg',
         5053903,
-        DateTime.utc(2021, 8, 18).millisecondsSinceEpoch),
+        DateTime.utc(2021, 8, 20).millisecondsSinceEpoch),
     UserItem.demo(
         "FARM FRESH SPRING ONIONS +/-100G",
         ProductCategory.fruit_vegetables,
         'https://coldstorage-s3.dexecure.net/product/5055950_01_5055950.jpg',
         5055950,
-        DateTime.utc(2021, 8, 17).millisecondsSinceEpoch),
+        DateTime.utc(2021, 8, 18).millisecondsSinceEpoch),
   ]
 ];

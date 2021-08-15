@@ -9,76 +9,43 @@ class UserItemShareViewModel extends BaseViewModel {
   DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
   final _navigationService = locator<NavigationService>();
   static final _authService = locator<AuthImplementation>();
-  //DatabaseServiceImpl _db;
 
   UserItemList userItemList;
   List<String> sharedUsersEmail = [];
 
   String _shareWithEmail = '';
-  //String _shareWithName = '';
   String errorMessage = '';
 
   void init(UserItemList uiList) async {
-    //String useruid = _authService.appUser.username;
     _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     this.userItemList = uiList;
-    await sharedUsersdb();
+    await sharedUsersDB();
     notifyListeners();
   }
 
-  // void refresh(UserItemList uiList) async {
-  //   _db = DatabaseServiceImpl(uid: _authService.appUser.username);
-  //   this.userItemList = uiList;
-  //   print(userItemList.uid);
-  //   await sharedUsersdb();
-  // }
-
-  // Future<List<String>> getSharedUsers(UserItemList uiList) async {
-  //   _db = DatabaseServiceImpl(uid: _authService.appUser.username);
-  //   this.userItemList = uiList;
-  //   print(userItemList.uid);
-  //   await sharedUsersdb();
-  // }
-
-  Future<void> sharedUsersdb() async {
+  Future<void> sharedUsersDB() async {
     sharedUsersEmail.clear();
     sharedUsersEmail = await _database.getItemListUsers(userItemList);
   }
 
-  // String get shareWith {
-  //   return _shareWithEmail;
-  // }
-
   void shareWith(String input) {
     if (input.contains('@')) {
       _shareWithEmail = input;
-      // } else {
-      //   _shareWithName = input;
-      // }
       notifyListeners();
     }
   }
 
-  // set shareWithEmail(String email) {
-  //   _shareWith = shareWith;
-  //   notifyListeners();
-  // }
-
   Future<bool> share() async {
     dynamic temp;
-    // if (_shareWithEmail == '') {
-    //   temp = await _db.getUserbyName(_shareWithName);
-    //   _shareWithName = '';
-    // } else {
-    temp = await _database.getUserbyEmail(_shareWithEmail);
+    temp = await _database.getUserByEmail(_shareWithEmail);
     _shareWithEmail = '';
 
     if (temp != null) {
       await _database.updateSharedUserItemList(userItemList, temp);
-      await sharedUsersdb();
+      await sharedUsersDB();
       errorMessage = '';
     } else {
-      errorMessage = 'Could not find anyone with that username or email';
+      errorMessage = 'Could not find anyone with that email';
     }
     notifyListeners();
     return errorMessage == '';

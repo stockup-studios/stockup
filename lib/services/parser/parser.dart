@@ -10,10 +10,6 @@ class Parser {
           StringSimilarity.findBestMatch(item, productNamesCatalog);
       Rating best = match.bestMatch;
 
-      // // use for debugging purposes
-      // if (best.rating > 0.5)
-      //   print('${best.rating}\t$item -> ${best.target}');
-
       if (best.rating > 0.5) {
         String closestMatch = best.target;
         matches.add(closestMatch);

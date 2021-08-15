@@ -1,10 +1,6 @@
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
-import 'package:stockup/services/auth/auth_impl.dart';
-import 'package:stockup/services/database/database_impl.dart';
-import 'package:stockup/services/parser/parser.dart';
-import 'package:stockup/services/scanner/scanner.dart';
-import 'package:stockup/services/user/user_service.dart';
+import 'package:stockup/services/services.dart';
 import 'package:stockup/ui/sign_in/sign_in_view.dart';
 import 'package:stockup/ui/sign_in/sign_in_view_model.dart';
 import 'package:stockup/ui/sign_up/sign_up_view.dart';
@@ -29,7 +25,6 @@ import 'package:stockup/ui/user_shop/user_shop_list/user_shop_view_model.dart';
     LazySingleton(classType: AuthImplementation),
     LazySingleton(classType: SnackbarService),
     LazySingleton(classType: DatabaseServiceImpl),
-    LazySingleton(classType: UserService),
     LazySingleton(classType: Scanner),
     LazySingleton(classType: Parser),
     Singleton(classType: UserItemViewModel),

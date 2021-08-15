@@ -2,21 +2,17 @@ import 'package:sorted_list/sorted_list.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
-import 'package:stockup/app/app.router.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/services/services.dart';
 import 'package:stockup/ui/user_item/user_item_search.dart';
 
 class UserItemViewModel extends BaseViewModel {
-  final _navigationService = locator<NavigationService>();
   final _snackbarService = locator<SnackbarService>();
   DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
   static final _authService = locator<AuthImplementation>();
-  //DatabaseServiceImpl _db;
 
   final Map<String, bool> productCategories = {'All Categories': true};
   List<UserItemList> userItemLists = [];
-  // List<UserShopList> userShopLists = [];
   int no = 1;
   int noOfCat = 0;
 
@@ -26,7 +22,6 @@ class UserItemViewModel extends BaseViewModel {
   List<UserItem> _userItems =
       SortedList<UserItem>((r1, r2) => r2.forCompare.compareTo(r1.forCompare));
 
-  /// Only called once. Will not be called again on rebuild
   void init() async {
     _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     await _targetUserItemListFromDatabase();
@@ -75,10 +70,10 @@ class UserItemViewModel extends BaseViewModel {
   }
 
   List<UserItem> get displayList {
-    //return all items in target item list
+    // all categories
     if (productCategories['All Categories']) return _userItems;
 
-    //filtering by category
+    // filter by category
     return _userItems
         .where((element) => productCategories[element.category.name])
         .toList();
@@ -141,7 +136,7 @@ class UserItemViewModel extends BaseViewModel {
   void move(UserItem item) async {
     _snackbarService.showSnackbar(
       message: item.productName,
-      title: 'Moved an item to shopping list ${_targetUserShopList.name}',
+      title: 'Moved an Item to Shopping List ${_targetUserShopList.name}',
       duration: Duration(seconds: 2),
       onTap: (_) {
         print('snackbar tapped');
@@ -162,7 +157,21 @@ class UserItemViewModel extends BaseViewModel {
   void delete(UserItem item) async {
     _snackbarService.showSnackbar(
       message: item.productName,
-      title: 'Removed an item from ${_targetUserItemList.name}',
+      title: 'Deleted an Item from ${_targetUserItemList.name}',
+      duration: Duration(seconds: 2),
+      onTap: (_) {
+        print('snackbar tapped');
+      },
+    );
+    await _database.deleteUserItem(item, _targetUserItemList);
+    await _displayListFromDatabase();
+    notifyListeners();
+  }
+
+  void consume(UserItem item) async {
+    _snackbarService.showSnackbar(
+      message: item.productName,
+      title: 'Consumed an Item from ${_targetUserItemList.name}',
       duration: Duration(seconds: 2),
       onTap: (_) {
         print('snackbar tapped');
@@ -176,7 +185,7 @@ class UserItemViewModel extends BaseViewModel {
   void thrown(UserItem item) async {
     _snackbarService.showSnackbar(
       message: item.productName,
-      title: 'Thrown an item from ${_targetUserItemList.name}',
+      title: 'Thrown an Item from ${_targetUserItemList.name}',
       duration: Duration(seconds: 2),
       onTap: (_) {
         print('snackbar tapped');

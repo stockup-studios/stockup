@@ -18,7 +18,6 @@ class UserShopDetailView extends StatelessWidget {
     return ViewModelBuilder<UserShopDetailViewModel>.reactive(
       onModelReady: (model) => model.init(userShop, userShopList),
       builder: (context, model, child) => ListView(
-        // mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 15),
@@ -97,7 +96,6 @@ class UserShopDetailView extends StatelessWidget {
                 onPressed: model.delQuantity,
                 icon: Icon(Icons.exposure_minus_1),
               ),
-              // Text(model.quantity.toString()),
               Expanded(
                 flex: 3,
                 child: Container(

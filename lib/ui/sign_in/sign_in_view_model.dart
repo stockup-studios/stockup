@@ -11,7 +11,6 @@ class SignInViewModel extends BaseViewModel {
   String _email = '';
   String _password = '';
   String _error = '';
-  //String _name = '';
 
   String emailValidator(String val) {
     return val.contains('@') ? null : 'Enter a valid email';
@@ -31,13 +30,7 @@ class SignInViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  // void updateName(val) {
-  //   _name = val;
-  //   notifyListeners();
-  // }
-
   void signInEmail() async {
-    //should just get uid or null maybe
     dynamic result =
         await _authService.signInWithEmailPassword(_email, _password);
     if (result == null) {
@@ -47,30 +40,10 @@ class SignInViewModel extends BaseViewModel {
     }
   }
 
-  void signInGoogle() async {
-    dynamic result = await _authService.signInWithGoogle();
-    if (result == null) {
-      _updateErrorGoogle();
-    } else {
-      await _navigateToHome();
-    }
-  }
-
   void _updateErrorEmail() {
     _error = 'Wrong email or password';
     notifyListeners();
   }
-
-  void _updateErrorGoogle() {
-    _error = 'Unable to sign in with google';
-    notifyListeners();
-  }
-  
-  // void updateSuccessMessage() {
-  //   _error = 'A password reset link has been sent';
-  //   notifyListeners();
-  // }
-
 
   String getError() => _error;
 

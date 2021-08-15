@@ -16,44 +16,30 @@ class UserShopShareViewModel extends BaseViewModel {
   void init(UserShopList uiList) async {
     _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     this.userShopList = uiList;
-    await sharedUsersdb();
-    print('shared email length is ${sharedUsersEmail.length}');
+    await sharedUsersDB();
     notifyListeners();
   }
 
-  Future<void> sharedUsersdb() async {
+  Future<void> sharedUsersDB() async {
     sharedUsersEmail.clear();
-    print('shared users list cleared');
     sharedUsersEmail = await _database.getShopListUsers(userShopList);
   }
-
-  // String get shareWith {
-  //   return _shareWith;
-  // }
 
   void shareWith(String input) {
     if (input.contains('@')) {
       _shareWith = input;
-      // } else {
-      //   _shareWithName = input;
-      // }
       notifyListeners();
     }
   }
 
-  // set shareWith(String shareWith) {
-  //   _shareWith = shareWith;
-  //   notifyListeners();
-  // }
-
   Future<bool> share() async {
     dynamic temp;
-    temp = await _database.getUserbyEmail(_shareWith);
+    temp = await _database.getUserByEmail(_shareWith);
     _shareWith = '';
 
     if (temp != null) {
       await _database.updateSharedUserShopList(userShopList, temp);
-      await sharedUsersdb();
+      await sharedUsersDB();
       errorMessage = '';
     } else {
       errorMessage = 'Could not find anyone with that email';

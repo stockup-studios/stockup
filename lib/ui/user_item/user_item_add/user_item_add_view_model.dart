@@ -137,7 +137,6 @@ class UserItemAddViewModel extends BaseViewModel {
           expiryDate: expiry.millisecondsSinceEpoch);
 
       _database.addUserItem(userItem, userItemList);
-      // userItemList.addUserItem(userItem);
       return true;
     }
     return false;

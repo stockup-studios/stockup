@@ -15,7 +15,6 @@ class UserItem extends Product {
   int addedDate; // time added in milli seconds in relation to epoch time
   int expiryDate; // time of expiry in milli seconds in relation to epoch time
 
-  // TO-DO check if addedDate might result in bugs
   UserItem(
       {@required this.productName,
       @required this.productID,
@@ -29,7 +28,6 @@ class UserItem extends Product {
             category: category,
             imageURL: imageURL) {
     addedDate = _getCurrentTime();
-    //expiryDate = _getEstimatedExpiry();
   }
 
   UserItem.demo(this.productName, this.category, this.imageURL, this.productID,
@@ -123,8 +121,6 @@ class UserItem extends Product {
   }
 
   int get daysLeft {
-    // Duration difference = DateTime.now()
-    //     .difference(DateTime.fromMillisecondsSinceEpoch(expiryDate));
     int expiry = _getEstimatedExpiry();
     DateTime current = DateTime.now();
     DateTime today = DateTime(current.year, current.month, current.day);

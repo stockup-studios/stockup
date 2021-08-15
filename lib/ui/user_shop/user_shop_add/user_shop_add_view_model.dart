@@ -171,10 +171,8 @@ class UserShopAddViewModel extends BaseViewModel {
           category: category,
           imageURL: imageURL,
           quantity: quantity);
-      // userShop.quantity = quantity;
 
       _database.addUserShop(userShop, userShopList);
-      // userShopList.addShopItem(userShop);
       return true;
     }
     return false;
