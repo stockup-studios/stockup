@@ -70,10 +70,10 @@ class UserItemViewModel extends BaseViewModel {
   }
 
   List<UserItem> get displayList {
-    //return all items in target item list
+    // all categories
     if (productCategories['All Categories']) return _userItems;
 
-    //filtering by category
+    // filter by category
     return _userItems
         .where((element) => productCategories[element.category.name])
         .toList();
@@ -136,7 +136,7 @@ class UserItemViewModel extends BaseViewModel {
   void move(UserItem item) async {
     _snackbarService.showSnackbar(
       message: item.productName,
-      title: 'Moved an item to shopping list ${_targetUserShopList.name}',
+      title: 'Moved an Item to Shopping List ${_targetUserShopList.name}',
       duration: Duration(seconds: 2),
       onTap: (_) {
         print('snackbar tapped');
@@ -157,7 +157,21 @@ class UserItemViewModel extends BaseViewModel {
   void delete(UserItem item) async {
     _snackbarService.showSnackbar(
       message: item.productName,
-      title: 'Removed an item from ${_targetUserItemList.name}',
+      title: 'Deleted an Item from ${_targetUserItemList.name}',
+      duration: Duration(seconds: 2),
+      onTap: (_) {
+        print('snackbar tapped');
+      },
+    );
+    await _database.deleteUserItem(item, _targetUserItemList);
+    await _displayListFromDatabase();
+    notifyListeners();
+  }
+
+  void consume(UserItem item) async {
+    _snackbarService.showSnackbar(
+      message: item.productName,
+      title: 'Consumed an Item from ${_targetUserItemList.name}',
       duration: Duration(seconds: 2),
       onTap: (_) {
         print('snackbar tapped');
@@ -171,7 +185,7 @@ class UserItemViewModel extends BaseViewModel {
   void thrown(UserItem item) async {
     _snackbarService.showSnackbar(
       message: item.productName,
-      title: 'Thrown an item from ${_targetUserItemList.name}',
+      title: 'Thrown an Item from ${_targetUserItemList.name}',
       duration: Duration(seconds: 2),
       onTap: (_) {
         print('snackbar tapped');

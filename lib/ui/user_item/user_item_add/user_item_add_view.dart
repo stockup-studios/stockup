@@ -113,8 +113,6 @@ class UserItemAddView extends StatelessWidget {
                   final DateTime newDate = await showDatePicker(
                     context: context,
                     initialDate: model.expiry,
-                    // DateTime.fromMillisecondsSinceEpoch(
-                    //     model.displayList[index].expiryDate),
                     firstDate: DateTime.now(),
                     lastDate: DateTime(DateTime.now().year + 1),
                   );

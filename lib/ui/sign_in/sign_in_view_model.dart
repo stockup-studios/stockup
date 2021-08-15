@@ -40,25 +40,10 @@ class SignInViewModel extends BaseViewModel {
     }
   }
 
-  void signInGoogle() async {
-    dynamic result = await _authService.signInWithGoogle();
-    if (result == null) {
-      _updateErrorGoogle();
-    } else {
-      await _navigateToHome();
-    }
-  }
-
   void _updateErrorEmail() {
     _error = 'Wrong email or password';
     notifyListeners();
   }
-
-  void _updateErrorGoogle() {
-    _error = 'Unable to sign in with google';
-    notifyListeners();
-  }
-
 
   String getError() => _error;
 

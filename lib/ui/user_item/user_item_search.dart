@@ -66,7 +66,7 @@ class UserItemSearch extends SearchDelegate<UserItem> {
         itemBuilder: (context, index) {
           final suggestion = suggestions[index];
           return ListTile(
-            onTap: () {}, // TODO: Edit item
+            onTap: () {},
             leading: Image.network(
               suggestion.imageURL,
               height: 50,

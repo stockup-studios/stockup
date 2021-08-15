@@ -45,7 +45,6 @@ class SignUpViewModel extends BaseViewModel {
     if (result == null) {
       _updateErrorEmail();
     } else {
-      //names.add(_name);
       await _navigateToHome();
     }
   }

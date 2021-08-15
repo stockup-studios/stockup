@@ -19,11 +19,11 @@ class UserItemShareViewModel extends BaseViewModel {
   void init(UserItemList uiList) async {
     _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     this.userItemList = uiList;
-    await sharedUsersdb();
+    await sharedUsersDB();
     notifyListeners();
   }
 
-  Future<void> sharedUsersdb() async {
+  Future<void> sharedUsersDB() async {
     sharedUsersEmail.clear();
     sharedUsersEmail = await _database.getItemListUsers(userItemList);
   }
@@ -37,15 +37,15 @@ class UserItemShareViewModel extends BaseViewModel {
 
   Future<bool> share() async {
     dynamic temp;
-    temp = await _database.getUserbyEmail(_shareWithEmail);
+    temp = await _database.getUserByEmail(_shareWithEmail);
     _shareWithEmail = '';
 
     if (temp != null) {
       await _database.updateSharedUserItemList(userItemList, temp);
-      await sharedUsersdb();
+      await sharedUsersDB();
       errorMessage = '';
     } else {
-      errorMessage = 'Could not find anyone with that username or email';
+      errorMessage = 'Could not find anyone with that email';
     }
     notifyListeners();
     return errorMessage == '';

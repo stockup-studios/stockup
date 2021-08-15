@@ -35,8 +35,9 @@ class UserShopAddView extends StatelessWidget {
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    borderRadius: BorderRadius.circular(10)),
+                  color: Colors.grey[300],
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 child: TextField(
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(horizontal: 10),

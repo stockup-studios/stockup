@@ -10,7 +10,7 @@ class UserShopViewModel extends BaseViewModel {
   final _snackbarService = locator<SnackbarService>();
   DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
   static final _authService = locator<AuthImplementation>();
- 
+
   final Map<String, bool> productCategories = {'All Categories': true};
   List<UserShopList> userShopLists = [];
   int no = 1;
@@ -69,10 +69,10 @@ class UserShopViewModel extends BaseViewModel {
   }
 
   List<UserShop> get displayList {
-    //return all items in target item list
+    // return all items in target item list
     if (productCategories['All Categories']) return _userShops;
 
-    //filtering by category
+    // filter by category
     return _userShops
         .where((element) => productCategories[element.category.name])
         .toList();
@@ -119,7 +119,7 @@ class UserShopViewModel extends BaseViewModel {
   Future<void> move(UserShop item) async {
     _snackbarService.showSnackbar(
       message: item.productName,
-      title: 'Moved an item to item list ${_targetUserItemList.name}',
+      title: 'Moved an Item to Item List ${_targetUserItemList.name}',
       duration: Duration(seconds: 2),
     );
 
@@ -140,7 +140,7 @@ class UserShopViewModel extends BaseViewModel {
   void delete(UserShop item) async {
     _snackbarService.showSnackbar(
       message: item.productName,
-      title: 'Removed an item from ${_targetUserShopList.name}',
+      title: 'Deleted an Item from ${_targetUserShopList.name}',
       duration: Duration(seconds: 2),
     );
     await _database.deleteUserShop(item, _targetUserShopList);

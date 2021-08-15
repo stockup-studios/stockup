@@ -1,15 +1,13 @@
-// create item class
 import 'package:stockup/models/models.dart';
-import 'package:observable_ish/observable_ish.dart';
 
 abstract class DatabaseService {
-  // Initialize the account with default data when user sign up.
+  /// Initialize the account with default data when user sign up.
   Future<void> initialize();
 
-  // Create
+  /// Create
   Future<void> addCredentials(Map<String, dynamic> credentials);
 
-  // Future<void> addAppUser(AppUser user);
+  /// Future<void> addAppUser(AppUser user);
 
   Future<String> addUserItem(UserItem item, UserItemList list);
 
@@ -19,9 +17,9 @@ abstract class DatabaseService {
 
   Future<String> addUserItemList(UserItemList list);
 
-  Future<void> addUserItemListforUser(UserItemList list);
+  Future<void> addUserItemListForUser(UserItemList list);
 
-  Future<void> addUserShopListforUser(UserShopList list);
+  Future<void> addUserShopListForUser(UserShopList list);
 
   Future<void> addTargetShopList(UserShopList list);
 
@@ -29,16 +27,16 @@ abstract class DatabaseService {
 
   Future<String> addGiantItem(Product item);
 
-  // Read
+  /// Read Operations
   Future<Map<String, dynamic>> getCredentials();
 
-  Future<dynamic> getUserbyEmail(String email);
+  Future<dynamic> getUserByEmail(String email);
 
   Future<List<UserItem>> getUserItems(UserItemList list);
 
   Future<List<UserShop>> getUserShops(UserShopList list);
 
-  //get all user_item_list specific to user
+  // get all user_item_list specific to user
   Future<List<UserItemList>> getUserItemLists();
 
   //get all user_shop_list specific to user
@@ -58,7 +56,7 @@ abstract class DatabaseService {
 
   Future<Map<String, dynamic>> getExpiredItems();
 
-  // Update
+  /// Update Operations
   Future<void> updateCredentials(Map<String, dynamic> credentials);
 
   Future<void> updateUserItem(UserItem item, UserItemList list);
@@ -81,7 +79,7 @@ abstract class DatabaseService {
 
   Future<void> updateExpiredItems(int date, String category);
 
-  // Delete
+  /// Delete Operations
   Future<void> deleteUserItem(UserItem item, UserItemList list);
 
   Future<void> deleteExpiredUserItem(UserItem item, UserItemList list);
@@ -92,7 +90,7 @@ abstract class DatabaseService {
 
   Future<void> deleteUserShopList(UserShopList list);
 
-  Future<void> deleteUserItemListforUser(UserItemList list);
+  Future<void> deleteUserItemListForUser(UserItemList list);
 
-  Future<void> deleteUserShopListforUser(UserShopList list);
+  Future<void> deleteUserShopListForUser(UserShopList list);
 }

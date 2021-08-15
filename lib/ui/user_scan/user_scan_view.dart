@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stockup/ui/components/bottom_navigation/bottom_navigation.dart';
-import 'package:stockup/ui/user_scan/user_scan_detail_view.dart';
+import 'package:stockup/ui/user_scan/user_scan_detail/user_scan_detail_view.dart';
 import 'package:stockup/ui/user_scan/user_scan_view_model.dart';
 
 class UserScanView extends StatelessWidget {
