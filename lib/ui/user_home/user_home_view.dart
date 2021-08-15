@@ -231,62 +231,65 @@ class UserHomeView extends StatelessWidget {
                 ),
               ),
             ),
-            Card(
-              child: SfCartesianChart(
-                title: ChartTitle(
-                  text: 'Food Wastage',
-                ),
-                tooltipBehavior: TooltipBehavior(
-                  enable: true,
-                ),
-                legend: Legend(
-                  isVisible: true,
-                  overflowMode: LegendItemOverflowMode.wrap,
-                  position: LegendPosition.bottom,
-                ),
-                series: <ChartSeries>[
-                  SplineAreaSeries<ExpiredItemData, DateTime>(
-                      dataSource: model.expiredData,
-                      xValueMapper: (ExpiredItemData data, _) => data.time,
-                      yValueMapper: (ExpiredItemData data, _) => data.amount,
-                      isVisibleInLegend: false,
-                      name: 'Food Waste',
-                      color: Colors.amber[700])
-                ],
-                primaryXAxis: DateTimeAxis(
-                  majorGridLines: MajorGridLines(width: 0),
-                  axisLine: AxisLine(width: 0),
-                ),
-                primaryYAxis: NumericAxis(
-                  majorGridLines: MajorGridLines(width: 0),
-                  axisLine: AxisLine(width: 0),
-                ),
-              ),
-            ),
-            Card(
-              child: SfCircularChart(
-                title: ChartTitle(
-                  text: 'Food Wastage by Category',
-                ),
-                legend: Legend(
-                  isVisible: true,
-                  overflowMode: LegendItemOverflowMode.wrap,
-                  position: LegendPosition.bottom,
-                ),
-                series: <CircularSeries>[
-                  DoughnutSeries<DoughnutData, String>(
-                    dataSource: model.categoryWaste,
-                    xValueMapper: (DoughnutData data, _) => data.category,
-                    yValueMapper: (DoughnutData data, _) => data.amount,
-                    dataLabelSettings: DataLabelSettings(
-                      isVisible: true,
-                      labelPosition: ChartDataLabelPosition.outside,
-                    ),
+            if (model.expiredDb != null)
+              Card(
+                child: SfCartesianChart(
+                  title: ChartTitle(
+                    text: 'Food Wastage',
                   ),
-                ],
-                tooltipBehavior: TooltipBehavior(enable: true),
+                  tooltipBehavior: TooltipBehavior(
+                    enable: true,
+                  ),
+                  legend: Legend(
+                    isVisible: true,
+                    overflowMode: LegendItemOverflowMode.wrap,
+                    position: LegendPosition.bottom,
+                  ),
+                  series: <ChartSeries>[
+                    //LineSeries<ExpiredItemData, DateTime>(
+                    SplineAreaSeries<ExpiredItemData, DateTime>(
+                        dataSource: model.expiredData,
+                        xValueMapper: (ExpiredItemData data, _) => data.time,
+                        yValueMapper: (ExpiredItemData data, _) => data.amount,
+                        isVisibleInLegend: false,
+                        name: 'Food Waste',
+                        color: Colors.amber[700])
+                  ],
+                  primaryXAxis: DateTimeAxis(
+                    majorGridLines: MajorGridLines(width: 0),
+                    axisLine: AxisLine(width: 0),
+                  ),
+                  primaryYAxis: NumericAxis(
+                    majorGridLines: MajorGridLines(width: 0),
+                    axisLine: AxisLine(width: 0),
+                  ),
+                ),
               ),
-            ),
+            if (model.expiredDb != null)
+              Card(
+                child: SfCircularChart(
+                  title: ChartTitle(
+                    text: 'Food Wastage by Category',
+                  ),
+                  legend: Legend(
+                    isVisible: true,
+                    overflowMode: LegendItemOverflowMode.wrap,
+                    position: LegendPosition.bottom,
+                  ),
+                  series: <CircularSeries>[
+                    DoughnutSeries<DoughnutData, String>(
+                      dataSource: model.categoryWaste,
+                      xValueMapper: (DoughnutData data, _) => data.category,
+                      yValueMapper: (DoughnutData data, _) => data.amount,
+                      dataLabelSettings: DataLabelSettings(
+                        isVisible: true,
+                        labelPosition: ChartDataLabelPosition.outside,
+                      ),
+                    ),
+                  ],
+                  tooltipBehavior: TooltipBehavior(enable: true),
+                ),
+              ),
           ],
         ),
         bottomNavigationBar: BottomNavigation(currentIndex: 0),

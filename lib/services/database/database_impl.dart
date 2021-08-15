@@ -468,14 +468,29 @@ class DatabaseServiceImpl implements DatabaseService {
     DocumentReference doc = userItemExpiredDoc;
     List<int> temp = SortedList<int>((r1, r2) => r1.compareTo(r2));
     Map data = await doc.get().then((value) => value.data());
+    //data is map of arrays
+    //Map<String, dynamic> all = {category: ...};
+    if (data != null) {
+      if (data.containsKey(category)) {
+        List.from(data.remove(category)).forEach((element) {
+          temp.add(element);
+        });
+        temp.add(date);
+        data.putIfAbsent(category, () => temp);
 
-    List.from(data.remove(category)).forEach((element) {
-      temp.add(element);
-    });
-    temp.add(date);
-    data.putIfAbsent(category, () => temp);
-
-    doc.set(data);
+        doc.set(data);
+      } else {
+        temp.add(date);
+        data.putIfAbsent(category, () => temp);
+        doc.set(data);
+      }
+    } else {
+      temp.add(date);
+      final expiredDocument =
+          userDocument.collection('expired_items').doc('records');
+      Map<String, dynamic> json = {category: temp};
+      expiredDocument.set(json);
+    }
   }
 
   /// Delete Operations
