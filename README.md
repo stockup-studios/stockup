@@ -27,14 +27,14 @@ We hope to make grocery planning and keeping track of food at home easier throug
 # Features and Timeline
 
 The **mobile application** built using Flutter provides 
-* Scan items using camera: computer vision to read expiry date
-* Barcode scanner to scan product and check with our database
-  * If the item is not in our database, we can check google, find the top result and confirm with the user
-  * If the item is not found online, user can add the item directly, and we will (try) to add it to our database
-* Calendar view of when items expire
-* Graphs on amount of expired food (food expired before user swipe consumed): so the app can make it easier to track how much food is wasted because the food got expired and what the trend is like in the recent month.
-* Collaborate with others to make a shopping list, with smart prediction on items to add based on previously bought items
-* Reminder when expiry dates are close
+* Scan receipt(s) using camera: OCR to identify each item in receipt from Giant
+* Items sorted by days from expiry and filtered by categories as seen on Giant online
+* Spline area chart on overall food wastage (food thrown or expired): so the user can keep track on their progress in cutting down food waste and what the trend is like over the period of time they have used StockUP
+* Pie chart (doughnut chart) on food waste by category: to provide a quick analysis of expired food data for user and help user understand where the majority of food waste is in
+* Collaborate with others to make a shopping list or item inventory list. Edit and use the list together with other users!
+* Reminder of items expiring soon or expired on the home screen
+* Simple swiping motions to manage shopping and inventory list items
+* Searching of items in item or shopping list: no need to rummage through the cupboards for that box of spaghetti that may or may not be there
 
 ## Possible expansion:
 Collaborate with local grocery outlets such as fairprice etc and even online grocery outlets to share e-receipt directly with the app
@@ -60,9 +60,8 @@ Use web scrapers to collate and store the nutrition info on grocery items seen i
 * Collaborate with others to make a shopping list, with smart prediction using machine learning based on previously bought items
 
 # Tech Stack
-1. Flutter
-2. Tensorflow
-3. Python
-4. OpenCV
-5. Firebase
-6. Beautiful Soup
+1. Flutter & Dart
+2. Python
+3. Firebase
+4. Git & GitHub
+5. Beautiful Soup
