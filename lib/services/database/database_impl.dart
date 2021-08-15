@@ -66,7 +66,6 @@ class DatabaseServiceImpl implements DatabaseService {
 
     final expiredDocument =
         userDocument.collection('expired_items').doc('records');
-    //Map<String, dynamic> json = {'expired_items': expiredItems};
     expiredDocument.set(expiredItems);
   }
 
@@ -543,19 +542,32 @@ class DatabaseServiceImpl implements DatabaseService {
     Map data = await doc.get().then((value) => value.data());
     //data is map of arrays
     //Map<String, dynamic> all = {category: ...};
+    if (data != null) {
+      if (data.containsKey(category)) {
+        List.from(data.remove(category)).forEach((element) {
+          temp.add(element);
+        });
+        temp.add(date);
+        data.putIfAbsent(category, () => temp);
 
-    List.from(data.remove(category)).forEach((element) {
-      temp.add(element);
-    });
-    temp.add(date);
-    data.putIfAbsent(category, () => temp);
-
-    // List.from(data['expired_items']).forEach((element) {
-    //   temp.add(element);
-    // });
-    // temp.add(date);
-    // Map<String, dynamic> json = {'expired_items': temp};
-    doc.set(data);
+        // List.from(data['expired_items']).forEach((element) {
+        //   temp.add(element);
+        // });
+        // temp.add(date);
+        // Map<String, dynamic> json = {'expired_items': temp};
+        doc.set(data);
+      } else {
+        temp.add(date);
+        data.putIfAbsent(category, () => temp);
+        doc.set(data);
+      }
+    } else {
+      temp.add(date);
+      final expiredDocument =
+          userDocument.collection('expired_items').doc('records');
+      Map<String, dynamic> json = {category: temp};
+      expiredDocument.set(json);
+    }
   }
 
   // Delete
