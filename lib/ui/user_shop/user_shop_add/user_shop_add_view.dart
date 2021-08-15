@@ -114,7 +114,6 @@ class UserShopAddView extends StatelessWidget {
                       onPressed: model.delQuantity,
                       icon: Icon(Icons.exposure_minus_1),
                     ),
-                    // Text(model.quantity.toString()),
                     Expanded(
                       flex: 3,
                       child: Container(
@@ -172,10 +171,6 @@ class UserShopAddView extends StatelessWidget {
               ),
             ),
           ),
-          // Padding(
-          //   padding: EdgeInsets.only(
-          //       bottom: MediaQuery.of(context).viewInsets.bottom),
-          // ),
         ],
       ),
       viewModelBuilder: () => UserShopAddViewModel(),

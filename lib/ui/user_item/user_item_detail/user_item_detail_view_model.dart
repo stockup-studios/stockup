@@ -7,7 +7,6 @@ import 'package:stockup/services/services.dart';
 class UserItemDetailViewModel extends BaseViewModel {
   DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
   static final _authService = locator<AuthImplementation>();
-  //DatabaseServiceImpl _db;
 
   UserItemList currentList;
   UserItem userItem;
@@ -59,8 +58,6 @@ class UserItemDetailViewModel extends BaseViewModel {
     final DateTime newDate = await showDatePicker(
       context: context,
       initialDate: expiry,
-      // DateTime.fromMillisecondsSinceEpoch(
-      //     model.displayList[index].expiryDate),
       firstDate: DateTime.now(),
       lastDate: DateTime(2022),
     );

@@ -58,7 +58,6 @@ class UserHomeView extends StatelessWidget {
                     children: [
                       Container(
                         child: Column(
-                          // Summary card header
                           children: [
                             Padding(
                               padding:
@@ -296,73 +295,6 @@ class UserHomeView extends StatelessWidget {
     );
   }
 }
-
-// class SummaryTile extends StatelessWidget {
-//   const SummaryTile({
-//     Key key,
-//     @required this.title,
-//     @required this.details,
-//     @required this.leftColor,
-//     @required this.rightColor,
-//     @required this.onTap,
-//   }) : super(key: key);
-
-//   final String title;
-//   final List<String> details;
-//   final Color leftColor;
-//   final Color rightColor;
-//   final Function onTap;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: const EdgeInsets.all(8.0),
-//       child: Container(
-//         child: Padding(
-//           padding: const EdgeInsets.all(8.0),
-//           child: ListTile(
-//             title: Text(
-//               this.title,
-//               style: TextStyle(
-//                 fontSize: 32,
-//                 fontWeight: FontWeight.bold,
-//                 color: Colors.white,
-//               ),
-//             ),
-//             subtitle: Padding(
-//               padding: const EdgeInsets.only(top: 8, left: 4, bottom: 8),
-//               child: Column(
-//                 crossAxisAlignment: CrossAxisAlignment.start,
-//                 children: [
-//                   for (String detail in this.details)
-//                     Text(
-//                       detail,
-//                       style: TextStyle(color: Colors.white),
-//                     ),
-//                 ],
-//               ),
-//             ),
-//             onTap: this.onTap,
-//           ),
-//         ),
-//         // shape: RoundedRectangleBorder(
-//         //   borderRadius: BorderRadius.circular(10),
-//         // ),
-//         decoration: BoxDecoration(
-//           borderRadius: BorderRadius.circular(20.0),
-//           gradient: LinearGradient(
-//             begin: Alignment.topLeft,
-//             end: Alignment.bottomRight,
-//             colors: [
-//               this.leftColor,
-//               this.rightColor,
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 class HomeTile extends StatelessWidget {
   final colorLeft;

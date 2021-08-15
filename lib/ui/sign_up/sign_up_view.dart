@@ -46,13 +46,6 @@ class SignUpView extends StatelessWidget {
                                       padding: const EdgeInsets.all(8.0),
                                       child: FractionallySizedBox(
                                         widthFactor: 0.9,
-
-                                        //   child: Container(
-                                        // decoration: BoxDecoration(
-                                        //   color: Colors.grey[300],
-                                        //   borderRadius:
-                                        //       BorderRadius.circular(10),
-                                        // ),
                                         child: Padding(
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 8.0),
@@ -69,7 +62,6 @@ class SignUpView extends StatelessWidget {
                                               contentPadding:
                                                   EdgeInsets.symmetric(
                                                       horizontal: 10),
-                                              // border: InputBorder.none,
                                             ),
                                             validator: model.emailValidator,
                                             onChanged: model.updateEmail,
@@ -77,17 +69,11 @@ class SignUpView extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    //),
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: FractionallySizedBox(
                                         widthFactor: 0.9,
                                         child: Container(
-                                          // decoration: BoxDecoration(
-                                          //   color: Colors.grey[300],
-                                          //   borderRadius:
-                                          //       BorderRadius.circular(10),
-                                          // ),
                                           child: Padding(
                                             padding: const EdgeInsets.symmetric(
                                                 horizontal: 8.0),
@@ -103,7 +89,6 @@ class SignUpView extends StatelessWidget {
                                                 contentPadding:
                                                     EdgeInsets.symmetric(
                                                         horizontal: 10),
-                                                // border: InputBorder.none,
                                               ),
                                               validator:
                                                   model.passwordValidator,
@@ -118,11 +103,6 @@ class SignUpView extends StatelessWidget {
                                       child: FractionallySizedBox(
                                         widthFactor: 0.9,
                                         child: Container(
-                                          // decoration: BoxDecoration(
-                                          //   color: Colors.grey[300],
-                                          //   borderRadius:
-                                          //       BorderRadius.circular(10),
-                                          // ),
                                           child: Padding(
                                             padding: const EdgeInsets.symmetric(
                                                 horizontal: 8.0),
@@ -139,7 +119,6 @@ class SignUpView extends StatelessWidget {
                                                 contentPadding:
                                                     EdgeInsets.symmetric(
                                                         horizontal: 10),
-                                                //border: InputBorder.none,
                                               ),
                                               validator:
                                                   model.passwordMatchValidator,

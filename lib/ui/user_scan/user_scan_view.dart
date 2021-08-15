@@ -26,36 +26,6 @@ class UserScanView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Card(
-                //   child: Row(
-                //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                //     children: [
-                //       Padding(
-                //         padding: const EdgeInsets.all(8.0),
-                //         child: Column(
-                //           crossAxisAlignment: CrossAxisAlignment.start,
-                //           children: [
-                //             Text(
-                //               'Single Scan',
-                //               textScaleFactor: 2,
-                //               style: TextStyle(
-                //                 fontWeight: FontWeight.w500,
-                //               ),
-                //             ),
-                //             Text('Scan a single receipt'),
-                //             OutlinedButton(
-                //                 onPressed: () {}, child: Text('Scan'))
-                //           ],
-                //         ),
-                //       ),
-                //       Icon(
-                //         Icons.insert_drive_file,
-                //         color: Colors.grey.shade400,
-                //         size: 72,
-                //       )
-                //     ],
-                //   ),
-                // ),
                 if (model.productMatches.length == 0 && !model.isBusy)
                   Padding(
                     padding: const EdgeInsets.only(bottom: 0),

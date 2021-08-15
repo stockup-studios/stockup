@@ -2,21 +2,17 @@ import 'package:sorted_list/sorted_list.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
-import 'package:stockup/app/app.router.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/services/services.dart';
 import 'package:stockup/ui/user_item/user_item_search.dart';
 
 class UserItemViewModel extends BaseViewModel {
-  final _navigationService = locator<NavigationService>();
   final _snackbarService = locator<SnackbarService>();
   DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
   static final _authService = locator<AuthImplementation>();
-  //DatabaseServiceImpl _db;
 
   final Map<String, bool> productCategories = {'All Categories': true};
   List<UserItemList> userItemLists = [];
-  // List<UserShopList> userShopLists = [];
   int no = 1;
   int noOfCat = 0;
 
@@ -26,7 +22,6 @@ class UserItemViewModel extends BaseViewModel {
   List<UserItem> _userItems =
       SortedList<UserItem>((r1, r2) => r2.forCompare.compareTo(r1.forCompare));
 
-  /// Only called once. Will not be called again on rebuild
   void init() async {
     _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     await _targetUserItemListFromDatabase();

@@ -2,19 +2,15 @@ import 'package:sorted_list/sorted_list.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stockup/app/app.locator.dart';
-import 'package:stockup/app/app.router.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/services/services.dart';
 import 'package:stockup/ui/user_shop/user_shop_search.dart';
 
 class UserShopViewModel extends BaseViewModel {
-  final _navigationService = locator<NavigationService>();
   final _snackbarService = locator<SnackbarService>();
   DatabaseServiceImpl _database = locator<DatabaseServiceImpl>();
   static final _authService = locator<AuthImplementation>();
-  //DatabaseServiceImpl _db;
-
-  // final _userService = locator<UserService>();
+ 
   final Map<String, bool> productCategories = {'All Categories': true};
   List<UserShopList> userShopLists = [];
   int no = 1;
@@ -54,7 +50,6 @@ class UserShopViewModel extends BaseViewModel {
 
   Future<void> _displayListFromDatabase() async {
     _userShops.clear();
-    print('cleared user shops');
     List<UserShop> unorderedItems =
         await _database.getUserShops(_targetUserShopList);
     _userShops.addAll(unorderedItems);
@@ -126,9 +121,6 @@ class UserShopViewModel extends BaseViewModel {
       message: item.productName,
       title: 'Moved an item to item list ${_targetUserItemList.name}',
       duration: Duration(seconds: 2),
-      onTap: (_) {
-        print('snackbar tapped');
-      },
     );
 
     UserItem temp = UserItem(
@@ -139,7 +131,6 @@ class UserShopViewModel extends BaseViewModel {
         expiryDate: UserItem.getRecommendedExpiry(item.category));
     await _database.deleteUserShop(item, _targetUserShopList);
     await _displayListFromDatabase();
-    print('item shop quantity is ${item.quantity}');
     for (int i = 0; i < item.quantity; i++) {
       await _database.addUserItem(temp, _targetUserItemList);
     }
@@ -151,9 +142,6 @@ class UserShopViewModel extends BaseViewModel {
       message: item.productName,
       title: 'Removed an item from ${_targetUserShopList.name}',
       duration: Duration(seconds: 2),
-      onTap: (_) {
-        print('snackbar tapped');
-      },
     );
     await _database.deleteUserShop(item, _targetUserShopList);
     await _displayListFromDatabase();

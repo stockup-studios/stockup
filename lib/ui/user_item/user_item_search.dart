@@ -85,9 +85,6 @@ class UserItemSearch extends SearchDelegate<UserItem> {
             ),
             title: Text(suggestion.productName),
             subtitle: Text(getExpiryDays(suggestion)),
-            // suggestion.daysLeft == '1'
-            //     ? Text('${suggestion.daysLeft} day left')
-            //     : Text('${suggestion.daysLeft} days left'),
             trailing: IconButton(
               icon: Icon(Icons.edit),
               onPressed: () {

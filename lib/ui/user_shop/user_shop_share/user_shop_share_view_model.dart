@@ -17,34 +17,21 @@ class UserShopShareViewModel extends BaseViewModel {
     _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     this.userShopList = uiList;
     await sharedUsersdb();
-    print('shared email length is ${sharedUsersEmail.length}');
     notifyListeners();
   }
 
   Future<void> sharedUsersdb() async {
     sharedUsersEmail.clear();
-    print('shared users list cleared');
     sharedUsersEmail = await _database.getShopListUsers(userShopList);
   }
 
-  // String get shareWith {
-  //   return _shareWith;
-  // }
 
   void shareWith(String input) {
     if (input.contains('@')) {
       _shareWith = input;
-      // } else {
-      //   _shareWithName = input;
-      // }
       notifyListeners();
     }
   }
-
-  // set shareWith(String shareWith) {
-  //   _shareWith = shareWith;
-  //   notifyListeners();
-  // }
 
   Future<bool> share() async {
     dynamic temp;

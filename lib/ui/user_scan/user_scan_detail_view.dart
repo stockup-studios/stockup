@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stockup/models/product.dart';
+import 'package:stockup/models/models.dart';
 import 'package:stockup/models/product_category.dart';
 import 'package:stockup/ui/user_scan/user_scan_detail_view_model.dart';
 

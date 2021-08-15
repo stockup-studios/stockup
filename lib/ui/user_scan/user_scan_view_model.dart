@@ -23,7 +23,6 @@ class UserScanViewModel extends BaseViewModel {
   void init() async {
     _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     await _targetUserItemListFromDatabase();
-    print(_currentList.uid);
     notifyListeners();
   }
 
@@ -40,7 +39,6 @@ class UserScanViewModel extends BaseViewModel {
         ? "Couldn't find any details. Receipt picture might be rotated"
         : '';
     for (String match in matches) {
-      print(match);
       Product p =
           productCatalog.firstWhere((product) => product.productName == match);
       UserItem userItem = UserItem(
@@ -52,7 +50,6 @@ class UserScanViewModel extends BaseViewModel {
       _productMatches.add(userItem);
     }
     setBusy(false);
-    print('productMatches is ${_productMatches.length}');
     notifyListeners();
   }
 
@@ -65,7 +62,6 @@ class UserScanViewModel extends BaseViewModel {
       List<String> matches = _parser.getBestMatches(text);
       for (String match in matches) {
         added = true;
-        print(match);
         Product p = productCatalog
             .firstWhere((product) => product.productName == match);
         UserItem userItem = UserItem(

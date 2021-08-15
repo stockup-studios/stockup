@@ -21,7 +21,6 @@ class UserItemDetailView extends StatelessWidget {
         userItemList,
       ),
       builder: (context, model, child) => ListView(
-        //mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 30),

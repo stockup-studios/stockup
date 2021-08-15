@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:sorted_list/sorted_list.dart';
 import 'package:stockup/business_logic/defaultData/defaultData.dart';
-import 'package:stockup/business_logic/defaultData/expired_items.dart';
 import 'package:stockup/models/models.dart';
 import 'package:stockup/services/database/database.dart';
 
@@ -243,11 +242,9 @@ class DatabaseServiceImpl implements DatabaseService {
         .where('email', isEqualTo: email)
         .get()
         .then((value) => value.docs);
-    print(snapshots.length);
     if (snapshots.length == 0) {
       return null;
     } else {
-      print('user success');
       DocumentSnapshot doc = snapshots.elementAt(0);
       return AppUser.fromFirestore(doc);
     }
@@ -327,7 +324,6 @@ class DatabaseServiceImpl implements DatabaseService {
   Future<List<UserItemList>> getUserItemLists() async {
     List<QueryDocumentSnapshot> snapshots =
         await userItemListCollection.get().then((value) => value.docs);
-    print(snapshots.length);
     List<DocumentSnapshot> processed = [];
     for (int i = 0; i < snapshots.length; i++) {
       Map data = snapshots.map((e) => e.data()).toList().elementAt(i);
@@ -382,8 +378,6 @@ class DatabaseServiceImpl implements DatabaseService {
         return UserItemList.fromFirestore(target);
       }
     }
-
-    print('no personal list found for user $userEmail');
     return null;
   }
 
@@ -395,7 +389,6 @@ class DatabaseServiceImpl implements DatabaseService {
     List.from(data['shared']).forEach((element) {
       shared.add(element);
     });
-    print(shared.length);
     return shared;
   }
 
@@ -417,23 +410,6 @@ class DatabaseServiceImpl implements DatabaseService {
         await giantCollection.get().then((value) => value.docs);
 
     return snapshots.map((doc) => Product.fromFirestore(doc)).toList();
-  }
-
-  // search item based on name returned from scanner
-  Future<List<Product>> searchGiantItems(String name) async {
-    List<QueryDocumentSnapshot> snapshot = await giantCollection
-        .where('product_name' == name)
-        .get()
-        .then((value) => value.docs);
-    return snapshot.map((doc) => Product.fromFirestore(doc));
-  }
-
-  // for parser
-  Future<List<String>> productListing() async {
-    List<QueryDocumentSnapshot> query =
-        await giantCollection.get().then((value) => value.docs);
-    List<Map<String, dynamic>> result = query.map((doc) => doc.data());
-    return result.map((doc) => doc['product_name']).toList();
   }
 
   // Update
@@ -498,7 +474,6 @@ class DatabaseServiceImpl implements DatabaseService {
     addTargetShopList(list);
   }
 
-  // TODO: will we ever change details of existing giant items?
   @override
   Future<void> updateGiantItem(Product item) async {
     giantCollection.doc(item.uid).update(item.toJson());
@@ -506,7 +481,6 @@ class DatabaseServiceImpl implements DatabaseService {
 
   @override
   Future<void> updateSharedUserItemList(UserItemList list, AppUser user) async {
-    print(list.uid);
     user_item_lists.doc(list.uid).update({
       "shared": FieldValue.arrayUnion([user.email])
     });

@@ -49,11 +49,14 @@ class UserShopDetailViewModel extends BaseViewModel {
         quantity = newQuantity;
       }
     } catch (e) {
-      // TODO: Display error message
+      print(e);
     }
   }
 
-  void init(UserShop ui, UserShopList list, ) {
+  void init(
+    UserShop ui,
+    UserShopList list,
+  ) {
     _database = DatabaseServiceImpl(uid: _authService.appUser.username);
     userShop = ui;
     currentList = list;
@@ -63,7 +66,6 @@ class UserShopDetailViewModel extends BaseViewModel {
   }
 
   void save() {
-    //userShop.productName = name;
     userShop.category = category;
     userShop.quantity = quantity;
     _database.updateUserShop(userShop, currentList);
