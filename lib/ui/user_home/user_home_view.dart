@@ -291,59 +291,6 @@ class UserHomeView extends StatelessWidget {
                   tooltipBehavior: TooltipBehavior(enable: true),
                 ),
               ),
-            if (model.expiredDb == null)
-              Card(
-                child: Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        Container(
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 30,
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 8.0),
-                                child: Text(
-                                  "Great Job!!",
-                                  style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 8.0),
-                                child: Text(
-                                  'No expired items! Keep it up!',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 30,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.greenAccent[200],
-                    // image: DecorationImage(
-                    //   image: AssetImage('assets/images/summary_background.png'),
-                    // fit: BoxFit.fill,
-                  ),
-                ),
-              ),
           ],
         ),
         bottomNavigationBar: BottomNavigation(currentIndex: 0),

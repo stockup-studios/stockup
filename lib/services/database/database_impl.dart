@@ -66,7 +66,7 @@ class DatabaseServiceImpl implements DatabaseService {
 
     final expiredDocument =
         userDocument.collection('expired_items').doc('records');
-    //expiredDocument.set(expiredItems);
+    expiredDocument.set(expiredItems);
   }
 
   @override
