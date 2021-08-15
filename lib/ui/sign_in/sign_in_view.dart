@@ -17,12 +17,14 @@ class SignInView extends StatelessWidget {
         body: Column(
           children: [
             Expanded(
-              flex: 3,
+              flex: 4,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 50),
+                    padding:
+                        const EdgeInsets.only(left: 30, top: 40, right: 10),
+                    //const EdgeInsets.symmetric(vertical: 50),
                     child: AnimatedTextKit(
                       animatedTexts: [
                         TypewriterAnimatedText(
@@ -49,16 +51,15 @@ class SignInView extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: FractionallySizedBox(
-                                      widthFactor: 0.8,
+                                      widthFactor: 0.9,
                                       child: Container(
-                                        decoration: BoxDecoration(
-                                          color: Colors.grey[300],
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
+                                        // decoration: BoxDecoration(
+                                        //   color: Colors.grey[300],
+                                        //   borderRadius:
+                                        //       BorderRadius.circular(10),
+                                        // ),
                                         child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 8.0),
+                                          padding: const EdgeInsets.all(8.0),
                                           child: TextFormField(
                                             autocorrect: false,
                                             keyboardType:
@@ -67,7 +68,11 @@ class SignInView extends StatelessWidget {
                                               icon: Icon(Icons.email),
                                               hintText: 'Enter your email',
                                               labelText: 'Email',
-                                              border: InputBorder.none,
+                                              filled: true,
+                                              border: OutlineInputBorder(),
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      horizontal: 10),
                                             ),
                                             validator: model.emailValidator,
                                             onChanged: model.updateEmail,
@@ -79,13 +84,13 @@ class SignInView extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: FractionallySizedBox(
-                                      widthFactor: 0.8,
+                                      widthFactor: 0.9,
                                       child: Container(
-                                        decoration: BoxDecoration(
-                                          color: Colors.grey[300],
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
+                                        // decoration: BoxDecoration(
+                                        //   color: Colors.grey[300],
+                                        //   borderRadius:
+                                        //       BorderRadius.circular(10),
+                                        // ),
                                         child: Padding(
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 8.0),
@@ -96,7 +101,12 @@ class SignInView extends StatelessWidget {
                                               icon: Icon(Icons.lock),
                                               hintText: 'Enter your password',
                                               labelText: 'Password',
-                                              border: InputBorder.none,
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      horizontal: 10),
+                                              //border: InputBorder.none,
+                                              filled: true,
+                                              border: OutlineInputBorder(),
                                             ),
                                             validator: model.passwordValidator,
                                             onChanged: model.updatePassword,
@@ -105,26 +115,30 @@ class SignInView extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  // SizedBox(height: 20),
                                 ],
                               ),
                             ],
                           ),
                         ),
-                        FractionallySizedBox(
-                          widthFactor: 0.75,
-                          child: OutlinedButton(
-                            onPressed: () async {
-                              if (_key.currentState.validate()) {
-                                model.signInEmail();
-                              }
-                            },
-                            child: Text('Sign In'),
-                            style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.white),
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.grey.shade700),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: FractionallySizedBox(
+                            widthFactor: 0.5,
+                            child: OutlinedButton(
+                              onPressed: () async {
+                                if (_key.currentState.validate()) {
+                                  model.signInEmail();
+                                }
+                              },
+                              child: Text('Sign In'),
+                              style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.white),
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.grey.shade700),
+                              ),
                             ),
                           ),
                         ),
@@ -134,7 +148,10 @@ class SignInView extends StatelessWidget {
                 ],
               ),
             ),
-            Expanded(
+            // Expanded(
+            //   child:
+            Padding(
+              padding: const EdgeInsets.only(left: 0, bottom: 40, right: 0),
               child: Column(
                 children: [
                   Text(
@@ -146,7 +163,9 @@ class SignInView extends StatelessWidget {
                       await showModalBottomSheet(
                         context: context,
                         builder: (context) => PasswordResetView(),
+                        isScrollControlled: true,
                       );
+                      //model.updateSuccessMessage();
                     },
                     child: Text(
                       'Forgot password?',
@@ -172,6 +191,9 @@ class SignInView extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+            SizedBox(
+              height: 10,
             ),
           ],
         ),
