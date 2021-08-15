@@ -115,16 +115,17 @@ class PasswordResetView extends StatelessWidget {
                 widthFactor: 0.9,
                 child: Container(
                   alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+                  // decoration: BoxDecoration(
+                  //   color: Colors.grey[300],
+                  //   borderRadius: BorderRadius.circular(10),
+                  // ),
                   child: Form(
                     key: _key,
                     child: TextFormField(
                       autocorrect: false,
                       keyboardType: TextInputType.emailAddress,
                       decoration: const InputDecoration(
+                        
                         icon: Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Icon(Icons.email),
@@ -132,7 +133,8 @@ class PasswordResetView extends StatelessWidget {
                         hintText: 'Enter your email',
                         labelText: 'Email',
                         contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                        border: InputBorder.none,
+                        filled: true,
+                        border: OutlineInputBorder(),
                       ),
                       validator: model.emailValidator,
                       onChanged: (email) {
